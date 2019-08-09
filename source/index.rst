@@ -5,7 +5,7 @@ Parallel, Concurrent and Distributed Programming (YSC3248)
    :numbered:
    :maxdepth: 1
 
-   YSC3248-week-01-intro
+   .. YSC3248-week-01-intro
 
 Code from the Lectures
 ======================
