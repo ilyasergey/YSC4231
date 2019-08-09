@@ -3,10 +3,10 @@ Parallel, Concurrent and Distributed Programming (YSC3248)
 
 .. toctree::
    :numbered:
-   :maxdepth: 1
+   :maxdepth: 2
 
    prerequisites
-   .. week-01-intro
+   week-01-intro
 
 More lecture notes are coming soon!
 
