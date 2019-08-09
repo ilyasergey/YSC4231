@@ -44,8 +44,3 @@ will run the tests in the project. The following line::
 will execute a simple script printing ``Hello, World!`` to the output.
 
 Additionally, you can try to open this project in IntelliJ IDEA via "File -> Open" and choosing the project folder. Click "OK" when asked about initial project settings.
-
-
-
-
-
