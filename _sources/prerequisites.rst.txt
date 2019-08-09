@@ -3,9 +3,7 @@
 Software Prerequisites
 ======================
 
-
-We will use `Scala <https://www.scala-lang.org/>`_ as a main programming language for this course. 
-
+We will be using `Scala <https://www.scala-lang.org/>`_ as a main programming language for this course. 
 
 Getting Scala
 -------------
