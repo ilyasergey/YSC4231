@@ -199,7 +199,7 @@ epub_exclude_files = ['search.html']
 
 # -- Extension configuration -------------------------------------------------
 
-highlight_language = "ocaml"
+highlight_language = "scala"
 
 mathjax_config = {
     'extensions': ['tex2jax.js'],
@@ -207,3 +207,6 @@ mathjax_config = {
 }
 
 html_show_sourcelink = False
+
+def setup(app):
+    app.add_css_file('custom.css')
