@@ -8,3 +8,7 @@ Week 01: Introduction
   <https://github.com/ilyasergey/...>`_,
   package ``week01intro``
 
+Homework
+--------
+
+* `Theory assignment <_static/resources/2019/homework-01.pdf>`_
