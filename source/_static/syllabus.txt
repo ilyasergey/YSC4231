@@ -1,0 +1,86 @@
+Syllabus
+
+The list of topics below is a subject of possible minor changes.
+
+* August 13
+  Introduction: What this course is about
+  Homework Assignment 1 (Intro)
+* August 16
+  Mutual Exclusion
+
+* August 20
+  (Ilya is away) Basics of Functional and Imperative programming in Scala
+  Programming Assignment 1 (Intro)
+* August 23
+  Concurrent Objects
+
+* August 27
+  Concurrent Objects (continued)
+  Homework Assignment 2  (Mutual Exclusion)
+* August 30
+  Foundations of Shared Memory
+
+* September 3
+  Foundations of Shared Memory (continued)
+  Programming Assignment 2 (Mutual Exclusion)
+* September 6
+  Concurrent Consensus and its Properties
+
+* September 10
+  Spin Locks
+  Homework Assignment 3 (Concurrent Objects)
+* September 13
+  Linked Lists
+
+* September 17
+  Monitors
+  Programming Assignment 3 (Concurrent Objects)  
+* September 20
+  Concurrent Queues and Stacks
+
+* Mid-Term Break
+  Midterm Project (Theory and Programming)
+
+* October 1
+  Barriers
+  Homework Assignment 4 (Consensus)
+* October 4
+  Hashmaps
+
+* October 8
+  Counting Networks
+  Programming Assignment 4 (Counting Networks)  
+* October 11
+  Skiplists
+
+* October 15
+  Logics for Concurrency
+  Homework Assignment 5 (Reasoning about Ownership)
+* October 18
+  Futures and Work Distribution
+
+* October 22
+  Data Parallelism and MapReduce
+  Programming Assignment 5 (Futures)  
+* October 25
+  Transactional Memory
+
+* October 29
+  Actor-based concurrency  
+  Homework Assignment 6 (Lists) 
+* November 1
+  State-machine replication, Two-Phase Commit
+  
+* November 5
+  Fault-tolerant distributed consensus 
+  Programming Assignment 6 (Paxos Modifications)
+* November 8 
+  Vector clocks
+
+* November 12
+  Byzantine Fault Tolerance and PBFT  
+  Homework Assignment 7 (Queues)
+* November 15
+  Blockchain consensus protocols
+
+* Final Project (Theory and Programming)
