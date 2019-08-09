@@ -7,8 +7,7 @@ Parallel, Concurrent and Distributed Programming (YSC3248)
 
    .. YSC3248-week-01-intro
 
-Code from the Lectures
-======================
+`Code with example  <https://github.com/ilyasergey/TODO>`
 
 ..
    Indices and tables
