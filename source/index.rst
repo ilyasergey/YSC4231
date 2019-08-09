@@ -5,9 +5,14 @@ Parallel, Concurrent and Distributed Programming (YSC3248)
    :numbered:
    :maxdepth: 1
 
-   .. YSC3248-week-01-intro
+   prerequisites
+   .. week-01-intro
 
-`Code with example  <https://github.com/ilyasergey/TODO>`
+
+Supplementary Materials
+-----------------------
+
+* `Code from the Lectures <https://github.com/ilyasergey/TODO>`_
 
 ..
    Indices and tables
