@@ -3,7 +3,9 @@
 Software Prerequisites
 ======================
 
+
 We will use `Scala <https://www.scala-lang.org/>`_ as a main programming language for this course. 
+
 
 Getting Scala
 -------------
@@ -11,6 +13,7 @@ Getting Scala
 In your preparation for the first lecture, please install the following software artefacts (or make sure that you have them installed in your system):
 
 * `Java SDK 1.8 <https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html>`_
+* `Scala Build Tool (sbt) <https://www.scala-sbt.org/download.html?_ga=2.57019370.1900758631.1565340428-2015161099.1565340323>`_
 * `IntelliJ IDEA <https://www.jetbrains.com/idea/>`_. When you start IntelliJ for the first time, make sure to choose Scala plugin when IntelliJ IDEA suggests you to download featured plugins.
 * `Scala plugin for IntelliJ IDEA <https://www.jetbrains.com/help/idea/discover-intellij-idea-for-scala.html>`_ (if not installed on the previous step)
 
