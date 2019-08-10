@@ -11,4 +11,4 @@ Week 01: Introduction
 Homework
 --------
 
-* `Theory Assignment 1 <_static/resources/homework-01.pdf>`_
+* `Theory Assignment 1 <_static/resources/theory-01.pdf>`_
