@@ -17,7 +17,7 @@ Supplementary Materials
 -----------------------
 
 * `Code from the Lectures
-  <https://github.com/ilyasergey/ysc3248-examples>`_ (will be updated gradually)
+  <https://github.com/ysc3248/ysc3248-examples>`_ (will be updated gradually)
 
 ..
    Indices and tables

@@ -1,6 +1,6 @@
 .. -*- mode: rst -*-
 
-Week 02: Scala Basics
+Week 02: Scala Primer
 =====================
 
 
