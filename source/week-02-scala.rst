@@ -280,9 +280,10 @@ the specified block of code ``body`` twice::
     println("Hello!")
   })
 
-Scala provides ``for``-expressions as a convenient way to travers and
-transform collections. For instance, the following loop prints all
-elements of a list ``ls``::
+Scala provides `for-comprehensions
+<https://docs.scala-lang.org/tour/for-comprehensions.html>`_ as a
+convenient way to travers and transform collections. For instance, the
+following loop prints all elements of a list ``ls``::
 
     val ls = List(1, 2, 3, 4)
     for (e <- ls) {
@@ -366,14 +367,226 @@ arrays in conjunction with other Scala collections:
 Working with Threads in Scala
 -----------------------------
 
-TODO: Examples
+Threads in Scala can be created as instances of a class that extends
+``Thread``, `overriding` its method ``run``. Consider the following
+object that features a mutable list field and three methods to
+manipulate with it::
 
-TODO: Difference between run and start
+ object ConcurrentManipulation {
+
+   private var workingList: List[Int] = Nil
+
+The first method is used to add an element to a list in a
+mutually-exclusive fashion::
+
+  def addToList(i: Int) = {
+    this.synchronized {
+      workingList = i :: workingList
+    }
+  }
+
+The two other methods are removing elements from the list. The first
+one does it without synchronisation, and the second one enforces
+mutual exclusion::
+
+  def removeFromListWithoutSync = {
+    // Notice how synchornisation is missing
+    // This can cause troubles: which?
+    workingList match {
+      case Nil => None
+      case ::(head, tl) =>
+        // Wait for some time
+        Thread.sleep(10)
+        workingList = tl
+        Some(head)
+    }
+  }
+
+  def removeFromList = this.synchronized{
+    workingList match {
+      case Nil => None
+      case ::(head, tl) =>
+        // Wait for some time
+        Thread.sleep(10)
+        workingList = tl
+        Some(head)
+    }
+  }
+
+Notice that in ``removeFromListWithoutSync``, to make things worse, we
+added a `delay` of the form ``Thread.sleep(10)`` that makes a thread
+executing this method to stop for 10 milliseconds. 
+
+We can now create two threads for adding and removing elements of
+``workingList``::
+
+  class Adder(start: Int) extends Thread {
+    override def run() = {
+      // Get my thread id
+      val id = Thread.currentThread().getId
+      val end = start + 9
+      for (i <- start to end) {
+        addToList(i)
+        println(s"Thread $id: Added $i")
+      }
+    }
+  }
+  
+  class Remover extends Thread {
+    override def run() = {
+      // Get my thread id
+      val id = Thread.currentThread().getId
+      var result: Option[Int] = None
+      do {
+        result = removeFromList
+        result match {
+          case Some(value) =>
+            println(s"Thread $id: Removed $value")
+          case None => // Do nothing
+        }
+      } while (result.isDefined) // Loop while the list is not depleted
+    }
+  }
+
+
+Time to put this all together. The following method first creates two
+threads to add elements to the list and then starts them, so they
+could run concurrently (via the ``start()`` method). It then waits for
+them to finish their execution (via the ``join()`` method) and starts
+two more threads to remove the elements:: 
+
+  def main(args: Array[String]): Unit = {
+    // Create two threads without executing them
+    val adder1 = new Adder(1)
+    val adder2 = new Adder(11)
+    
+    // Start two threads in parallel with this one
+    adder1.start()
+    adder2.start()
+    
+    // Wait in this thread while those two will finish
+    adder1.join()
+    adder2.join()
+    
+    println()
+
+    // Make two new threads
+    val remover1 = new Remover
+    val remover2 = new Remover
+
+    // Start two threads in parallel with this one
+    remover1.start()
+    remover2.start()
+
+    // Wait in this thread while those two will finish
+    remover1.join()
+    remover2.join()
+  }
+
+Let us run an application to see the result of its concurrent
+execution, which should be similar to the following::
+
+ Thread 11: Added 11
+ Thread 10: Added 1
+ Thread 11: Added 12
+ Thread 10: Added 2
+ Thread 11: Added 13
+ Thread 11: Added 14
+ Thread 11: Added 15
+ Thread 11: Added 16
+ Thread 10: Added 3
+ Thread 11: Added 17
+ Thread 10: Added 4
+ Thread 11: Added 18
+ Thread 11: Added 19
+ Thread 11: Added 20
+ Thread 10: Added 5
+ Thread 10: Added 6
+ Thread 10: Added 7
+ Thread 10: Added 8
+ Thread 10: Added 9
+ Thread 10: Added 10
+
+ Thread 12: Removed 10
+ Thread 13: Removed 9
+ Thread 12: Removed 8
+ Thread 12: Removed 7
+ Thread 13: Removed 6
+ Thread 13: Removed 20
+ Thread 12: Removed 19
+ Thread 13: Removed 5
+ Thread 12: Removed 18
+ Thread 13: Removed 4
+ Thread 12: Removed 17
+ Thread 13: Removed 16
+ Thread 12: Removed 15
+ Thread 13: Removed 14
+ Thread 12: Removed 3
+ Thread 13: Removed 13
+ Thread 12: Removed 2
+ Thread 13: Removed 12
+ Thread 13: Removed 1
+ Thread 12: Removed 11
+
+As we can see the threads are fetching the elements in the interleaved
+order, but the set of removed elements is the same as the set of added
+ones.
+
+One, let's try to use ``removeFromListWithoutSync`` instead of
+``removeFromList`` in the implementation of the ``Remover`` thread.
+Can you explain the result? Can you fix ``removeFromListWithoutSync``
+by adding the necessary synchronisation to it to avoid this problem?
+
+As the last not, please, pay attention to the difference between
+``run`` and ``start`` methods of thread instances. The first one can
+only be used to to `define` the things the thread must do (you must
+not call it), while the second is used to begin the execution of a
+thread concurrently with the current one.
 
 Writing Automated Tests in Scala
 --------------------------------
 
-TODO
+Scala provides many frameworks for implementing automated tests. We
+will use `ScalaTest <http://www.scalatest.org/>`_. The tests located
+under the ``test`` source root of the project and adhering to
+ScalaTest's conventions will be automatically executed by SBT and IntelliJ.
+
+Feel free to copy the following template for your tests from the Scala
+primer project::
+
+ import org.scalatest.{FunSpec, Matchers}
+
+ // The test needs to extend those two traits in order to
+ // get access to the functions used below
+ class BasicTest extends FunSpec with Matchers {
+
+   // Describe a set of tests for some class of cases
+   describe("A simple test") {
+
+     // Describe an individual test
+     it("should always succeed") {
+       // Write your code here
+       // Use assert statements to make the test pass or fail
+       assert(2 * 2 == 4)
+     }
+   }
+
+   // Another set of tests
+   describe("A square function") {
+     it ("should work correctly") {
+       // Import all from object SquareOf5
+       import primer.runners.squares.SquareOf5._
+       assert(square(10) == 100)
+     }
+   }
+ }
+
+You can run an individual test suite (a class) in IntelliJ by
+right-clicking on its name and choosing ``Run ...``. The same can be
+done and a finer level of granularity by clicking on the individual
+``describe``-component of a test suite. Finally, you can run `all`
+tests in the project by right-clicking on the test source folder in
+the project view on the left of the screen and choosing ``Run 'ScalaTest in scala...'``.
 
 Homework
 --------
