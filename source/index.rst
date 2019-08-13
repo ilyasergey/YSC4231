@@ -6,7 +6,7 @@ Parallel, Concurrent and Distributed Programming (YSC3248)
    :maxdepth: 2
 
    prerequisites
-   .. week-01-intro
+   week-01-intro
    .. week-01-mutex
    .. week-02-scala
 
