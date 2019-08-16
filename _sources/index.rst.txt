@@ -7,8 +7,8 @@ Parallel, Concurrent and Distributed Programming (YSC3248)
 
    prerequisites
    week-01-intro
-   .. week-01-mutex
-   .. week-02-scala
+   week-01-mutex
+   week-02-scala
 
 More lecture notes are coming soon!
 
