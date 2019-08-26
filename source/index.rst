@@ -9,6 +9,7 @@ Parallel, Concurrent and Distributed Programming (YSC3248)
    week-01-intro
    week-01-mutex
    week-02-scala
+   week-03-concurrent-objects
 
 More lecture notes are coming soon!
 
