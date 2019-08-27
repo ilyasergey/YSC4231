@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Parallel, Concurrent and Distributed Programming (YSC3248) &mdash; YSC3248 2019</title>
+  <title>5. Week 03: Concurrent Objects &mdash; YSC3248 2019</title>
   
 
   
@@ -29,7 +29,7 @@
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="1. Software Prerequisites" href="prerequisites.html" /> 
+    <link rel="prev" title="4. Week 02: Scala Primer" href="week-02-scala.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -48,7 +48,7 @@
           
 
           
-            <a href="#" class="icon icon-home"> YSC3248: Parallel, Concurrent and Distributed Programming (YSC3248)
+            <a href="index.html" class="icon icon-home"> YSC3248: Parallel, Concurrent and Distributed Programming (YSC3248)
           
 
           
@@ -78,12 +78,15 @@
               
             
             
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="prerequisites.html">1. Software Prerequisites</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week-01-intro.html">2. Week 01: Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week-01-mutex.html">3. Week 01: Mutual Exclusion</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week-02-scala.html">4. Week 02: Scala Primer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-03-concurrent-objects.html">5. Week 03: Concurrent Objects</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">5. Week 03: Concurrent Objects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#homework">5.1. Homework</a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -98,7 +101,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">YSC3248: Parallel, Concurrent and Distributed Programming (YSC3248)</a>
+          <a href="index.html">YSC3248: Parallel, Concurrent and Distributed Programming (YSC3248)</a>
         
       </nav>
 
@@ -127,9 +130,9 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="#">Docs</a> &raquo;</li>
+      <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Parallel, Concurrent and Distributed Programming (YSC3248)</li>
+      <li>5. Week 03: Concurrent Objects</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -146,43 +149,17 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="parallel-concurrent-and-distributed-programming-ysc3248">
-<h1>Parallel, Concurrent and Distributed Programming (YSC3248)<a class="headerlink" href="#parallel-concurrent-and-distributed-programming-ysc3248" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="prerequisites.html">1. Software Prerequisites</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="prerequisites.html#getting-scala">1.1. Getting Scala</a></li>
-<li class="toctree-l2"><a class="reference internal" href="prerequisites.html#working-with-version-control">1.2. Working with Version Control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="prerequisites.html#checking-your-setup">1.3. Checking your Setup</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="week-01-intro.html">2. Week 01: Introduction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="week-01-intro.html#homework">2.1. Homework</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="week-01-mutex.html">3. Week 01: Mutual Exclusion</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-02-scala.html">4. Week 02: Scala Primer</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="week-02-scala.html#using-intellij-idea">4.1. Using IntelliJ IDEA</a></li>
-<li class="toctree-l2"><a class="reference internal" href="week-02-scala.html#using-sbt">4.2. Using SBT</a></li>
-<li class="toctree-l2"><a class="reference internal" href="week-02-scala.html#object-oriented-elements-of-scala">4.3. Object-Oriented Elements of Scala</a></li>
-<li class="toctree-l2"><a class="reference internal" href="week-02-scala.html#functional-elements-of-scala">4.4. Functional Elements of Scala</a></li>
-<li class="toctree-l2"><a class="reference internal" href="week-02-scala.html#imperative-elements-of-scala">4.5. Imperative elements of Scala</a></li>
-<li class="toctree-l2"><a class="reference internal" href="week-02-scala.html#working-with-threads-in-scala">4.6. Working with Threads in Scala</a></li>
-<li class="toctree-l2"><a class="reference internal" href="week-02-scala.html#writing-automated-tests-in-scala">4.7. Writing Automated Tests in Scala</a></li>
-<li class="toctree-l2"><a class="reference internal" href="week-02-scala.html#homework">4.8. Homework</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="week-03-concurrent-objects.html">5. Week 03: Concurrent Objects</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="week-03-concurrent-objects.html#homework">5.1. Homework</a></li>
-</ul>
-</li>
-</ul>
-</div>
-<p>More lecture notes are coming soon!</p>
-<div class="section" id="supplementary-materials">
-<h2>Supplementary Materials<a class="headerlink" href="#supplementary-materials" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="week-03-concurrent-objects">
+<h1>5. Week 03: Concurrent Objects<a class="headerlink" href="#week-03-concurrent-objects" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
-<li><a class="reference external" href="https://github.com/ysc3248/ysc3248-examples">Code from the Lectures</a> (will be updated gradually)</li>
+<li><a class="reference external" href="_static/resources/ysc3248-week-03-concurrent-objects-1.pdf">Lecture Slides, Part 1</a></li>
+<li><a class="reference external" href="https://github.com/ysc3248/ysc3248-examples/tree/03-concurrent">Code with examples</a>,
+package <code class="docutils literal notranslate"><span class="pre">concurrent</span></code></li>
+</ul>
+<div class="section" id="homework">
+<h2>5.1. Homework<a class="headerlink" href="#homework" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="_static/resources/theory-02.pdf">Theory Assignment 2</a></li>
 </ul>
 </div>
 </div>
@@ -195,8 +172,8 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="prerequisites.html" class="btn btn-neutral float-right" title="1. Software Prerequisites" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
+        <a href="week-02-scala.html" class="btn btn-neutral" title="4. Week 02: Scala Primer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
