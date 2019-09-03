@@ -10,7 +10,7 @@ Parallel, Concurrent and Distributed Programming (YSC3248)
    week-01-mutex
    week-02-scala
    week-03-concurrent-objects
-   .. week-04-wait-free
+   week-04-wait-free
    .. week-04-consensus
 
 More lecture notes are coming soon!
