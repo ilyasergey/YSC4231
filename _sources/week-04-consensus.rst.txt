@@ -1,7 +1,7 @@
 .. -*- mode: rst -*-
 
-Week 04: Consensus and Read-Modify-Write Operations
-===================================================
+Week 04: Read-Modify-Write Operations
+=====================================
 
 * `Lecture Slides <_static/resources/ysc3248-week-04-rmw.pdf>`_
 * `Code with examples
