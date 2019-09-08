@@ -21,7 +21,7 @@ Lectures
 * September 6: Read-Modify-Write Operations
 
 * September 10: Spin Locks
-* September 13:Monitors and Semaphores
+* September 13: Monitors and Semaphores
 
 * September 17: Linked Lists
 * September 20: Linked Lists (Continued)
