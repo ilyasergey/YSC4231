@@ -5,6 +5,7 @@ Parallel, Concurrent and Distributed Programming (YSC3248)
    :numbered:
    :maxdepth: 2
 
+   syllabus           
    prerequisites
    week-01-intro
    week-01-mutex
@@ -12,6 +13,7 @@ Parallel, Concurrent and Distributed Programming (YSC3248)
    week-03-concurrent-objects
    week-04-wait-free
    week-04-consensus
+   .. week-05-spinlocks
 
 More lecture notes are coming soon!
 
