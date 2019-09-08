@@ -1,11 +1,11 @@
-Parallel, Concurrent and Distributed Programming (YSC3248)
-==========================================================
+Parallel, Concurrent and Distributed Programming
+================================================
 
 .. toctree::
    :numbered:
    :maxdepth: 2
 
-   syllabus           
+   syllabus
    prerequisites
    week-01-intro
    week-01-mutex
@@ -21,6 +21,8 @@ More lecture notes are coming soon!
 Supplementary Materials
 -----------------------
 
+* `GitHub organisation
+  <https://github.com/ysc3248/>`_
 * `Code from the Lectures
   <https://github.com/ysc3248/ysc3248-examples>`_ (will be updated gradually)
 
