@@ -19,7 +19,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = u'YSC3248: Parallel, Concurrent and Distributed Programming (YSC3248)'
+project = u'YSC3248: Parallel, Concurrent and Distributed Programming'
 copyright = u'2019, Ilya Sergey'
 author = u'Ilya Sergey'
 
