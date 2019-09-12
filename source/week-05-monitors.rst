@@ -252,6 +252,14 @@ questions.
   `exception
   <https://docs.oracle.com/javase/7/docs/api/java/lang/IllegalMonitorStateException.html>`_.
 
+* **Question**: Which thread is notified by ``cond.signal()`` in case
+  if we have multiple threads?
+* **Answer**: You should assume that a thread to wake up is chosen
+  randomly of all threads currently witing. If you want to awake all
+  of them you should use ``cond.signalAll()``. In this case all awoken
+  threads will be competing for the lock, with only one of them
+  getting it, and others going back to wait.
+
 Together, a (reentrant) lock with a number of conditional variables,
 allowing for this kind of wait-notify message-passing are referred to
 as a **monitor** synchronisation mechanism. Monitors were first
@@ -262,27 +270,39 @@ suggested and described in `1973 paper by Sir Tony Hoare
 The following series of images demonstrates a possible scenario
 involving a monitor. 
 
-TODO: Stopped here
-
+On the image below, a thread B has successfully acquired the lock,
+entering the critical section. It then called the method
+``cond.await()`` of a conditional variable, thus, transitioning to the
+"waiting room" with threads that have been suspended during their CS.
 
 .. image:: _static/resources/monitors/mon1.jpg
    :width: 500px
    :align: center
 
-Next stage:
+Next, thread C enters the critical section, calling
+``cond.signaAll()`` and then ``unlock()``. This prompts two waiting
+threads, A and B, to wake up and compete for the lock again.
 
 .. image:: _static/resources/monitors/mon2.jpg
    :width: 500px
    :align: center
 
-Finally:
+In the same time thread D enters the competition, acquiring the lock,
+sending both A and B to spin until D leaves the critical section,
+thus, giving them again a chance to acquire the lock.
 
 .. image:: _static/resources/monitors/mon3.jpg
    :width: 500px
    :align: center
 
+Using Multiple Conditional Variables
+------------------------------------
 
-TODO: Avoiding locking/unlocking with multiple conditions::
+We can restructure our implementation of turn-based counter, reducing
+the amount of overhead necessary to acquire the lock, replacing it by
+the waiting. For this, we are going to emit `two` condition variables
+associated with the same Java lock. The resulting implementation is as
+follows::
 
  object CountMultipleConditions {
    private var counter: Int = 0
@@ -343,10 +363,24 @@ TODO: Avoiding locking/unlocking with multiple conditions::
    def main(args: Array[String]): Unit = {
      // ...
    }
-
  }
 
-TODO: Many threads::
+Notive that the threads wait and signal on the two different contional
+variables, ``condEven`` and ``condOdd``. Nevertheless, this does not
+violate mutual exclusion, as ``await()`` and ``signal()`` are still
+associated with the same lock object. However, multiple condition
+variables in this case make it slightly easier to reason about the
+permissions of the specific thread: each thread waits on `its own`
+conditional variable, while signals on the one of the other thread's.
+
+Synchronising Many Threads with Monitors
+----------------------------------------
+
+Above we mention an additional mechanism of a conditional variable for
+waking up the threads: ``signalAll()`` and explain its specifics (it
+might send some threads to spin) and difference with ``signal()``. For
+instance, consider the following code that works with multiple
+even/odd incrementers synchronising them via ``await()`` / ``signal()``::
 
  object CountManyThreads {
 
@@ -420,16 +454,35 @@ TODO: Many threads::
    }
  }
 
-Can we notify many threads (``signallAll()``)? What's the difference?
+In this example, of ``signal()`` we could have used ``signallAll()``
+without noticeable difference.
 
 Intrinsic Java Monitors
 -----------------------
 
-TODO
+Since the patterns of working with monitors by means of manipulating
+associated locks and condition variables so common, Java/Scala embed
+it into its object-oriented mode. Each object in these languages comes
+instrumented with a monitor. Since objects in Scala/Java are main
+units of data, this design choice aims to simplyfy synchronisation on
+all data associated with a particular object. That is, different
+objects would have different monitors associated with them, and hence,
+may be unsynchronised. 
+
+We can now demystify the statement ``o.syncrhonized { ... }`` we've
+seen before: it simply wraps the code inside ``{ ... }`` with
+``lock(); try { ... } finally { unlock() }``, where the
+locking/unlocking is done on the implicit lock associated with an
+object ``o``. Similarly, waiting/signalling on a (single) conditional
+variable associated with an object is done by callling ``o.wait()``,
+and ``o.notify()`` and ``o.notifyAll()``, correspondingly. Notice, the
+names of these methods are different on purpos from those of
+conditional variables so they would not be confused. We can implement
+our counter example using Java 
 
 Java provides special primitives for monitor-based synchronisation::
 
- object CountIntrinsicMonitor extends Logging {
+ object CountIntrinsicMonitor {
 
    private var counter: Int = 0
    private val TOTAL = 100
@@ -480,14 +533,19 @@ Java provides special primitives for monitor-based synchronisation::
 
 * **Question**: Why does it work in the presence of just one
   "conditional variable"?
-* **Answer**: Because of ``notifyAll()``.
-
-
-* **Question**: Why couldn't use ``this.synchronized`` instead?
+* **Answer**: Left as an exercise.
 
 * **Question**: Will it sill work if we replace ``notifyAll()`` by
   ``notify()``?
+* **Answer**: Left as an exercise.
 
+* **Question**: Why couldn't use ``this.synchronized`` instead?
+* **Answer**: Called within a thread ``this.synchronized`` would refer
+  to the closest enclosing object, i.e., the thread instance itself.
+  Since those are different for different threads, the access to the
+  counter would not be synchronised. This is why we insted synchronise
+  via the monitor associated with the global singleton object
+  ``CountIntrinsicMonitor``.
 
 The Lost-Wakeup Problem
 -----------------------
@@ -542,12 +600,28 @@ monitors::
    }
  }
 
+This queue is a fine example of a concurrent blockcing implementation:
+it is empty, no all calls to ``deq()`` will be blocked until another
+thread enqueues an element. Similary, if it is full, ``enq()`` will
+block.
 
-// TODO: Can we do the following instead?
-// if (count == 1) notEmpty.signal()
+What will happen if we replace ``notEmpty.signal()`` in ``enq()`` by
+``if (count == 1) notEmpty.signal()``. Unfortunately, this will lead
+to an incorrect behaviour. Imagine that thread C is about to enqueue
+an element to an empty queue, while A and B are waiting bcause of
+``nonEmpty.await()``. Executing ``if (count == 1) notEmpty.signal()``
+will wake up one of them, let's say A, but before it removes an
+element another thread, say D, sill enqueue another one, this time
+`without` calling ``nonEmpty.signal()``. Thus, the queue will have two
+elements, before A removes one, and the queue will be non-empty. Yet,
+B will be still waiting. This mistake is known as the Lost-Wakeup
+Problem, and it can be avoided in the following way:
 
-instead of just ``notEmpty.signal()``
-     
+* Singalling all threads waiting on a condition (via ``signalAll()``
+  or ``notifyAll()``), not just one.
+* Specify a timeout while waiting (both ``await()`` and ``wait()``
+  take a number of nanoseconds to wait as an optional argument).
+
 Read-Write Locking
 ------------------
 
