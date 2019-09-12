@@ -625,7 +625,17 @@ Problem, and it can be avoided in the following way:
 Read-Write Locking
 ------------------
 
-One can use of monitors to implement read-write locks as follows::
+In many cases a shared resource can allow multiple threads that do not
+modify it access it concurrently, but will require an exclusive access
+for someone to make modifications. This pattern is known as
+`Readers-Writers`:
+
+* Only one writer can be modifying the resource exclusively
+* Many readers can observe it concurrently without requiring mutual
+  exclusion, as long as there is no write.
+
+The structure allowing for such an access is called **Read-Write
+Lock**. It can be implemented using monitors as follows::
 
  import java.util.concurrent.TimeUnit
  import java.util.concurrent.locks.{Lock, ReadWriteLock, ReentrantLock}
@@ -670,16 +680,7 @@ One can use of monitors to implement read-write locks as follows::
          }
        } finally myLock.unlock()
      }
-
-     @throws[InterruptedException]
-     def lockInterruptibly(): Unit = throw new UnsupportedOperationException
-
-     def tryLock = throw new UnsupportedOperationException
-
-     @throws[InterruptedException]
-     def tryLock(time: Long, unit: TimeUnit) = throw new UnsupportedOperationException
-
-     def newCondition = throw new UnsupportedOperationException
+     // ...
    }
 
    protected class WriteLock extends Lock {
@@ -705,31 +706,29 @@ One can use of monitors to implement read-write locks as follows::
          myLock.unlock()
        }
      }
-
-     @throws[InterruptedException]
-     def lockInterruptibly(): Unit = throw new UnsupportedOperationException
-
-     def tryLock = throw new UnsupportedOperationException
-
-     @throws[InterruptedException]
-     def tryLock(time: Long, unit: TimeUnit) = throw new UnsupportedOperationException
-
-     def newCondition = throw new UnsupportedOperationException
+     // ...
    }
-
-   @throws[InterruptedException]
-   def lockInterruptibly(): Unit = throw new UnsupportedOperationException
-
-   def tryLock = throw new UnsupportedOperationException
-
-   @throws[InterruptedException]
-   def tryLock(time: Long, unit: TimeUnit) = throw new UnsupportedOperationException
-
-   def newCondition = throw new UnsupportedOperationException
-
+   // ...
  }
 
-A better version of read-write lock can be done as below::
+Notice that any reader using the instance of the ``ReadLock`` will be
+blocked as long as a writer is present (which is indicated by a
+boolean shared variable ``writer``). Once available, the reader lock
+will admint multiple readers, so the writers will have to wait on a
+writer lock until the ``condition`` is notified by ``ReadLock``'s
+``unlock()``. A similar intuition is applied to the writer lock.
+Notice that the ``condition`` does not distinguish between the roles
+(readers/writers) --- it is used to notify all threads currently
+waiting. In principle, the lock can be improved by using two different
+condition variables.
+
+The problem with the version of the Read-Write lock above is that if
+readers keep coming, a writer will never have a chance to acquire the
+lock. This can be fixed if, as soon as the writer acquires the writer
+lock, it will be only waiting until `all readers currently holding
+ReadLock` will exit. That is, no new readers will be allowed into the
+critical section until writer gets an access. This can be implemented
+as follows::
 
  class FIFOReadWriteLock extends ReadWriteLock {
 
@@ -804,11 +803,41 @@ A better version of read-write lock can be done as below::
    // ...
  }
 
+When Should We Use Monitors
+---------------------------
+
+Monitors (locks + conditional variables) are complementary to
+spin-locks. An appropriate syncrhonisation mechanisms depends on the
+use case:
+
+* Spin-locks are good when the critical sections are small (in terms
+  of execution time), thus the spinning time will likely be small too.
+  The main "cost" of a spin-lock is the high usage of CPU cycles while
+  spinning, as well as added contention overhead. Thus, spinning makes
+  sense for a multiprocessor, if we expect a short waiting time.
+
+* Monitors should be used for fine-grained management of access to a
+  critical section, which is long. However, for small critical
+  sections, waking up a thread requires `context switching` by a
+  processor, which is also expensive. That is, waiting (blocking) is
+  preferrable if we expect to wait for a long time before getting the
+  access to the critical section.
+
 Other Synchronisation Mechanisms
 --------------------------------
 
-* Semaphore: TODO An example of using a semaphore (in Java) can be
-  found, e.g., by `this link
+As of now, monitors (reentrant locks + condition variables) are one of
+the most popular blocking synchronisation mechanisms. However, most of
+the popular concurrent libraries (such as ``java.util.concurrent`` and
+C's ``PThreads``) provide other syncrhonisation primitives. Those are
+typically implemented as instructions by most of the common processors.
+
+* **Semaphore** is similar to a lock that admits :math:`n \geq 1`
+  threads. Once the capacity is reached, the new incomming threads are
+  blocked. Semaphores were invented by Edsger Dijkstra (the same as in
+  Dijkstra's algorithm) in 1963. An example of using a semaphore (in
+  Java) can be found, e.g., by `this link
   <https://www.mkyong.com/java/java-thread-mutex-and-semaphore-example/>`_.
 
-* Mutex
+* **Mutex** is simply a semaphore with capacity 1. As such, it is
+  equivalent to a lock.
