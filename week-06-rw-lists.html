@@ -1,0 +1,425 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Week 06: Lists and Fine-Grained Locking &mdash; YSC3248 2019</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> YSC3248: Parallel, Concurrent and Distributed Programming
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="syllabus.html">1. Course Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prerequisites.html">2. Software Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week-01-intro.html">3. Week 01: Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week-01-mutex.html">4. Week 01: Mutual Exclusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week-02-scala.html">5. Week 02: Scala Primer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week-03-concurrent-objects.html">6. Week 03: Concurrent Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week-04-wait-free.html">7. Week 04: Wait-Free Implementations and Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week-04-consensus.html">8. Week 04: Read-Modify-Write Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week-05-spinlocks.html">9. Week 05: Spin Locks and Contention</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week-05-monitors.html">10. Week 05: Monitors and Blocking Synchronisation</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">YSC3248: Parallel, Concurrent and Distributed Programming</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Week 06: Lists and Fine-Grained Locking</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="week-06-lists-and-fine-grained-locking">
+<h1>Week 06: Lists and Fine-Grained Locking<a class="headerlink" href="#week-06-lists-and-fine-grained-locking" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="read-write-locking">
+<h2>Read-Write Locking<a class="headerlink" href="#read-write-locking" title="Permalink to this headline">¶</a></h2>
+<p>In many cases a shared resource can allow multiple threads that do not
+modify it access it concurrently, but will require an exclusive access
+for someone to make modifications. This pattern is known as
+<cite>Readers-Writers</cite>:</p>
+<ul class="simple">
+<li>Only one writer can be modifying the resource exclusively</li>
+<li>Many readers can observe it concurrently without requiring mutual
+exclusion, as long as there is no write.</li>
+</ul>
+<p>The structure allowing for such an access is called <strong>Read-Write
+Lock</strong>. It can be implemented using monitors as follows:</p>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="nn">java.util.concurrent.TimeUnit</span>
+<span class="k">import</span> <span class="nn">java.util.concurrent.locks.</span><span class="o">{</span><span class="nc">Lock</span><span class="o">,</span> <span class="nc">ReadWriteLock</span><span class="o">,</span> <span class="nc">ReentrantLock</span><span class="o">}</span>
+
+<span class="cm">/**</span>
+<span class="cm">  * @author Maurice Herlihy, Ilya Sergey</span>
+<span class="cm">  */</span>
+<span class="k">class</span> <span class="nc">SimpleReadWriteLock</span> <span class="k">extends</span> <span class="nc">ReadWriteLock</span> <span class="o">{</span>
+
+  <span class="k">private</span> <span class="k">var</span> <span class="n">readers</span> <span class="k">=</span> <span class="mi">0</span>
+  <span class="k">private</span> <span class="k">var</span> <span class="n">writer</span> <span class="k">=</span> <span class="kc">false</span>
+  <span class="k">private</span> <span class="k">val</span> <span class="n">myLock</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">ReentrantLock</span>
+  <span class="k">private</span> <span class="k">val</span> <span class="n">myReadLock</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">ReadLock</span>
+  <span class="k">private</span> <span class="k">val</span> <span class="n">myWriteLock</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">WriteLock</span>
+  <span class="k">private</span> <span class="k">var</span> <span class="n">condition</span> <span class="k">=</span> <span class="n">myLock</span><span class="o">.</span><span class="n">newCondition</span>
+
+  <span class="k">def</span> <span class="n">readLock</span><span class="k">:</span> <span class="kt">Lock</span> <span class="o">=</span> <span class="n">myReadLock</span>
+
+  <span class="k">def</span> <span class="n">writeLock</span><span class="k">:</span> <span class="kt">Lock</span> <span class="o">=</span> <span class="n">myWriteLock</span>
+
+  <span class="k">class</span> <span class="nc">ReadLock</span> <span class="k">extends</span> <span class="nc">Lock</span> <span class="o">{</span>
+    <span class="k">def</span> <span class="n">lock</span><span class="o">()</span><span class="k">:</span> <span class="kt">Unit</span> <span class="o">=</span> <span class="o">{</span>
+      <span class="n">myLock</span><span class="o">.</span><span class="n">lock</span><span class="o">()</span>
+      <span class="k">try</span> <span class="o">{</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">writer</span><span class="o">)</span> <span class="k">try</span> <span class="o">{</span>
+          <span class="n">condition</span><span class="o">.</span><span class="n">await</span><span class="o">()</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">{</span>
+          <span class="k">case</span> <span class="n">e</span><span class="k">:</span> <span class="kt">InterruptedException</span> <span class="o">=&gt;</span>
+        <span class="o">}</span>
+        <span class="n">readers</span> <span class="o">+=</span> <span class="mi">1</span>
+      <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+        <span class="n">myLock</span><span class="o">.</span><span class="n">unlock</span><span class="o">()</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="k">def</span> <span class="n">unlock</span><span class="o">()</span><span class="k">:</span> <span class="kt">Unit</span> <span class="o">=</span> <span class="o">{</span>
+      <span class="n">myLock</span><span class="o">.</span><span class="n">lock</span><span class="o">()</span>
+      <span class="k">try</span> <span class="o">{</span>
+        <span class="n">readers</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">readers</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+          <span class="n">condition</span><span class="o">.</span><span class="n">signalAll</span><span class="o">()</span>
+        <span class="o">}</span>
+      <span class="o">}</span> <span class="k">finally</span> <span class="n">myLock</span><span class="o">.</span><span class="n">unlock</span><span class="o">()</span>
+    <span class="o">}</span>
+    <span class="c1">// ...</span>
+  <span class="o">}</span>
+
+  <span class="k">protected</span> <span class="k">class</span> <span class="nc">WriteLock</span> <span class="k">extends</span> <span class="nc">Lock</span> <span class="o">{</span>
+    <span class="k">def</span> <span class="n">lock</span><span class="o">()</span><span class="k">:</span> <span class="kt">Unit</span> <span class="o">=</span> <span class="o">{</span>
+      <span class="n">myLock</span><span class="o">.</span><span class="n">lock</span><span class="o">()</span>
+      <span class="k">try</span> <span class="o">{</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">readers</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="k">try</span> <span class="o">{</span>
+          <span class="n">condition</span><span class="o">.</span><span class="n">await</span><span class="o">()</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">{</span>
+          <span class="k">case</span> <span class="n">e</span><span class="k">:</span> <span class="kt">InterruptedException</span> <span class="o">=&gt;</span>
+
+        <span class="o">}</span>
+        <span class="n">writer</span> <span class="k">=</span> <span class="kc">true</span>
+      <span class="o">}</span> <span class="k">finally</span> <span class="n">myLock</span><span class="o">.</span><span class="n">unlock</span><span class="o">()</span>
+    <span class="o">}</span>
+
+    <span class="k">def</span> <span class="n">unlock</span><span class="o">()</span><span class="k">:</span> <span class="kt">Unit</span> <span class="o">=</span> <span class="o">{</span>
+      <span class="n">myLock</span><span class="o">.</span><span class="n">lock</span><span class="o">()</span>
+      <span class="k">try</span> <span class="o">{</span>
+        <span class="n">writer</span> <span class="k">=</span> <span class="kc">false</span>
+        <span class="n">condition</span><span class="o">.</span><span class="n">signalAll</span><span class="o">()</span>
+      <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+        <span class="n">myLock</span><span class="o">.</span><span class="n">unlock</span><span class="o">()</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="c1">// ...</span>
+  <span class="o">}</span>
+  <span class="c1">// ...</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Notice that any reader using the instance of the <code class="docutils literal notranslate"><span class="pre">ReadLock</span></code> will be
+blocked as long as a writer is present (which is indicated by a
+boolean shared variable <code class="docutils literal notranslate"><span class="pre">writer</span></code>). Once available, the reader lock
+will admit multiple readers, so the writers will have to wait on a
+writer lock until the <code class="docutils literal notranslate"><span class="pre">condition</span></code> is notified by <code class="docutils literal notranslate"><span class="pre">ReadLock</span></code>’s
+<code class="docutils literal notranslate"><span class="pre">unlock()</span></code>. A similar intuition is applied to the writer lock.
+Notice that the <code class="docutils literal notranslate"><span class="pre">condition</span></code> does not distinguish between the roles
+(readers/writers) — it is used to notify all threads currently
+waiting. In principle, the lock can be improved by using two different
+condition variables.</p>
+<p>The problem with the version of the Read-Write lock above is that if
+readers keep coming, a writer will never have a chance to acquire the
+lock. This can be fixed if, as soon as the writer acquires the writer
+lock, it will be only waiting until <cite>all readers currently holding
+ReadLock</cite> will exit. That is, no new readers will be allowed into the
+critical section until writer gets an access. This can be implemented
+as follows:</p>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">FIFOReadWriteLock</span> <span class="k">extends</span> <span class="nc">ReadWriteLock</span> <span class="o">{</span>
+
+  <span class="k">private</span> <span class="k">var</span> <span class="n">readers</span> <span class="k">=</span> <span class="mi">0</span>
+  <span class="k">private</span> <span class="k">var</span> <span class="n">writer</span> <span class="k">=</span> <span class="kc">false</span>
+  <span class="k">private</span> <span class="k">var</span> <span class="n">readAcquires</span><span class="o">,</span> <span class="n">readReleases</span><span class="k">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="k">private</span> <span class="k">val</span> <span class="n">myLock</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">ReentrantLock</span>
+  <span class="k">private</span> <span class="k">val</span> <span class="n">myReadLock</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">ReadLock</span>
+  <span class="k">private</span> <span class="k">val</span> <span class="n">myWriteLock</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">WriteLock</span>
+  <span class="k">private</span> <span class="k">var</span> <span class="n">condition</span> <span class="k">=</span> <span class="n">myLock</span><span class="o">.</span><span class="n">newCondition</span>
+
+  <span class="k">def</span> <span class="n">readLock</span><span class="k">:</span> <span class="kt">Lock</span> <span class="o">=</span> <span class="n">myReadLock</span>
+
+  <span class="k">def</span> <span class="n">writeLock</span><span class="k">:</span> <span class="kt">Lock</span> <span class="o">=</span> <span class="n">myWriteLock</span>
+
+  <span class="k">class</span> <span class="nc">ReadLock</span> <span class="k">extends</span> <span class="nc">Lock</span> <span class="o">{</span>
+    <span class="k">def</span> <span class="n">lock</span><span class="o">()</span><span class="k">:</span> <span class="kt">Unit</span> <span class="o">=</span> <span class="o">{</span>
+      <span class="n">myLock</span><span class="o">.</span><span class="n">lock</span><span class="o">()</span>
+      <span class="k">try</span> <span class="o">{</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">writer</span><span class="o">)</span> <span class="k">try</span> <span class="o">{</span>
+          <span class="n">condition</span><span class="o">.</span><span class="n">await</span><span class="o">()</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">{</span>
+          <span class="k">case</span> <span class="n">e</span><span class="k">:</span> <span class="kt">InterruptedException</span> <span class="o">=&gt;</span>
+        <span class="o">}</span>
+        <span class="n">readAcquires</span> <span class="o">+=</span> <span class="mi">1</span>
+      <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+        <span class="n">myLock</span><span class="o">.</span><span class="n">unlock</span><span class="o">()</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="k">def</span> <span class="n">unlock</span><span class="o">()</span><span class="k">:</span> <span class="kt">Unit</span> <span class="o">=</span> <span class="o">{</span>
+      <span class="n">myLock</span><span class="o">.</span><span class="n">lock</span><span class="o">()</span>
+      <span class="k">try</span> <span class="o">{</span>
+        <span class="n">readReleases</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">readAcquires</span> <span class="o">==</span> <span class="n">readReleases</span><span class="o">)</span> <span class="o">{</span>
+          <span class="n">condition</span><span class="o">.</span><span class="n">signalAll</span><span class="o">()</span>
+        <span class="o">}</span>
+      <span class="o">}</span> <span class="k">finally</span> <span class="n">myLock</span><span class="o">.</span><span class="n">unlock</span><span class="o">()</span>
+    <span class="o">}</span>
+
+    <span class="c1">// ...</span>
+  <span class="o">}</span>
+
+  <span class="k">protected</span> <span class="k">class</span> <span class="nc">WriteLock</span> <span class="k">extends</span> <span class="nc">Lock</span> <span class="o">{</span>
+    <span class="k">def</span> <span class="n">lock</span><span class="o">()</span><span class="k">:</span> <span class="kt">Unit</span> <span class="o">=</span> <span class="o">{</span>
+      <span class="n">myLock</span><span class="o">.</span><span class="n">lock</span><span class="o">()</span>
+      <span class="k">try</span> <span class="o">{</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">readAcquires</span> <span class="o">!=</span> <span class="n">readReleases</span><span class="o">)</span> <span class="k">try</span> <span class="o">{</span>
+          <span class="n">condition</span><span class="o">.</span><span class="n">await</span><span class="o">()</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">{</span>
+          <span class="k">case</span> <span class="n">e</span><span class="k">:</span> <span class="kt">InterruptedException</span> <span class="o">=&gt;</span>
+
+        <span class="o">}</span>
+        <span class="n">writer</span> <span class="k">=</span> <span class="kc">true</span>
+      <span class="o">}</span> <span class="k">finally</span> <span class="n">myLock</span><span class="o">.</span><span class="n">unlock</span><span class="o">()</span>
+    <span class="o">}</span>
+
+    <span class="k">def</span> <span class="n">unlock</span><span class="o">()</span><span class="k">:</span> <span class="kt">Unit</span> <span class="o">=</span> <span class="o">{</span>
+      <span class="n">myLock</span><span class="o">.</span><span class="n">lock</span><span class="o">()</span>
+      <span class="k">try</span> <span class="o">{</span>
+        <span class="n">writer</span> <span class="k">=</span> <span class="kc">false</span>
+        <span class="n">condition</span><span class="o">.</span><span class="n">signalAll</span><span class="o">()</span>
+      <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+        <span class="n">myLock</span><span class="o">.</span><span class="n">unlock</span><span class="o">()</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="c1">// ...</span>
+
+  <span class="o">}</span>
+
+  <span class="c1">// ...</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="when-should-we-use-monitors">
+<h2>When Should We Use Monitors<a class="headerlink" href="#when-should-we-use-monitors" title="Permalink to this headline">¶</a></h2>
+<p>Monitors (locks + conditional variables) are complementary to
+spin-locks. An appropriate synchronisation mechanisms depends on the
+use case:</p>
+<ul class="simple">
+<li>Spin-locks are good when the critical sections are small (in terms
+of execution time), thus the spinning time will likely be small too.
+The main “cost” of a spin-lock is the high usage of CPU cycles while
+spinning, as well as added contention overhead. Thus, spinning makes
+sense for a multiprocessor, if we expect a short waiting time.</li>
+<li>Monitors should be used for fine-grained management of access to a
+critical section, which is long. However, for small critical
+sections, waking up a thread requires <cite>context switching</cite> by a
+processor, which is also expensive. That is, waiting (blocking) is
+preferable if we expect to wait for a long time before getting the
+access to the critical section.</li>
+</ul>
+</div>
+<div class="section" id="other-synchronisation-mechanisms">
+<h2>Other Synchronisation Mechanisms<a class="headerlink" href="#other-synchronisation-mechanisms" title="Permalink to this headline">¶</a></h2>
+<p>As of now, monitors (reentrant locks + condition variables) are one of
+the most popular blocking synchronisation mechanisms. However, most of
+the popular concurrent libraries (such as <code class="docutils literal notranslate"><span class="pre">java.util.concurrent</span></code> and
+C’s <code class="docutils literal notranslate"><span class="pre">PThreads</span></code>) provide other synchronisation primitives. Those are
+typically implemented as instructions by most of the common processors.</p>
+<ul class="simple">
+<li><strong>Semaphore</strong> is similar to a lock that admits <span class="math notranslate nohighlight">\(n \geq 1\)</span>
+threads. Once the capacity is reached, the new incoming threads are
+blocked. Semaphores were invented by Edsger Dijkstra (the same as in
+Dijkstra’s algorithm) in 1963. An example of using a semaphore (in
+Java) can be found, e.g., by <a class="reference external" href="https://www.mkyong.com/java/java-thread-mutex-and-semaphore-example/">this link</a>.</li>
+<li><strong>Mutex</strong> is simply a semaphore with capacity 1. As such, it is
+equivalent to a lock.</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Ilya Sergey
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"extensions": ["tex2jax.js"], "jax": ["input/TeX", "output/HTML-CSS"]})</script>
+    
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
