@@ -18,7 +18,7 @@ Imagine the following artificial problem. We want to implement a
 shared linearisable counter that is incremented by two concurrent
 threads running in parallel with the following catch: one thread may
 increment a counter if its value is `even`, and another thread can
-increment it if its vallue is `odd`. Obviously, the threads shoul
+increment it if its value is `odd`. Obviously, the threads should
 "take turns" to implement such a functionality. This can be achieved
 by using a combination of regular spin-locks and ``while``-loops, as
 shown in the code below::
@@ -101,7 +101,7 @@ shown in the code below::
 The two threads, instances of ``AdderToEven`` and ``AdderToOdd``
 correspondingly will be taking turns. Each time a thread takes a lock,
 it checks if the counter is in the "suitable" position (even or odd,
-correspondingly). If it is the case, it will proceed to incerement it,
+correspondingly). If it is the case, it will proceed to increment it,
 also increasing its iteration index ``k``. Otherwise, it will pass the
 turn by releasing the lock and keeping to "spin" on the condition ``k
 < TOTAL / THREADS`` of the outer loop.
@@ -115,7 +115,7 @@ thread, so that one could take its turn. Meanwhile the current thread,
 which has just incremented, will be busy-waiting for its next turn.
 
 Java Virtual Machine (and, hence, Scala) provides a convenient
-alternative to spinning/busy-waiting --- blocking syncrhonisation, or,
+alternative to spinning/busy-waiting --- blocking synchronisation, or,
 simply ``waiting``. It is implemented on top of the corresponding OS
 primitives and comes in the following form.
 
@@ -132,7 +132,7 @@ A **condition** (sometimes also called **conditional variable**) is a
 mechanism, associated with a lock that allows a thread A to
 "temporarily release it" without leaving the critical section. This is
 done by thread A by calling a method ``await()`` on the condition
-object associated with the corresdpongin lock. Once having released a
+object associated with the corresponding lock. Once having released a
 lock this way, the thread A becomes `suspended`: it does not spin, but
 rather "sleeps" (the OS takes care of putting a thread to sleep and
 waking it up later). What happens next is an other thread (let's call
@@ -255,7 +255,7 @@ questions.
 * **Question**: Which thread is notified by ``cond.signal()`` in case
   if we have multiple threads?
 * **Answer**: You should assume that a thread to wake up is chosen
-  randomly of all threads currently witing. If you want to awake all
+  randomly of all threads currently waiting. If you want to awake all
   of them you should use ``cond.signalAll()``. In this case all awoken
   threads will be competing for the lock, with only one of them
   getting it, and others going back to wait.
@@ -365,7 +365,7 @@ follows::
    }
  }
 
-Notive that the threads wait and signal on the two different contional
+Notice that the threads wait and signal on the two different continual
 variables, ``condEven`` and ``condOdd``. Nevertheless, this does not
 violate mutual exclusion, as ``await()`` and ``signal()`` are still
 associated with the same lock object. However, multiple condition
@@ -464,7 +464,7 @@ Since the patterns of working with monitors by means of manipulating
 associated locks and condition variables so common, Java/Scala embed
 it into its object-oriented mode. Each object in these languages comes
 instrumented with a monitor. Since objects in Scala/Java are main
-units of data, this design choice aims to simplyfy synchronisation on
+units of data, this design choice aims to simplify synchronisation on
 all data associated with a particular object. That is, different
 objects would have different monitors associated with them, and hence,
 may be unsynchronised. 
@@ -476,7 +476,7 @@ locking/unlocking is done on the implicit lock associated with an
 object ``o``. Similarly, waiting/signalling on a (single) conditional
 variable associated with an object is done by callling ``o.wait()``,
 and ``o.notify()`` and ``o.notifyAll()``, correspondingly. Notice, the
-names of these methods are different on purpos from those of
+names of these methods are different on purpose from those of
 conditional variables so they would not be confused. We can implement
 our counter example using Java 
 
@@ -543,7 +543,7 @@ Java provides special primitives for monitor-based synchronisation::
 * **Answer**: Called within a thread ``this.synchronized`` would refer
   to the closest enclosing object, i.e., the thread instance itself.
   Since those are different for different threads, the access to the
-  counter would not be synchronised. This is why we insted synchronise
+  counter would not be synchronised. This is why we instead synchronise
   via the monitor associated with the global singleton object
   ``CountIntrinsicMonitor``.
 
@@ -566,7 +566,7 @@ monitors::
    var count = 0
 
    @throws[InterruptedException]
-   def enq(x: T): Unit = {
+   def end(x: T): Unit = {
      lock.lock()
      try {
        while (count == items.length) {
@@ -600,15 +600,15 @@ monitors::
    }
  }
 
-This queue is a fine example of a concurrent blockcing implementation:
+This queue is a fine example of a concurrent blocking implementation:
 it is empty, no all calls to ``deq()`` will be blocked until another
-thread enqueues an element. Similary, if it is full, ``enq()`` will
+thread enqueues an element. Similarly, if it is full, ``enq()`` will
 block.
 
 What will happen if we replace ``notEmpty.signal()`` in ``enq()`` by
 ``if (count == 1) notEmpty.signal()``. Unfortunately, this will lead
 to an incorrect behaviour. Imagine that thread C is about to enqueue
-an element to an empty queue, while A and B are waiting bcause of
+an element to an empty queue, while A and B are waiting because of
 ``nonEmpty.await()``. Executing ``if (count == 1) notEmpty.signal()``
 will wake up one of them, let's say A, but before it removes an
 element another thread, say D, sill enqueue another one, this time
@@ -617,227 +617,7 @@ elements, before A removes one, and the queue will be non-empty. Yet,
 B will be still waiting. This mistake is known as the Lost-Wakeup
 Problem, and it can be avoided in the following way:
 
-* Singalling all threads waiting on a condition (via ``signalAll()``
+* Signalling all threads waiting on a condition (via ``signalAll()``
   or ``notifyAll()``), not just one.
 * Specify a timeout while waiting (both ``await()`` and ``wait()``
   take a number of nanoseconds to wait as an optional argument).
-
-Read-Write Locking
-------------------
-
-In many cases a shared resource can allow multiple threads that do not
-modify it access it concurrently, but will require an exclusive access
-for someone to make modifications. This pattern is known as
-`Readers-Writers`:
-
-* Only one writer can be modifying the resource exclusively
-* Many readers can observe it concurrently without requiring mutual
-  exclusion, as long as there is no write.
-
-The structure allowing for such an access is called **Read-Write
-Lock**. It can be implemented using monitors as follows::
-
- import java.util.concurrent.TimeUnit
- import java.util.concurrent.locks.{Lock, ReadWriteLock, ReentrantLock}
-
- /**
-   * @author Maurice Herlihy, Ilya Sergey
-   */
- class SimpleReadWriteLock extends ReadWriteLock {
-
-   private var readers = 0
-   private var writer = false
-   private val myLock = new ReentrantLock
-   private val myReadLock = new ReadLock
-   private val myWriteLock = new WriteLock
-   private var condition = myLock.newCondition
-
-   def readLock: Lock = myReadLock
-
-   def writeLock: Lock = myWriteLock
-
-   class ReadLock extends Lock {
-     def lock(): Unit = {
-       myLock.lock()
-       try {
-         while (writer) try {
-           condition.await()
-         } catch {
-           case e: InterruptedException =>
-         }
-         readers += 1
-       } finally {
-         myLock.unlock()
-       }
-     }
-
-     def unlock(): Unit = {
-       myLock.lock()
-       try {
-         readers -= 1
-         if (readers == 0) {
-           condition.signalAll()
-         }
-       } finally myLock.unlock()
-     }
-     // ...
-   }
-
-   protected class WriteLock extends Lock {
-     def lock(): Unit = {
-       myLock.lock()
-       try {
-         while (readers > 0) try {
-           condition.await()
-         } catch {
-           case e: InterruptedException =>
-
-         }
-         writer = true
-       } finally myLock.unlock()
-     }
-
-     def unlock(): Unit = {
-       myLock.lock()
-       try {
-         writer = false
-         condition.signalAll()
-       } finally {
-         myLock.unlock()
-       }
-     }
-     // ...
-   }
-   // ...
- }
-
-Notice that any reader using the instance of the ``ReadLock`` will be
-blocked as long as a writer is present (which is indicated by a
-boolean shared variable ``writer``). Once available, the reader lock
-will admint multiple readers, so the writers will have to wait on a
-writer lock until the ``condition`` is notified by ``ReadLock``'s
-``unlock()``. A similar intuition is applied to the writer lock.
-Notice that the ``condition`` does not distinguish between the roles
-(readers/writers) --- it is used to notify all threads currently
-waiting. In principle, the lock can be improved by using two different
-condition variables.
-
-The problem with the version of the Read-Write lock above is that if
-readers keep coming, a writer will never have a chance to acquire the
-lock. This can be fixed if, as soon as the writer acquires the writer
-lock, it will be only waiting until `all readers currently holding
-ReadLock` will exit. That is, no new readers will be allowed into the
-critical section until writer gets an access. This can be implemented
-as follows::
-
- class FIFOReadWriteLock extends ReadWriteLock {
-
-   private var readers = 0
-   private var writer = false
-   private var readAcquires, readReleases: Int = 0
-   private val myLock = new ReentrantLock
-   private val myReadLock = new ReadLock
-   private val myWriteLock = new WriteLock
-   private var condition = myLock.newCondition
-
-   def readLock: Lock = myReadLock
-
-   def writeLock: Lock = myWriteLock
-
-   class ReadLock extends Lock {
-     def lock(): Unit = {
-       myLock.lock()
-       try {
-         while (writer) try {
-           condition.await()
-         } catch {
-           case e: InterruptedException =>
-         }
-         readAcquires += 1
-       } finally {
-         myLock.unlock()
-       }
-     }
-
-     def unlock(): Unit = {
-       myLock.lock()
-       try {
-         readReleases += 1
-         if (readAcquires == readReleases) {
-           condition.signalAll()
-         }
-       } finally myLock.unlock()
-     }
-
-     // ...
-   }
-
-   protected class WriteLock extends Lock {
-     def lock(): Unit = {
-       myLock.lock()
-       try {
-         while (readAcquires != readReleases) try {
-           condition.await()
-         } catch {
-           case e: InterruptedException =>
-
-         }
-         writer = true
-       } finally myLock.unlock()
-     }
-
-     def unlock(): Unit = {
-       myLock.lock()
-       try {
-         writer = false
-         condition.signalAll()
-       } finally {
-         myLock.unlock()
-       }
-     }
-
-     // ...
-
-   }
-
-   // ...
- }
-
-When Should We Use Monitors
----------------------------
-
-Monitors (locks + conditional variables) are complementary to
-spin-locks. An appropriate syncrhonisation mechanisms depends on the
-use case:
-
-* Spin-locks are good when the critical sections are small (in terms
-  of execution time), thus the spinning time will likely be small too.
-  The main "cost" of a spin-lock is the high usage of CPU cycles while
-  spinning, as well as added contention overhead. Thus, spinning makes
-  sense for a multiprocessor, if we expect a short waiting time.
-
-* Monitors should be used for fine-grained management of access to a
-  critical section, which is long. However, for small critical
-  sections, waking up a thread requires `context switching` by a
-  processor, which is also expensive. That is, waiting (blocking) is
-  preferrable if we expect to wait for a long time before getting the
-  access to the critical section.
-
-Other Synchronisation Mechanisms
---------------------------------
-
-As of now, monitors (reentrant locks + condition variables) are one of
-the most popular blocking synchronisation mechanisms. However, most of
-the popular concurrent libraries (such as ``java.util.concurrent`` and
-C's ``PThreads``) provide other syncrhonisation primitives. Those are
-typically implemented as instructions by most of the common processors.
-
-* **Semaphore** is similar to a lock that admits :math:`n \geq 1`
-  threads. Once the capacity is reached, the new incomming threads are
-  blocked. Semaphores were invented by Edsger Dijkstra (the same as in
-  Dijkstra's algorithm) in 1963. An example of using a semaphore (in
-  Java) can be found, e.g., by `this link
-  <https://www.mkyong.com/java/java-thread-mutex-and-semaphore-example/>`_.
-
-* **Mutex** is simply a semaphore with capacity 1. As such, it is
-  equivalent to a lock.
