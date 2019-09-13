@@ -3,7 +3,7 @@ Parallel, Concurrent and Distributed Programming
 
 .. toctree::
    :numbered:
-   :maxdepth: 2
+   :maxdepth: 1
 
    syllabus
    prerequisites
@@ -14,7 +14,7 @@ Parallel, Concurrent and Distributed Programming
    week-04-wait-free
    week-04-consensus
    week-05-spinlocks
-   .. week-05-monitors
+   week-05-monitors
 
 More lecture notes are coming soon!
 
