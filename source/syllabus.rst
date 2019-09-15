@@ -59,7 +59,7 @@ Homework Assignments
 * Theory Assignment 2 (Mutual Exclusion)
 * Programming Assignment 2 (Mutual Exclusion)
 * Theory Assignment 3 (Concurrent Objects)
-* Programming Assignment 3 (Concurrent Objects)
+* Programming Assignment 3 (Blocking synchronisation)
 * Theory Assignment 4 (Lists and Queues)
 * Programming Assignment 5 (Counting Networks)
 * Theory Assignment 5 (Proofs in Concurrency Logics)
