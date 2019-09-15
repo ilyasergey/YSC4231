@@ -222,3 +222,20 @@ typically implemented as instructions by most of the common processors.
 
 * **Mutex** is simply a semaphore with capacity 1. As such, it is
   equivalent to a lock.
+
+Concurrent Lists, Part I
+------------------------
+
+* `Lecture Slides <_static/resources/ysc3248-week-06-lists-01.pdf>`_
+* `Code with examples
+  <https://github.com/ysc3248/ysc3248-examples/tree/06-lists>`_,
+  package ``lists``
+
+Homework
+--------
+
+* `Programming Assignment 3 <_static/resources/programming-03.pdf>`_
+
+
+
+Concurrent Lists, Part 1
