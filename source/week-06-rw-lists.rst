@@ -1,7 +1,7 @@
 .. -*- mode: rst -*-
 
-Week 06: Read-Write Locking and Concurrent Lists
-================================================
+Week 06: Read-Write Locking and Linked Lists
+============================================
 
 Read-Write Locking
 ------------------

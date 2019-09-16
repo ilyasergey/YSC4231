@@ -11,7 +11,7 @@ Lectures
 * August 13: Introduction: What this course is about.
 * August 16: Mutual Exclusion
 
-* August 20: (Ilya is away) Basics of Functional and Imperative programming in Scala
+* August 20: (`Ilya is away`) Basics of Functional and Imperative programming in Scala
 * August 23: Mutual Exclusion (continued)
 
 * August 27: Concurrent Objects
@@ -23,22 +23,22 @@ Lectures
 * September 10: Spin Locks
 * September 13: Monitors and Semaphores
 
-* September 17: Linked Lists
+* September 17: Read-Write Locks and Linked Lists
 * September 20: Linked Lists (Continued)
 
-**Mid-Term Break: Midterm Project (Theory and Programming)**
+**Mid-Term Break: Project (Theory and Programming)**
 
 * October 1: Concurrent Queues and Stacks 
 * October 4: Hashmaps
 
 * October 8: Counting Networks
-* October 11: (Ilya is away) Notion of Data Races and Program Logics for Concurrency
+* October 11: (`Ilya is away`) Notion of Data Races and Program Logics for Concurrency
 
 * October 15: Futures and Work Distribution
 * October 18: Immutability and Data Parallelism
 
 * October 22: Barriers
-* October 25: (Ilya is away) Skip-lists 
+* October 25: (`Ilya is away`) Skip-lists 
 
 * October 29: Software Transactional Memory
 * November 1: Actor-based concurrency 
@@ -59,7 +59,7 @@ Homework Assignments
 * Theory Assignment 2 (Mutual Exclusion)
 * Programming Assignment 2 (Mutual Exclusion)
 * Theory Assignment 3 (Concurrent Objects)
-* Programming Assignment 3 (Blocking synchronisation)
+* Programming Assignment 3 (Blocking Synchronisation)
 * Theory Assignment 4 (Lists and Queues)
 * Programming Assignment 5 (Counting Networks)
 * Theory Assignment 5 (Proofs in Concurrency Logics)
