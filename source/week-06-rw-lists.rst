@@ -1,7 +1,7 @@
 .. -*- mode: rst -*-
 
-Week 06: Lists and Fine-Grained Locking
-=======================================
+Week 06: Read-Write Locking and Concurrent Lists
+================================================
 
 Read-Write Locking
 ------------------
@@ -235,7 +235,3 @@ Homework
 --------
 
 * `Programming Assignment 3 <_static/resources/programming-03.pdf>`_
-
-
-
-Concurrent Lists, Part 1
