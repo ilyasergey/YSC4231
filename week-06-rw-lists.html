@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Week 06: Lists and Fine-Grained Locking &mdash; YSC3248 2019</title>
+  <title>11. Week 06: Read-Write Locking and Linked Lists &mdash; YSC3248 2019</title>
   
 
   
@@ -28,7 +28,8 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="10. Week 05: Monitors and Blocking Synchronisation" href="week-05-monitors.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -77,7 +78,7 @@
               
             
             
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="syllabus.html">1. Course Syllabus</a></li>
 <li class="toctree-l1"><a class="reference internal" href="prerequisites.html">2. Software Prerequisites</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week-01-intro.html">3. Week 01: Introduction</a></li>
@@ -88,6 +89,14 @@
 <li class="toctree-l1"><a class="reference internal" href="week-04-consensus.html">8. Week 04: Read-Modify-Write Operations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week-05-spinlocks.html">9. Week 05: Spin Locks and Contention</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week-05-monitors.html">10. Week 05: Monitors and Blocking Synchronisation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">11. Week 06: Read-Write Locking and Linked Lists</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#read-write-locking">11.1. Read-Write Locking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#when-should-we-use-monitors">11.2. When Should We Use Monitors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#other-synchronisation-mechanisms">11.3. Other Synchronisation Mechanisms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#concurrent-lists-part-i">11.4. Concurrent Lists, Part I</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#homework">11.5. Homework</a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -133,7 +142,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Week 06: Lists and Fine-Grained Locking</li>
+      <li>11. Week 06: Read-Write Locking and Linked Lists</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -150,10 +159,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="week-06-lists-and-fine-grained-locking">
-<h1>Week 06: Lists and Fine-Grained Locking<a class="headerlink" href="#week-06-lists-and-fine-grained-locking" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="week-06-read-write-locking-and-linked-lists">
+<h1>11. Week 06: Read-Write Locking and Linked Lists<a class="headerlink" href="#week-06-read-write-locking-and-linked-lists" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="read-write-locking">
-<h2>Read-Write Locking<a class="headerlink" href="#read-write-locking" title="Permalink to this headline">¶</a></h2>
+<h2>11.1. Read-Write Locking<a class="headerlink" href="#read-write-locking" title="Permalink to this headline">¶</a></h2>
 <p>In many cases a shared resource can allow multiple threads that do not
 modify it access it concurrently, but will require an exclusive access
 for someone to make modifications. This pattern is known as
@@ -333,7 +342,7 @@ as follows:</p>
 </div>
 </div>
 <div class="section" id="when-should-we-use-monitors">
-<h2>When Should We Use Monitors<a class="headerlink" href="#when-should-we-use-monitors" title="Permalink to this headline">¶</a></h2>
+<h2>11.2. When Should We Use Monitors<a class="headerlink" href="#when-should-we-use-monitors" title="Permalink to this headline">¶</a></h2>
 <p>Monitors (locks + conditional variables) are complementary to
 spin-locks. An appropriate synchronisation mechanisms depends on the
 use case:</p>
@@ -352,7 +361,7 @@ access to the critical section.</li>
 </ul>
 </div>
 <div class="section" id="other-synchronisation-mechanisms">
-<h2>Other Synchronisation Mechanisms<a class="headerlink" href="#other-synchronisation-mechanisms" title="Permalink to this headline">¶</a></h2>
+<h2>11.3. Other Synchronisation Mechanisms<a class="headerlink" href="#other-synchronisation-mechanisms" title="Permalink to this headline">¶</a></h2>
 <p>As of now, monitors (reentrant locks + condition variables) are one of
 the most popular blocking synchronisation mechanisms. However, most of
 the popular concurrent libraries (such as <code class="docutils literal notranslate"><span class="pre">java.util.concurrent</span></code> and
@@ -369,7 +378,7 @@ equivalent to a lock.</li>
 </ul>
 </div>
 <div class="section" id="concurrent-lists-part-i">
-<h2>Concurrent Lists, Part I<a class="headerlink" href="#concurrent-lists-part-i" title="Permalink to this headline">¶</a></h2>
+<h2>11.4. Concurrent Lists, Part I<a class="headerlink" href="#concurrent-lists-part-i" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="_static/resources/ysc3248-week-06-lists-01.pdf">Lecture Slides</a></li>
 <li><a class="reference external" href="https://github.com/ysc3248/ysc3248-examples/tree/06-lists">Code with examples</a>,
@@ -377,11 +386,10 @@ package <code class="docutils literal notranslate"><span class="pre">lists</span
 </ul>
 </div>
 <div class="section" id="homework">
-<h2>Homework<a class="headerlink" href="#homework" title="Permalink to this headline">¶</a></h2>
+<h2>11.5. Homework<a class="headerlink" href="#homework" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="_static/resources/programming-03.pdf">Programming Assignment 3</a></li>
 </ul>
-<p>Concurrent Lists, Part 1</p>
 </div>
 </div>
 
@@ -390,6 +398,13 @@ package <code class="docutils literal notranslate"><span class="pre">lists</span
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="week-05-monitors.html" class="btn btn-neutral" title="10. Week 05: Monitors and Blocking Synchronisation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
