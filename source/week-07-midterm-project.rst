@@ -247,12 +247,13 @@ Problem 5: Hybrid Quicksort
 ---------------------------
 
 Finally, it's time to unleash your creativity and experiment with
-different flavours of concurrent sorting.
+different flavours of concurrent sorting to get the best of both
+worlds: single-threaded and parallel:
 
 * ``HybridQuickSort`` - implement your own quicksort-based sorting
-  strategy in this object in order to fix the shortcomings of the
+  strategy in this object with the aim to fix the shortcomings of the
   previous three algorithms. Feel free to experiment with different
-  heuristics. 
+  heuristics.
 
 * ``HybridQuickSortTests`` - use this file to test your hybrid sorting
   algorithm.
