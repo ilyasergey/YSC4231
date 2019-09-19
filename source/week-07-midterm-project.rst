@@ -55,11 +55,11 @@ implementations.
 Problem 1 (Warm-Up)
 -------------------
 
-As you know, Quicksort is one of the best sorting algorithms, which is
-used in practice. Let us start from implementing a simple sequential
-version of Quicksort and making sure that it works correctly. To do
-so, please, check and, when requested, modify the following
-classes/objects/traits in the project:
+As you know, `Quicksort <https://en.wikipedia.org/wiki/Quicksort>`_ is
+one of the best sorting algorithms, which is used in practice. Let us
+start from implementing a simple sequential version of Quicksort and
+making sure that it works correctly. To do so, please, check and, when
+requested, modify the following classes/objects/traits in the project:
 
 * ``Sorting`` - a generic interface for in-place array sorting
   algorithms. The type of ``sort(...)`` method is ``Unit``, indicating
