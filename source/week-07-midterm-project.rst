@@ -261,11 +261,12 @@ worlds: single-threaded and parallel:
 For the grand finale, let us check the absolute performance of the
 four sorting algorithms. Use the file ``SortingBenchmarks`` to compare
 the implementations on the arrays of the different size. The benchmar
-suite also includes "StalaSort" -- a fine-tuned Scala library
-implementation of array sorting (can we beat it?). Use the benchmarks
-and drive your experiments in the search of a better sorting algorithm
-that uses the full potential of the parallel multiprocessors. Make
-sure to document all your gotchas in your report!
+suite also includes ``ScalaSort`` -- a fine-tuned default Scala
+library implementation of array sorting. Can you beat it in terms of
+performance? Use the benchmarks and drive your experiments in the
+search of a better sorting algorithm that uses the full potential of
+the parallel multiprocessors. Make sure to document all your gotchas
+in your report!
 
 Good luck!
 
