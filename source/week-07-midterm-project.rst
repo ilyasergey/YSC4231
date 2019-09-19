@@ -5,9 +5,9 @@ Week 07: Midterm Project
 
 In this project we will be studying `thread pools
 <https://en.wikipedia.org/wiki/Thread_pool>`_, a very useful
-concurrent programming that allows one to use a `fixed` number of
-threads for executing concurrent tasks with unbounded parallelism. In
-some way, implementing a thread pool is similar to implementing a
+concurrent programming pattern that allows one to use a `fixed` number
+of threads for executing concurrent tasks with unbounded parallelism.
+In some way, implementing a thread pool is similar to implementing a
 multiprocessor mechanism that allocates a particular CPU for a given
 thread. In reality, we typically have much fewer CPUs than we have
 threads running concurrently in the program, therefore some of the
@@ -16,17 +16,17 @@ threads are forced to share processors. Furthermore, many runtimes
 threads to be spawned at the same time (remember that in our examples
 the numbers of threads were in tens, maybe hundreds). Yet, it would be
 undesirable for a programmer to worry about the allotted number of
-threads that she is allowed to use. Thread pools provide a convenient
-mechanism to lift this limitation by using a fixed limited number of
-threads to execute an arbitrary number of "parallel" computational
-`tasks`. 
+threads that she is allowed to use at any moment. Thread pools provide
+a convenient mechanism to lift this limitation by using a fixed number
+of threads to execute an arbitrary number of "concurrent" computational
+`tasks`.
 
-Those of you who have completed the midterm project for the latest
-edition of `YSC2229
+Those of you who have completed the `midterm project for the latest
+edition of YSC2229
 <https://ilyasergey.net/YSC2229/YSC2229-midterm-tasks.html#an-array-based-memory-allocator>`_
-in might think of thread pools as of "memory allocators" for threads.
+might think of thread pools as of "resource allocators" for threads.
 The only difference here is that instead of providing transparent
-access to some (de-facto limited) space, thread pools provide
+access to some (de-facto limited) memory space, thread pools provide
 transparent access to a limited number of concurrent threads that can
 execute in parallel.
 
@@ -39,17 +39,17 @@ will be evaluated based on their performance, clarity, and elegance.
 
 Your deliverables for this project must include:
 
-* A link to a GitHub release with the implementation based on the
-  provided project template.
+* A link to a tagged GitHub release with the implementation based on
+  the provided project template.
 * A PDF file with the report describing your discoveries, experiments,
   design decisions and related thoughts. The text below as well as
   some of the files in the provided project template will contain
   questions in comments. You are encouraged to elaborate on those in
   your narrative.
 
-The link to the repository template will be provided on Canvas. The
-project template contains many hints and specifications in the
-comments. Make sure to read them before starting with your
+The link to the project template will be provided on Canvas. The
+template contains many hints and specifications in the comments. Make
+sure to read and understand them before starting with your
 implementations.
 
 Problem 1 (Warm-Up)
@@ -92,7 +92,7 @@ Problem 2: Parallel Quicksort
 A really nice property of quicksort is that, due to its
 "divide-and-conquer" nature it is `naturally parallelisable`. That is,
 its recursive sub-calls work, performed after the partitioning step,
-work on `disjoin` sub-arrays. Therefore, we can run those calls
+work on `disjoint` sub-arrays. Therefore, we can run those calls
 concurrently in different threads, spawned for each such sub-call.
 hopefully, this will allow us to make some good use of our fancy
 parallel processors. Indeed, we should be able to sorti an array much
