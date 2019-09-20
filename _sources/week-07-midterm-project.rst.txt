@@ -12,14 +12,14 @@ multiprocessor mechanism that allocates a particular CPU for a given
 thread. In reality, we typically have much fewer CPUs than we have
 threads running concurrently in the program, therefore some of the
 threads are forced to share processors. Furthermore, many runtimes
-(Java/Scala) included do not allow for an arbitrarily large number of
+(Java/Scala included) do not allow for an arbitrarily large number of
 threads to be spawned at the same time (remember that in our examples
-the numbers of threads were in tens, maybe hundreds). Yet, it would be
-undesirable for a programmer to worry about the allotted number of
+the numbers of threads were in tens, maybe, hundreds). Yet, it would
+be undesirable for a programmer to worry about the allotted number of
 threads that she is allowed to use at any moment. Thread pools provide
 a convenient mechanism to lift this limitation by using a fixed number
-of threads to execute an arbitrary number of "concurrent" computational
-`tasks`.
+of threads to execute an arbitrary number of "concurrent"
+computational `tasks`.
 
 Those of you who have completed the `midterm project for the latest
 edition of YSC2229
@@ -42,7 +42,7 @@ Your deliverables for this project must include:
 * A link to a tagged GitHub release with the implementation based on
   the provided project template.
 * A PDF file with the report describing your discoveries, experiments,
-  design decisions and related thoughts. The text below as well as
+  design decisions, and related thoughts. The text below as well as
   some of the files in the provided project template will contain
   questions in comments. You are encouraged to elaborate on those in
   your narrative.
@@ -56,10 +56,10 @@ Problem 1 (Warm-Up)
 -------------------
 
 As you know, `Quicksort <https://en.wikipedia.org/wiki/Quicksort>`_ is
-one of the best sorting algorithms, which is used in practice. Let us
-start from implementing a simple sequential version of Quicksort and
-making sure that it works correctly. To do so, please, check and, when
-requested, modify the following classes/objects/traits in the project:
+one of the best sorting algorithms used in practice. Let us start from
+implementing a simple sequential version of Quicksort and making sure
+that it works correctly. To do so, please, check and, when requested,
+modify the following classes/objects/traits in the project:
 
 * ``Sorting`` - a generic interface for in-place array sorting
   algorithms. The type of ``sort(...)`` method is ``Unit``, indicating
@@ -90,15 +90,15 @@ Problem 2: Parallel Quicksort
 ------------------------------
 
 A really nice property of quicksort is that, due to its
-"divide-and-conquer" nature it is `naturally parallelisable`. That is,
-its recursive sub-calls work, performed after the partitioning step,
-work on `disjoint` sub-arrays. Therefore, we can run those calls
+"divide-and-conquer" nature, it is `naturally parallelisable`. That
+is, its recursive sub-calls work, performed after the partitioning
+step, work on `disjoint` sub-arrays. Therefore, we can run those calls
 concurrently in different threads, spawned for each such sub-call.
 hopefully, this will allow us to make some good use of our fancy
 parallel processors. Indeed, we should be able to sorti an array much
 faster as now the work will be split between parallel threads changing
 disjoint parts of the array. By the way, do we need any form of
-synchronisation between those threads?
+synchronisation between those threads and if we do, what should it be?
 
 In this problem, please, inspect and, when requested, change the
 following files in the project template:
@@ -121,10 +121,12 @@ Problem 3: Thread Pool
 Let us try a different strategy of adding concurrency into inherently
 parallelisable tasks, such as quicksort by means of introducing a
 thread pool. This is the largest sub-problem in the project, which
-will require you to study and modify the following files. The project
-template contains a number of ready-to-use examples that should allow
-you to experiment with your thread pool implementation. The following
-classes files are of your interest:
+will require you to study and modify a number of provided files. The
+project template contains a number of ready-to-use examples that
+should will allow you to experiment with your thread pool
+implementation.
+
+The following classes files are of your interest:
 
 * ``ThreadPool`` is the main class implementing the thread pool. Some
   parts of the implementation are already present and explained in the
@@ -195,7 +197,7 @@ The ``ThreadPool`` class provides three methods available to its clients.
   comments in the code and work out the way threads are made aware of
   the new tasks. Once you have this method implemented, try running
   the object ``AsyncExample`` in IntelliJ. As the result, you should see the
-  following output::
+  output similar to the following one::
 
    Task 3
    Task 1
