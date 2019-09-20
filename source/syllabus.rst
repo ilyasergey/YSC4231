@@ -11,7 +11,7 @@ Lectures
 * August 13: Introduction: What this course is about.
 * August 16: Mutual Exclusion
 
-* August 20: (`Ilya is away`) Basics of Functional and Imperative programming in Scala
+* August 20: (`Ilya is away`) Functional and Imperative Programming in Scala
 * August 23: Mutual Exclusion (continued)
 
 * August 27: Concurrent Objects
@@ -26,19 +26,21 @@ Lectures
 * September 17: Read-Write Locks and Linked Lists
 * September 20: Linked Lists (Continued)
 
+<< YOU ARE CURRENTLY HERE >>
+
 **Mid-Term Break: Project (Theory and Programming)**
 
-* October 1: Concurrent Queues and Stacks 
-* October 4: Hashmaps
+* October 1: Concurrent Queues
+* October 4: Stacks and Elimination 
 
-* October 8: Counting Networks
-* October 11: (`Ilya is away`) Notion of Data Races and Program Logics for Concurrency
+* October 8: Hashmaps
+* October 11: (`Ilya is away`) Data Races and Program Logics for Concurrency
 
 * October 15: Futures and Work Distribution
 * October 18: Immutability and Data Parallelism
 
 * October 22: Barriers
-* October 25: (`Ilya is away`) Skip-lists 
+* October 25: (`Ilya is away`) Skip-lists
 
 * October 29: Software Transactional Memory
 * November 1: Actor-based concurrency 
@@ -60,12 +62,11 @@ Homework Assignments
 * Programming Assignment 2 (Mutual Exclusion)
 * Theory Assignment 3 (Concurrent Objects)
 * Programming Assignment 3 (Blocking Synchronisation)
-* Theory Assignment 4 (Lists and Queues)
-* Programming Assignment 5 (Counting Networks)
-* Theory Assignment 5 (Proofs in Concurrency Logics)
+* Programming Assignment 4 (Lists and Queues)
+* Theory Assignment 4 (Proofs in Concurrency Logics)
 * Programming Assignment 5 (Futures and Parallel Collections)
 * Programming Assignment 6 (STM)
 * Programming Assignment 7 (Actors)
-* Programming Assignment 8 (Paxos Modifications)
+* Programming Assignment 8 (Distributed Consensus)
 
 

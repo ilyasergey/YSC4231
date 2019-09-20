@@ -16,7 +16,7 @@ Parallel, Concurrent and Distributed Programming
    week-05-spinlocks
    week-05-monitors
    week-06-rw-lists
-   .. week-06-fine-lists
+   week-06-fine-lists
    week-07-midterm-project   
 
 More lecture notes are coming soon!
