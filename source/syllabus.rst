@@ -30,26 +30,26 @@ Lectures
 
 **Mid-Term Break: Project (Theory and Programming)**
 
-* October 1: Concurrent Queues
-* October 4: Stacks and Elimination 
+* October 1: Linked Lists (Still continued)
+* October 4: Concurrent Queues 
 
-* October 8: Hashmaps
+* October 8: Stacks and Elimination 
 * October 11: (`Ilya is away`) Data Races and Program Logics for Concurrency
 
 * October 15: Futures and Work Distribution
 * October 18: Immutability and Data Parallelism
 
-* October 22: Barriers
+* October 22: Hash-Maps
 * October 25: (`Ilya is away`) Skip-lists
 
 * October 29: Software Transactional Memory
 * November 1: Actor-based concurrency 
 
 * November 5: State-machine replication, Two-Phase Commit
-* November 8: Fault-tolerant distributed consensus 
+* November 8: Fault-Tolerant Distributed Consensus 
 
 * November 12: Byzantine Fault Tolerance and PBFT
-* November 15: Blockchain consensus protocols
+* November 15: Blockchain Consensus Protocols. Recap.
 
 **Final Project: Theory and Programming**
 
@@ -62,11 +62,11 @@ Homework Assignments
 * Programming Assignment 2 (Mutual Exclusion)
 * Theory Assignment 3 (Concurrent Objects)
 * Programming Assignment 3 (Blocking Synchronisation)
-* Programming Assignment 4 (Lists and Queues)
+* Programming Assignment 4 (Concurrent Lists)
 * Theory Assignment 4 (Proofs in Concurrency Logics)
 * Programming Assignment 5 (Futures and Parallel Collections)
 * Programming Assignment 6 (STM)
-* Programming Assignment 7 (Actors)
-* Programming Assignment 8 (Distributed Consensus)
+* Programming Assignment 7 (Actors and Distribution)
+.. * Programming Assignment 8 (Distributed Consensus)
 
 
