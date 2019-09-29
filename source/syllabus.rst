@@ -67,6 +67,7 @@ Homework Assignments
 * Programming Assignment 5 (Futures and Parallel Collections)
 * Programming Assignment 6 (STM)
 * Programming Assignment 7 (Actors and Distribution)
+
 .. * Programming Assignment 8 (Distributed Consensus)
 
 

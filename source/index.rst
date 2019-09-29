@@ -18,8 +18,8 @@ Parallel, Concurrent and Distributed Programming
    week-06-rw-lists
    week-06-fine-lists
    week-07-midterm-project   
-   .. week-08-queues
-   .. week-08-stacks
+.. week-08-queues
+.. week-08-stacks
 
 More lecture notes are coming soon!
 
