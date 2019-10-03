@@ -26,8 +26,6 @@ Lectures
 * September 17: Read-Write Locks and Linked Lists
 * September 20: Linked Lists (Continued)
 
-<< YOU ARE CURRENTLY HERE >>
-
 **Mid-Term Break: Project (Theory and Programming)**
 
 * October 1: Linked Lists (Still continued)
