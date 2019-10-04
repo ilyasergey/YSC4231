@@ -1,7 +1,7 @@
 .. -*- mode: rst -*-
 
-Week 06: Fine-Grained Locking
-=============================
+Week 06: Lists (Continued) and Fine-Grained Locking
+===================================================
 
 * `Lecture Slides <_static/resources/ysc3248-week-06-lists-02.pdf>`_
 * `Code with examples
