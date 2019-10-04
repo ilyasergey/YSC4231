@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Week 08: Concurrent Queues and the ABA Problem &mdash; YSC3248 2019</title>
+  <title>14. Week 08: Concurrent Queues and the ABA Problem &mdash; YSC3248 2019</title>
   
 
   
@@ -28,7 +28,8 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="13. Week 07: Midterm Project" href="week-07-midterm-project.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -77,7 +78,7 @@
               
             
             
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="syllabus.html">1. Course Syllabus</a></li>
 <li class="toctree-l1"><a class="reference internal" href="prerequisites.html">2. Software Prerequisites</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week-01-intro.html">3. Week 01: Introduction</a></li>
@@ -91,6 +92,7 @@
 <li class="toctree-l1"><a class="reference internal" href="week-06-rw-lists.html">11. Week 06: Read-Write Locking and Linked Lists</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week-06-fine-lists.html">12. Week 06: Lists (Continued) and Fine-Grained Locking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week-07-midterm-project.html">13. Week 07: Midterm Project</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">14. Week 08: Concurrent Queues and the ABA Problem</a></li>
 </ul>
 
             
@@ -136,7 +138,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Week 08: Concurrent Queues and the ABA Problem</li>
+      <li>14. Week 08: Concurrent Queues and the ABA Problem</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -154,7 +156,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="week-08-concurrent-queues-and-the-aba-problem">
-<h1>Week 08: Concurrent Queues and the ABA Problem<a class="headerlink" href="#week-08-concurrent-queues-and-the-aba-problem" title="Permalink to this headline">¶</a></h1>
+<h1>14. Week 08: Concurrent Queues and the ABA Problem<a class="headerlink" href="#week-08-concurrent-queues-and-the-aba-problem" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><a class="reference external" href="_static/resources/ysc3248-week-08-queues.pdf">Lecture Slides</a></li>
 <li><a class="reference external" href="https://github.com/ysc3248/ysc3248-examples/tree/07-queues">Code with examples</a>,
@@ -167,6 +169,13 @@ package <code class="docutils literal notranslate"><span class="pre">queues</spa
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="week-07-midterm-project.html" class="btn btn-neutral" title="13. Week 07: Midterm Project" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
