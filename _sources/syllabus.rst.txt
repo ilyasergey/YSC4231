@@ -32,13 +32,13 @@ Lectures
 * October 4: Concurrent Queues 
 
 * October 8: Stacks and Elimination 
-* October 11: (`Ilya is away`) Data Races and Program Logics for Concurrency
+* October 11: (`Ilya is away`) Skip Lists
 
 * October 15: Futures and Work Distribution
 * October 18: Immutability and Data Parallelism
 
-* October 22: Hash-Maps
-* October 25: (`Ilya is away`) Skip-lists
+* October 22: Concurrent Reactive Programming 
+* October 25: (`Ilya is away`) Data Races and Program Logics for Concurrency
 
 * October 29: Software Transactional Memory
 * November 1: Actor-based concurrency 
@@ -61,7 +61,7 @@ Homework Assignments
 * Theory Assignment 3 (Concurrent Objects)
 * Programming Assignment 3 (Blocking Synchronisation)
 * Programming Assignment 4 (Concurrent Lists)
-* Theory Assignment 4 (Proofs in Concurrency Logics)
+* Theory Assignment 4 (Queues and Skip-Lists)
 * Programming Assignment 5 (Futures and Parallel Collections)
 * Programming Assignment 6 (STM)
 * Programming Assignment 7 (Actors and Distribution)
