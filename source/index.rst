@@ -31,8 +31,9 @@ Supplementary Materials
   <https://github.com/ysc3248/>`_
 * `Code from the Lectures
   <https://github.com/ysc3248/ysc3248-examples>`_ (will be updated gradually)
-* Textbook: `The Art of Multiprocessor Programming` by Herlihy and Shavit
-  <https://www.elsevier.com/books/the-art-of-multiprocessor-programming-revised-reprint/herlihy/978-0-12-397337-5>`_
+* Textbook: `The Art of Multiprocessor Programming` by Herlihy and
+  Shavit (`publisher link <https://www.elsevier.com/books/the-art-of-multiprocessor-programming-revised-reprint/herlihy/978-0-12-397337-5>`_)
+
 
 
 ..
