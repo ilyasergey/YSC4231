@@ -35,7 +35,7 @@ Lectures
 * October 11: (`Ilya is away`) Skip Lists
 
 * October 15: Futures and Work Distribution
-* October 18: Immutability and Data Parallelism
+* October 18: Data-Parallel Collections
 
 * October 22: Concurrent Reactive Programming 
 * October 25: (`Ilya is away`) Data Races and Program Logics for Concurrency
