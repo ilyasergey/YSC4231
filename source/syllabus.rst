@@ -32,13 +32,13 @@ Lectures
 * October 4: Concurrent Queues 
 
 * October 8: Stacks and Elimination 
-* October 11: (`Ilya is away`) Skip Lists
+* October 11: (`Ilya is away`) Skiplists
 
 * October 15: Futures and Work Distribution
 * October 18: Data-Parallel Collections
 
 * October 22: Concurrent Reactive Programming 
-* October 25: (`Ilya is away`) Data Races and Program Logics for Concurrency
+* October 25: (`Ilya is away`) Data Race Detection in Practice
 
 * October 29: Software Transactional Memory
 * November 1: Actor-based concurrency 
