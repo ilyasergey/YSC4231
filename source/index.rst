@@ -19,7 +19,7 @@ Parallel, Concurrent and Distributed Programming
    week-06-fine-lists
    week-07-midterm-project   
    week-08-queues
-.. week-09-stacks
+   week-09-stacks
 .. week-09-skiplists
  
 
