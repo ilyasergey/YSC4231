@@ -55,16 +55,17 @@ Homework Assignments
 --------------------
 
 * Theory Assignment 1 (Intro)
-* Programming Assignment 1 (Intro)
+* Programming Assignment 1 (Scala Basics)
 * Theory Assignment 2 (Mutual Exclusion)
 * Programming Assignment 2 (Mutual Exclusion)
 * Theory Assignment 3 (Concurrent Objects)
 * Programming Assignment 3 (Blocking Synchronisation)
 * Programming Assignment 4 (Concurrent Lists)
-* Theory Assignment 4 (Queues and Skip-Lists)
-* Programming Assignment 5 (Futures and Parallel Collections)
-* Programming Assignment 6 (STM)
-* Programming Assignment 7 (Actors and Distribution)
+* Programming Assignment 5 (Futures)
+* Programming Assignment 6 (Parallel Collections)
+* Mini-Project (Detecting Data Races in Large Projects)
+* Programming Assignment 7 (Reactive Programming and STM)
+* Programming Assignment 8 (Actors and Distribution)
 
 .. * Programming Assignment 8 (Distributed Consensus)
 
