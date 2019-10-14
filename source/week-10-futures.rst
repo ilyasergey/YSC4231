@@ -5,11 +5,73 @@ Week 10: Futures and Promises
 
 Useful resources:
 
+* `Documentation for Scala futures
+  <https://docs.scala-lang.org/overviews/core/futures.html>`_
 * `Code with examples
   <https://github.com/ysc3248/ysc3248-examples/tree/10-futures>`_,
   package ``futures``
-* `Documentation for Scala futures
-  <https://docs.scala-lang.org/overviews/core/futures.html>`_
+
+Summary of the Lecture
+----------------------
+
+A short summary of the files from the accompanying code is given
+below, outlining the characteristic aspects of working with Java
+Futures, as well as Scala Futures and Promises. It is recommended that
+the files are explored in the order they appear in the following list:
+
+* ``SortAndRead`` --- reading a user input after having performed a
+  costly operation (array sorting). This examples demonstrates the
+  need for parallelisation.
+
+* ``SortAndRead2`` --- a better version of the previous program.
+  Sorting is moved into a separate future. Introducting Java's thread
+  pools and the class ``Future``.
+
+* ``SortAndRead3`` --- even better implementation, in which the user
+  input is also moved into a separate future.
+
+* ``FutureSort`` --- an old friend, parallel quick-sort, now
+  re-implemented with Java futures. An interesting question is why
+  some of the offered thread pools, e.g.,
+  ``Executors.newFixedThreadPool(4)`` make it deadlock?
+
+* ``FutureDataType`` --- a first example of using Scala's futures, its
+  ``isCompleted`` method and the implicit execution context
+  (``ExecutionContext.Implicits.global``).
+
+* ``AwaitExample`` --- an example showing the use of ``Await.result``
+  method to wait for a future to complete or fail otherwise.
+
+* ``FuturesCallbacks`` --- demonstration of processing results of the
+  futures asynchronously via callbacks (using ``foreach`` method).
+
+* ``FutureExceptions`` --- treatment of exceptions in futures, via
+  ``onComplete`` method and pattern matching on the result class:
+  ``Success`` or ``Failure``.
+
+* ``Options`` --- a quick practice on building combinators for the
+  ``Option`` type. Serves as an introduction to similar future
+  combinators introduced next.
+
+* ``ComposingFutures`` --- an example of composing two futures running
+  asynchronously, via the explicit ``flatMap`` combinator (or using
+  the ``for`` notation). Check: what changes in the execution if the
+  futures are inlined under the ``for`` comprehension?
+
+* ``BlacklistedFiles`` --- a large example involving composing
+  futures in the implementation of ``getAllBlacklisted``. Multiple
+  ways to quary the result are possible.
+
+* ``ScalaFuturesTests`` --- shows how to test futures.
+
+* ``ProducerConsumer`` --- implementation of a producer-consumer with
+  promises, which serve as a single-assignment mailbox.
+
+* ``ProducerConsumer2`` --- demonstration of ``isCompleted`` method of
+  promises.
+
+* ``ProducerConsumer3`` --- failing the promise and recovering after an
+  exception in the future using the ``recover`` method.
 
 Homework
 --------

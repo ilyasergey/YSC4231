@@ -36,8 +36,6 @@ Supplementary Materials
 * Textbook: `The Art of Multiprocessor Programming` by Herlihy and
   Shavit (`publisher link <https://www.elsevier.com/books/the-art-of-multiprocessor-programming-revised-reprint/herlihy/978-0-12-397337-5>`_)
 
-
-
 ..
    Indices and tables
    ==================
