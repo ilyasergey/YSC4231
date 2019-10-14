@@ -34,7 +34,7 @@ Lectures
 * October 8: Stacks and Elimination 
 * October 11: (`Ilya is away`) Skiplists
 
-* October 15: Futures and Work Distribution
+* October 15: Futures and Promises
 * October 18: Data-Parallel Collections
 
 * October 22: Concurrent Reactive Programming 
@@ -61,7 +61,7 @@ Homework Assignments
 * Theory Assignment 3 (Concurrent Objects)
 * Programming Assignment 3 (Blocking Synchronisation)
 * Programming Assignment 4 (Concurrent Lists)
-* Programming Assignment 5 (Futures)
+* Programming Assignment 5 (Futures and Promises)
 * Programming Assignment 6 (Parallel Collections)
 * Mini-Project (Detecting Data Races in Large Projects)
 * Programming Assignment 7 (Reactive Programming and STM)
