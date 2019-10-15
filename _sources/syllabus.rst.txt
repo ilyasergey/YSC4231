@@ -43,7 +43,7 @@ Lectures
 * October 29: Software Transactional Memory
 * November 1: Actor-based concurrency 
 
-* November 5: State-machine replication, Two-Phase Commit
+* November 5: State-machine replication, Vector Clocks 
 * November 8: Fault-Tolerant Distributed Consensus 
 
 * November 12: Byzantine Fault Tolerance and PBFT
