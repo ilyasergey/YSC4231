@@ -63,7 +63,7 @@ Homework Assignments
 * Programming Assignment 4 (Concurrent Lists)
 * Programming Assignment 5 (Futures and Promises)
 * Programming Assignment 6 (Parallel Collections)
-* Mini-Project (Detecting Data Races in Large Projects)
+* Mini-Project (Detecting Data Races in Java Projects)
 * Programming Assignment 7 (Reactive Programming and STM)
 * Programming Assignment 8 (Actors and Distribution)
 
