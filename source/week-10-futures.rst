@@ -5,7 +5,7 @@ Week 10: Futures and Promises
 
 Useful resources:
 
-* `Documentation for Scala futures
+* `Documentation on Scala futures
   <https://docs.scala-lang.org/overviews/core/futures.html>`_
 * `Code with examples
   <https://github.com/ysc3248/ysc3248-examples/tree/10-futures>`_,
