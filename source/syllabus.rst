@@ -35,16 +35,16 @@ Lectures
 * October 11: (`Ilya is away`) Skiplists
 
 * October 15: Futures and Promises
-* October 18: Data-Parallel Collections
+* October 18: Using Data-Parallel Collections
 
-* October 22: Concurrent Reactive Programming 
+* October 22: Implementing Parallel Collections 
 * October 25: (`Ilya is away`) Data Race Detection in Practice
 
 * October 29: Software Transactional Memory
 * November 1: Actor-based concurrency 
 
-* November 5: State-machine replication, Vector Clocks 
-* November 8: Fault-Tolerant Distributed Consensus 
+* November 5: MapReduce and Basics of Cloud Computing
+* November 8: State-Machine Replication and Distributed Consensus 
 
 * November 12: Byzantine Fault Tolerance and PBFT
 * November 15: Blockchain Consensus Protocols. Recap.
@@ -64,7 +64,7 @@ Homework Assignments
 * Programming Assignment 5 (Futures and Promises)
 * Programming Assignment 6 (Parallel Collections)
 * Mini-Project (Detecting Data Races in Java Projects)
-* Programming Assignment 7 (Reactive Programming and STM)
+* Programming Assignment 7 (STM)
 * Programming Assignment 8 (Actors and Distribution)
 
 .. * Programming Assignment 8 (Distributed Consensus)
