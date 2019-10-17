@@ -43,7 +43,7 @@ Lectures
 * October 29: Software Transactional Memory
 * November 1: Actor-based concurrency 
 
-* November 5: MapReduce and Basics of Cloud Computing
+* November 5: Communication between Actors
 * November 8: State-Machine Replication and Distributed Consensus 
 
 * November 12: Byzantine Fault Tolerance and PBFT
@@ -65,7 +65,7 @@ Homework Assignments
 * Programming Assignment 6 (Parallel Collections)
 * Mini-Project (Detecting Data Races in Java Projects)
 * Programming Assignment 7 (STM)
-* Programming Assignment 8 (Actors and Distribution)
+* Programming Assignment 8 (Actors)
 
 .. * Programming Assignment 8 (Distributed Consensus)
 
