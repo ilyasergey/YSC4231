@@ -1,7 +1,7 @@
 .. -*- mode: rst -*-
 
-Week 10: Futures and Promises
-=============================
+Week 10: Data-Parallel Collections
+==================================
 
 Useful resources:
 
@@ -11,15 +11,13 @@ Useful resources:
   <https://github.com/ysc3248/ysc3248-examples/tree/11-parallel>`_,
   package ``parallel``
 
-Summary of the Lecture
-----------------------
-
 A short summary of the files from the accompanying code is given
 below, outlining the characteristic aspects of working with Scala
 Parallel Collections. We suggest you explore the files in the order
-they appear in the following list
+they appear in the following list.
 
-**Using Scala Parallel Collections**
+Using Scala Parallel Collections
+--------------------------------
 
 * ``package object parallel`` --- a package object defining common
   functions used for benchmarking. ``warmedTimed`` is used to take
@@ -57,14 +55,26 @@ they appear in the following list
 * ``ParNonAssociativeOperator`` --- exploting the influence of
   operation associativity when processing parallel collections.
 
-* ``ConcurrentCollectionsWrong`` and ``ConcurrentCollectionsGood`` ---
-  exploring interactions between parallel and concurrent collections.
+..
+   Implementing Parallel Collections
+   ---------------------------------
 
-**Implementing Scala Parallel Collections**
+   * ``ConcurrentCollectionsWrong`` and ``ConcurrentCollectionsGood`` ---
+     exploring interactions between parallel and concurrent collections.
 
-Coming soon!
+   * ``ParString`` --- implementation of a parallel immutable string
 
-Homework
---------
+   * ``ParStringSplitter`` --- Recursive splitter for parallel strings
 
-Coming soon!
+   * ``ParStringSplitterTests`` --- Testing parallel string splitter
+
+   * ``ParStringSplitterBenchmarks`` --- benchmarks for splitters
+
+   * ``ParStringCombinerTests`` --- Testing parallel string combiner
+
+   * ``ParStringCombinerBenchmarks`` --- benchmarks for combiners
+
+   Homework
+   --------
+
+   * `Programming Assignment 6 <_static/resources/programming-06.pdf>`_
