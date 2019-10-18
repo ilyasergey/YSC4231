@@ -7,6 +7,9 @@ Useful resources:
 
 * `Documentation on Scala futures
   <https://docs.scala-lang.org/overviews/core/futures.html>`_
+* Futures and Async: `Slides
+  <https://speakerdeck.com/phaller/futures-and-async-when-to-use-which>`_
+  and `Video <https://www.youtube.com/watch?v=TyuPdFDxkro>`_
 * `Code with examples
   <https://github.com/ysc3248/ysc3248-examples/tree/10-futures>`_,
   package ``futures``
