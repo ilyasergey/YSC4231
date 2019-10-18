@@ -17,7 +17,7 @@ Lectures
 * August 27: Concurrent Objects
 * August 30: Concurrent Objects (continued)
 
-* September 3: Reasoning about consensus in shared memory
+* September 3: Reasoning about Consensus in Shared Memory
 * September 6: Read-Modify-Write Operations
 
 * September 10: Spin Locks
