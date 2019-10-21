@@ -3,32 +3,65 @@
 Week 11: Data Race Detection in Practice
 ========================================
 
-TODO: say about race conditions.
+In this mini research project you'll be working in groups of two. The
+goal of this project is to get you exposed to the state-of-the-art
+tools for finding concurrency bugs in large Java codebases.
 
-Background on Data Races in Java
---------------------------------
+You are not required to be proficient in Java in order to complete
+this project, but you are expected to understand the meaning of Java's
+``synchronized`` keyword and be able to follow the structure of class
+definitions. Given your knowledge of Scala, figuring out those
+relations should be trivial. 
+
+Background: Data Races in Java
+------------------------------
+
+In the previous lectures of this module, we've been primarily
+concerned with implementation of non-trivial concurrent data
+structures and algorithms, most of which features a form of "racing"
+between threads. Such fenomena, called `race conditions` occur
+frequently when multiple concurrent threads try to simultaneously
+perform a certain operations (e.g., grab a lock).
+
+However, if the threads are racing over a memory location that is not
+synchronised (i.e., it is not implemented by means of
+``AtomicInteger`` or a similar class, or isn't protected by a lock),
+it almost certain indicates a bug in the implementation. For instance,
+consider the examples in the lectures, in which a counter has been
+inconsistently incremented due to the missing locks. This situation is
+commonly referred to as a `data race`
 
 According to Oracle's `official documentation
 <https://docs.oracle.com/cd/E19205-01/820-0619/geojs/index.html>`_, a
-data race in concurrent Java code occurs when:
+**data race** in concurrent Java code occurs when:
 
 * two or more threads in a single process access the same memory
-  location (i.e., mutable fields of an object) concurrently, and
+  location (i.e., a mutable field of an object) concurrently, and
 * at least one of the accesses is for writing, and
-* the threads are not using any exclusive locks to control their accesses to that memory.
+* the threads are not using any exclusive locks to control their
+  accesses to that memory.
 
 When these three conditions hold, the order of accesses is
 non-deterministic, and the computation may give different results from
 run to run depending on that order. Some data-races may be benign (for
 example, when the memory access is used to implement locks via fields
-marked as ``volatile``), but many data-races are bugs in the program.
+marked as ``volatile``), but many data-races are bugs in the program. 
 
-TODO: relation to race conditions
+Unfortunately, both notions of `race conditions` and `data races` are
+frequently confused. You might find `this blog post
+<https://dzone.com/articles/race-condition-vs-data-race>`_ helpful to
+disambiguate these definitions and acquire some extra intuition on
+what should be considered data races. In practice, programmers very
+rarely implement their own synchronisation mechanisms, and instead
+rely on library constructions, such as ``ReentrantLock``. Therefore,
+about 90% of the concurrent code written "in the wild" uses standard
+synchronisation mechanisms, and most of the concurrency-related bugs
+are, in fact, data races introduced because of a missing
+synchronisation.
 
-https://dzone.com/articles/race-condition-vs-data-race
-
-https://netjs.blogspot.com/2015/06/race-condition-in-java-multi-threading.html
-
+Luckily for the humanity, such data races often can be identified in
+an automated way via for tools `static program analysis`. This project
+is dedicated to interaction with one of such tools.
 
 The Tool: Facebook Infer
 ------------------------
@@ -36,18 +69,18 @@ The Tool: Facebook Infer
 We will be using `Facebook Infer <https://fbinfer.com>`_ as a tool for
 static data race detection in large Java projects. Infer provides a
 large suite of analyses for Java code, but we will only need its data
-race detector, aka RacerD. You can find the necessary documentation on
-installing and using the relevant parts of Infer by the following
-links:
+race detector, known as **RacerD**. You can find the necessary
+documentation on installing and using the relevant parts of Infer by
+the following links:
 
 * `Installing Facebook Infer <https://fbinfer.com/docs/getting-started.html>`_
 * `RacerD documentation and examples
   <https://fbinfer.com/docs/racerd.html>`_
 
-As a part of this assignment, please, read of the following research
+As a part of this assignment, please, check out the following research
 paper, which introduces pragmatics of Infer's RacerD component and
 provides a number of examples. You don't have to understand all the
-details of Section 5 or follow the details of the experiments, just
+details of Section 5 or follow the specifics of the experiments, just
 look for a general intuition on how the analysis reports data races.
 
 * `RacerD: Compositional Static Race Detection
@@ -86,12 +119,12 @@ As an example of a simple data race, consider the following Java code::
   class A { int f = 0; }
 
 In order to compile this code to JVM's ``.class`` binary file, you
-need to save it in the file ``Racy.java`` and then infoke the
+need to save it in the file ``Racy.java`` and then invoke the
 following command from the terminal::
 
   javac Racy.java
 
-The code should compile without error. 
+The code should compile without errors. 
 
 The class ``Racy`` can be potentially used as a library in a
 multi-threaded environment (which is determined by the fat that it has
@@ -135,15 +168,15 @@ introducing more synchronisation?
 The Task
 --------
 
-Your goal for in this assignment is to hunt and explore data races in
-large real-world programs written in Java. You can find a list of such
-projects below, or find some others on your own.  
+Your goal for in this assignment is to hunt donw and explore data
+races in large real-world Java projects. A list of some of such
+projects is given below, but you may also find some on your own.
 
 Working in groups of two, by using Infer/RacerD you will have to
 locate **five distinct** data races in one or more large projects,
 explain the reasons why the analyser considers them such, and provide
 a tentative solution on how they could be fixed. If the races cannot
-be fixed easily (e.g., just by wrapping a Java method to
+be fixed easily (e.g., just by declaring a Java method as
 ``synchronized``), outline your ideas on what prevents one from doing
 so. The result of your project should a PDF document that contains:
 
@@ -152,17 +185,19 @@ so. The result of your project should a PDF document that contains:
   is beneficial there? 
 
 * Descriptions of 5 data races (possibly spanning multiple projects),
-  each complemented with a short story as described above.
+  each complemented with a short story as described above. Some
+  variations on what is reported are possible, as described below.
 
 * If applicable, a quick enumeration of the technical issues
-  encountered during this project (to help the future generations).
+  encountered while working on this project (to help the future
+  generations).
 
 Open-Source Java Projects with Concurrency
 ------------------------------------------
 
 Below is a list of some real-world Java projects using concurrency.
 Most of them contain data races. Feel free to pick one or more of them
-to explore for your assignment.
+to explore in our data race study.
 
 * https://github.com/OpenHFT/Chronicle-Map
 * https://github.com/ibr-cm/avrora
@@ -185,12 +220,13 @@ Running RacerD on Custom Projects
 ---------------------------------
 
 The suggested large projects can be built from scratch using one of
-the following three systems for Java. Ensure that the necessary system
-is first installed as command-line tool. In most of the cases it can
-be done simply by using the package manager of your operating system
-(e.g., ``brew`` for Mac OS X). The kind of build system used by a
-particular project is determined by a `building descriptor file` (or
-simply `buildfile`) that can be located in the project root folder:
+the following three build-systems for Java. Make sure that the
+necessary build tool is installed and can be run from the command
+line. In most of the cases it can be done simply by using the package
+manager of your operating system (e.g., ``brew`` for Mac OS X). The
+kind of build system used by a particular project is determined by a
+`building descriptor file` (or simply `buildfile`) that can be located
+in the project root folder:
 
 * `Ant <https://ant.apache.org/manual/install.html>`_ (buildfile
   ``build.xml``) --- one of the oldest build systems for Java, which
@@ -203,19 +239,20 @@ simply `buildfile`) that can be located in the project root folder:
   Scala's SBT. To compile a project, run ``mvn compile``. To clean the
   project from the results of the compilation, run ``mvn clean``.
 
-* `Gradle <https://gradle.org/install/>`_ (buildfile
-  ``build.gradle``) --- to build, run ``./gradlew build`` from the
-  project root. To clean, run ``./gradlew clean``.
+* `Gradle <https://gradle.org/install/>`_ (buildfile ``build.gradle``)
+  --- a build system based on the Groovy programming language. To
+  build, run ``./gradlew build`` from the project root. To clean, run
+  ``./gradlew clean``.
 
-Please, check the ``README`` files of the corresponding projects for
-further instructions.
+Check the ``README`` files of the corresponding projects for specific
+instructions.
 
-To make Infer/RacerD analyse a custom project, you need to "attach" it to
-the building process. To do so, make sure that you run it on a project
-that has not been compiled yet (or whose compiled files have been
-removed via, e.g., ``ant clean`` in the case of ``ant``). If you don't
-ensure this, RacerD will most likely not report any results. To run
-the analysis attached to a building process, run the following
+To make Infer/RacerD analyse a custom project, you need to "attach" it
+to the compilation process. To do so, make sure that you run it on a
+project that has not been compiled yet (or whose compiled files have
+been removed via, e.g., ``ant clean`` in the case of ``ant``). If you
+don't ensure this, RacerD will most likely not report any results. To
+run the analysis attached to a building process, run the following
 command::
 
   infer --racerd-only -- <build-command>
@@ -275,7 +312,7 @@ Here are some hints and comments on how to approach this assignment.
   you may pick as many projects as necessary to describe in your
   report.
 
-* You **don't** have to understand what ``exactly`` the analysed code
+* You **don't** have to understand what `exactly` the analysed code
   does. It's perfectly fine if you explain an error in terms of
   fields/classes it affects, without explaining what purpose those
   classes serve. It is, in fact, quite frequent in large development
@@ -288,17 +325,29 @@ Here are some hints and comments on how to approach this assignment.
   identify such fragments (which is typically harder than confirming a
   race) and provide reasoning on why a certain report is a false
   positive, feel free to use it instead of one of the race report.
-  That said, **at least one** of your reports should be about a **true
-  race** detected by the analyser.
+  That said, **at least one** of your reports should be about what you
+  consider to be **true race** detected by the analyser.
 
-* Infer is just another program. Sometimes it might crash, in which
-  case it is suggested you abandon a specific project that causes it
-  to do so and try another one. Also, don't spend to much time on a
-  project you can't compile.
+* Related to the previous, some of the races reported by the tool can
+  be `benign`, e.g., used for implementation of custom synchronisation
+  mechanisms via atomic or ``volatile`` variable. If you manage to
+  identify any properly describe one of those, feel free to use it in
+  your report (instead of a proper data race report).
+
+* Infer/RacerD is just another program, and it may contain bugs
+  itself. Sometimes it might crash, in which case it is suggested you
+  abandon a specific project that causes it to do so and try another
+  one. Also, don't spend to much time on a project you can't compile.
 
 * When looking for more projects on GitHub that have concurrency in
   them, it's a good strategy to check if they use ``synchronized``
-  statements or ``ThreadSafe`` annotations.
+  statements or ``@ThreadSafe`` annotations.
+
+* Don't worry to make a mistake when determining whether the race is a
+  true one. This is an exploratory project, aimed to give you
+  experience with bug detection at scale. That said, you are expected
+  to do your best when explaining the nature of the bugs. Just
+  copying-pasting RacerD report won't do it.
 
 * Don't worry if the legitimate data races you're describing are not
   so "interesting" and look like silly programming mistakes. Most of

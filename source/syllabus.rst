@@ -62,11 +62,11 @@ Homework Assignments
 * Programming Assignment 3 (Blocking Synchronisation)
 * Programming Assignment 4 (Concurrent Lists)
 * Programming Assignment 5 (Futures and Promises)
-* Programming Assignment 6 (Parallel Collections)
 * Mini-Project (Detecting Data Races in Java Projects)
-* Programming Assignment 7 (STM)
-* Programming Assignment 8 (Actors)
+* Programming Assignment 6 (Parallel Collections)
+* Programming Assignment 7 (Actors)
 
+.. * Programming Assignment 7 (STM)
 .. * Programming Assignment 8 (Distributed Consensus)
 
 
