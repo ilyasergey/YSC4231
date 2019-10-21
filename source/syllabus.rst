@@ -35,21 +35,21 @@ Lectures
 * October 11: (`Ilya is away`) Skiplists
 
 * October 15: Futures and Promises
-* October 18: Using Data-Parallel Collections
+* October 18: Promises 
 
-* October 22: Implementing Parallel Collections 
+* October 22: Using Data-Parallel Collections 
 * October 25: (`Ilya is away`) Data Race Detection in Practice
 
-* October 29: Software Transactional Memory
-* November 1: Actor-based concurrency 
+* October 29: Implementing Parallel Collections  
+* November 1: Actor-Based Concurrency 
 
 * November 5: Communication between Actors
-* November 8: State-Machine Replication and Distributed Consensus 
+* November 8: Software Transactional Memory 
 
-* November 12: Byzantine Fault Tolerance and PBFT
+* November 12: State-Machine Replication and Distributed Consensus  
 * November 15: Blockchain Consensus Protocols. Recap.
 
-**Final Project: Theory and Programming**
+**Final Project**
 
 Homework Assignments
 --------------------
@@ -68,5 +68,5 @@ Homework Assignments
 
 .. * Programming Assignment 7 (STM)
 .. * Programming Assignment 8 (Distributed Consensus)
-
+.. Byzantine Fault Tolerance and PBFT
 

@@ -22,10 +22,8 @@ Parallel, Concurrent and Distributed Programming
    week-09-stacks
    week-09-skiplists
    week-10-futures
-   week-11-races
+.. week-11-races
 .. week-11-parallel
-
-
 
 More lecture notes are coming soon!
 
