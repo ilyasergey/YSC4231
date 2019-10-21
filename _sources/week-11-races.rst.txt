@@ -343,11 +343,11 @@ Here are some hints and comments on how to approach this assignment.
   them, it's a good strategy to check if they use ``synchronized``
   statements or ``@ThreadSafe`` annotations.
 
-* Don't worry to make a mistake when determining whether the race is a
-  true one. This is an exploratory project, aimed to give you
-  experience with bug detection at scale. That said, you are expected
-  to do your best when explaining the nature of the bugs. Just
-  copying-pasting RacerD report won't do it.
+* Don't worry about confirming a data race reported by RacerD as a
+  true one (in case if it's not). This is an exploratory project,
+  aimed to give you experience with bug detection at scale. That said,
+  you are expected to do your best when explaining the nature of the
+  bugs. Just copying-pasting RacerD report won't do it.
 
 * Don't worry if the legitimate data races you're describing are not
   so "interesting" and look like silly programming mistakes. Most of

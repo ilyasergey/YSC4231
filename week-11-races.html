@@ -463,11 +463,11 @@ one. Also, don’t spend to much time on a project you can’t compile.</li>
 <li>When looking for more projects on GitHub that have concurrency in
 them, it’s a good strategy to check if they use <code class="docutils literal notranslate"><span class="pre">synchronized</span></code>
 statements or <code class="docutils literal notranslate"><span class="pre">&#64;ThreadSafe</span></code> annotations.</li>
-<li>Don’t worry to make a mistake when determining whether the race is a
-true one. This is an exploratory project, aimed to give you
-experience with bug detection at scale. That said, you are expected
-to do your best when explaining the nature of the bugs. Just
-copying-pasting RacerD report won’t do it.</li>
+<li>Don’t worry about confirming a data race reported by RacerD as a
+true one (in case if it’s not). This is an exploratory project,
+aimed to give you experience with bug detection at scale. That said,
+you are expected to do your best when explaining the nature of the
+bugs. Just copying-pasting RacerD report won’t do it.</li>
 <li>Don’t worry if the legitimate data races you’re describing are not
 so “interesting” and look like silly programming mistakes. Most of
 the real-life bugs are quite silly (and if they weren’t we couldn’t
