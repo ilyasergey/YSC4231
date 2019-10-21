@@ -34,7 +34,7 @@ Lectures
 * October 8: Stacks and Elimination 
 * October 11: (`Ilya is away`) Skiplists
 
-* October 15: Futures and Promises
+* October 15: Futures in Java and Scala
 * October 18: Promises 
 
 * October 22: Using Data-Parallel Collections 
