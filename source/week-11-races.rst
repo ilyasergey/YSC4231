@@ -145,56 +145,17 @@ explain the reasons why the analyser considers them such, and provide
 a tentative solution on how they could be fixed. If the races cannot
 be fixed easily (e.g., just by wrapping a Java method to
 ``synchronized``), outline your ideas on what prevents one from doing
-so. Submit your observations and explanations of the bugs in a PDF
-document by the deadline.
+so. The result of your project should a PDF document that contains:
 
-Here are some hints and comments on this assignment.
+* A short report on the chosen Java projects. For instance, which
+  parts of the projects utilise concurrency, and why do you think it
+  is beneficial there? 
 
-* It is suggested that you team up with someone who uses a different
-  OS than you (e.g., Mac OS and Linux) to cater for the situations
-  when building a project or running Infer is impossible due to
-  system-specific reasons. It is perfectly fine if just one of the
-  teammates obtains the report, and they you split the workload on
-  code triaging for bugs.
+* Descriptions of 5 data races (possibly spanning multiple projects),
+  each complemented with a short story as described above.
 
-* Please, allocate sufficient time to install Infer and build some of
-  the projects and be prepared to resolve the issues with missing
-  libraries and/or dependencies. Solving those might take **much
-  longer** than you'd expect!
-
-* Your reported data race don't have all come from the same project:
-  you may pick as many projects as necessary to describe in your
-  report.
-
-* Don't worry if the legitimate data races you're describing are not
-  so "interesting" and look like silly programming mistakes. Most of
-  the real-life bugs are quite silly (and if they weren't we couldn't
-  have automated tools to discover them so efficiently).
-
-* You **don't** have to understand what exactly the analysed code
-  does. It's perfectly fine if you explain an error in terms of
-  fields/classes it affects, without explaining what purpose those
-  classes serve. It is, in fact, quite frequent in large development
-  to fix bugs in someone else's code without fully understanding what
-  it does but just following some predefined strategies (nowadays some
-  bugs can be even fixed automatically!).
-
-* Beware that Infer/RacerD can give `false positives`, i.e., report
-  some code as being racy, whereas in fact it is not. If you manage to
-  identify such fragments (which is typically harder than confirming a
-  race) and provide reasoning on why a certain report is a false
-  positive, feel free to use it instead of one of the race report.
-  That said, **at least one** of your reports should be about a **true
-  race** detected by the analyser.
-
-* Infer is just another program. Sometimes it might crash, in which
-  case it is suggested you abandon a specific project that causes it
-  to do so and try another one. Also, don't spend to much time on a
-  project you can't compile.
-
-* When looking for more projects on GitHub that have concurrency in
-  them, it's a good strategy to check if they use ``synchronized``
-  statements or ``ThreadSafe`` annotations.
+* If applicable, a quick enumeration of the technical issues
+  encountered during this project (to help the future generations).
 
 Open-Source Java Projects with Concurrency
 ------------------------------------------
@@ -292,6 +253,57 @@ correctly to the foldere with sources and the compiled
 
 As previously shown, all results of the analysis run are collected in
 the file ``bugs.txt`` under the locally created folder ``infer-out``.
+
+Tips and Tricks
+---------------
+
+Here are some hints and comments on how to approach this assignment.
+
+* It is suggested that you team up with someone who uses a different
+  OS than you (e.g., Mac OS and Linux) to cater for the situations
+  when building a project or running Infer is impossible due to
+  system-specific reasons. It is perfectly fine if just one of the
+  teammates obtains the report, and they you split the workload on
+  code triaging for bugs.
+
+* Please, allocate sufficient time to install Infer and build some of
+  the projects and be prepared to resolve the issues with missing
+  libraries and/or dependencies. Solving those might take **much
+  longer** than you'd expect!
+
+* Your reported data race don't have all come from the same project:
+  you may pick as many projects as necessary to describe in your
+  report.
+
+* You **don't** have to understand what ``exactly`` the analysed code
+  does. It's perfectly fine if you explain an error in terms of
+  fields/classes it affects, without explaining what purpose those
+  classes serve. It is, in fact, quite frequent in large development
+  to fix bugs in someone else's code without fully understanding what
+  it does but just following some predefined strategies (nowadays some
+  bugs can be even fixed automatically!).
+
+* Beware that Infer/RacerD can give `false positives`, i.e., report
+  some code as being racy, whereas in fact it is not. If you manage to
+  identify such fragments (which is typically harder than confirming a
+  race) and provide reasoning on why a certain report is a false
+  positive, feel free to use it instead of one of the race report.
+  That said, **at least one** of your reports should be about a **true
+  race** detected by the analyser.
+
+* Infer is just another program. Sometimes it might crash, in which
+  case it is suggested you abandon a specific project that causes it
+  to do so and try another one. Also, don't spend to much time on a
+  project you can't compile.
+
+* When looking for more projects on GitHub that have concurrency in
+  them, it's a good strategy to check if they use ``synchronized``
+  statements or ``ThreadSafe`` annotations.
+
+* Don't worry if the legitimate data races you're describing are not
+  so "interesting" and look like silly programming mistakes. Most of
+  the real-life bugs are quite silly (and if they weren't we couldn't
+  have nice automated tools that discover them so efficiently).
 
 Further Reading
 ---------------
