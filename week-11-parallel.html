@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>1. Course Syllabus &mdash; YSC3248 2019</title>
+  <title>Week 11: Data-Parallel Collections &mdash; YSC3248 2019</title>
   
 
   
@@ -28,9 +28,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="2. Software Prerequisites" href="prerequisites.html" />
-    <link rel="prev" title="Parallel, Concurrent and Distributed Programming" href="index.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -79,12 +77,8 @@
               
             
             
-              <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">1. Course Syllabus</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#lectures">1.1. Lectures</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#homework-assignments">1.2. Homework Assignments</a></li>
-</ul>
-</li>
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="syllabus.html">1. Course Syllabus</a></li>
 <li class="toctree-l1"><a class="reference internal" href="prerequisites.html">2. Software Prerequisites</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week-01-intro.html">3. Week 01: Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week-01-mutex.html">4. Week 01: Mutual Exclusion</a></li>
@@ -146,7 +140,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>1. Course Syllabus</li>
+      <li>Week 11: Data-Parallel Collections</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -163,58 +157,46 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="course-syllabus">
-<h1>1. Course Syllabus<a class="headerlink" href="#course-syllabus" title="Permalink to this headline">¶</a></h1>
-<p>The list of topics below is a subject of possible minor changes.</p>
-<div class="section" id="lectures">
-<h2>1.1. Lectures<a class="headerlink" href="#lectures" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="week-11-data-parallel-collections">
+<h1>Week 11: Data-Parallel Collections<a class="headerlink" href="#week-11-data-parallel-collections" title="Permalink to this headline">¶</a></h1>
+<p>Useful resources:</p>
 <ul class="simple">
-<li>August 13: Introduction: What this course is about.</li>
-<li>August 16: Mutual Exclusion</li>
-<li>August 20: (<cite>Ilya is away</cite>) Functional and Imperative Programming in Scala</li>
-<li>August 23: Mutual Exclusion (continued)</li>
-<li>August 27: Concurrent Objects</li>
-<li>August 30: Concurrent Objects (continued)</li>
-<li>September 3: Reasoning about Consensus in Shared Memory</li>
-<li>September 6: Read-Modify-Write Operations</li>
-<li>September 10: Spin Locks</li>
-<li>September 13: Monitors and Semaphores</li>
-<li>September 17: Read-Write Locks and Linked Lists</li>
-<li>September 20: Linked Lists (Continued)</li>
+<li><a class="reference external" href="https://docs.scala-lang.org/overviews/parallel-collections/overview.html">Documentation for Scala Parallel Collections</a></li>
+<li><a class="reference external" href="https://github.com/ysc3248/ysc3248-examples/tree/11-parallel">Code with examples</a>,
+package <code class="docutils literal notranslate"><span class="pre">parallel</span></code></li>
 </ul>
-<p><strong>Mid-Term Break: Project (Theory and Programming)</strong></p>
+<p>A short summary of the files from the accompanying code is given
+below, outlining the characteristic aspects of working with Scala
+Parallel Collections. We suggest you explore the files in the order
+they appear in the following list.</p>
+<div class="section" id="using-scala-parallel-collections">
+<h2>Using Scala Parallel Collections<a class="headerlink" href="#using-scala-parallel-collections" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>October 1: Linked Lists (Still continued)</li>
-<li>October 4: Concurrent Queues</li>
-<li>October 8: Stacks and Elimination</li>
-<li>October 11: (<cite>Ilya is away</cite>) Skiplists</li>
-<li>October 15: Futures and Promises</li>
-<li>October 18: Promises</li>
-<li>October 22: Using Data-Parallel Collections</li>
-<li>October 25: (<cite>Ilya is away</cite>) Data Race Detection in Practice</li>
-<li>October 29: Implementing Parallel Collections</li>
-<li>November 1: Actor-Based Concurrency</li>
-<li>November 5: Communication between Actors</li>
-<li>November 8: Software Transactional Memory</li>
-<li>November 12: State-Machine Replication and Distributed Consensus</li>
-<li>November 15: Blockchain Consensus Protocols. Recap.</li>
-</ul>
-<p><strong>Final Project</strong></p>
-</div>
-<div class="section" id="homework-assignments">
-<h2>1.2. Homework Assignments<a class="headerlink" href="#homework-assignments" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li>Theory Assignment 1 (Intro)</li>
-<li>Programming Assignment 1 (Scala Basics)</li>
-<li>Theory Assignment 2 (Mutual Exclusion)</li>
-<li>Programming Assignment 2 (Mutual Exclusion)</li>
-<li>Theory Assignment 3 (Concurrent Objects)</li>
-<li>Programming Assignment 3 (Blocking Synchronisation)</li>
-<li>Programming Assignment 4 (Concurrent Lists)</li>
-<li>Programming Assignment 5 (Futures and Promises)</li>
-<li>Mini-Project (Detecting Data Races in Java Projects)</li>
-<li>Programming Assignment 6 (Parallel Collections)</li>
-<li>Programming Assignment 7 (Actors)</li>
+<li><code class="docutils literal notranslate"><span class="pre">package</span> <span class="pre">object</span> <span class="pre">parallel</span></code> — a package object defining common
+functions used for benchmarking. <code class="docutils literal notranslate"><span class="pre">warmedTimed</span></code> is used to take
+advantage of JIT-based speed-up.</li>
+<li><code class="docutils literal notranslate"><span class="pre">ParDemoTimed</span></code> — showcasing a simple parallel collection
+example. Notice the oddities with timing parallel vs. sequential
+execution.</li>
+<li><code class="docutils literal notranslate"><span class="pre">ParDemoWarmed</span></code> — the same as before, but now with warmed-up
+times, hence a better comparison.</li>
+<li><code class="docutils literal notranslate"><span class="pre">ParConfig</span></code> — controlling the level of parallelism for a
+collection.</li>
+<li><code class="docutils literal notranslate"><span class="pre">GoodParallelism</span></code> — showcasing an operation that allows for good
+parallelism.</li>
+<li><code class="docutils literal notranslate"><span class="pre">BadParallelism</span></code> — a case of a bad parallel speed-up (or the
+lack thereof) due to introduced contention in the operation applied
+to a collection.</li>
+<li><code class="docutils literal notranslate"><span class="pre">NonParallelizableCollections</span></code> — comparing the inherent
+parallelism in different collections.</li>
+<li><code class="docutils literal notranslate"><span class="pre">NonParallelizableOperations</span></code> — analysing parallelism allowed by
+certain operations.</li>
+<li><code class="docutils literal notranslate"><span class="pre">ParSideEffectsIncorrect</span></code> and <code class="docutils literal notranslate"><span class="pre">ParSideEffectsCorrect</span></code> —
+parallel processing in the presence of side effects.</li>
+<li><code class="docutils literal notranslate"><span class="pre">ParNonCommutativeOperator</span></code> — exploting the effects of
+commutativity in parallel collections.</li>
+<li><code class="docutils literal notranslate"><span class="pre">ParNonAssociativeOperator</span></code> — exploting the influence of
+operation associativity when processing parallel collections.</li>
 </ul>
 </div>
 </div>
@@ -224,15 +206,6 @@
            
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="prerequisites.html" class="btn btn-neutral float-right" title="2. Software Prerequisites" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="index.html" class="btn btn-neutral" title="Parallel, Concurrent and Distributed Programming" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>

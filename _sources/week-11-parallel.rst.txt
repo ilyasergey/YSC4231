@@ -1,6 +1,6 @@
 .. -*- mode: rst -*-
 
-Week 10: Data-Parallel Collections
+Week 11: Data-Parallel Collections
 ==================================
 
 Useful resources:
