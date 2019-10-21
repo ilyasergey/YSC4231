@@ -3,22 +3,64 @@
 Week 11: Data Race Detection in Practice
 ========================================
 
+TODO: say about race conditions.
 
 Background on Data Races in Java
 --------------------------------
 
-TODO
+According to Oracle's `official documentation
+<https://docs.oracle.com/cd/E19205-01/820-0619/geojs/index.html>`_, a
+data race in concurrent Java code occurs when:
 
-Resources:
+* two or more threads in a single process access the same memory
+  location (i.e., mutable fields of an object) concurrently, and
+* at least one of the accesses is for writing, and
+* the threads are not using any exclusive locks to control their accesses to that memory.
+
+When these three conditions hold, the order of accesses is
+non-deterministic, and the computation may give different results from
+run to run depending on that order. Some data-races may be benign (for
+example, when the memory access is used to implement locks via fields
+marked as ``volatile``), but many data-races are bugs in the program.
+
+TODO: relation to race conditions
+
+https://dzone.com/articles/race-condition-vs-data-race
+
+https://netjs.blogspot.com/2015/06/race-condition-in-java-multi-threading.html
+
+
+The Tool: Facebook Infer
+------------------------
+
+We will be using `Facebook Infer <https://fbinfer.com>`_ as a tool for
+static data race detection in large Java projects. Infer provides a
+large suite of analyses for Java code, but we will only need its data
+race detector, aka RacerD. You can find the necessary documentation on
+installing and using the relevant parts of Infer by the following
+links:
 
 * `Installing Facebook Infer <https://fbinfer.com/docs/getting-started.html>`_
-* `RacerD Documentation <https://fbinfer.com/docs/racerd.html>`_
-* TODO: Some papers
+* `RacerD documentation and examples
+  <https://fbinfer.com/docs/racerd.html>`_
+
+As a part of this assignment, please, read of the following research
+paper, which introduces pragmatics of Infer's RacerD component and
+provides a number of examples. You don't have to understand all the
+details of Section 5 or follow the details of the experiments, just
+look for a general intuition on how the analysis reports data races.
+
+* `RacerD: Compositional Static Race Detection
+  <https://ilyasergey.net/papers/racerd-oopsla18.pdf>`_
+
+You may also find it useful to watch the accompanying video of the
+`conference talk <https://www.youtube.com/watch?v=1fnUTMMQ5y0>`_ on
+RacerD.
 
 Example of a Racy Java Class
 ----------------------------
 
-For instance, the following Java file containing three classes::
+As an example of a simple data race, consider the following Java code::
 
   public class Racy {
     public void foo(B b) {
@@ -51,8 +93,14 @@ following command from the terminal::
 
 The code should compile without error. 
 
-Noe let's delete the compiled ``.class`` file and re-run the
-compilation of ``Racy.java`` with Infer/RacerD::
+The class ``Racy`` can be potentially used as a library in a
+multi-threaded environment (which is determined by the fat that it has
+``synchronized`` modifiers in it), and, as such, it contains a data
+race, manifested by some of involved objects' mutable fields being
+potentially accessed without synchronisation.
+
+To confirm that, let's delete the compiled ``.class`` file and re-run
+the compilation of ``Racy.java`` with Infer/RacerD::
 
   infer --racerd-only -- javac Racy.java
 
@@ -161,7 +209,6 @@ to explore for your assignment.
 * https://github.com/apache/xalan-j
 * https://github.com/ReactiveX/RxJava
 * https://github.com/adammurdoch/native-platform
-
 * https://github.com/aws/aws-sdk-java
 
 The projects were chosen for the facts that they extensively use
@@ -184,18 +231,18 @@ be done simply by using the package manager of your operating system
 particular project is determined by a `building descriptor file` (or
 simply `buildfile`) that can be located in the project root folder:
 
-* `**Ant** <https://ant.apache.org/manual/install.html>`_ (buildfile
+* `Ant <https://ant.apache.org/manual/install.html>`_ (buildfile
   ``build.xml``) --- one of the oldest build systems for Java, which
   is rarely used nowadays. In order to build a project, you typically
   only need to run ``ant`` from the terminal. To remove all compiled
   files, run ``ant clean``.
 
-* `**Maven** <https://maven.apache.org/install.html>`_ (buildfile
+* `Maven <https://maven.apache.org/install.html>`_ (buildfile
   ``pom.xml``) --- a more advanced build system, similar in spirit to
   Scala's SBT. To compile a project, run ``mvn compile``. To clean the
   project from the results of the compilation, run ``mvn clean``.
 
-* `**Gradle** <https://gradle.org/install/>`_ (buildfile
+* `Gradle <https://gradle.org/install/>`_ (buildfile
   ``build.gradle``) --- to build, run ``./gradlew build`` from the
   project root. To clean, run ``./gradlew clean``.
 
@@ -232,7 +279,7 @@ to build them, not following one of the patterns above. In this case,
 you will need to provide the command line that is supposed to build
 the project as a replacement of ``<build-command>`` in the template
 above. If the compilation of the project fails, you still might be
-able to aprtially analyse it if adding the flag ``--kepp-going`` to
+able to partially analyse it if adding the flag ``--kepp-going`` to
 the command ``infer --racerd-only``::
 
   infer --racerd-only --keep-going -- <build-command>
@@ -246,8 +293,17 @@ correctly to the foldere with sources and the compiled
 As previously shown, all results of the analysis run are collected in
 the file ``bugs.txt`` under the locally created folder ``infer-out``.
 
-Additional Reading
-------------------
+Further Reading
+---------------
 
-TODO
+If you are interested in the state of the art in the research on data
+race detection, as well as on static analyses of production code, you
+might also want to check the following research papers:
+
+* The `Context and Selected Related Work` section of `RacerD documentation <https://fbinfer.com/docs/racerd.html>`_
+* `ThreadSanitizer – data race detection in practice <https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/35604.pdf>`_
+* `FastTrack: Efficient and Precise Dynamic Race Detection <https://users.soe.ucsc.edu/~cormac/papers/pldi09.pdf>`_
+* `Lessons from Building Static Analysis Tools at Google
+  <https://ai.google/research/pubs/pub46576>`_
+* `Scaling Static Analyses at Facebook <https://cacm.acm.org/magazines/2019/8/238344-scaling-static-analyses-at-facebook/fulltext>`_
 
