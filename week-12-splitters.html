@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>14. Week 08: Concurrent Queues and the ABA Problem &mdash; YSC3248 2019</title>
+  <title>Week 12: Splitters and Combiners for Parallel Collections &mdash; YSC3248 2019</title>
   
 
   
@@ -28,9 +28,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="15. Week 09: Concurrent Stacks and Elimination" href="week-09-stacks.html" />
-    <link rel="prev" title="13. Week 07: Midterm Project" href="week-07-midterm-project.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -79,7 +77,7 @@
               
             
             
-              <ul class="current">
+              <ul>
 <li class="toctree-l1"><a class="reference internal" href="syllabus.html">1. Course Syllabus</a></li>
 <li class="toctree-l1"><a class="reference internal" href="prerequisites.html">2. Software Prerequisites</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week-01-intro.html">3. Week 01: Introduction</a></li>
@@ -93,7 +91,7 @@
 <li class="toctree-l1"><a class="reference internal" href="week-06-rw-lists.html">11. Week 06: Read-Write Locking and Linked Lists</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week-06-fine-lists.html">12. Week 06: Lists (Continued) and Fine-Grained Locking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week-07-midterm-project.html">13. Week 07: Midterm Project</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">14. Week 08: Concurrent Queues and the ABA Problem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week-08-queues.html">14. Week 08: Concurrent Queues and the ABA Problem</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week-09-stacks.html">15. Week 09: Concurrent Stacks and Elimination</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week-09-skiplists.html">16. Week 09: Skiplists</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week-10-futures.html">17. Week 10: Futures and Promises</a></li>
@@ -144,7 +142,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>14. Week 08: Concurrent Queues and the ABA Problem</li>
+      <li>Week 12: Splitters and Combiners for Parallel Collections</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -161,13 +159,43 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="week-08-concurrent-queues-and-the-aba-problem">
-<h1>14. Week 08: Concurrent Queues and the ABA Problem<a class="headerlink" href="#week-08-concurrent-queues-and-the-aba-problem" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="week-12-splitters-and-combiners-for-parallel-collections">
+<h1>Week 12: Splitters and Combiners for Parallel Collections<a class="headerlink" href="#week-12-splitters-and-combiners-for-parallel-collections" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="useful-resources">
+<h2>Useful Resources<a class="headerlink" href="#useful-resources" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><a class="reference external" href="_static/resources/ysc3248-week-08-queues.pdf">Lecture Slides</a></li>
-<li><a class="reference external" href="https://github.com/ysc3248/ysc3248-examples/tree/07-queues">Code with examples</a>,
-package <code class="docutils literal notranslate"><span class="pre">queues</span></code></li>
+<li><a class="reference external" href="https://docs.scala-lang.org/overviews/parallel-collections/overview.html">Documentation for Scala Parallel Collections</a></li>
+<li><a class="reference external" href="https://github.com/ysc3248/ysc3248-examples/tree/11-parallel">Code with examples</a>,
+package <code class="docutils literal notranslate"><span class="pre">parallel</span></code></li>
 </ul>
+</div>
+<div class="section" id="code-commentary">
+<h2>Code Commentary<a class="headerlink" href="#code-commentary" title="Permalink to this headline">¶</a></h2>
+<p>A short summary of the files from the accompanying code is given
+below, outlining the characteristic aspects of working with Scala
+Parallel Collections. We suggest you explore the files in the order
+they appear in the following list.</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">ParNonCommutativeOperator</span></code> — exploting the effects of
+commutativity in parallel collections.</li>
+<li><code class="docutils literal notranslate"><span class="pre">ParNonAssociativeOperator</span></code> — exploting the influence of
+operation associativity when processing parallel collections.</li>
+<li><code class="docutils literal notranslate"><span class="pre">ConcurrentCollectionsWrong</span></code> and <code class="docutils literal notranslate"><span class="pre">ConcurrentCollectionsGood</span></code> —
+exploring interactions between parallel and concurrent collections.</li>
+<li><code class="docutils literal notranslate"><span class="pre">ParString</span></code> — implementation of a parallel immutable string</li>
+<li><code class="docutils literal notranslate"><span class="pre">ParStringSplitter</span></code> — Recursive splitter for parallel strings</li>
+<li><code class="docutils literal notranslate"><span class="pre">ParStringSplitterTests</span></code> — Testing parallel string splitter</li>
+<li><code class="docutils literal notranslate"><span class="pre">ParStringSplitterBenchmarks</span></code> — benchmarks for splitters</li>
+<li><code class="docutils literal notranslate"><span class="pre">ParStringCombinerTests</span></code> — Testing parallel string combiner</li>
+<li><code class="docutils literal notranslate"><span class="pre">ParStringCombinerBenchmarks</span></code> — benchmarks for combiners</li>
+</ul>
+</div>
+<div class="section" id="homework">
+<h2>Homework<a class="headerlink" href="#homework" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="_static/resources/programming-06.pdf">Programming Assignment 6</a></li>
+</ul>
+</div>
 </div>
 
 
@@ -175,15 +203,6 @@ package <code class="docutils literal notranslate"><span class="pre">queues</spa
            
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="week-09-stacks.html" class="btn btn-neutral float-right" title="15. Week 09: Concurrent Stacks and Elimination" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="week-07-midterm-project.html" class="btn btn-neutral" title="13. Week 07: Midterm Project" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>
