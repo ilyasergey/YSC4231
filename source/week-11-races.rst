@@ -186,7 +186,7 @@ so. The result of your project should a PDF document that contains:
 
 * Descriptions of 5 data races (possibly spanning multiple projects),
   each complemented with a short story as described above. Some
-  variations on what is reported are possible, as described below.
+  variations on what is reported are possibler and are described below.
 
 * If applicable, a quick enumeration of the technical issues
   encountered while working on this project (to help the future
