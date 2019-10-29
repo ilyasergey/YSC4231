@@ -337,7 +337,7 @@ Here are some hints and comments on how to approach this assignment.
 * Infer/RacerD is just another program, and it may contain bugs
   itself. Sometimes it might crash, in which case it is suggested you
   abandon a specific project that causes it to do so and try another
-  one. Also, don't spend to much time on a project you can't compile.
+  one. Also, don't spend too much time on a project you can't compile.
 
 * When looking for more projects on GitHub that have concurrency in
   them, it's a good strategy to check if they use ``synchronized``
