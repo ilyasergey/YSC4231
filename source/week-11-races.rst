@@ -17,7 +17,7 @@ Background: Data Races in Java
 ------------------------------
 
 In the previous lectures of this module, we've been primarily
-concerned with implementation of non-trivial concurrent data
+concerned with implementations of non-trivial concurrent data
 structures and algorithms, most of which features a form of "racing"
 between threads. Such fenomena, called `race conditions` occur
 frequently when multiple concurrent threads try to simultaneously
