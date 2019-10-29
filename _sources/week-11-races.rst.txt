@@ -60,7 +60,7 @@ are, in fact, data races introduced because of a missing
 synchronisation.
 
 Luckily for the humanity, such data races often can be identified in
-an automated way via for tools `static program analysis`. This project
+an automated way via tools for `static program analysis`. This project
 is dedicated to interaction with one of such tools.
 
 The Tool: Facebook Infer
