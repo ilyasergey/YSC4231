@@ -24,7 +24,7 @@ Parallel, Concurrent and Distributed Programming
    week-10-futures
    week-11-races
    week-11-parallel
-.. week-12-splitters
+   week-12-splitters
 
 More lecture notes are coming soon!
 
