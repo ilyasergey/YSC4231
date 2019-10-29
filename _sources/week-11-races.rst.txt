@@ -26,7 +26,7 @@ perform a certain operations (e.g., grab a lock).
 However, if the threads are racing over a memory location that is not
 synchronised (i.e., it is not implemented by means of
 ``AtomicInteger`` or a similar class, or isn't protected by a lock),
-it almost certain indicates a bug in the implementation. For instance,
+it almost certainly indicates a bug in the implementation. For instance,
 consider the examples in the lectures, in which a counter has been
 inconsistently incremented due to the missing locks. This situation is
 commonly referred to as a `data race`
