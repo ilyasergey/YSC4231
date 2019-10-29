@@ -178,7 +178,7 @@ explain the reasons why the analyser considers them such, and provide
 a tentative solution on how they could be fixed. If the races cannot
 be fixed easily (e.g., just by declaring a Java method as
 ``synchronized``), outline your ideas on what prevents one from doing
-so. The result of your project should a PDF document that contains:
+so. The result of your project should a be PDF document that contains:
 
 * A short report on the chosen Java projects. For instance, which
   parts of the projects utilise concurrency, and why do you think it
