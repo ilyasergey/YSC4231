@@ -277,7 +277,7 @@ to build them, not following one of the patterns above. In this case,
 you will need to provide the command line that is supposed to build
 the project as a replacement of ``<build-command>`` in the template
 above. If the compilation of the project fails, you still might be
-able to partially analyse it if adding the flag ``--kepp-going`` to
+able to partially analyse it if adding the flag ``--keep-going`` to
 the command ``infer --racerd-only``::
 
   infer --racerd-only --keep-going -- <build-command>
