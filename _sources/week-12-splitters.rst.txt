@@ -36,6 +36,8 @@ they appear in the following list.
 
 * ``ParStringSplitterBenchmarks`` --- benchmarks for splitters
 
+* ``ParStringCombiner`` --- two-phase combiner for parallel strings
+
 * ``ParStringCombinerTests`` --- Testing parallel string combiner
 
 * ``ParStringCombinerBenchmarks`` --- benchmarks for combiners
