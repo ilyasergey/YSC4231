@@ -18,3 +18,12 @@ Code Commentary
 * ``TalkToChildren`` --- warm-up, talking to actors directly
 
 * ``LifecycleActor`` --- observing the lifecycle of actors
+
+* ``PingPong.scala`` --- example of the ask-pattern with a timeout
+
+* ``CommunicatingPoisonPill`` --- Sending a poison pill to the actor
+
+* ``CommunicatingGracefulStop`` --- death watch and graceful stop
+
+* ``RemoteCommunication.scala`` --- Interaction between two remote
+  systems of actors.
