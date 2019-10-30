@@ -15,4 +15,6 @@ Useful Resources
 Code Commentary
 ---------------
 
-TODO
+* ``TalkToChildren`` --- warm-up, talking to actors directly
+
+* ``LifecycleActor`` --- observing the lifecycle of actors
