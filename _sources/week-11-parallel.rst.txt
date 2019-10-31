@@ -48,3 +48,8 @@ they appear in the following list.
 
 * ``ParSideEffectsIncorrect`` and ``ParSideEffectsCorrect`` ---
   parallel processing in the presence of side effects.
+
+Homework
+--------
+
+* `Programming Assignment 6 <_static/resources/programming-06.pdf>`_

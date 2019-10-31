@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>19. Week 11: Using Data-Parallel Collections &mdash; YSC3248 2019</title>
+  <title>Week 12: Actors and Basics of Message-Passing Concurrency &mdash; YSC3248 2019</title>
   
 
   
@@ -28,9 +28,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="20. Week 12: Splitters and Combiners for Parallel Collections" href="week-12-splitters.html" />
-    <link rel="prev" title="18. Week 11: Data Race Detection in Practice" href="week-11-races.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -79,7 +77,7 @@
               
             
             
-              <ul class="current">
+              <ul>
 <li class="toctree-l1"><a class="reference internal" href="syllabus.html">1. Course Syllabus</a></li>
 <li class="toctree-l1"><a class="reference internal" href="prerequisites.html">2. Software Prerequisites</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week-01-intro.html">3. Week 01: Introduction</a></li>
@@ -98,12 +96,7 @@
 <li class="toctree-l1"><a class="reference internal" href="week-09-skiplists.html">16. Week 09: Skiplists</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week-10-futures.html">17. Week 10: Futures and Promises</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week-11-races.html">18. Week 11: Data Race Detection in Practice</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">19. Week 11: Using Data-Parallel Collections</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#useful-resources">19.1. Useful Resources</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#code-commentary">19.2. Code Commentary</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#homework">19.3. Homework</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="week-11-parallel.html">19. Week 11: Using Data-Parallel Collections</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week-12-splitters.html">20. Week 12: Splitters and Combiners for Parallel Collections</a></li>
 </ul>
 
@@ -150,7 +143,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>19. Week 11: Using Data-Parallel Collections</li>
+      <li>Week 12: Actors and Basics of Message-Passing Concurrency</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -167,50 +160,40 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="week-11-using-data-parallel-collections">
-<h1>19. Week 11: Using Data-Parallel Collections<a class="headerlink" href="#week-11-using-data-parallel-collections" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="week-12-actors-and-basics-of-message-passing-concurrency">
+<h1>Week 12: Actors and Basics of Message-Passing Concurrency<a class="headerlink" href="#week-12-actors-and-basics-of-message-passing-concurrency" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="useful-resources">
-<h2>19.1. Useful Resources<a class="headerlink" href="#useful-resources" title="Permalink to this headline">¶</a></h2>
+<h2>Useful Resources<a class="headerlink" href="#useful-resources" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><a class="reference external" href="https://docs.scala-lang.org/overviews/parallel-collections/overview.html">Documentation for Scala Parallel Collections</a></li>
-<li><a class="reference external" href="https://github.com/ysc3248/ysc3248-examples/tree/11-parallel">Code with examples</a>,
-package <code class="docutils literal notranslate"><span class="pre">parallel</span></code></li>
+<li><a class="reference external" href="https://doc.akka.io/docs/akka/current/actors.html">Documentation for Akka Actors</a></li>
+<li><a class="reference external" href="https://doc.akka.io/docs/akka/current/testing.html">Testing Akka actors</a></li>
+<li><a class="reference external" href="https://github.com/ysc3248/ysc3248-examples/tree/12-actors">Code with examples</a>,
+package <code class="docutils literal notranslate"><span class="pre">actors</span></code></li>
 </ul>
 </div>
 <div class="section" id="code-commentary">
-<h2>19.2. Code Commentary<a class="headerlink" href="#code-commentary" title="Permalink to this headline">¶</a></h2>
+<h2>Code Commentary<a class="headerlink" href="#code-commentary" title="Permalink to this headline">¶</a></h2>
 <p>A short summary of the files from the accompanying code is given
 below, outlining the characteristic aspects of working with Scala
-Parallel Collections. We suggest you explore the files in the order
-they appear in the following list.</p>
+Actors. We suggest you explore the files in the order they appear in
+the following list.</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">package</span> <span class="pre">object</span> <span class="pre">parallel</span></code> — a package object defining common
-functions used for benchmarking. <code class="docutils literal notranslate"><span class="pre">warmedTimed</span></code> is used to take
-advantage of JIT-based speed-up.</li>
-<li><code class="docutils literal notranslate"><span class="pre">ParDemoTimed</span></code> — showcasing a simple parallel collection
-example. Notice the oddities with timing parallel vs. sequential
-execution.</li>
-<li><code class="docutils literal notranslate"><span class="pre">ParDemoWarmed</span></code> — the same as before, but now with warmed-up
-times, hence a better comparison.</li>
-<li><code class="docutils literal notranslate"><span class="pre">ParConfig</span></code> — controlling the level of parallelism for a
-collection.</li>
-<li><code class="docutils literal notranslate"><span class="pre">GoodParallelism</span></code> — showcasing an operation that allows for good
-parallelism.</li>
-<li><code class="docutils literal notranslate"><span class="pre">BadParallelism</span></code> — a case of a bad parallel speed-up (or the
-lack thereof) due to introduced contention in the operation applied
-to a collection.</li>
-<li><code class="docutils literal notranslate"><span class="pre">NonParallelizableCollections</span></code> — comparing the inherent
-parallelism in different collections.</li>
-<li><code class="docutils literal notranslate"><span class="pre">NonParallelizableOperations</span></code> — analysing parallelism allowed by
-certain operations.</li>
-<li><code class="docutils literal notranslate"><span class="pre">ParSideEffectsIncorrect</span></code> and <code class="docutils literal notranslate"><span class="pre">ParSideEffectsCorrect</span></code> —
-parallel processing in the presence of side effects.</li>
-</ul>
-</div>
-<div class="section" id="homework">
-<h2>19.3. Homework<a class="headerlink" href="#homework" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><a class="reference external" href="_static/resources/programming-06.pdf">Programming Assignment 6</a></li>
+<li><code class="docutils literal notranslate"><span class="pre">HelloActor</span></code> — a simple actor that prints received messages into
+the terminal</li>
+<li><code class="docutils literal notranslate"><span class="pre">package</span> <span class="pre">object</span> <span class="pre">actors</span></code> — a package object with common
+definitions, such as, e.g., the actor system allowing to create new
+actors.</li>
+<li><code class="docutils literal notranslate"><span class="pre">ActorCreate</span></code> — creating a simple actor and interacting with it.</li>
+<li><code class="docutils literal notranslate"><span class="pre">DeafActor</span></code> — demonstration of processing unhandled messages.</li>
+<li><code class="docutils literal notranslate"><span class="pre">BadCountDownActor</span></code> — anti-pattern for behavioural change.</li>
+<li><code class="docutils literal notranslate"><span class="pre">CountdownActor</span></code> — an actor as a state-transition system</li>
+<li><code class="docutils literal notranslate"><span class="pre">CountDownActorWithResponse</span></code> — an actor that responds at the end</li>
+<li><code class="docutils literal notranslate"><span class="pre">SimpleActorTests</span></code> — testing actor systems</li>
+<li><code class="docutils literal notranslate"><span class="pre">DictionaryActor</span></code> — a state-machine actor implementing a
+dictionary</li>
+<li><code class="docutils literal notranslate"><span class="pre">DictionaryActorTests</span></code> — tests for <code class="docutils literal notranslate"><span class="pre">DictionaryActor</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">ActorHierarchy</span></code> — demonstrate hierarchy of Akka actors</li>
+<li><code class="docutils literal notranslate"><span class="pre">CheckActor</span></code> — identifying actors by their paths in the system</li>
 </ul>
 </div>
 </div>
@@ -220,15 +203,6 @@ parallel processing in the presence of side effects.</li>
            
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="week-12-splitters.html" class="btn btn-neutral float-right" title="20. Week 12: Splitters and Combiners for Parallel Collections" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="week-11-races.html" class="btn btn-neutral" title="18. Week 11: Data Race Detection in Practice" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>
