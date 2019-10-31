@@ -44,12 +44,18 @@ Lectures
 * November 1: Actor-Based Concurrency 
 
 * November 5: Communication between Actors
-* November 8: Software Transactional Memory 
+* November 8: Actor Supervision
 
 * November 12: State-Machine Replication and Distributed Consensus  
 * November 15: Blockchain Consensus Protocols. Recap.
 
 **Final Project**
+
+Possible Additional Topics
+--------------------------
+
+* Software Transactional Memory 
+* Byzantine Fault Tolerance and PBFT
 
 Homework Assignments
 --------------------
