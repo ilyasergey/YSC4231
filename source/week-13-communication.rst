@@ -27,3 +27,8 @@ Code Commentary
 
 * ``RemoteCommunication.scala`` --- Interaction between two remote
   systems of actors.
+
+Homework
+--------
+
+* `Programming Assignment 7 <_static/resources/programming-07.pdf>`_
