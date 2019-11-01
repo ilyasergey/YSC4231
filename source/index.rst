@@ -25,7 +25,7 @@ Parallel, Concurrent and Distributed Programming
    week-11-races
    week-11-parallel
    week-12-splitters
-..   week-12-actors
+   week-12-actors
 ..   week-13-communication
 
 More lecture notes are coming soon!
