@@ -15,6 +15,13 @@ Useful Resources
 Code Commentary
 ---------------
 
+* ``DictionaryActor`` --- a state-machine actor implementing a
+  dictionary
+
+* ``DictionaryActorTests`` --- tests for ``DictionaryActor``
+
+* ``CheckActor`` --- identifying actors by their paths in the system
+
 * ``TalkToChildren`` --- warm-up, talking to actors directly
 
 * ``LifecycleActor`` --- observing the lifecycle of actors
@@ -27,8 +34,3 @@ Code Commentary
 
 * ``RemoteCommunication.scala`` --- Interaction between two remote
   systems of actors.
-
-Homework
---------
-
-* `Programming Assignment 7 <_static/resources/programming-07.pdf>`_
