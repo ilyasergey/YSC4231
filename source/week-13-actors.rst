@@ -1,6 +1,6 @@
 .. -*- mode: rst -*-
 
-Week 12: Actors and Basics of Message-Passing Concurrency
+Week 13: Actors and Basics of Message-Passing Concurrency
 =========================================================
 
 Useful Resources
@@ -41,11 +41,9 @@ the following list.
 
 * ``SimpleActorTests`` --- testing actor systems
 
-* ``DictionaryActor`` --- a state-machine actor implementing a
-  dictionary
-
-* ``DictionaryActorTests`` --- tests for ``DictionaryActor``
-
 * ``ActorHierarchy`` --- demonstrate hierarchy of Akka actors
 
-* ``CheckActor`` --- identifying actors by their paths in the system
+Homework
+--------
+
+* `Programming Assignment 7 <_static/resources/programming-07.pdf>`_
