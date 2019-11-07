@@ -32,5 +32,7 @@ Code Commentary
 
 * ``CommunicatingGracefulStop`` --- death watch and graceful stop
 
+* ``Supervision.scala`` --- actor supervision
+
 * ``RemoteCommunication.scala`` --- Interaction between two remote
   systems of actors.
