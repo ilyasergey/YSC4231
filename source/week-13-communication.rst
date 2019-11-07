@@ -8,6 +8,7 @@ Useful Resources
 
 * `Documentation for Akka Actors
   <https://doc.akka.io/docs/akka/current/actors.html>`_
+* `Orders of message delivery <https://doc.akka.io/docs/akka/current/general/message-delivery-reliability.html>`_
 * `Code with examples
   <https://github.com/ysc3248/ysc3248-examples/tree/12-actors>`_,
   package ``actors``
