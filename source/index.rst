@@ -26,7 +26,9 @@ Parallel, Concurrent and Distributed Programming
    week-11-parallel
    week-12-splitters
    week-13-actors
-..   week-13-communication
+   week-13-communication
+..   week-14-paxos
+..   week-14-blockchain
 
 More lecture notes are coming soon!
 

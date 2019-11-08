@@ -21,19 +21,19 @@ Code Commentary
 
 * ``DictionaryActorTests`` --- tests for ``DictionaryActor``
 
+* ``LifecycleActor`` --- observing the lifecycle of actors
+
+* ``CommunicatingPoisonPill`` --- Sending a poison pill to the actor
+
+* ``Supervision.scala`` --- actor supervision
+
 * ``CheckActor`` --- identifying actors by their paths in the system
 
 * ``TalkToChildren`` --- warm-up, talking to actors directly
 
-* ``LifecycleActor`` --- observing the lifecycle of actors
-
 * ``PingPong.scala`` --- example of the ask-pattern with a timeout
 
-* ``CommunicatingPoisonPill`` --- Sending a poison pill to the actor
-
 * ``CommunicatingGracefulStop`` --- death watch and graceful stop
-
-* ``Supervision.scala`` --- actor supervision
 
 * ``RemoteCommunication.scala`` --- Interaction between two remote
   systems of actors.
