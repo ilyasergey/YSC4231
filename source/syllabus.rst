@@ -47,7 +47,7 @@ Lectures
 * November 8: Actor Supervision
 
 * November 12: Distributed Consensus; Paxos
-* November 15: Blockchain Consensus Protocols; Recap
+* November 15: Byzantine Fault-Tolerance and Blockchain Consensus; Recap
 
 **Final Project**
 
@@ -55,7 +55,7 @@ Possible Additional Topics
 --------------------------
 
 * Software Transactional Memory 
-* Byzantine Fault Tolerance and PBFT
+* Smart Contracts
 
 Homework Assignments
 --------------------
