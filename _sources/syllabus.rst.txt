@@ -46,8 +46,8 @@ Lectures
 * November 5: Communication between Actors
 * November 8: Actor Supervision
 
-* November 12: State-Machine Replication and Distributed Consensus  
-* November 15: Blockchain Consensus Protocols. Recap.
+* November 12: Distributed Consensus; Paxos
+* November 15: Blockchain Consensus Protocols; Recap
 
 **Final Project**
 

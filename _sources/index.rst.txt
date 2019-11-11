@@ -46,7 +46,7 @@ Textbooks
 
 1. `The Art of Multiprocessor Programming <https://www.elsevier.com/books/the-art-of-multiprocessor-programming-revised-reprint/herlihy/978-0-12-397337-5>`_ by Maurice Herlihy and Nir Shavit
 2. `Learning Concurrent Programming in Scala <https://www.packtpub.com/application-development/learning-concurrent-programming-scala-second-edition>`_ by Aleksandar Prokopec
-
+3. `Introduction to Reliable and Secure Distributed Programming <https://www.springer.com/gp/book/9783642152597>`_ by Christian Cachin `et al.`
 
 ..
    Indices and tables
