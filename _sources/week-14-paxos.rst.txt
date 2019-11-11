@@ -1,5 +1,5 @@
-Week 13: Communication between Actors
-=====================================
+Week 14: Distributed Consensus
+==============================
 
 Useful Resources
 ----------------

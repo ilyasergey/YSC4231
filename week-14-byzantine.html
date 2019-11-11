@@ -1,0 +1,227 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Week 14: Byzantine Fault Tolerance and Blockchains &mdash; YSC3248 2019</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> YSC3248: Parallel, Concurrent and Distributed Programming
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="syllabus.html">1. Course Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prerequisites.html">2. Software Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week-01-intro.html">3. Week 01: Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week-01-mutex.html">4. Week 01: Mutual Exclusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week-02-scala.html">5. Week 02: Scala Primer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week-03-concurrent-objects.html">6. Week 03: Concurrent Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week-04-wait-free.html">7. Week 04: Wait-Free Implementations and Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week-04-consensus.html">8. Week 04: Read-Modify-Write Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week-05-spinlocks.html">9. Week 05: Spin Locks and Contention</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week-05-monitors.html">10. Week 05: Monitors and Blocking Synchronisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week-06-rw-lists.html">11. Week 06: Read-Write Locking and Linked Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week-06-fine-lists.html">12. Week 06: Lists (Continued) and Fine-Grained Locking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week-07-midterm-project.html">13. Week 07: Midterm Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week-08-queues.html">14. Week 08: Concurrent Queues and the ABA Problem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week-09-stacks.html">15. Week 09: Concurrent Stacks and Elimination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week-09-skiplists.html">16. Week 09: Skiplists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week-10-futures.html">17. Week 10: Futures and Promises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week-11-races.html">18. Week 11: Data Race Detection in Practice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week-11-parallel.html">19. Week 11: Using Data-Parallel Collections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week-12-splitters.html">20. Week 12: Splitters and Combiners for Parallel Collections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week-13-actors.html">21. Week 13: Actors and Basics of Message-Passing Concurrency</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week-13-communication.html">22. Week 13: Communication between Actors</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">YSC3248: Parallel, Concurrent and Distributed Programming</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Week 14: Byzantine Fault Tolerance and Blockchains</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="week-14-byzantine-fault-tolerance-and-blockchains">
+<h1>Week 14: Byzantine Fault Tolerance and Blockchains<a class="headerlink" href="#week-14-byzantine-fault-tolerance-and-blockchains" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="useful-resources">
+<h2>Useful Resources<a class="headerlink" href="#useful-resources" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="_static/resources/ysc3248-week-14-byzantine.pdf">Lecture Slides</a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Ilya Sergey
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"extensions": ["tex2jax.js"], "jax": ["input/TeX", "output/HTML-CSS"]})</script>
+    
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
