@@ -47,7 +47,7 @@ Lectures
 * November 8: Actor Supervision
 
 * November 12: Distributed Consensus; Paxos
-* November 15: Byzantine Fault-Tolerance and Blockchain Consensus; Recap
+* November 15: Byzantine Fault-Tolerance and Blockchain Consensus
 
 **Final Project**
 
