@@ -1,7 +1,7 @@
 .. -*- mode: rst -*-
 
-Week 13: Actors and Basics of Message-Passing Concurrency
-=========================================================
+Week 13: Actors and Message-Passing Concurrency
+===============================================
 
 Useful Resources
 ----------------
