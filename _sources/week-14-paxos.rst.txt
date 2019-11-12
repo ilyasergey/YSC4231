@@ -5,6 +5,9 @@ Useful Resources
 ----------------
 
 * `Lecture Slides <_static/resources/ysc3248-week-14-paxos.pdf>`_
+* `Paxos Made Simple
+  <https://lamport.azurewebsites.net/pubs/paxos-simple.pdf>`_
+* `Paxos Made Moderately Complex <http://www.cs.cornell.edu/courses/cs7412/2011sp/paxos.pdf>`_
 * `Code with examples
   <https://github.com/ysc3248/ysc3248-examples/tree/13-paxos>`_,
   package ``paxos``
