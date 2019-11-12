@@ -1,7 +1,7 @@
 .. -*- mode: rst -*-
 
-Week 12: Splitters and Combiners for Parallel Collections
-=========================================================
+Week 12: Splitters and Combiners
+================================
 
 Useful Resources
 ----------------
