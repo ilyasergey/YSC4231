@@ -30,7 +30,7 @@ Parallel, Concurrent and Distributed Programming
    week-14-paxos
 ..   week-14-byzantine
 
-More lecture notes are coming soon!
+.. More lecture notes are coming soon!
 
 Supplementary Materials
 -----------------------
