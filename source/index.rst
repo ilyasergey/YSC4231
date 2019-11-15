@@ -28,7 +28,7 @@ Parallel, Concurrent and Distributed Programming
    week-13-actors
    week-13-communication
    week-14-paxos
-..   week-14-byzantine
+   week-14-byzantine
 
 .. More lecture notes are coming soon!
 
