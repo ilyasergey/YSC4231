@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>10. Week 05: Monitors and Blocking Synchronisation &mdash; YSC3248 2019</title>
+  <title>Week 05: Monitors and Blocking Synchronisation &mdash; YSC3248 2019</title>
   
 
   
@@ -28,9 +28,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="11. Week 06: Read-Write Locking and Linked Lists" href="week-06-rw-lists.html" />
-    <link rel="prev" title="9. Week 05: Spin Locks and Contention" href="week-05-spinlocks.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -79,38 +77,9 @@
               
             
             
-              <ul class="current">
+              <ul>
 <li class="toctree-l1"><a class="reference internal" href="syllabus.html">1. Course Syllabus</a></li>
 <li class="toctree-l1"><a class="reference internal" href="prerequisites.html">2. Software Prerequisites</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-01-intro.html">3. Week 01: Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-01-mutex.html">4. Week 01: Mutual Exclusion</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-02-scala.html">5. Week 02: Scala Primer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-03-concurrent-objects.html">6. Week 03: Concurrent Objects</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-04-wait-free.html">7. Week 04: Wait-Free Implementations and Consensus</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-04-consensus.html">8. Week 04: Read-Modify-Write Operations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-05-spinlocks.html">9. Week 05: Spin Locks and Contention</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">10. Week 05: Monitors and Blocking Synchronisation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#when-spinning-isn-t-good-enough">10.1. When Spinning isn’t Good Enough</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#using-multiple-conditional-variables">10.2. Using Multiple Conditional Variables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#synchronising-many-threads-with-monitors">10.3. Synchronising Many Threads with Monitors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#intrinsic-java-monitors">10.4. Intrinsic Java Monitors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#the-lost-wakeup-problem">10.5. The Lost-Wakeup Problem</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="week-06-rw-lists.html">11. Week 06: Read-Write Locking and Linked Lists</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-06-fine-lists.html">12. Week 06: Lists (Continued) and Fine-Grained Locking</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-07-midterm-project.html">13. Week 07: Midterm Project</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-08-queues.html">14. Week 08: Concurrent Queues and the ABA Problem</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-09-stacks.html">15. Week 09: Concurrent Stacks and Elimination</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-09-skiplists.html">16. Week 09: Skiplists</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-10-futures.html">17. Week 10: Futures and Promises</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-11-races.html">18. Week 11: Data Race Detection in Practice</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-11-parallel.html">19. Week 11: Using Data-Parallel Collections</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-12-splitters.html">20. Week 12: Splitters and Combiners</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-13-actors.html">21. Week 13: Actors and Message-Passing Concurrency</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-13-communication.html">22. Week 13: Communication between Actors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-14-paxos.html">23. Week 14: Distributed Consensus</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-14-byzantine.html">24. Week 14: Byzantine Fault Tolerance and Blockchains</a></li>
 </ul>
 
             
@@ -156,7 +125,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>10. Week 05: Monitors and Blocking Synchronisation</li>
+      <li>Week 05: Monitors and Blocking Synchronisation</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -174,14 +143,14 @@
            <div itemprop="articleBody">
             
   <div class="section" id="week-05-monitors-and-blocking-synchronisation">
-<h1>10. Week 05: Monitors and Blocking Synchronisation<a class="headerlink" href="#week-05-monitors-and-blocking-synchronisation" title="Permalink to this headline">¶</a></h1>
+<h1>Week 05: Monitors and Blocking Synchronisation<a class="headerlink" href="#week-05-monitors-and-blocking-synchronisation" title="Permalink to this headline">¶</a></h1>
 <p>In this this chapter we will consider <strong>monitors</strong> — a mechanism for
 <cite>blocking</cite> synchronisation of concurrently executing threads,
 complementary to spin-locks, considered previously.</p>
 <p>The code for this lecture is provided in branch <code class="docutils literal notranslate"><span class="pre">05-monitors</span></code>
 (package <code class="docutils literal notranslate"><span class="pre">monitors</span></code>) of the <a class="reference external" href="https://github.com/ysc3248/ysc3248-examples/tree/05-monitors">accompanying repository</a>.</p>
 <div class="section" id="when-spinning-isn-t-good-enough">
-<h2>10.1. When Spinning isn’t Good Enough<a class="headerlink" href="#when-spinning-isn-t-good-enough" title="Permalink to this headline">¶</a></h2>
+<h2>When Spinning isn’t Good Enough<a class="headerlink" href="#when-spinning-isn-t-good-enough" title="Permalink to this headline">¶</a></h2>
 <p>Imagine the following artificial problem. We want to implement a
 shared linearisable counter that is incremented by two concurrent
 threads running in parallel with the following catch: one thread may
@@ -438,7 +407,7 @@ thus, giving them again a chance to acquire the lock.</p>
 <a class="reference internal image-reference" href="_images/mon3.jpg"><img alt="_images/mon3.jpg" class="align-center" src="_images/mon3.jpg" style="width: 500px;" /></a>
 </div>
 <div class="section" id="using-multiple-conditional-variables">
-<h2>10.2. Using Multiple Conditional Variables<a class="headerlink" href="#using-multiple-conditional-variables" title="Permalink to this headline">¶</a></h2>
+<h2>Using Multiple Conditional Variables<a class="headerlink" href="#using-multiple-conditional-variables" title="Permalink to this headline">¶</a></h2>
 <p>We can restructure our implementation of turn-based counter, reducing
 the amount of overhead necessary to acquire the lock, replacing it by
 the waiting. For this, we are going to emit <cite>two</cite> condition variables
@@ -515,7 +484,7 @@ permissions of the specific thread: each thread waits on <cite>its own</cite>
 conditional variable, while signals on the one of the other thread’s.</p>
 </div>
 <div class="section" id="synchronising-many-threads-with-monitors">
-<h2>10.3. Synchronising Many Threads with Monitors<a class="headerlink" href="#synchronising-many-threads-with-monitors" title="Permalink to this headline">¶</a></h2>
+<h2>Synchronising Many Threads with Monitors<a class="headerlink" href="#synchronising-many-threads-with-monitors" title="Permalink to this headline">¶</a></h2>
 <p>Above we mention an additional mechanism of a conditional variable for
 waking up the threads: <code class="docutils literal notranslate"><span class="pre">signalAll()</span></code> and explain its specifics (it
 might send some threads to spin) and difference with <code class="docutils literal notranslate"><span class="pre">signal()</span></code>. For
@@ -598,7 +567,7 @@ even/odd incrementers synchronising them via <code class="docutils literal notra
 without noticeable difference.</p>
 </div>
 <div class="section" id="intrinsic-java-monitors">
-<h2>10.4. Intrinsic Java Monitors<a class="headerlink" href="#intrinsic-java-monitors" title="Permalink to this headline">¶</a></h2>
+<h2>Intrinsic Java Monitors<a class="headerlink" href="#intrinsic-java-monitors" title="Permalink to this headline">¶</a></h2>
 <p>Since the patterns of working with monitors by means of manipulating
 associated locks and condition variables so common, Java/Scala embed
 it into its object-oriented mode. Each object in these languages comes
@@ -685,7 +654,7 @@ via the monitor associated with the global singleton object
 </ul>
 </div>
 <div class="section" id="the-lost-wakeup-problem">
-<h2>10.5. The Lost-Wakeup Problem<a class="headerlink" href="#the-lost-wakeup-problem" title="Permalink to this headline">¶</a></h2>
+<h2>The Lost-Wakeup Problem<a class="headerlink" href="#the-lost-wakeup-problem" title="Permalink to this headline">¶</a></h2>
 <p>Consider the following queue implementation that makes use of Java
 monitors:</p>
 <div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MonitorQueue</span><span class="o">[</span><span class="kt">T:</span> <span class="kt">scala.reflect.ClassTag</span><span class="o">](</span><span class="k">val</span> <span class="n">capacity</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span> <span class="o">{</span>
@@ -765,15 +734,6 @@ take a number of nanoseconds to wait as an optional argument).</li>
            
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="week-06-rw-lists.html" class="btn btn-neutral float-right" title="11. Week 06: Read-Write Locking and Linked Lists" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="week-05-spinlocks.html" class="btn btn-neutral" title="9. Week 05: Spin Locks and Contention" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>
