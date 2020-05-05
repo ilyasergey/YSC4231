@@ -8,46 +8,32 @@ The list of topics below is a subject of possible minor changes.
 Lectures
 --------
 
-* August 13: Introduction: What this course is about.
-* August 16: Mutual Exclusion
-
-* August 20: (`Ilya is away`) Functional and Imperative Programming in Scala
-* August 23: Mutual Exclusion (continued)
-
-* August 27: Concurrent Objects
-* August 30: Concurrent Objects (continued)
-
-* September 3: Reasoning about Consensus in Shared Memory
-* September 6: Read-Modify-Write Operations
-
-* September 10: Spin Locks
-* September 13: Monitors and Semaphores
-
-* September 17: Read-Write Locks and Linked Lists
-* September 20: Linked Lists (Continued)
+* Introduction: What this course is about.
+* Functional and Imperative Programming in Scala
+* Mutual Exclusion
+* Concurrent Objects
+* Reasoning about Consensus in Shared Memory
+* Read-Modify-Write Operations
+* Spin Locks
+* Monitors and Semaphores
+* Read-Write Locks
+* Linked Lists
 
 **Mid-Term Break: Project (Theory and Programming)**
 
-* October 1: Linked Lists (Still continued)
-* October 4: Concurrent Queues 
-
-* October 8: Stacks and Elimination 
-* October 11: (`Ilya is away`) Skiplists
-
-* October 15: Futures in Java and Scala
-* October 18: Promises 
-
-* October 22: Using Data-Parallel Collections 
-* October 25: (`Ilya is away`) Data Race Detection in Practice
-
-* October 29: Implementing Parallel Collections  
-* November 1: Actor-Based Concurrency 
-
-* November 5: Communication between Actors
-* November 8: Actor Supervision
-
-* November 12: Distributed Consensus; Paxos
-* November 15: Byzantine Fault-Tolerance and Blockchain Consensus
+* Concurrent Queues 
+* Stacks and Elimination 
+* Skiplists
+* Data Race Detection in Practice
+* Futures in Java and Scala
+* Promises 
+* Using Data-Parallel Collections 
+* Implementing Parallel Collections  
+* Actor-Based Concurrency 
+* Communication between Actors
+* Actor Supervision
+* Distributed Consensus; Paxos
+* Byzantine Fault-Tolerance and Blockchain Consensus
 
 **Final Project**
 
