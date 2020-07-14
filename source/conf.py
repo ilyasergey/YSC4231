@@ -20,13 +20,13 @@
 # -- Project information -----------------------------------------------------
 
 project = u'YSC3248: Parallel, Concurrent and Distributed Programming'
-copyright = u'2019, Ilya Sergey'
+copyright = u'2020, Ilya Sergey'
 author = u'Ilya Sergey'
 
 # The short X.Y version
 version = u''
 # The full version, including alpha/beta/rc tags
-release = u'2019'
+release = u'2020'
 
 
 # -- General configuration ---------------------------------------------------
@@ -74,7 +74,7 @@ pygments_style = None
 
 # -- Options for HTML output -------------------------------------------------
 
-html_title = 'YSC3248 2019'
+html_title = 'YSC3248 2020'
 
 # html_theme = 'default'
 # html_theme = 'sphinxdoc'
