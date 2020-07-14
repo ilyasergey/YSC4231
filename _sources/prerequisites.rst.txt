@@ -31,9 +31,9 @@ Make sure that you are comfortable with the ``git`` operations, such as ``clone`
 Checking your Setup
 -------------------
 
-The code appearing in the lectures will be collected in tthis `repository with examples <https://github.com/ysc3248/ysc3248-examples>`_. 
+The code appearing in the lectures will be collected in this `repository with examples <https://github.com/ysc3248/lectures-2020>`_. 
 
-To check your Scala setup, clone this project from GitHub (via ``git clone git@github.com:ysc3248/ysc3248-examples.git``). Next, try to execute the following two commands in the terminal from the root of your project (it will take a few minutes the first time you run it, as ``sbt`` needs to download all the dependencies)::
+To check your Scala setup, clone this project from GitHub (via ``git clone git@github.com:ysc3248/lectures-2020.git``). Next, try to execute the following two commands in the terminal from the root of your project (it will take a few minutes the first time you run it, as ``sbt`` needs to download all the dependencies)::
 
   sbt test
 
