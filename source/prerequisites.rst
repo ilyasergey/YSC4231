@@ -45,7 +45,7 @@ and then, from the ``sbt`` console::
   
   runMain basic.HelloWorld
 
-This will execute a simple script printing (after some additional log information about cupdates and compilation) ``Hello, World!`` to the output. 
+This will execute a simple script printing (after dumping some rather verbose log information about software updates and compilation) the message ``Hello, World!`` to the output. 
 
 You can now exit ``sbt`` console by typing::
 
