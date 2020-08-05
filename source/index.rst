@@ -34,12 +34,12 @@ Parallel, Concurrent and Distributed Programming
 Lecture notes will be posted gradually as we progress through the
 course material.
 
-.. Supplementary Materials
-.. -----------------------
+Supplementary Materials
+-----------------------
 
-.. * `Code from the Lectures <https://github.com/ysc3248/ysc3248-examples>`_ 
-.. * `GitHub Organisation <https://github.com/ysc3248/>`_ with
-   additional examples
+* `Code from the Lectures <https://github.com/ysc3248/lectures-2020>`_
+  (you might need to email me you GitHub name to get access)
+* `GitHub Organisation <https://github.com/ysc3248/>`_ 
 
 Textbooks
 ---------
