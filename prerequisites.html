@@ -179,12 +179,20 @@
 <div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">sbt</span> <span class="n">test</span>
 </pre></div>
 </div>
-<p>will run the tests in the project. The following line:</p>
-<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">sbt</span> <span class="s">&quot;runMain basic.HelloWorld&quot;</span>
+<p>will run the tests in the project. You may also run:</p>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">sbt</span>
 </pre></div>
 </div>
-<p>will execute a simple script printing <code class="docutils literal notranslate"><span class="pre">Hello,</span> <span class="pre">World!</span></code> to the output.</p>
-<p>Additionally, you can try to open this project in IntelliJ IDEA via “File -&gt; Open” and choosing the project folder. Click “OK” when asked about initial project settings.</p>
+<p>and then, from the <code class="docutils literal notranslate"><span class="pre">sbt</span></code> console:</p>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">runMain</span> <span class="n">basic</span><span class="o">.</span><span class="nc">HelloWorld</span>
+</pre></div>
+</div>
+<p>This will execute a simple script printing (after some additional log information about cupdates and compilation) <code class="docutils literal notranslate"><span class="pre">Hello,</span> <span class="pre">World!</span></code> to the output.</p>
+<p>You can now exit <code class="docutils literal notranslate"><span class="pre">sbt</span></code> console by typing:</p>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">exit</span>
+</pre></div>
+</div>
+<p>Finally, you can try to open this project in IntelliJ IDEA via “File -&gt; Open” and choosing the project folder. Click “OK” when asked about initial project settings.</p>
 </div>
 </div>
 

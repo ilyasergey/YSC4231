@@ -37,10 +37,18 @@ To check your Scala setup, clone this project from GitHub (via ``git clone git@g
 
   sbt test
 
-will run the tests in the project. The following line::
+will run the tests in the project. You may also run::
 
-  sbt "runMain basic.HelloWorld"
+  sbt
 
-will execute a simple script printing ``Hello, World!`` to the output.
+and then, from the ``sbt`` console::
+  
+  runMain basic.HelloWorld
 
-Additionally, you can try to open this project in IntelliJ IDEA via "File -> Open" and choosing the project folder. Click "OK" when asked about initial project settings.
+This will execute a simple script printing (after some additional log information about cupdates and compilation) ``Hello, World!`` to the output. 
+
+You can now exit ``sbt`` console by typing::
+
+  exit
+
+Finally, you can try to open this project in IntelliJ IDEA via "File -> Open" and choosing the project folder. Click "OK" when asked about initial project settings.
