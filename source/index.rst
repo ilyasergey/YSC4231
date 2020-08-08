@@ -8,7 +8,7 @@ Parallel, Concurrent and Distributed Programming (Autumn 2020)
    syllabus
    prerequisites
 
-* Lectures: Thursdays, 1:00-4:00pm, Online
+* Lectures: Thursdays, 1:00-4:00pm, Online (Link available on Canvas)
 * Office hours: Tuesdays, 10:30-12:00pm, #RC3-01-03E (Cendana)
 * Peer Tutor: `Bryan Tan <mailto:bryantanyh@u.yale-nus.edu.sg>`_
 * Tutoring Sessions: Wednesdays, 7:00-9:00pm, CR18 (Cendana) 
