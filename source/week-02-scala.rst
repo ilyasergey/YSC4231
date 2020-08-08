@@ -1,6 +1,6 @@
 .. -*- mode: rst -*-
 
-Week 02: Scala Primer
+Week 01: Scala Primer
 =====================
 
 This lecture is an introduction to Scala programming language. It is
