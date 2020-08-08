@@ -1,6 +1,11 @@
 Parallel, Concurrent and Distributed Programming
 ================================================
 
+* Lectures: Thursdays, 1:00-4:00pm, Online
+* Office hours: Tuesdays, 10:30-12:00pm, #RC3-01-03E (Cendana)
+* Peer Tutor: `Bryan Tan <mailto:bryantanyh@u.yale-nus.edu.sg>`_
+* Tutoring Sessions: Wednesdays, 7:00-9:00pm, CR18 (Cendana) 
+
 .. toctree::
    :numbered:
    :maxdepth: 1
@@ -9,8 +14,8 @@ Parallel, Concurrent and Distributed Programming
    prerequisites
 
 ..   week-01-intro
-..   week-01-mutex
 ..   week-02-scala
+..   week-01-mutex
 ..   week-03-concurrent-objects
 ..   week-04-wait-free
 ..   week-04-consensus
