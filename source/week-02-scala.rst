@@ -9,10 +9,9 @@ familiarity with either OCaml or Java (or both). Therefore, this
 tutorial provides a quick overview of Scala's object-oriented and
 functional features
 
-The accompanying code for this lecture is available in `this
-repository <https://github.com/ysc3248/scala-primer>`_, which also
-serves as a template for `Week 2 homework assignment
-<_static/resources/programming-01.pdf>`_.
+The accompanying code for this lecture is available in the branch
+``01-intro`` (under the folder ``src/main/scala/intro``) of the
+`course repository <https://github.com/ysc3248/lectures-2020>`_.
 
 If unsure about some of the feature, you are encouraged to take a look
 at one of multiple Scala tutorials available online. The following are
@@ -32,9 +31,9 @@ and creating a simple Scala project in it:
 
 * `Getting Started with Scala in IntelliJ IDEA <https://docs.scala-lang.org/getting-started/intellij-track/getting-started-with-scala-in-intellij.html>`_
 
-You can also open the `accompanying project
-<https://github.com/ysc3248/scala-primer>`_ from IntelliJ via `File`
--> `Open` dialogue. 
+You can also open the `course repository
+<https://github.com/ysc3248/lectures-2020>`_ from IntelliJ via `File`
+-> `Open` dialogue.
 
 IntelliJ IDEA provides a convenient way to build projects, navigate to
 files and definitions, and refactor them consistently. You are
@@ -95,6 +94,11 @@ tutorial on obtaining and running ``sbt`` is available:
 You can try executing ``sbt test`` from the root of the primer
 project. This will compile it and automatically run all the tests in
 the project.
+
+Finally, to run a Scala console similar to OCaml ``utop``, start
+``sbt`` and then type ``console`` in it. You can now import the code
+from the packages and objects of your project, as well as create new
+class instances.
 
 Object-Oriented Elements of Scala
 ---------------------------------
@@ -189,7 +193,7 @@ following tutorials:
 Classes, objects and traits in Scala are located under a source root
 in a hierarchy of folders that correspond to `packages`. Packages are
 declared at the beginning of each file and should mimic the folder
-hierarchy (), for instance::
+hierarchy, for instance::
 
   package runners.squares
 
