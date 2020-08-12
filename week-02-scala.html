@@ -149,9 +149,9 @@ intentionally brief, as all the YSC3248 attendies are assumed to have
 familiarity with either OCaml or Java (or both). Therefore, this
 tutorial provides a quick overview of Scala’s object-oriented and
 functional features</p>
-<p>The accompanying code for this lecture is available in <a class="reference external" href="https://github.com/ysc3248/scala-primer">this
-repository</a>, which also
-serves as a template for <a class="reference external" href="_static/resources/programming-01.pdf">Week 2 homework assignment</a>.</p>
+<p>The accompanying code for this lecture is available in the branch
+<code class="docutils literal notranslate"><span class="pre">01-intro</span></code> (under the folder <code class="docutils literal notranslate"><span class="pre">src/main/scala/intro</span></code>) of the
+<a class="reference external" href="https://github.com/ysc3248/lectures-2020">course repository</a>.</p>
 <p>If unsure about some of the feature, you are encouraged to take a look
 at one of multiple Scala tutorials available online. The following are
 the recommended ones:</p>
@@ -169,7 +169,7 @@ and creating a simple Scala project in it:</p>
 <ul class="simple">
 <li><a class="reference external" href="https://docs.scala-lang.org/getting-started/intellij-track/getting-started-with-scala-in-intellij.html">Getting Started with Scala in IntelliJ IDEA</a></li>
 </ul>
-<p>You can also open the <a class="reference external" href="https://github.com/ysc3248/scala-primer">accompanying project</a> from IntelliJ via <cite>File</cite>
+<p>You can also open the <a class="reference external" href="https://github.com/ysc3248/lectures-2020">course repository</a> from IntelliJ via <cite>File</cite>
 -&gt; <cite>Open</cite> dialogue.</p>
 <p>IntelliJ IDEA provides a convenient way to build projects, navigate to
 files and definitions, and refactor them consistently. You are
@@ -225,6 +225,10 @@ tutorial on obtaining and running <code class="docutils literal notranslate"><sp
 <p>You can try executing <code class="docutils literal notranslate"><span class="pre">sbt</span> <span class="pre">test</span></code> from the root of the primer
 project. This will compile it and automatically run all the tests in
 the project.</p>
+<p>Finally, to run a Scala console similar to OCaml <code class="docutils literal notranslate"><span class="pre">utop</span></code>, start
+<code class="docutils literal notranslate"><span class="pre">sbt</span></code> and then type <code class="docutils literal notranslate"><span class="pre">console</span></code> in it. You can now import the code
+from the packages and objects of your project, as well as create new
+class instances.</p>
 </div>
 <div class="section" id="object-oriented-elements-of-scala">
 <h2>Object-Oriented Elements of Scala<a class="headerlink" href="#object-oriented-elements-of-scala" title="Permalink to this headline">¶</a></h2>
@@ -315,7 +319,7 @@ following tutorials:</p>
 <p>Classes, objects and traits in Scala are located under a source root
 in a hierarchy of folders that correspond to <cite>packages</cite>. Packages are
 declared at the beginning of each file and should mimic the folder
-hierarchy (), for instance:</p>
+hierarchy, for instance:</p>
 <div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">package</span> <span class="nn">runners.squares</span>
 </pre></div>
 </div>
