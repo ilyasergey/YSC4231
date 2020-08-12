@@ -1,6 +1,6 @@
 .. -*- mode: rst -*-
 
-Week 01: Scala Primer
+Week 02: Scala Primer
 =====================
 
 This lecture is an introduction to Scala programming language. It is
@@ -592,7 +592,6 @@ done and a finer level of granularity by clicking on the individual
 tests in the project by right-clicking on the test source folder in
 the project view on the left of the screen and choosing ``Run 'ScalaTest in scala...'``.
 
-Homework
---------
-
-* `Programming Assignment 1 <_static/resources/programming-01.pdf>`_
+.. Homework
+.. --------
+.. * `Programming Assignment 1 <_static/resources/programming-01.pdf>`_
