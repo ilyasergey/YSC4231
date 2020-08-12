@@ -8,7 +8,6 @@ Week 01: Introduction
   <https://github.com/ysc3248/ysc3248-examples/tree/01-intro>`_,
   package ``intro``
 
-Homework
---------
-
-* `Theory Assignment 1 <_static/resources/theory-01.pdf>`_
+.. Homework
+.. --------
+.. * `Theory Assignment 1 <_static/resources/theory-01.pdf>`_
