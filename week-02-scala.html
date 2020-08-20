@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Week 02: Scala Primer &mdash; YSC3248 2020</title>
+  <title>2. Week 02: Scala Primer &mdash; YSC3248 2020</title>
   
 
   
@@ -28,7 +28,8 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="1. Week 01: Introduction" href="week-01-intro.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -81,8 +82,18 @@
 <li class="toctree-l1"><a class="reference internal" href="syllabus.html">1. Course Syllabus</a></li>
 <li class="toctree-l1"><a class="reference internal" href="prerequisites.html">2. Software Prerequisites</a></li>
 </ul>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="week-01-intro.html">1. Week 01: Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. Week 02: Scala Primer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#using-intellij-idea">2.1. Using IntelliJ IDEA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-sbt">2.2. Using SBT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#object-oriented-elements-of-scala">2.3. Object-Oriented Elements of Scala</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#functional-elements-of-scala">2.4. Functional Elements of Scala</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#imperative-elements-of-scala">2.5. Imperative elements of Scala</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#working-with-threads-in-scala">2.6. Working with Threads in Scala</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#writing-automated-tests-in-scala">2.7. Writing Automated Tests in Scala</a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -128,7 +139,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Week 02: Scala Primer</li>
+      <li>2. Week 02: Scala Primer</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -146,7 +157,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="week-02-scala-primer">
-<h1>Week 02: Scala Primer<a class="headerlink" href="#week-02-scala-primer" title="Permalink to this headline">¶</a></h1>
+<h1>2. Week 02: Scala Primer<a class="headerlink" href="#week-02-scala-primer" title="Permalink to this headline">¶</a></h1>
 <p>This lecture is an introduction to Scala programming language. It is
 intentionally brief, as all the YSC3248 attendies are assumed to have
 familiarity with either OCaml or Java (or both). Therefore, this
@@ -163,7 +174,7 @@ the recommended ones:</p>
 <li><a class="reference external" href="https://docs.scala-lang.org/tutorials/scala-for-java-programmers.html">Scala for Java programmers</a></li>
 </ul>
 <div class="section" id="using-intellij-idea">
-<h2>Using IntelliJ IDEA<a class="headerlink" href="#using-intellij-idea" title="Permalink to this headline">¶</a></h2>
+<h2>2.1. Using IntelliJ IDEA<a class="headerlink" href="#using-intellij-idea" title="Permalink to this headline">¶</a></h2>
 <p>We will be using IntelliJ IDEA as an Integrated Development
 Environment (IDE) for programming in Scala. It will allow us to manage
 large multi-file projects with multiple executables and automated
@@ -218,7 +229,7 @@ program will appear in the execution pane at the bottom of the screen.</p>
 defined within the object <code class="docutils literal notranslate"><span class="pre">SquareOf5</span></code>.</p>
 </div>
 <div class="section" id="using-sbt">
-<h2>Using SBT<a class="headerlink" href="#using-sbt" title="Permalink to this headline">¶</a></h2>
+<h2>2.2. Using SBT<a class="headerlink" href="#using-sbt" title="Permalink to this headline">¶</a></h2>
 <p>Scala Build Tool is a build system used to manage dependencies and
 compile Scala projects, similar to OCaml’s <code class="docutils literal notranslate"><span class="pre">dune</span></code> and <code class="docutils literal notranslate"><span class="pre">opam</span></code>. The
 tutorial on obtaining and running <code class="docutils literal notranslate"><span class="pre">sbt</span></code> is available:</p>
@@ -234,7 +245,7 @@ from the packages and objects of your project, as well as create new
 class instances.</p>
 </div>
 <div class="section" id="object-oriented-elements-of-scala">
-<h2>Object-Oriented Elements of Scala<a class="headerlink" href="#object-oriented-elements-of-scala" title="Permalink to this headline">¶</a></h2>
+<h2>2.3. Object-Oriented Elements of Scala<a class="headerlink" href="#object-oriented-elements-of-scala" title="Permalink to this headline">¶</a></h2>
 <p>Scala inherits many object-oriented features from languages such as
 C++ and Java. That said, it’s object-oriented model can still be
 understand in terms of OCaml abstractions. Definitions of functions
@@ -344,7 +355,7 @@ polymorphic <code class="docutils literal notranslate"><span class="pre">pair</s
 </div>
 </div>
 <div class="section" id="functional-elements-of-scala">
-<h2>Functional Elements of Scala<a class="headerlink" href="#functional-elements-of-scala" title="Permalink to this headline">¶</a></h2>
+<h2>2.4. Functional Elements of Scala<a class="headerlink" href="#functional-elements-of-scala" title="Permalink to this headline">¶</a></h2>
 <p>Scala allows to define classes in a way that they could be used in a
 pattern matching, similar to OCaml’s data types. For this, they need
 to be defined using the keyword <code class="docutils literal notranslate"><span class="pre">case</span></code>. The typical pattern is to
@@ -454,7 +465,7 @@ great overview of Scala collections:</p>
 </ul>
 </div>
 <div class="section" id="imperative-elements-of-scala">
-<h2>Imperative elements of Scala<a class="headerlink" href="#imperative-elements-of-scala" title="Permalink to this headline">¶</a></h2>
+<h2>2.5. Imperative elements of Scala<a class="headerlink" href="#imperative-elements-of-scala" title="Permalink to this headline">¶</a></h2>
 <p>Scala allows one to use arrays in the same way one uses them in OCaml
 and Java. The code below shows some examples of creating using arrays:</p>
 <div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">object</span> <span class="nc">ArrayExample</span> <span class="o">{</span>
@@ -495,7 +506,7 @@ arrays in conjunction with other Scala collections:</p>
 </ul>
 </div>
 <div class="section" id="working-with-threads-in-scala">
-<h2>Working with Threads in Scala<a class="headerlink" href="#working-with-threads-in-scala" title="Permalink to this headline">¶</a></h2>
+<h2>2.6. Working with Threads in Scala<a class="headerlink" href="#working-with-threads-in-scala" title="Permalink to this headline">¶</a></h2>
 <p>Threads in Scala can be created as instances of a class that extends
 <code class="docutils literal notranslate"><span class="pre">Thread</span></code>, <cite>overriding</cite> its method <code class="docutils literal notranslate"><span class="pre">run</span></code>. Consider the following
 object that features a mutable list field and three methods to
@@ -669,7 +680,7 @@ not call it), while the second is used to begin the execution of a
 thread concurrently with the current one.</p>
 </div>
 <div class="section" id="writing-automated-tests-in-scala">
-<h2>Writing Automated Tests in Scala<a class="headerlink" href="#writing-automated-tests-in-scala" title="Permalink to this headline">¶</a></h2>
+<h2>2.7. Writing Automated Tests in Scala<a class="headerlink" href="#writing-automated-tests-in-scala" title="Permalink to this headline">¶</a></h2>
 <p>Scala provides many frameworks for implementing automated tests. We
 will use <a class="reference external" href="http://www.scalatest.org/">ScalaTest</a>. The tests located
 under the <code class="docutils literal notranslate"><span class="pre">test</span></code> source root of the project and adhering to
@@ -718,6 +729,13 @@ the project view on the left of the screen and choosing <code class="docutils li
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="week-01-intro.html" class="btn btn-neutral" title="1. Week 01: Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
