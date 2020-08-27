@@ -1,6 +1,6 @@
 .. -*- mode: rst -*-
 
-Week 02: Mutual Exclusion
+Week 03: Mutual Exclusion
 =========================
 
 * `Lecture Slides <_static/resources/ysc3248-week-02-mutex.pdf>`_
