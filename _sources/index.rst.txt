@@ -22,7 +22,7 @@ Lectures
 
    week-01-intro
    week-02-scala
-..   week-02-mutex
+   week-02-mutex
 ..   week-03-concurrent-objects
 ..   week-04-wait-free
 ..   week-04-consensus
