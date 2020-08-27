@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Week 06: Lists (Continued) and Fine-Grained Locking &mdash; YSC3248 2020</title>
+  <title>3. Week 03: Mutual Exclusion &mdash; YSC3248 2020</title>
   
 
   
@@ -28,7 +28,8 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="2. Week 02: Scala Primer" href="week-02-scala.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -81,10 +82,10 @@
 <li class="toctree-l1"><a class="reference internal" href="syllabus.html">1. Course Syllabus</a></li>
 <li class="toctree-l1"><a class="reference internal" href="prerequisites.html">2. Software Prerequisites</a></li>
 </ul>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="week-01-intro.html">1. Week 01: Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week-02-scala.html">2. Week 02: Scala Primer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-03-mutex.html">3. Week 03: Mutual Exclusion</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3. Week 03: Mutual Exclusion</a></li>
 </ul>
 
             
@@ -130,7 +131,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Week 06: Lists (Continued) and Fine-Grained Locking</li>
+      <li>3. Week 03: Mutual Exclusion</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -147,13 +148,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="week-06-lists-continued-and-fine-grained-locking">
-<h1>Week 06: Lists (Continued) and Fine-Grained Locking<a class="headerlink" href="#week-06-lists-continued-and-fine-grained-locking" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="week-03-mutual-exclusion">
+<h1>3. Week 03: Mutual Exclusion<a class="headerlink" href="#week-03-mutual-exclusion" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
-<li><a class="reference external" href="_static/resources/ysc3248-week-06-lists-02.pdf">Lecture Slides</a>
+<li><a class="reference external" href="_static/resources/ysc3248-week-02-mutex.pdf">Lecture Slides</a>
 (adapted from the <a class="reference external" href="https://booksite.elsevier.com/9780123973375/?ISBN=9780123973375">AoMP book</a>)</li>
-<li><a class="reference external" href="https://github.com/ysc3248/ysc3248-examples/tree/06-lists">Code with examples</a>,
-package <code class="docutils literal notranslate"><span class="pre">lists</span></code></li>
+<li><a class="reference external" href="https://github.com/ysc3248/lectures-2020/tree/02-mutex">Code with examples</a>,
+branch <code class="docutils literal notranslate"><span class="pre">02-mutex</span></code>, package <code class="docutils literal notranslate"><span class="pre">mutex</span></code>.</li>
 </ul>
 </div>
 
@@ -162,6 +163,13 @@ package <code class="docutils literal notranslate"><span class="pre">lists</span
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="week-02-scala.html" class="btn btn-neutral" title="2. Week 02: Scala Primer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
