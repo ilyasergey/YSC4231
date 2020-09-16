@@ -275,14 +275,14 @@ done by thread A by calling a method <code class="docutils literal notranslate">
 object associated with the corresponding lock. Once having released a
 lock this way, the thread A becomes <cite>suspended</cite>: it does not spin, but
 rather “sleeps” (the OS takes care of putting a thread to sleep and
-waking it up later). What happens next is an other thread (let’s call
+waking it up later). What happens next is another thread (let’s call
 it B) willing to acquire the lock gets access to the critical section
 and may work with it. Also, while it is in the critical section , B
 may call a method <code class="docutils literal notranslate"><span class="pre">signal()</span></code> on the same (shared) condition object.
 This will have the following effect. Once B exits its critical section
 (or calls <code class="docutils literal notranslate"><span class="pre">wait()</span></code> on the condition), the thread A will wake up and
 continues its working in the critical section.</p>
-<p>Notice that at any point in time at most one threads has been active
+<p>Notice that at any point in time at most one thread has been active
 in the critical section. Using conditional variables, we can
 re-implement our turn-based incrementation as follows:</p>
 <div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">object</span> <span class="nc">CountSingleCondition</span> <span class="o">{</span>
@@ -378,7 +378,8 @@ corresponding lock) or calls <code class="docutils literal notranslate"><span cl
 on a condition, might never wake up.</li>
 <li><strong>Question</strong>: What happens if replace <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">(counter</span> <span class="pre">%</span> <span class="pre">2</span> <span class="pre">==</span> <span class="pre">0)</span></code>
 by <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">(counter</span> <span class="pre">%</span> <span class="pre">2</span> <span class="pre">==</span> <span class="pre">0)</span></code>?</li>
-<li><strong>Answer</strong>: It will lead to a deadlock.</li>
+<li><strong>Answer</strong>: Nothing particularly bad, but it’s better to re-check
+the condition before proceeding.</li>
 <li><strong>Question</strong>: What happens if we call <code class="docutils literal notranslate"><span class="pre">cond.signal()</span></code> or
 <code class="docutils literal notranslate"><span class="pre">cond.await()</span></code> outside of the Critical Section marked by
 <code class="docutils literal notranslate"><span class="pre">lock()</span></code> and <code class="docutils literal notranslate"><span class="pre">unlock()</span></code>?</li>
@@ -592,8 +593,8 @@ variable associated with an object is done by callling <code class="docutils lit
 and <code class="docutils literal notranslate"><span class="pre">o.notify()</span></code> and <code class="docutils literal notranslate"><span class="pre">o.notifyAll()</span></code>, correspondingly. Notice, the
 names of these methods are different on purpose from those of
 conditional variables so they would not be confused. We can implement
-our counter example using Java</p>
-<p>Java provides special primitives for monitor-based synchronisation:</p>
+our counter example using Java, which provides special primitives for
+monitor-based synchronisation:</p>
 <div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">object</span> <span class="nc">CountIntrinsicMonitor</span> <span class="o">{</span>
 
   <span class="k">private</span> <span class="k">var</span> <span class="n">counter</span><span class="k">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="mi">0</span>
@@ -647,10 +648,13 @@ our counter example using Java</p>
 <ul class="simple">
 <li><strong>Question</strong>: Why does it work in the presence of just one
 “conditional variable”?</li>
-<li><strong>Answer</strong>: Left as an exercise.</li>
+<li><strong>Answer</strong>: Because of <code class="docutils literal notranslate"><span class="pre">notifyAll()</span></code> that wakes up all threads,
+allowing the “right ones” to proceed eventually.</li>
 <li><strong>Question</strong>: Will it sill work if we replace <code class="docutils literal notranslate"><span class="pre">notifyAll()</span></code> by
 <code class="docutils literal notranslate"><span class="pre">notify()</span></code>?</li>
-<li><strong>Answer</strong>: Left as an exercise.</li>
+<li><strong>Answer</strong>: Nom, it will deadlock, as the thread of the same
+“parity” can be notified, and it won’t be able to proceed, hanging
+on the <code class="docutils literal notranslate"><span class="pre">wait()</span></code> call.</li>
 <li><strong>Question</strong>: Why couldn’t use <code class="docutils literal notranslate"><span class="pre">this.synchronized</span></code> instead?</li>
 <li><strong>Answer</strong>: Called within a thread <code class="docutils literal notranslate"><span class="pre">this.synchronized</span></code> would refer
 to the closest enclosing object, i.e., the thread instance itself.
