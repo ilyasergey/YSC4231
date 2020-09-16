@@ -25,7 +25,6 @@ Lectures
    week-03-mutex
    week-03-concurrent-objects
    week-04-wait-free
-..   week-04-consensus
 ..   week-05-spinlocks
 ..   week-05-monitors
 ..   week-06-rw-lists

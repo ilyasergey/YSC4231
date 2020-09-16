@@ -1,6 +1,6 @@
 .. -*- mode: rst -*-
 
-Week 05: Monitors and Blocking Synchronisation
+Week 06: Monitors and Blocking Synchronisation
 ==============================================
 
 In this this chapter we will consider **monitors** --- a mechanism for
@@ -9,7 +9,7 @@ complementary to spin-locks, considered previously.
 
 The code for this lecture is provided in branch ``05-monitors``
 (package ``monitors``) of the `accompanying repository
-<https://github.com/ysc3248/ysc3248-examples/tree/05-monitors>`_.
+<https://github.com/ysc3248/lectures-2020/tree/06-monitors>`_.
 
 When Spinning isn't Good Enough
 -------------------------------
