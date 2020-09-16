@@ -135,7 +135,7 @@ done by thread A by calling a method ``await()`` on the condition
 object associated with the corresponding lock. Once having released a
 lock this way, the thread A becomes `suspended`: it does not spin, but
 rather "sleeps" (the OS takes care of putting a thread to sleep and
-waking it up later). What happens next is an other thread (let's call
+waking it up later). What happens next is another thread (let's call
 it B) willing to acquire the lock gets access to the critical section
 and may work with it. Also, while it is in the critical section , B
 may call a method ``signal()`` on the same (shared) condition object.
@@ -143,7 +143,7 @@ This will have the following effect. Once B exits its critical section
 (or calls ``wait()`` on the condition), the thread A will wake up and
 continues its working in the critical section.
 
-Notice that at any point in time at most one threads has been active
+Notice that at any point in time at most one thread has been active
 in the critical section. Using conditional variables, we can
 re-implement our turn-based incrementation as follows::
 
@@ -243,7 +243,8 @@ questions.
 
 * **Question**: What happens if replace ``while (counter % 2 == 0)``
   by ``if (counter % 2 == 0)``?
-* **Answer**: It will lead to a deadlock.
+* **Answer**: Nothing particularly bad, but it's better to re-check
+  the condition before proceeding.
 
 * **Question**: What happens if we call ``cond.signal()`` or
   ``cond.await()`` outside of the Critical Section marked by
@@ -478,9 +479,8 @@ variable associated with an object is done by callling ``o.wait()``,
 and ``o.notify()`` and ``o.notifyAll()``, correspondingly. Notice, the
 names of these methods are different on purpose from those of
 conditional variables so they would not be confused. We can implement
-our counter example using Java 
-
-Java provides special primitives for monitor-based synchronisation::
+our counter example using Java, which provides special primitives for
+monitor-based synchronisation::
 
  object CountIntrinsicMonitor {
 
@@ -533,11 +533,14 @@ Java provides special primitives for monitor-based synchronisation::
 
 * **Question**: Why does it work in the presence of just one
   "conditional variable"?
-* **Answer**: Left as an exercise.
+* **Answer**: Because of ``notifyAll()`` that wakes up all threads,
+  allowing the "right ones" to proceed eventually.
 
 * **Question**: Will it sill work if we replace ``notifyAll()`` by
   ``notify()``?
-* **Answer**: Left as an exercise.
+* **Answer**: Nom, it will deadlock, as the thread of the same
+  "parity" can be notified, and it won't be able to proceed, hanging
+  on the ``wait()`` call.
 
 * **Question**: Why couldn't use ``this.synchronized`` instead?
 * **Answer**: Called within a thread ``this.synchronized`` would refer
