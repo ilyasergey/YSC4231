@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Week 05: Monitors and Blocking Synchronisation &mdash; YSC3248 2020</title>
+  <title>Week 06: Monitors and Blocking Synchronisation &mdash; YSC3248 2020</title>
   
 
   
@@ -132,7 +132,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Week 05: Monitors and Blocking Synchronisation</li>
+      <li>Week 06: Monitors and Blocking Synchronisation</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -149,13 +149,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="week-05-monitors-and-blocking-synchronisation">
-<h1>Week 05: Monitors and Blocking Synchronisation<a class="headerlink" href="#week-05-monitors-and-blocking-synchronisation" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="week-06-monitors-and-blocking-synchronisation">
+<h1>Week 06: Monitors and Blocking Synchronisation<a class="headerlink" href="#week-06-monitors-and-blocking-synchronisation" title="Permalink to this headline">¶</a></h1>
 <p>In this this chapter we will consider <strong>monitors</strong> — a mechanism for
 <cite>blocking</cite> synchronisation of concurrently executing threads,
 complementary to spin-locks, considered previously.</p>
-<p>The code for this lecture is provided in branch <code class="docutils literal notranslate"><span class="pre">05-monitors</span></code>
-(package <code class="docutils literal notranslate"><span class="pre">monitors</span></code>) of the <a class="reference external" href="https://github.com/ysc3248/ysc3248-examples/tree/05-monitors">accompanying repository</a>.</p>
+<p>The code for this lecture is provided in branch <code class="docutils literal notranslate"><span class="pre">06-monitors</span></code>
+(package <code class="docutils literal notranslate"><span class="pre">monitors</span></code>) of the <a class="reference external" href="https://github.com/ysc3248/lectures-2020/tree/06-monitors">accompanying repository</a>.</p>
 <div class="section" id="when-spinning-isn-t-good-enough">
 <h2>When Spinning isn’t Good Enough<a class="headerlink" href="#when-spinning-isn-t-good-enough" title="Permalink to this headline">¶</a></h2>
 <p>Imagine the following artificial problem. We want to implement a
@@ -249,7 +249,7 @@ correspondingly). If it is the case, it will proceed to increment it,
 also increasing its iteration index <code class="docutils literal notranslate"><span class="pre">k</span></code>. Otherwise, it will pass the
 turn by releasing the lock and keeping to “spin” on the condition <code class="docutils literal notranslate"><span class="pre">k</span>
 <span class="pre">&lt;</span> <span class="pre">TOTAL</span> <span class="pre">/</span> <span class="pre">THREADS</span></code> of the outer loop.</p>
-<p>While correct, this implementation is comewhat unintuitive. Not only
+<p>While correct, this implementation is somewhat unintuitive. Not only
 it requires us to take care of synchronisation, each thread should
 also ensure that it doesn’t miss its turn, essentially performing
 additional spinning. In the same time, by incrementing a shared

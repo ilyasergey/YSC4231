@@ -1,7 +1,7 @@
 .. -*- mode: rst -*-
 
-Week 07: Midterm Project
-========================
+Midterm Project
+===============
 
 In this project we will be studying `thread pools
 <https://en.wikipedia.org/wiki/Thread_pool>`_, a very useful
