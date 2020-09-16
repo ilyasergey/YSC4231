@@ -7,7 +7,7 @@ In this this chapter we will consider **monitors** --- a mechanism for
 `blocking` synchronisation of concurrently executing threads,
 complementary to spin-locks, considered previously.
 
-The code for this lecture is provided in branch ``05-monitors``
+The code for this lecture is provided in branch ``06-monitors``
 (package ``monitors``) of the `accompanying repository
 <https://github.com/ysc3248/lectures-2020/tree/06-monitors>`_.
 
@@ -106,7 +106,7 @@ also increasing its iteration index ``k``. Otherwise, it will pass the
 turn by releasing the lock and keeping to "spin" on the condition ``k
 < TOTAL / THREADS`` of the outer loop.
 
-While correct, this implementation is comewhat unintuitive. Not only
+While correct, this implementation is somewhat unintuitive. Not only
 it requires us to take care of synchronisation, each thread should
 also ensure that it doesn't miss its turn, essentially performing
 additional spinning. In the same time, by incrementing a shared
