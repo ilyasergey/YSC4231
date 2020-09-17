@@ -25,9 +25,9 @@ Lectures
    week-03-mutex
    week-03-concurrent-objects
    week-04-wait-free
-..   week-05-spinlocks
-..   week-05-monitors
-..   week-07-midterm-project   
+   week-05-spinlocks
+   week-05-monitors
+   week-07-midterm-project   
 
 ..   week-06-rw-lists
 ..   week-06-fine-lists
