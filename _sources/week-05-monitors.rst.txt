@@ -3,7 +3,7 @@
 Week 06: Monitors and Blocking Synchronisation
 ==============================================
 
-In this this chapter we will consider **monitors** --- a mechanism for
+In this chapter we will consider **monitors** --- a mechanism for
 `blocking` synchronisation of concurrently executing threads,
 complementary to spin-locks, considered previously.
 
