@@ -17,21 +17,17 @@ Lectures
 * Spin Locks
 * Monitors and Semaphores
 * Read-Write Locks
-* Linked Lists
 
 **Mid-Term Break: Project (Theory and Programming)**
 
-* Concurrent Queues 
-* Stacks and Elimination 
+* Linked Lists
+* Concurrent Queues; Stacks and Elimination 
 * Skiplists
 * Data Race Detection in Practice
-* Futures in Java and Scala
-* Promises 
-* Using Data-Parallel Collections 
-* Implementing Parallel Collections  
-* Actor-Based Concurrency 
-* Communication between Actors
-* Actor Supervision
+* Futures in Java. 
+* Futures and Promises in Scala
+* Using and Implementing Data-Parallel Collections 
+* Actor-Based Concurrency and Actor Supervision
 * Distributed Consensus; Paxos
 * Byzantine Fault-Tolerance and Blockchain Consensus
 
