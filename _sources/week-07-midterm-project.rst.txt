@@ -112,7 +112,7 @@ following files in the project template:
   implement ``ParallelQuicksort``.
 
 By running the tests, we can compare the performance of the two
-algorithms. What are you thoughts about this? Can you explain the
+algorithms. What are your thoughts about this? Can you explain the
 observed phenomena with regard to the execution times?
 
 Problem 3: Thread Pool
@@ -262,7 +262,7 @@ worlds: single-threaded and parallel:
 
 For the grand finale, let us check the absolute performance of the
 four sorting algorithms. Use the file ``SortingBenchmarks`` to compare
-the implementations on the arrays of the different size. The benchmar
+the implementations on the arrays of the different size. The benchmark
 suite also includes ``ScalaSort`` -- a fine-tuned default Scala
 library implementation of array sorting. Can you beat it in terms of
 performance? Use the benchmarks and drive your experiments in the
