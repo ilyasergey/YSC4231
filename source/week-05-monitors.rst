@@ -163,8 +163,8 @@ re-implement our turn-based incrementation as follows::
          // Step 1: take the lock
          lock.lock()
          try {
-           // Step 2: wait while counter is even
-           while (counter % 2 == 0) {
+           // Step 2: wait while counter is not even
+           while (counter % 2 == 1) {
              cond.await()
            }
            // Step 3: Do useful stuff
@@ -185,7 +185,7 @@ re-implement our turn-based incrementation as follows::
        for (_ <- 1 to TOTAL / 2) {
          lock.lock()
          try {
-           while (counter % 2 == 1) {
+           while (counter % 2 == 0) {
              cond.await()
            }
            counter = counter + 1
@@ -324,8 +324,8 @@ follows::
          // Repeat in cycle
          for (_ <- 1 to TOTAL / THREADS) {
 
-           // Step 2: wait while counter is even
-           while (counter % 2 == 0) {
+           // Step 2: wait while counter is not even
+           while (counter % 2 == 1) {
              condEven.await()
            }
            // Step 3: Do useful stuff
@@ -348,7 +348,7 @@ follows::
        lock.lock()
        try {
          for (_ <- 1 to TOTAL / THREADS) {
-           while (counter % 2 == 1) {
+           while (counter % 2 == 0) {
              condOdd.await()
            }
            counter = counter + 1
@@ -403,8 +403,8 @@ even/odd incrementers synchronising them via ``await()`` / ``signal()``::
          // Repeat in cycle
          for (_ <- 1 to TOTAL / THREADS) {
 
-           // Step 2: wait while counter is even
-           while (counter % 2 == 0) {
+           // Step 2: wait while counter is not even
+           while (counter % 2 == 1) {
              condEven.await()
            }
            // Step 3: Do useful stuff
@@ -428,7 +428,7 @@ even/odd incrementers synchronising them via ``await()`` / ``signal()``::
        lock.lock()
        try {
          for (_ <- 1 to TOTAL / THREADS) {
-           while (counter % 2 == 1) {
+           while (counter % 2 == 0) {
              condOdd.await()
            }
            counter = counter + 1
@@ -496,8 +496,8 @@ monitor-based synchronisation::
          // Repeat in cycle
          for (_ <- 1 to TOTAL / THREADS) {
 
-           // Step 2: wait while counter is even
-           while (counter % 2 == 0) {
+           // Step 2: wait while counter is not even
+           while (counter % 2 == 1) {
              // TODO: Notice: now it's `wait()` instead of `await()`
              CountIntrinsicMonitor.wait()
            }
@@ -518,7 +518,7 @@ monitor-based synchronisation::
        val i = ThreadID.get
        CountIntrinsicMonitor.synchronized {
          for (_ <- 1 to TOTAL / THREADS) {
-           while (counter % 2 == 1) {
+           while (counter % 2 == 0) {
              CountIntrinsicMonitor.wait()
            }
            counter = counter + 1
