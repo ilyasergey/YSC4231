@@ -140,7 +140,7 @@ it B) willing to acquire the lock gets access to the critical section
 and may work with it. Also, while it is in the critical section , B
 may call a method ``signal()`` on the same (shared) condition object.
 This will have the following effect. Once B exits its critical section
-(or calls ``wait()`` on the condition), the thread A will wake up and
+(or calls ``await()`` on the condition), the thread A will wake up and
 continues its working in the critical section.
 
 Notice that at any point in time at most one thread has been active
