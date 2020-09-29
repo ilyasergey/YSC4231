@@ -316,8 +316,8 @@ re-implement our turn-based incrementation as follows:</p>
         <span class="c1">// Step 1: take the lock</span>
         <span class="n">lock</span><span class="o">.</span><span class="n">lock</span><span class="o">()</span>
         <span class="k">try</span> <span class="o">{</span>
-          <span class="c1">// Step 2: wait while counter is even</span>
-          <span class="k">while</span> <span class="o">(</span><span class="n">counter</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+          <span class="c1">// Step 2: wait while counter is not even</span>
+          <span class="k">while</span> <span class="o">(</span><span class="n">counter</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
             <span class="n">cond</span><span class="o">.</span><span class="n">await</span><span class="o">()</span>
           <span class="o">}</span>
           <span class="c1">// Step 3: Do useful stuff</span>
@@ -338,7 +338,7 @@ re-implement our turn-based incrementation as follows:</p>
       <span class="k">for</span> <span class="o">(</span><span class="k">_</span> <span class="k">&lt;-</span> <span class="mi">1</span> <span class="n">to</span> <span class="nc">TOTAL</span> <span class="o">/</span> <span class="mi">2</span><span class="o">)</span> <span class="o">{</span>
         <span class="n">lock</span><span class="o">.</span><span class="n">lock</span><span class="o">()</span>
         <span class="k">try</span> <span class="o">{</span>
-          <span class="k">while</span> <span class="o">(</span><span class="n">counter</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+          <span class="k">while</span> <span class="o">(</span><span class="n">counter</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
             <span class="n">cond</span><span class="o">.</span><span class="n">await</span><span class="o">()</span>
           <span class="o">}</span>
           <span class="n">counter</span> <span class="k">=</span> <span class="n">counter</span> <span class="o">+</span> <span class="mi">1</span>
@@ -455,8 +455,8 @@ follows:</p>
         <span class="c1">// Repeat in cycle</span>
         <span class="k">for</span> <span class="o">(</span><span class="k">_</span> <span class="k">&lt;-</span> <span class="mi">1</span> <span class="n">to</span> <span class="nc">TOTAL</span> <span class="o">/</span> <span class="nc">THREADS</span><span class="o">)</span> <span class="o">{</span>
 
-          <span class="c1">// Step 2: wait while counter is even</span>
-          <span class="k">while</span> <span class="o">(</span><span class="n">counter</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+          <span class="c1">// Step 2: wait while counter is not even</span>
+          <span class="k">while</span> <span class="o">(</span><span class="n">counter</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
             <span class="n">condEven</span><span class="o">.</span><span class="n">await</span><span class="o">()</span>
           <span class="o">}</span>
           <span class="c1">// Step 3: Do useful stuff</span>
@@ -479,7 +479,7 @@ follows:</p>
       <span class="n">lock</span><span class="o">.</span><span class="n">lock</span><span class="o">()</span>
       <span class="k">try</span> <span class="o">{</span>
         <span class="k">for</span> <span class="o">(</span><span class="k">_</span> <span class="k">&lt;-</span> <span class="mi">1</span> <span class="n">to</span> <span class="nc">TOTAL</span> <span class="o">/</span> <span class="nc">THREADS</span><span class="o">)</span> <span class="o">{</span>
-          <span class="k">while</span> <span class="o">(</span><span class="n">counter</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+          <span class="k">while</span> <span class="o">(</span><span class="n">counter</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
             <span class="n">condOdd</span><span class="o">.</span><span class="n">await</span><span class="o">()</span>
           <span class="o">}</span>
           <span class="n">counter</span> <span class="k">=</span> <span class="n">counter</span> <span class="o">+</span> <span class="mi">1</span>
@@ -533,8 +533,8 @@ even/odd incrementers synchronising them via <code class="docutils literal notra
         <span class="c1">// Repeat in cycle</span>
         <span class="k">for</span> <span class="o">(</span><span class="k">_</span> <span class="k">&lt;-</span> <span class="mi">1</span> <span class="n">to</span> <span class="nc">TOTAL</span> <span class="o">/</span> <span class="nc">THREADS</span><span class="o">)</span> <span class="o">{</span>
 
-          <span class="c1">// Step 2: wait while counter is even</span>
-          <span class="k">while</span> <span class="o">(</span><span class="n">counter</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+          <span class="c1">// Step 2: wait while counter is not even</span>
+          <span class="k">while</span> <span class="o">(</span><span class="n">counter</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
             <span class="n">condEven</span><span class="o">.</span><span class="n">await</span><span class="o">()</span>
           <span class="o">}</span>
           <span class="c1">// Step 3: Do useful stuff</span>
@@ -558,7 +558,7 @@ even/odd incrementers synchronising them via <code class="docutils literal notra
       <span class="n">lock</span><span class="o">.</span><span class="n">lock</span><span class="o">()</span>
       <span class="k">try</span> <span class="o">{</span>
         <span class="k">for</span> <span class="o">(</span><span class="k">_</span> <span class="k">&lt;-</span> <span class="mi">1</span> <span class="n">to</span> <span class="nc">TOTAL</span> <span class="o">/</span> <span class="nc">THREADS</span><span class="o">)</span> <span class="o">{</span>
-          <span class="k">while</span> <span class="o">(</span><span class="n">counter</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+          <span class="k">while</span> <span class="o">(</span><span class="n">counter</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
             <span class="n">condOdd</span><span class="o">.</span><span class="n">await</span><span class="o">()</span>
           <span class="o">}</span>
           <span class="n">counter</span> <span class="k">=</span> <span class="n">counter</span> <span class="o">+</span> <span class="mi">1</span>
@@ -624,8 +624,8 @@ monitor-based synchronisation:</p>
         <span class="c1">// Repeat in cycle</span>
         <span class="k">for</span> <span class="o">(</span><span class="k">_</span> <span class="k">&lt;-</span> <span class="mi">1</span> <span class="n">to</span> <span class="nc">TOTAL</span> <span class="o">/</span> <span class="nc">THREADS</span><span class="o">)</span> <span class="o">{</span>
 
-          <span class="c1">// Step 2: wait while counter is even</span>
-          <span class="k">while</span> <span class="o">(</span><span class="n">counter</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+          <span class="c1">// Step 2: wait while counter is not even</span>
+          <span class="k">while</span> <span class="o">(</span><span class="n">counter</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
             <span class="c1">// TODO: Notice: now it&#39;s `wait()` instead of `await()`</span>
             <span class="nc">CountIntrinsicMonitor</span><span class="o">.</span><span class="n">wait</span><span class="o">()</span>
           <span class="o">}</span>
@@ -646,7 +646,7 @@ monitor-based synchronisation:</p>
       <span class="k">val</span> <span class="n">i</span> <span class="k">=</span> <span class="nc">ThreadID</span><span class="o">.</span><span class="n">get</span>
       <span class="nc">CountIntrinsicMonitor</span><span class="o">.</span><span class="n">synchronized</span> <span class="o">{</span>
         <span class="k">for</span> <span class="o">(</span><span class="k">_</span> <span class="k">&lt;-</span> <span class="mi">1</span> <span class="n">to</span> <span class="nc">TOTAL</span> <span class="o">/</span> <span class="nc">THREADS</span><span class="o">)</span> <span class="o">{</span>
-          <span class="k">while</span> <span class="o">(</span><span class="n">counter</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+          <span class="k">while</span> <span class="o">(</span><span class="n">counter</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
             <span class="nc">CountIntrinsicMonitor</span><span class="o">.</span><span class="n">wait</span><span class="o">()</span>
           <span class="o">}</span>
           <span class="n">counter</span> <span class="k">=</span> <span class="n">counter</span> <span class="o">+</span> <span class="mi">1</span>
