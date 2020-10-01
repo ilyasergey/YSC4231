@@ -28,8 +28,8 @@ Lectures
    week-05-spinlocks
    week-05-monitors
    week-07-midterm-project   
+   week-06-fine-lists
 
-..   week-06-fine-lists
 ..   week-08-queues
 ..   week-09-stacks
 ..   week-09-skiplists
