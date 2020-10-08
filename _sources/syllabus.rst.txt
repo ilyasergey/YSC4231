@@ -24,7 +24,7 @@ Lectures
 * Concurrent Queues; Stacks and Elimination 
 * Skiplists
 * Data Race Detection in Practice
-* Futures in Java. 
+* Futures in Java 
 * Futures and Promises in Scala
 * Using and Implementing Data-Parallel Collections 
 * Actor-Based Concurrency and Actor Supervision
