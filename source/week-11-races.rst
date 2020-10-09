@@ -74,8 +74,7 @@ documentation on installing and using the relevant parts of Infer by
 the following links:
 
 * `Installing Facebook Infer <https://fbinfer.com/docs/getting-started.html>`_
-* `RacerD documentation and examples
-  <https://fbinfer.com/docs/racerd.html>`_
+* `RacerD documentation and examples <https://fbinfer.com/docs/racerd.html>`_
 
 As a part of this assignment, please, check out the following research
 paper, which introduces pragmatics of Infer's RacerD component and
@@ -168,25 +167,32 @@ introducing more synchronisation?
 The Task
 --------
 
-Your goal for in this assignment is to hunt donw and explore data
+Your goal for in this assignment is to hunt down and explore data
 races in large real-world Java projects. A list of some of such
 projects is given below, but you may also find some on your own.
 
-Working in groups of two, by using Infer/RacerD you will have to
-locate **five distinct** data races in one or more large projects,
-explain the reasons why the analyser considers them such, and provide
-a tentative solution on how they could be fixed. If the races cannot
-be fixed easily (e.g., just by declaring a Java method as
+You may work on this project either individually or in teams of two.
+By using Infer/RacerD you will have to locate **four (eight for a team
+of two) distinct** data races in one or more large projects, explain
+the reasons why the analyser considers them such, and provide a
+tentative solution on how they could be fixed. If the races cannot be
+fixed easily (e.g., by just declaring a Java method as
 ``synchronized``), outline your ideas on what prevents one from doing
 so. The result of your project should a be PDF document that contains:
+
+.. admonition:: Note
+ 
+   If you work individually, you may only consider one project. In a
+   team of two, you should consider at least two different projects.
 
 * A short report on the chosen Java projects. For instance, which
   parts of the projects utilise concurrency, and why do you think it
   is beneficial there? 
 
-* Descriptions of 5 data races (possibly spanning multiple projects),
-  each complemented with a short story as described above. Some
-  variations on what is reported are possibler and are described below.
+* Descriptions of 4 (8 for the team of two) data races (possibly
+  spanning multiple projects), each complemented with a short story as
+  described above. Some variations on what is reported are possible
+  and are described below.
 
 * If applicable, a quick enumeration of the technical issues
   encountered while working on this project (to help the future
