@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Week 11: Data Race Detection in Practice &mdash; YSC3248 2020</title>
+  <title>Week 09: Data Race Detection in Practice &mdash; YSC3248 2020</title>
   
 
   
@@ -137,7 +137,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Week 11: Data Race Detection in Practice</li>
+      <li>Week 09: Data Race Detection in Practice</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -154,8 +154,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="week-11-data-race-detection-in-practice">
-<h1>Week 11: Data Race Detection in Practice<a class="headerlink" href="#week-11-data-race-detection-in-practice" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="week-09-data-race-detection-in-practice">
+<h1>Week 09: Data Race Detection in Practice<a class="headerlink" href="#week-09-data-race-detection-in-practice" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference external" href="_static/resources/ysc3248-week-09-races.pdf">Lecture Slides</a></li>
+</ul>
 <p>In this mini research project you’ll be working in groups of two. The
 goal of this project is to get you exposed to the state-of-the-art
 tools for finding concurrency bugs in large Java codebases.</p>
@@ -303,23 +306,30 @@ introducing more synchronisation?</p>
 </div>
 <div class="section" id="the-task">
 <h2>The Task<a class="headerlink" href="#the-task" title="Permalink to this headline">¶</a></h2>
-<p>Your goal for in this assignment is to hunt donw and explore data
+<p>Your goal for in this assignment is to hunt down and explore data
 races in large real-world Java projects. A list of some of such
 projects is given below, but you may also find some on your own.</p>
-<p>Working in groups of two, by using Infer/RacerD you will have to
-locate <strong>five distinct</strong> data races in one or more large projects,
-explain the reasons why the analyser considers them such, and provide
-a tentative solution on how they could be fixed. If the races cannot
-be fixed easily (e.g., just by declaring a Java method as
+<p>You may work on this project either individually or in teams of two.
+By using Infer/RacerD you will have to locate <strong>four (eight for a team
+of two) distinct</strong> data races in one or more large projects, explain
+the reasons why the analyser considers them such, and provide a
+tentative solution on how they could be fixed. If the races cannot be
+fixed easily (e.g., by just declaring a Java method as
 <code class="docutils literal notranslate"><span class="pre">synchronized</span></code>), outline your ideas on what prevents one from doing
 so. The result of your project should a be PDF document that contains:</p>
+<div class="admonition-note admonition">
+<p class="first admonition-title">Note</p>
+<p class="last">If you work individually, you may only consider one project. In a
+team of two, you should consider at least two different projects.</p>
+</div>
 <ul class="simple">
 <li>A short report on the chosen Java projects. For instance, which
 parts of the projects utilise concurrency, and why do you think it
 is beneficial there?</li>
-<li>Descriptions of 5 data races (possibly spanning multiple projects),
-each complemented with a short story as described above. Some
-variations on what is reported are possibler and are described below.</li>
+<li>Descriptions of 4 (8 for the team of two) data races (possibly
+spanning multiple projects), each complemented with a short story as
+described above. Some variations on what is reported are possible
+and are described below.</li>
 <li>If applicable, a quick enumeration of the technical issues
 encountered while working on this project (to help the future
 generations).</li>
