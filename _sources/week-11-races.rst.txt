@@ -192,7 +192,7 @@ so. The result of your project should a be PDF document that contains:
   is beneficial there? 
 
 * Descriptions of 4 (8 for the team of two) data races (possibly
-  spanning multiple projects), each complemented with a short story as
+  from multiple different projects), each complemented with a short story as
   described above. Some variations on what is reported are possible
   and are described below.
 
