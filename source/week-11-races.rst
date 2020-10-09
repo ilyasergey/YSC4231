@@ -185,7 +185,7 @@ so. The result of your project should a be PDF document that contains:
 .. admonition:: Note
  
    If you work individually, you may only consider one project. In a
-   team of two, you should consider at least two different projects.
+   team of two, you should consider at least **two different** projects.
 
 * A short report on the chosen Java projects. For instance, which
   parts of the projects utilise concurrency, and why do you think it
