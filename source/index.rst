@@ -32,12 +32,16 @@ Lectures
    week-08-queues-stacks
 
 ..   week-09-skiplists
-..   week-10-futures
 ..   week-11-races
+
+..   week-10-futures
+
 ..   week-11-parallel
 ..   week-12-splitters
+
 ..   week-13-actors
 ..   week-13-communication
+
 ..   week-14-paxos
 ..   week-14-byzantine
 
