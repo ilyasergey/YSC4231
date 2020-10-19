@@ -163,7 +163,7 @@
 <li><a class="reference external" href="https://docs.scala-lang.org/overviews/core/futures.html">Documentation on Scala futures</a></li>
 <li>Futures and Async: <a class="reference external" href="https://speakerdeck.com/phaller/futures-and-async-when-to-use-which">Slides</a>
 and <a class="reference external" href="https://www.youtube.com/watch?v=TyuPdFDxkro">Video</a></li>
-<li><a class="reference external" href="https://github.com/ysc3248/ysc3248-examples/tree/10-futures">Code with examples</a>,
+<li><a class="reference external" href="https://github.com/ysc3248/lectures-2020/tree/10-futures">Code with examples</a>,
 package <code class="docutils literal notranslate"><span class="pre">futures</span></code></li>
 </ul>
 <div class="section" id="summary-of-the-lecture">
@@ -172,6 +172,7 @@ package <code class="docutils literal notranslate"><span class="pre">futures</sp
 below, outlining the characteristic aspects of working with Java
 Futures, as well as Scala Futures and Promises. It is recommended that
 the files are explored in the order they appear in the following list:</p>
+<p><strong>Java Futures</strong></p>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">SortAndRead</span></code> — reading a user input after having performed a
 costly operation (array sorting). This examples demonstrates the
@@ -181,20 +182,29 @@ Sorting is moved into a separate future. Introducting Java’s thread
 pools and the class <code class="docutils literal notranslate"><span class="pre">Future</span></code>.</li>
 <li><code class="docutils literal notranslate"><span class="pre">SortAndRead3</span></code> — even better implementation, in which the user
 input is also moved into a separate future.</li>
+</ul>
+<p><strong>An Exercise on Java Futures</strong></p>
+<ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">FutureSort</span></code> — an old friend, parallel quick-sort, now
 re-implemented with Java futures. An interesting question is why
 some of the offered thread pools, e.g.,
 <code class="docutils literal notranslate"><span class="pre">Executors.newFixedThreadPool(4)</span></code> make it deadlock?</li>
+</ul>
+<p><strong>Scala Futures</strong></p>
+<ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">FutureDataType</span></code> — a first example of using Scala’s futures, its
 <code class="docutils literal notranslate"><span class="pre">isCompleted</span></code> method and the implicit execution context
 (<code class="docutils literal notranslate"><span class="pre">ExecutionContext.Implicits.global</span></code>).</li>
-<li><code class="docutils literal notranslate"><span class="pre">AwaitExample</span></code> — an example showing the use of <code class="docutils literal notranslate"><span class="pre">Await.result</span></code>
-method to wait for a future to complete or fail otherwise.</li>
 <li><code class="docutils literal notranslate"><span class="pre">FuturesCallbacks</span></code> — demonstration of processing results of the
 futures asynchronously via callbacks (using <code class="docutils literal notranslate"><span class="pre">foreach</span></code> method).</li>
 <li><code class="docutils literal notranslate"><span class="pre">FutureExceptions</span></code> — treatment of exceptions in futures, via
 <code class="docutils literal notranslate"><span class="pre">onComplete</span></code> method and pattern matching on the result class:
 <code class="docutils literal notranslate"><span class="pre">Success</span></code> or <code class="docutils literal notranslate"><span class="pre">Failure</span></code>.</li>
+<li><code class="docutils literal notranslate"><span class="pre">AwaitExample</span></code> — an example showing the use of <code class="docutils literal notranslate"><span class="pre">Await.result</span></code>
+method to wait for a future to complete or fail otherwise.</li>
+</ul>
+<p><strong>Compoding Scala Futures</strong></p>
+<ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">Options</span></code> — a quick practice on building combinators for the
 <code class="docutils literal notranslate"><span class="pre">Option</span></code> type. Serves as an introduction to similar future
 combinators introduced next.</li>
@@ -206,18 +216,15 @@ futures are inlined under the <code class="docutils literal notranslate"><span c
 futures in the implementation of <code class="docutils literal notranslate"><span class="pre">getAllBlacklisted</span></code>. Multiple
 ways to quary the result are possible.</li>
 <li><code class="docutils literal notranslate"><span class="pre">ScalaFuturesTests</span></code> — shows how to test futures.</li>
+</ul>
+<p><strong>Scala Promises</strong></p>
+<ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">ProducerConsumer</span></code> — implementation of a producer-consumer with
 promises, which serve as a single-assignment mailbox.</li>
 <li><code class="docutils literal notranslate"><span class="pre">ProducerConsumer2</span></code> — demonstration of <code class="docutils literal notranslate"><span class="pre">isCompleted</span></code> method of
 promises.</li>
 <li><code class="docutils literal notranslate"><span class="pre">ProducerConsumer3</span></code> — failing the promise and recovering after an
 exception in the future using the <code class="docutils literal notranslate"><span class="pre">recover</span></code> method.</li>
-</ul>
-</div>
-<div class="section" id="homework">
-<h2>Homework<a class="headerlink" href="#homework" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><a class="reference external" href="_static/resources/programming-05.pdf">Programming Assignment 5</a></li>
 </ul>
 </div>
 </div>

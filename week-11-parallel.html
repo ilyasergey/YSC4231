@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Week 11: Using Data-Parallel Collections &mdash; YSC3248 2020</title>
+  <title>Week 11: Data-Parallel Collections &mdash; YSC3248 2020</title>
   
 
   
@@ -139,7 +139,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Week 11: Using Data-Parallel Collections</li>
+      <li>Week 11: Data-Parallel Collections</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -156,13 +156,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="week-11-using-data-parallel-collections">
-<h1>Week 11: Using Data-Parallel Collections<a class="headerlink" href="#week-11-using-data-parallel-collections" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="week-11-data-parallel-collections">
+<h1>Week 11: Data-Parallel Collections<a class="headerlink" href="#week-11-data-parallel-collections" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="useful-resources">
 <h2>Useful Resources<a class="headerlink" href="#useful-resources" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://docs.scala-lang.org/overviews/parallel-collections/overview.html">Documentation for Scala Parallel Collections</a></li>
-<li><a class="reference external" href="https://github.com/ysc3248/ysc3248-examples/tree/11-parallel">Code with examples</a>,
+<li><a class="reference external" href="https://github.com/ysc3248/lectures-2020/tree/11-parallel">Code with examples</a>,
 package <code class="docutils literal notranslate"><span class="pre">parallel</span></code></li>
 </ul>
 </div>
@@ -172,6 +172,7 @@ package <code class="docutils literal notranslate"><span class="pre">parallel</s
 below, outlining the characteristic aspects of working with Scala
 Parallel Collections. We suggest you explore the files in the order
 they appear in the following list.</p>
+<p><strong>Measuring Performance</strong></p>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">package</span> <span class="pre">object</span> <span class="pre">parallel</span></code> — a package object defining common
 functions used for benchmarking. <code class="docutils literal notranslate"><span class="pre">warmedTimed</span></code> is used to take
@@ -181,6 +182,9 @@ example. Notice the oddities with timing parallel vs. sequential
 execution.</li>
 <li><code class="docutils literal notranslate"><span class="pre">ParDemoWarmed</span></code> — the same as before, but now with warmed-up
 times, hence a better comparison.</li>
+</ul>
+<p><strong>Controlling Parallelism</strong></p>
+<ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">ParConfig</span></code> — controlling the level of parallelism for a
 collection.</li>
 <li><code class="docutils literal notranslate"><span class="pre">GoodParallelism</span></code> — showcasing an operation that allows for good
@@ -195,11 +199,27 @@ certain operations.</li>
 <li><code class="docutils literal notranslate"><span class="pre">ParSideEffectsIncorrect</span></code> and <code class="docutils literal notranslate"><span class="pre">ParSideEffectsCorrect</span></code> —
 parallel processing in the presence of side effects.</li>
 </ul>
-</div>
-<div class="section" id="homework">
-<h2>Homework<a class="headerlink" href="#homework" title="Permalink to this headline">¶</a></h2>
+<p><strong>Operators and Their Properties</strong></p>
 <ul class="simple">
-<li><a class="reference external" href="_static/resources/programming-06.pdf">Programming Assignment 6</a></li>
+<li><code class="docutils literal notranslate"><span class="pre">ParNonCommutativeOperator</span></code> — exploiting the effects of
+commutativity in parallel collections.</li>
+<li><code class="docutils literal notranslate"><span class="pre">ParNonAssociativeOperator</span></code> — exploiting the influence of
+operation associativity when processing parallel collections.</li>
+<li><code class="docutils literal notranslate"><span class="pre">ConcurrentCollectionsWrong</span></code> and <code class="docutils literal notranslate"><span class="pre">ConcurrentCollectionsGood</span></code> —
+exploring interactions between parallel and concurrent collections.</li>
+</ul>
+<p><strong>Parallel Splitters</strong></p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">ParString</span></code> — implementation of a parallel immutable string</li>
+<li><code class="docutils literal notranslate"><span class="pre">ParStringSplitter</span></code> — Recursive splitter for parallel strings</li>
+<li><code class="docutils literal notranslate"><span class="pre">ParStringSplitterTests</span></code> — Testing parallel string splitter</li>
+<li><code class="docutils literal notranslate"><span class="pre">ParStringSplitterBenchmarks</span></code> — benchmarks for splitters</li>
+</ul>
+<p><strong>Parallel Combiners</strong></p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">ParStringCombiner</span></code> — two-phase combiner for parallel strings</li>
+<li><code class="docutils literal notranslate"><span class="pre">ParStringCombinerTests</span></code> — Testing parallel string combiner</li>
+<li><code class="docutils literal notranslate"><span class="pre">ParStringCombinerBenchmarks</span></code> — benchmarks for combiners</li>
 </ul>
 </div>
 </div>

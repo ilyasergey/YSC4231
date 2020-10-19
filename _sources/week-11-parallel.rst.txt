@@ -1,7 +1,7 @@
 .. -*- mode: rst -*-
 
-Week 11: Using Data-Parallel Collections
-========================================
+Week 11: Data-Parallel Collections
+==================================
 
 Useful Resources
 ----------------
@@ -9,7 +9,7 @@ Useful Resources
 * `Documentation for Scala Parallel Collections
   <https://docs.scala-lang.org/overviews/parallel-collections/overview.html>`_
 * `Code with examples
-  <https://github.com/ysc3248/ysc3248-examples/tree/11-parallel>`_,
+  <https://github.com/ysc3248/lectures-2020/tree/11-parallel>`_,
   package ``parallel``
 
 Code Commentary
@@ -18,6 +18,8 @@ A short summary of the files from the accompanying code is given
 below, outlining the characteristic aspects of working with Scala
 Parallel Collections. We suggest you explore the files in the order
 they appear in the following list.
+
+**Measuring Performance**
 
 * ``package object parallel`` --- a package object defining common
   functions used for benchmarking. ``warmedTimed`` is used to take
@@ -29,6 +31,8 @@ they appear in the following list.
 
 * ``ParDemoWarmed`` --- the same as before, but now with warmed-up
   times, hence a better comparison.
+
+**Controlling Parallelism**
 
 * ``ParConfig`` --- controlling the level of parallelism for a
   collection.
@@ -49,7 +53,32 @@ they appear in the following list.
 * ``ParSideEffectsIncorrect`` and ``ParSideEffectsCorrect`` ---
   parallel processing in the presence of side effects.
 
-Homework
---------
+**Operators and Their Properties**
 
-* `Programming Assignment 6 <_static/resources/programming-06.pdf>`_
+* ``ParNonCommutativeOperator`` --- exploiting the effects of
+  commutativity in parallel collections.
+
+* ``ParNonAssociativeOperator`` --- exploiting the influence of
+  operation associativity when processing parallel collections.
+
+* ``ConcurrentCollectionsWrong`` and ``ConcurrentCollectionsGood`` ---
+  exploring interactions between parallel and concurrent collections.
+
+**Parallel Splitters**
+
+* ``ParString`` --- implementation of a parallel immutable string
+
+* ``ParStringSplitter`` --- Recursive splitter for parallel strings
+
+* ``ParStringSplitterTests`` --- Testing parallel string splitter
+
+* ``ParStringSplitterBenchmarks`` --- benchmarks for splitters
+
+**Parallel Combiners**
+
+* ``ParStringCombiner`` --- two-phase combiner for parallel strings
+
+* ``ParStringCombinerTests`` --- Testing parallel string combiner
+
+* ``ParStringCombinerBenchmarks`` --- benchmarks for combiners
+

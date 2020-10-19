@@ -11,7 +11,7 @@ Useful resources:
   <https://speakerdeck.com/phaller/futures-and-async-when-to-use-which>`_
   and `Video <https://www.youtube.com/watch?v=TyuPdFDxkro>`_
 * `Code with examples
-  <https://github.com/ysc3248/ysc3248-examples/tree/10-futures>`_,
+  <https://github.com/ysc3248/lectures-2020/tree/10-futures>`_,
   package ``futures``
 
 Summary of the Lecture
@@ -21,6 +21,8 @@ A short summary of the files from the accompanying code is given
 below, outlining the characteristic aspects of working with Java
 Futures, as well as Scala Futures and Promises. It is recommended that
 the files are explored in the order they appear in the following list:
+
+**Java Futures**
 
 * ``SortAndRead`` --- reading a user input after having performed a
   costly operation (array sorting). This examples demonstrates the
@@ -33,17 +35,18 @@ the files are explored in the order they appear in the following list:
 * ``SortAndRead3`` --- even better implementation, in which the user
   input is also moved into a separate future.
 
+**An Exercise on Java Futures**
+
 * ``FutureSort`` --- an old friend, parallel quick-sort, now
   re-implemented with Java futures. An interesting question is why
   some of the offered thread pools, e.g.,
   ``Executors.newFixedThreadPool(4)`` make it deadlock?
 
+**Scala Futures**
+
 * ``FutureDataType`` --- a first example of using Scala's futures, its
   ``isCompleted`` method and the implicit execution context
   (``ExecutionContext.Implicits.global``).
-
-* ``AwaitExample`` --- an example showing the use of ``Await.result``
-  method to wait for a future to complete or fail otherwise.
 
 * ``FuturesCallbacks`` --- demonstration of processing results of the
   futures asynchronously via callbacks (using ``foreach`` method).
@@ -51,6 +54,11 @@ the files are explored in the order they appear in the following list:
 * ``FutureExceptions`` --- treatment of exceptions in futures, via
   ``onComplete`` method and pattern matching on the result class:
   ``Success`` or ``Failure``.
+
+* ``AwaitExample`` --- an example showing the use of ``Await.result``
+  method to wait for a future to complete or fail otherwise.
+
+**Compoding Scala Futures**
 
 * ``Options`` --- a quick practice on building combinators for the
   ``Option`` type. Serves as an introduction to similar future
@@ -67,6 +75,8 @@ the files are explored in the order they appear in the following list:
 
 * ``ScalaFuturesTests`` --- shows how to test futures.
 
+**Scala Promises**
+
 * ``ProducerConsumer`` --- implementation of a producer-consumer with
   promises, which serve as a single-assignment mailbox.
 
@@ -75,8 +85,3 @@ the files are explored in the order they appear in the following list:
 
 * ``ProducerConsumer3`` --- failing the promise and recovering after an
   exception in the future using the ``recover`` method.
-
-Homework
---------
-
-* `Programming Assignment 5 <_static/resources/programming-05.pdf>`_
