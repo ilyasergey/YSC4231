@@ -18,7 +18,7 @@ Lectures
 * Monitors and Semaphores
 * Read-Write Locks
 
-**Mid-Term Break: Project (Theory and Programming)**
+**Mid-Term Project**
 
 * Linked Lists
 * Concurrent Queues; Stacks and Elimination 
@@ -49,12 +49,12 @@ Homework Assignments
 * Theory Assignment 3 (Concurrent Objects)
 * Programming Assignment 3 (Blocking Synchronisation)
 * Programming Assignment 4 (Concurrent Lists)
+* Research Mini-Project (Detecting Data Races in Java Projects)
 * Programming Assignment 5 (Futures and Promises)
-* Mini-Project (Detecting Data Races in Java Projects)
 * Programming Assignment 6 (Parallel Collections)
 * Programming Assignment 7 (Actors)
 
 .. * Programming Assignment 7 (STM)
 .. * Programming Assignment 8 (Distributed Consensus)
-.. Byzantine Fault Tolerance and PBFT
+.. * Byzantine Fault Tolerance and PBFT
 
