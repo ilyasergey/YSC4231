@@ -75,8 +75,8 @@ race detector, known as **RacerD**. You can find the necessary
 documentation on installing and using the relevant parts of Infer by
 the following links:
 
-* `Installing Facebook Infer <https://fbinfer.com/docs/getting-started.html>`_
-* `RacerD documentation and examples <https://fbinfer.com/docs/racerd.html>`_
+* `Installing Facebook Infer <https://fbinfer.com/docs/getting-started>`_
+* `RacerD documentation and examples <https://fbinfer.com/docs/checker-racerd>`_
 
 As a part of this assignment, please, check out the following research
 paper, which introduces pragmatics of Infer's RacerD component and
