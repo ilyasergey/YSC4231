@@ -200,6 +200,18 @@ so. The result of your project should a be PDF document that contains:
   encountered while working on this project (to help the future
   generations).
 
+.. admonition:: Note
+
+   Installing Infer on macOS is straightforward and can be done via
+   Homebrew. If you're using Linux or WSL, please, install `Version
+   0.17.0 <https://github.com/facebook/infer/releases/tag/v0.17.0>`_
+   of the tool by compiling it from the sources as described in the
+   `corresponding instructions
+   <https://github.com/facebook/infer/blob/99464c01da5809e7159ed1a75ef10f60d34506a4/INSTALL.md>`_.
+   Before running the build script, make sure to install all the
+   dependencies via ``apt``, as listed, e.g., in `this file
+   <https://github.com/facebook/infer/blob/99464c01da5809e7159ed1a75ef10f60d34506a4/docker/master/Dockerfile>`_.
+
 Open-Source Java Projects with Concurrency
 ------------------------------------------
 
