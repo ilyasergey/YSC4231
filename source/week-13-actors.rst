@@ -1,6 +1,6 @@
 .. -*- mode: rst -*-
 
-Week 13: Actors and Message-Passing Concurrency
+Week 12: Actors and Message-Passing Concurrency
 ===============================================
 
 Useful Resources
@@ -11,7 +11,7 @@ Useful Resources
 * `Testing Akka actors
   <https://doc.akka.io/docs/akka/current/testing.html>`_
 * `Code with examples
-  <https://github.com/ysc3248/ysc3248-examples/tree/12-actors>`_,
+  <https://github.com/ysc3248/lectures-2020/tree/12-actors>`_,
   package ``actors``
 
 Code Commentary
@@ -21,6 +21,8 @@ A short summary of the files from the accompanying code is given
 below, outlining the characteristic aspects of working with Scala
 Actors. We suggest you explore the files in the order they appear in
 the following list.
+
+**Creating and Using Actors**
 
 * ``HelloActor`` --- a simple actor that prints received messages into
   the terminal
@@ -43,7 +45,29 @@ the following list.
 
 * ``ActorHierarchy`` --- demonstrate hierarchy of Akka actors
 
-Homework
---------
+**Actor Communication**
 
-* `Programming Assignment 7 <_static/resources/programming-07.pdf>`_
+* ``DictionaryActor`` --- a state-machine actor implementing a dictionary
+
+* ``DictionaryActorTests`` --- tests for ``DictionaryActor``
+
+* ``LifecycleActor`` --- observing the lifecycle of actors
+
+* ``CommunicatingPoisonPill`` --- Sending a poison pill to the actor
+
+**Actor Supervision**
+
+* ``Supervision.scala`` --- actor supervision
+
+* ``CheckActor`` --- identifying actors by their paths in the system
+
+* ``TalkToChildren`` --- warm-up, talking to actors directly
+
+* ``PingPong.scala`` --- example of the ask-pattern with a timeout
+
+* ``CommunicatingGracefulStop`` --- death watch and graceful stop
+
+**Implementing Remote Systems**
+
+* ``RemoteCommunication.scala`` --- Interaction between two remote
+  systems of actors.
