@@ -37,7 +37,7 @@ Lectures
 
 ..   week-11-parallel
 
-..   week-13-actors
+..   week-12-actors
 
 ..   week-13-consensus
 
