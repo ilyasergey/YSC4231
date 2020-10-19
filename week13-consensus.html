@@ -1,0 +1,245 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Week 13: Distributed Consensus &mdash; YSC3248 2020</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> YSC3248: Parallel, Concurrent and Distributed Programming
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="syllabus.html">1. Course Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prerequisites.html">2. Software Prerequisites</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="week-01-intro.html">1. Week 01: Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week-02-scala.html">2. Week 02: Scala Primer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week-03-mutex.html">3. Week 03: Mutual Exclusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week-03-concurrent-objects.html">4. Week 04: Concurrent Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week-04-wait-free.html">5. Week 05: Wait-Free Implementations and Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week-05-spinlocks.html">6. Week 06: Spin Locks and Contention</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week-05-monitors.html">7. Week 06: Monitors and Blocking Synchronisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week-07-midterm-project.html">8. Midterm Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week-06-fine-lists.html">9. Week 07: Concurrent Lists and Fine-Grained Locking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week-08-queues-stacks.html">10. Week 08: Concurrent Queues and Stacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week-09-skiplists.html">11. Week 09: Skiplists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week-11-races.html">12. Week 09: Data Race Detection in Practice</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">YSC3248: Parallel, Concurrent and Distributed Programming</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Week 13: Distributed Consensus</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="week-13-distributed-consensus">
+<h1>Week 13: Distributed Consensus<a class="headerlink" href="#week-13-distributed-consensus" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="paxos-conseunsus">
+<h2>Paxos Conseunsus<a class="headerlink" href="#paxos-conseunsus" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="_static/resources/ysc3248-week-13-paxos.pdf">Lecture Slides</a></li>
+<li><a class="reference external" href="https://lamport.azurewebsites.net/pubs/paxos-simple.pdf">Paxos Made Simple</a></li>
+<li><a class="reference external" href="http://www.cs.cornell.edu/courses/cs7412/2011sp/paxos.pdf">Paxos Made Moderately Complex</a></li>
+<li><a class="reference external" href="https://github.com/ysc3248/lectures-2020/tree/13-paxos">Code with examples</a>, package <code class="docutils literal notranslate"><span class="pre">paxos</span></code></li>
+</ul>
+</div>
+<div class="section" id="code-commentary">
+<h2>Code Commentary<a class="headerlink" href="#code-commentary" title="Permalink to this headline">¶</a></h2>
+<p><strong>Implementation of Paxos Consensus</strong></p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">PaxosVocabulary</span></code> — messages used in the simple Paxos protocol</li>
+<li><code class="docutils literal notranslate"><span class="pre">SimplePaxos</span></code> — definitions of Paxos Acceptors, Proposers and Learners as Scala actors</li>
+<li><code class="docutils literal notranslate"><span class="pre">PaxosFactory</span></code> — utility class to create arbitrary instances of Paxos system</li>
+<li><code class="docutils literal notranslate"><span class="pre">PaxosTestUtilities</span></code> — basic suite to test our simple Paxos implementation</li>
+<li><code class="docutils literal notranslate"><span class="pre">SimplePaxosTests</span></code> — testing normal mode</li>
+<li><code class="docutils literal notranslate"><span class="pre">PaxosFailureTests</span></code> — testing Paxos with failures of acceptors</li>
+</ul>
+</div>
+<div class="section" id="byzantine-fault-tolerance">
+<h2>Byzantine Fault-Tolerance<a class="headerlink" href="#byzantine-fault-tolerance" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="_static/resources/ysc3248-week-13-byzantine.pdf">Lecture Slides</a></li>
+<li><a class="reference external" href="http://pmg.csail.mit.edu/papers/osdi99.pdf">Practical Byzantine Fault Tolerance</a></li>
+<li><a class="reference external" href="https://ilyasergey.net/papers/toychain-cpp18.pdf">Mechanising Blockchain Consensus</a></li>
+<li><a class="reference external" href="https://ilyasergey.net/papers/csc-wtsc17.pdf">A Concurrent Perspective on Smart Contracts</a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Ilya Sergey
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"extensions": ["tex2jax.js"], "jax": ["input/TeX", "output/HTML-CSS"]})</script>
+    
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
