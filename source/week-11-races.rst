@@ -369,7 +369,7 @@ If you are interested in the state of the art in the research on data
 race detection, as well as on static analyses of production code, you
 might also want to check the following research papers:
 
-* The `Context and Selected Related Work` section of `RacerD documentation <https://fbinfer.com/docs/checker-racerd>`_
+* The `Context and Selected Related Work` section of `RacerD documentation <https://fbinfer.com/docs/checker-racerd/#context-and-selected-related-work>`_
 * `ThreadSanitizer – data race detection in practice <https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/35604.pdf>`_
 * `FastTrack: Efficient and Precise Dynamic Race Detection <https://users.soe.ucsc.edu/~cormac/papers/pldi09.pdf>`_
 * `Lessons from Building Static Analysis Tools at Google
