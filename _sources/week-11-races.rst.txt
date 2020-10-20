@@ -220,10 +220,11 @@ Below is a list of some real-world Java projects using concurrency.
 Most of them contain data races. Feel free to pick one or more of them
 to explore in our data race study.
 
-* https://github.com/OpenHFT/Chronicle-Map
+* https://github.com/apache/tomcat
 * https://github.com/ibr-cm/avrora
 * https://github.com/aragozin/jvm-tools
 * https://github.com/apache/xalan-j
+* https://github.com/OpenHFT/Chronicle-Map
 * https://github.com/ReactiveX/RxJava
 * https://github.com/adammurdoch/native-platform
 * https://github.com/aws/aws-sdk-java
@@ -323,6 +324,22 @@ Here are some hints and comments on how to approach this assignment.
   system-specific reasons. It is perfectly fine if just one of the
   teammates obtains the report, and they you split the workload on
   code triaging for bugs.
+
+* If you run WSL or Linux, I suggest you install Infer version 0.17.0.
+  It can be built from sources available as a `zip-archive
+  <https://github.com/facebook/infer/releases/tag/v0.17.0>`_. Follow
+  the `instructions on building it
+  <https://github.com/facebook/infer/blob/99464c01da5809e7159ed1a75ef10f60d34506a4/INSTALL.md>`_
+  and make sure to first install all the Linux dependencies via apt
+  (can be found at the top of this `Dockerfile
+  <https://github.com/facebook/infer/blob/99464c01da5809e7159ed1a75ef10f60d34506a4/docker/master/Dockerfile>`_).
+  Before building Infer make sure that you have JDK 1.8 installed.
+  `Here
+  <https://docs.datastax.com/en/jdk-install/doc/jdk-install/installOpenJdkDeb.html>`_
+  are some instructions on how to do that. Make sure that both your
+  Java and Javac are of the correct version. You can switch them to
+  1.8 as described `here
+  <https://dev.to/harsvnc/how-to-change-your-java-and-javac-version-on-ubuntu-linux-1omj>`_.
 
 * Please, allocate sufficient time to install Infer and build some of
   the projects and be prepared to resolve the issues with missing
