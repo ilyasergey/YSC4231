@@ -5,7 +5,7 @@ Week 10: Futures and Promises
 
 Useful resources:
 
-* `Documentation on Scala futures
+* `Documentation on Scala Futures and Promises
   <https://docs.scala-lang.org/overviews/core/futures.html>`_
 * Futures and Async: `Slides
   <https://speakerdeck.com/phaller/futures-and-async-when-to-use-which>`_
