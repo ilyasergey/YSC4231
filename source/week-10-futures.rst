@@ -7,6 +7,7 @@ Useful resources:
 
 * `Documentation on Scala Futures and Promises
   <https://docs.scala-lang.org/overviews/core/futures.html>`_
+* `Scala's for-comprehensions <https://docs.scala-lang.org/tutorials/FAQ/yield.html>`_
 * Futures and Async: `Slides
   <https://speakerdeck.com/phaller/futures-and-async-when-to-use-which>`_
   and `Video <https://www.youtube.com/watch?v=TyuPdFDxkro>`_
@@ -29,7 +30,7 @@ the files are explored in the order they appear in the following list:
   need for parallelisation.
 
 * ``SortAndRead2`` --- a better version of the previous program.
-  Sorting is moved into a separate future. Introducting Java's thread
+  Sorting is moved into a separate future. Introducing Java's thread
   pools and the class ``Future``.
 
 * ``SortAndRead3`` --- even better implementation, in which the user
@@ -58,7 +59,7 @@ the files are explored in the order they appear in the following list:
 * ``AwaitExample`` --- an example showing the use of ``Await.result``
   method to wait for a future to complete or fail otherwise.
 
-**Compoding Scala Futures**
+**Composing Scala Futures**
 
 * ``Options`` --- a quick practice on building combinators for the
   ``Option`` type. Serves as an introduction to similar future
@@ -71,14 +72,14 @@ the files are explored in the order they appear in the following list:
 
 * ``BlacklistedFiles`` --- a large example involving composing
   futures in the implementation of ``getAllBlacklisted``. Multiple
-  ways to quary the result are possible.
+  ways to query the result are possible.
 
 * ``ScalaFuturesTests`` --- shows how to test futures.
 
 **Scala Promises**
 
-* ``ProducerConsumer`` --- implementation of a producer-consumer with
-  promises, which serve as a single-assignment mailbox.
+* ``ProducerConsumer`` --- implementation of a producer-consumer with a
+  promise, which serves as a single-assignment mailbox.
 
 * ``ProducerConsumer2`` --- demonstration of ``isCompleted`` method of
   promises.
