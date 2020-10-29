@@ -32,7 +32,7 @@ they appear in the following list.
 * ``ParDemoWarmed`` --- the same as before, but now with warmed-up
   times, hence a better comparison.
 
-**Controlling Parallelism**
+**Basic Usage of Parallel Collections**
 
 * ``ParConfig`` --- controlling the level of parallelism for a
   collection.
@@ -44,6 +44,8 @@ they appear in the following list.
   lack thereof) due to introduced contention in the operation applied
   to a collection.
 
+**Caveats of Using Parallel Collections**
+
 * ``NonParallelizableCollections`` --- comparing the inherent
   parallelism in different collections.
 
@@ -53,18 +55,19 @@ they appear in the following list.
 * ``ParSideEffectsIncorrect`` and ``ParSideEffectsCorrect`` ---
   parallel processing in the presence of side effects.
 
-**Operators and Their Properties**
-
 * ``ParNonCommutativeOperator`` --- exploiting the effects of
-  commutativity in parallel collections.
+  commutativity in parallel collections. ``ArrayBuffer`` preserves the
+  ordering of elements, while Scala's set does not.
 
 * ``ParNonAssociativeOperator`` --- exploiting the influence of
   operation associativity when processing parallel collections.
 
 * ``ConcurrentCollectionsWrong`` and ``ConcurrentCollectionsGood`` ---
   exploring interactions between parallel and concurrent collections.
+  In the bad case, a sequential collection is used in a parallel
+  setting, which leads to an error.
 
-**Parallel Splitters**
+**Parallel Splitters and Combiners**
 
 * ``ParString`` --- implementation of a parallel immutable string
 
@@ -72,9 +75,7 @@ they appear in the following list.
 
 * ``ParStringSplitterTests`` --- Testing parallel string splitter
 
-* ``ParStringSplitterBenchmarks`` --- benchmarks for splitters
-
-**Parallel Combiners**
+* ``ParStringSplitterBenchmarks`` --- benchmarks for string splitters
 
 * ``ParStringCombiner`` --- two-phase combiner for parallel strings
 

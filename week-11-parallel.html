@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Week 11: Data-Parallel Collections &mdash; YSC3248 2020</title>
+  <title>14. Week 11: Data-Parallel Collections &mdash; YSC3248 2020</title>
   
 
   
@@ -28,7 +28,8 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="13. Week 10: Futures and Promises" href="week-10-futures.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -81,7 +82,7 @@
 <li class="toctree-l1"><a class="reference internal" href="syllabus.html">1. Course Syllabus</a></li>
 <li class="toctree-l1"><a class="reference internal" href="prerequisites.html">2. Software Prerequisites</a></li>
 </ul>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="week-01-intro.html">1. Week 01: Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week-02-scala.html">2. Week 02: Scala Primer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week-03-mutex.html">3. Week 03: Mutual Exclusion</a></li>
@@ -95,6 +96,11 @@
 <li class="toctree-l1"><a class="reference internal" href="week-09-skiplists.html">11. Week 09: Skiplists</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week-11-races.html">12. Week 09: Data Race Detection in Practice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week-10-futures.html">13. Week 10: Futures and Promises</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">14. Week 11: Data-Parallel Collections</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#useful-resources">14.1. Useful Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#code-commentary">14.2. Code Commentary</a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -140,7 +146,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Week 11: Data-Parallel Collections</li>
+      <li>14. Week 11: Data-Parallel Collections</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -158,9 +164,9 @@
            <div itemprop="articleBody">
             
   <div class="section" id="week-11-data-parallel-collections">
-<h1>Week 11: Data-Parallel Collections<a class="headerlink" href="#week-11-data-parallel-collections" title="Permalink to this headline">¶</a></h1>
+<h1>14. Week 11: Data-Parallel Collections<a class="headerlink" href="#week-11-data-parallel-collections" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="useful-resources">
-<h2>Useful Resources<a class="headerlink" href="#useful-resources" title="Permalink to this headline">¶</a></h2>
+<h2>14.1. Useful Resources<a class="headerlink" href="#useful-resources" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://docs.scala-lang.org/overviews/parallel-collections/overview.html">Documentation for Scala Parallel Collections</a></li>
 <li><a class="reference external" href="https://github.com/ysc3248/lectures-2020/tree/11-parallel">Code with examples</a>,
@@ -168,7 +174,7 @@ package <code class="docutils literal notranslate"><span class="pre">parallel</s
 </ul>
 </div>
 <div class="section" id="code-commentary">
-<h2>Code Commentary<a class="headerlink" href="#code-commentary" title="Permalink to this headline">¶</a></h2>
+<h2>14.2. Code Commentary<a class="headerlink" href="#code-commentary" title="Permalink to this headline">¶</a></h2>
 <p>A short summary of the files from the accompanying code is given
 below, outlining the characteristic aspects of working with Scala
 Parallel Collections. We suggest you explore the files in the order
@@ -184,7 +190,7 @@ execution.</li>
 <li><code class="docutils literal notranslate"><span class="pre">ParDemoWarmed</span></code> — the same as before, but now with warmed-up
 times, hence a better comparison.</li>
 </ul>
-<p><strong>Controlling Parallelism</strong></p>
+<p><strong>Basic Usage of Parallel Collections</strong></p>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">ParConfig</span></code> — controlling the level of parallelism for a
 collection.</li>
@@ -193,31 +199,31 @@ parallelism.</li>
 <li><code class="docutils literal notranslate"><span class="pre">BadParallelism</span></code> — a case of a bad parallel speed-up (or the
 lack thereof) due to introduced contention in the operation applied
 to a collection.</li>
+</ul>
+<p><strong>Caveats of Using Parallel Collections</strong></p>
+<ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">NonParallelizableCollections</span></code> — comparing the inherent
 parallelism in different collections.</li>
 <li><code class="docutils literal notranslate"><span class="pre">NonParallelizableOperations</span></code> — analysing parallelism allowed by
 certain operations.</li>
 <li><code class="docutils literal notranslate"><span class="pre">ParSideEffectsIncorrect</span></code> and <code class="docutils literal notranslate"><span class="pre">ParSideEffectsCorrect</span></code> —
 parallel processing in the presence of side effects.</li>
-</ul>
-<p><strong>Operators and Their Properties</strong></p>
-<ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">ParNonCommutativeOperator</span></code> — exploiting the effects of
-commutativity in parallel collections.</li>
+commutativity in parallel collections. <code class="docutils literal notranslate"><span class="pre">ArrayBuffer</span></code> preserves the
+ordering of elements, while Scala’s set does not.</li>
 <li><code class="docutils literal notranslate"><span class="pre">ParNonAssociativeOperator</span></code> — exploiting the influence of
 operation associativity when processing parallel collections.</li>
 <li><code class="docutils literal notranslate"><span class="pre">ConcurrentCollectionsWrong</span></code> and <code class="docutils literal notranslate"><span class="pre">ConcurrentCollectionsGood</span></code> —
-exploring interactions between parallel and concurrent collections.</li>
+exploring interactions between parallel and concurrent collections.
+In the bad case, a sequential collection is used in a parallel
+setting, which leads to an error.</li>
 </ul>
-<p><strong>Parallel Splitters</strong></p>
+<p><strong>Parallel Splitters and Combiners</strong></p>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">ParString</span></code> — implementation of a parallel immutable string</li>
 <li><code class="docutils literal notranslate"><span class="pre">ParStringSplitter</span></code> — Recursive splitter for parallel strings</li>
 <li><code class="docutils literal notranslate"><span class="pre">ParStringSplitterTests</span></code> — Testing parallel string splitter</li>
-<li><code class="docutils literal notranslate"><span class="pre">ParStringSplitterBenchmarks</span></code> — benchmarks for splitters</li>
-</ul>
-<p><strong>Parallel Combiners</strong></p>
-<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">ParStringSplitterBenchmarks</span></code> — benchmarks for string splitters</li>
 <li><code class="docutils literal notranslate"><span class="pre">ParStringCombiner</span></code> — two-phase combiner for parallel strings</li>
 <li><code class="docutils literal notranslate"><span class="pre">ParStringCombinerTests</span></code> — Testing parallel string combiner</li>
 <li><code class="docutils literal notranslate"><span class="pre">ParStringCombinerBenchmarks</span></code> — benchmarks for combiners</li>
@@ -230,6 +236,13 @@ exploring interactions between parallel and concurrent collections.</li>
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="week-10-futures.html" class="btn btn-neutral" title="13. Week 10: Futures and Promises" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
