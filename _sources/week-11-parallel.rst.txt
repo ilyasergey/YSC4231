@@ -8,6 +8,9 @@ Useful Resources
 
 * `Documentation for Scala Parallel Collections
   <https://docs.scala-lang.org/overviews/parallel-collections/overview.html>`_
+* `Splitters and Combiners
+  <https://docs.scala-lang.org/overviews/parallel-collections/architecture.html>`_
+* `Creating Custom Parallel Collections <https://docs.scala-lang.org/overviews/parallel-collections/custom-parallel-collections.html>`_
 * `Code with examples
   <https://github.com/ysc3248/lectures-2020/tree/11-parallel>`_,
   package ``parallel``
