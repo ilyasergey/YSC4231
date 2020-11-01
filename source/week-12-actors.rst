@@ -3,6 +3,12 @@
 Week 12: Actors and Message-Passing Concurrency
 ===============================================
 
+.. admonition:: Quote 
+
+   A distributed system is one in which the failure of a computer you didn't even know existed can render your own computer unusable. 
+
+   **Leslie Lamport**
+
 Useful Resources
 ----------------
 
@@ -14,30 +20,24 @@ Useful Resources
   <https://github.com/ysc3248/lectures-2020/tree/12-actors>`_,
   package ``actors``
 
-.. admonition:: 
-
-  A distributed system is one in which the failure of a computer you didn't even know existed can render your own computer unusable. 
-
-  **Leslie Lamport**
-
 Actor Terminology
 -----------------
 
 These are best thought in terms of software companies and employees exchanging emails within them.
 
-* Actor System - hierarchical group of actors that share the same configuration. Responsible for creating new actors, locating them, and logging important events. Think the Company itself.
+* **Actor System** - hierarchical group of actors that share the same configuration. Responsible for creating new actors, locating them, and logging important events. Think the Company itself.
 
-* Actor Class - a template that describes the state and the behaviour of the actor. Think designation within a company.
+* **Actor Class** - a template that describes the state and the behaviour of the actor. Think designation within a company.
 
-* Actor Instance - an entity that exists at runtime and is capable of sending an receiving messages. Actor Instance is an instance of an Actor Class. Think an employee.
+* **Actor Instance** - an entity that exists at runtime and is capable of sending an receiving messages. Actor Instance is an instance of an Actor Class. Think an employee.
 
-* A Message - unit of communication between actors. Any object can be a message. Messages are sent and processed asynchronously. Think an e-mail.
+* **A Message** - unit of communication between actors. Any object can be a message. Messages are sent and processed asynchronously. Think an e-mail.
 
-* The Mailbox - part of the memory, associated with an actor instance that is used to buffer messages. Juts like a regular e-mail mailbox.
+* **The Mailbox** - part of the memory, associated with an actor instance that is used to buffer messages. Just like a regular e-mail mailbox.
 
-* Actor Reference - an object that allows you to send messages to a specific addresse. Think e-mail address. 
+* **Actor Reference** - an object that allows you to send messages to a specific addresse. Think e-mail address. 
 
-* Dispatcher - a component that decides the priorities for actors to process the messages. Think company e-mail policy.
+* **Dispatcher** - a component that decides the priorities for actors to process the messages. Think company e-mail policy.
 
 Code Commentary
 ---------------
