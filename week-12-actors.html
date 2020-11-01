@@ -208,22 +208,23 @@ actors.</li>
 <li><code class="docutils literal notranslate"><span class="pre">SimpleActorTests</span></code> — testing actor systems.</li>
 <li><code class="docutils literal notranslate"><span class="pre">DictionaryActor</span></code> — a state-machine actor implementing a
 dictionary. This is meant as an exercise.</li>
+<li><code class="docutils literal notranslate"><span class="pre">DictionaryActorTests</span></code> — tests for <code class="docutils literal notranslate"><span class="pre">DictionaryActor</span></code>.</li>
 </ul>
-<p><strong>Actor Hierarchy and Communication</strong></p>
+<p><strong>Actor Hierarchy and Lify Cycle</strong></p>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">ActorHierarchy</span></code> — demonstrate hierarchy of Akka actors.</li>
-<li><code class="docutils literal notranslate"><span class="pre">DictionaryActorTests</span></code> — tests for <code class="docutils literal notranslate"><span class="pre">DictionaryActor</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">LifecycleActor</span></code> — observing the lifecycle of actors</li>
+<li><code class="docutils literal notranslate"><span class="pre">TalkToChildren</span></code> — Talking to children actors directly.</li>
+<li><code class="docutils literal notranslate"><span class="pre">CheckActor</span></code> — identifying actors by their paths in the system.</li>
+<li><code class="docutils literal notranslate"><span class="pre">LifecycleActor</span></code> — observing the lifecycle of actors.</li>
+</ul>
+<p><strong>Actor Communication and Supervision</strong></p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">PingPong.scala</span></code> — example of the ask-pattern with a timeout.</li>
+<li><code class="docutils literal notranslate"><span class="pre">Router</span></code> — Example of a router actor and message forwarding.</li>
 <li><code class="docutils literal notranslate"><span class="pre">CommunicatingPoisonPill</span></code> — Sending a poison pill to the actor
 causing it to terminate.</li>
-</ul>
-<p><strong>Actor Supervision</strong></p>
-<ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">Supervision.scala</span></code> — actor supervision.</li>
-<li><code class="docutils literal notranslate"><span class="pre">CheckActor</span></code> — identifying actors by their paths in the system.</li>
-<li><code class="docutils literal notranslate"><span class="pre">TalkToChildren</span></code> — warm-up, talking to actors directly.</li>
-<li><code class="docutils literal notranslate"><span class="pre">PingPong.scala</span></code> — example of the ask-pattern with a timeout.</li>
 <li><code class="docutils literal notranslate"><span class="pre">CommunicatingGracefulStop</span></code> — death watch and graceful stop.</li>
+<li><code class="docutils literal notranslate"><span class="pre">Supervision.scala</span></code> — actor supervision.</li>
 </ul>
 <p><strong>Implementing Remote Systems</strong></p>
 <ul class="simple">

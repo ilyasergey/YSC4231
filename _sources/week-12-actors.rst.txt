@@ -71,28 +71,30 @@ the following list.
 * ``DictionaryActor`` --- a state-machine actor implementing a
   dictionary. This is meant as an exercise.
 
-**Actor Hierarchy and Communication**
+* ``DictionaryActorTests`` --- tests for ``DictionaryActor``.
+
+**Actor Hierarchy and Lify Cycle**
 
 * ``ActorHierarchy`` --- demonstrate hierarchy of Akka actors.
 
-* ``DictionaryActorTests`` --- tests for ``DictionaryActor``
+* ``TalkToChildren`` --- Talking to children actors directly.
 
-* ``LifecycleActor`` --- observing the lifecycle of actors
+* ``CheckActor`` --- identifying actors by their paths in the system.
+
+* ``LifecycleActor`` --- observing the lifecycle of actors.
+
+**Actor Communication and Supervision**
+
+* ``PingPong.scala`` --- example of the ask-pattern with a timeout.
+
+* ``Router`` --- Example of a router actor and message forwarding.
 
 * ``CommunicatingPoisonPill`` --- Sending a poison pill to the actor
   causing it to terminate.
 
-**Actor Supervision**
+* ``CommunicatingGracefulStop`` --- death watch and graceful stop.
 
 * ``Supervision.scala`` --- actor supervision.
-
-* ``CheckActor`` --- identifying actors by their paths in the system.
-
-* ``TalkToChildren`` --- warm-up, talking to actors directly.
-
-* ``PingPong.scala`` --- example of the ask-pattern with a timeout.
-
-* ``CommunicatingGracefulStop`` --- death watch and graceful stop.
 
 **Implementing Remote Systems**
 
