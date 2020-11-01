@@ -3,6 +3,12 @@
 Week 12: Actors and Message-Passing Concurrency
 ===============================================
 
+.. admonition:: Quote 
+
+   A distributed system is one in which the failure of a computer you didn't even know existed can render your own computer unusable. 
+
+   **Leslie Lamport**
+
 Useful Resources
 ----------------
 
@@ -13,6 +19,25 @@ Useful Resources
 * `Code with examples
   <https://github.com/ysc3248/lectures-2020/tree/12-actors>`_,
   package ``actors``
+
+Actor Terminology
+-----------------
+
+These are best thought in terms of software companies and employees exchanging emails within them.
+
+* **Actor System** - hierarchical group of actors that share the same configuration. Responsible for creating new actors, locating them, and logging important events. Think the Company itself.
+
+* **Actor Class** - a template that describes the state and the behaviour of the actor. Think designation within a company.
+
+* **Actor Instance** - an entity that exists at runtime and is capable of sending an receiving messages. Actor Instance is an instance of an Actor Class. Think an employee.
+
+* **A Message** - unit of communication between actors. Any object can be a message. Messages are sent and processed asynchronously. Think an e-mail.
+
+* **The Mailbox** - part of the memory, associated with an actor instance that is used to buffer messages. Just like a regular e-mail mailbox.
+
+* **Actor Reference** - an object that allows you to send messages to a specific addresse. Think e-mail address. 
+
+* **Dispatcher** - a component that decides the priorities for actors to process the messages. Think company e-mail policy.
 
 Code Commentary
 ---------------
@@ -25,7 +50,7 @@ the following list.
 **Creating and Using Actors**
 
 * ``HelloActor`` --- a simple actor that prints received messages into
-  the terminal
+  the terminal using standard log facilities.
 
 * ``package object actors`` --- a package object with common
   definitions, such as, e.g., the actor system allowing to create new
@@ -37,35 +62,37 @@ the following list.
 
 * ``BadCountDownActor`` --- anti-pattern for behavioural change.
 
-* ``CountdownActor`` --- an actor as a state-transition system
+* ``CountdownActor`` --- an actor as a state-transition system.
 
-* ``CountDownActorWithResponse`` --- an actor that responds at the end
+* ``CountDownActorWithResponse`` --- an actor that responds at the end.
 
-* ``SimpleActorTests`` --- testing actor systems
+* ``SimpleActorTests`` --- testing actor systems.
 
-* ``ActorHierarchy`` --- demonstrate hierarchy of Akka actors
+* ``DictionaryActor`` --- a state-machine actor implementing a
+  dictionary. This is meant as an exercise.
 
-**Actor Communication**
+**Actor Hierarchy and Communication**
 
-* ``DictionaryActor`` --- a state-machine actor implementing a dictionary
+* ``ActorHierarchy`` --- demonstrate hierarchy of Akka actors.
 
 * ``DictionaryActorTests`` --- tests for ``DictionaryActor``
 
 * ``LifecycleActor`` --- observing the lifecycle of actors
 
 * ``CommunicatingPoisonPill`` --- Sending a poison pill to the actor
+  causing it to terminate.
 
 **Actor Supervision**
 
-* ``Supervision.scala`` --- actor supervision
+* ``Supervision.scala`` --- actor supervision.
 
-* ``CheckActor`` --- identifying actors by their paths in the system
+* ``CheckActor`` --- identifying actors by their paths in the system.
 
-* ``TalkToChildren`` --- warm-up, talking to actors directly
+* ``TalkToChildren`` --- warm-up, talking to actors directly.
 
-* ``PingPong.scala`` --- example of the ask-pattern with a timeout
+* ``PingPong.scala`` --- example of the ask-pattern with a timeout.
 
-* ``CommunicatingGracefulStop`` --- death watch and graceful stop
+* ``CommunicatingGracefulStop`` --- death watch and graceful stop.
 
 **Implementing Remote Systems**
 
