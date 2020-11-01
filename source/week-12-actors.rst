@@ -68,12 +68,12 @@ the following list.
 
 * ``SimpleActorTests`` --- testing actor systems.
 
-* ``ActorHierarchy`` --- demonstrate hierarchy of Akka actors.
-
-**Actor Communication**
-
 * ``DictionaryActor`` --- a state-machine actor implementing a
   dictionary. This is meant as an exercise.
+
+**Actor Hierarchy and Communication**
+
+* ``ActorHierarchy`` --- demonstrate hierarchy of Akka actors.
 
 * ``DictionaryActorTests`` --- tests for ``DictionaryActor``
 
