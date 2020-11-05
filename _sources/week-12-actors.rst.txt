@@ -73,7 +73,7 @@ the following list.
 
 * ``DictionaryActorTests`` --- tests for ``DictionaryActor``.
 
-**Actor Hierarchy and Lify Cycle**
+**Actor Hierarchy and Life Cycle**
 
 * ``ActorHierarchy`` --- demonstrate hierarchy of Akka actors.
 
