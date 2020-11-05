@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Week 13: Distributed Consensus &mdash; YSC3248 2020</title>
+  <title>Week 13: Distributed Consensus and BFT; Wrap-Up &mdash; YSC3248 2020</title>
   
 
   
@@ -142,7 +142,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Week 13: Distributed Consensus</li>
+      <li>Week 13: Distributed Consensus and BFT; Wrap-Up</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -159,16 +159,27 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="week-13-distributed-consensus">
-<h1>Week 13: Distributed Consensus<a class="headerlink" href="#week-13-distributed-consensus" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="paxos-conseunsus">
-<h2>Paxos Conseunsus<a class="headerlink" href="#paxos-conseunsus" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="week-13-distributed-consensus-and-bft-wrap-up">
+<h1>Week 13: Distributed Consensus and BFT; Wrap-Up<a class="headerlink" href="#week-13-distributed-consensus-and-bft-wrap-up" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
-<li><a class="reference external" href="_static/resources/ysc3248-week-13-paxos.pdf">Slides on Distributed Consensus</a></li>
-<li><a class="reference external" href="https://lamport.azurewebsites.net/pubs/paxos-simple.pdf">Paxos Made Simple</a></li>
-<li><a class="reference external" href="http://www.cs.cornell.edu/courses/cs7412/2011sp/paxos.pdf">Paxos Made Moderately Complex</a></li>
 <li><a class="reference external" href="https://github.com/ysc3248/lectures-2020/tree/13-paxos">Code with examples</a>,
 package <code class="docutils literal notranslate"><span class="pre">paxos</span></code></li>
+</ul>
+<div class="section" id="slides">
+<h2>Slides<a class="headerlink" href="#slides" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="_static/resources/ysc3248-week-13-paxos.pdf">Distributed Consensus</a></li>
+<li><a class="reference external" href="ysc3248-week-13-byzantine.pdf">Byzantine Fault Tolerance and Blockchains; Wrap-Up</a></li>
+</ul>
+</div>
+<div class="section" id="papers-to-read">
+<h2>Papers to Read<a class="headerlink" href="#papers-to-read" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://lamport.azurewebsites.net/pubs/paxos-simple.pdf">Paxos Made Simple</a></li>
+<li><a class="reference external" href="http://www.cs.cornell.edu/courses/cs7412/2011sp/paxos.pdf">Paxos Made Moderately Complex</a></li>
+<li><a class="reference external" href="http://pmg.csail.mit.edu/papers/osdi99.pdf">Practical Byzantine Fault Tolerance</a></li>
+<li><a class="reference external" href="https://ilyasergey.net/papers/toychain-cpp18.pdf">Mechanising Blockchain Consensus</a></li>
+<li><a class="reference external" href="https://ilyasergey.net/papers/csc-wtsc17.pdf">A Concurrent Perspective on Smart Contracts</a></li>
 </ul>
 </div>
 <div class="section" id="code-commentary">
@@ -181,15 +192,6 @@ package <code class="docutils literal notranslate"><span class="pre">paxos</span
 <li><code class="docutils literal notranslate"><span class="pre">PaxosTestUtilities</span></code> — basic suite to test our simple Paxos implementation</li>
 <li><code class="docutils literal notranslate"><span class="pre">SimplePaxosTests</span></code> — testing normal mode</li>
 <li><code class="docutils literal notranslate"><span class="pre">PaxosFailureTests</span></code> — testing Paxos with failures of acceptors</li>
-</ul>
-</div>
-<div class="section" id="byzantine-fault-tolerance">
-<h2>Byzantine Fault-Tolerance<a class="headerlink" href="#byzantine-fault-tolerance" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><a class="reference external" href="_static/resources/ysc3248-week-14-byzantine.pdf">Lecture Slides</a></li>
-<li><a class="reference external" href="http://pmg.csail.mit.edu/papers/osdi99.pdf">Practical Byzantine Fault Tolerance</a></li>
-<li><a class="reference external" href="https://ilyasergey.net/papers/toychain-cpp18.pdf">Mechanising Blockchain Consensus</a></li>
-<li><a class="reference external" href="https://ilyasergey.net/papers/csc-wtsc17.pdf">A Concurrent Perspective on Smart Contracts</a></li>
 </ul>
 </div>
 </div>
