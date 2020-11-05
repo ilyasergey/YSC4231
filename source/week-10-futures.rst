@@ -1,7 +1,7 @@
 .. -*- mode: rst -*-
 
-Week 10: Futures and Promises
-=============================
+Week 10: Futures and Asynchronous Computations
+==============================================
 
 Useful resources:
 
