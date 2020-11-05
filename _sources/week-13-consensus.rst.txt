@@ -4,7 +4,7 @@ Week 13: Distributed Consensus
 Paxos Conseunsus
 ----------------
 
-* `Slides on Paxos and PBFT<_static/resources/ysc3248-week-13-paxos.pdf>`_
+* `Slides on Distributed Consensus <_static/resources/ysc3248-week-13-paxos.pdf>`_
 * `Paxos Made Simple
   <https://lamport.azurewebsites.net/pubs/paxos-simple.pdf>`_
 * `Paxos Made Moderately Complex <http://www.cs.cornell.edu/courses/cs7412/2011sp/paxos.pdf>`_
