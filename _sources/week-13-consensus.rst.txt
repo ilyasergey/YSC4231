@@ -9,7 +9,7 @@ Slides
 ------
 
 * `Distributed Consensus <_static/resources/ysc3248-week-13-paxos.pdf>`_
-* `Byzantine Fault Tolerance and Blockchains; Wrap-Up <ysc3248-week-13-byzantine.pdf>`_
+* `Byzantine Fault Tolerance and Blockchains; Wrap-Up <_static/resources/ysc3248-week-13-byzantine.pdf>`_
 
 Papers to Read
 --------------
