@@ -19,14 +19,14 @@
 
 # -- Project information -----------------------------------------------------
 
-project = u'YSC3248: Parallel, Concurrent and Distributed Programming'
-copyright = u'2020, Ilya Sergey'
+project = u'YSC4231: Parallel, Concurrent and Distributed Programming'
+copyright = u'2021, Ilya Sergey'
 author = u'Ilya Sergey'
 
 # The short X.Y version
 version = u''
 # The full version, including alpha/beta/rc tags
-release = u'2020'
+release = u'2021'
 
 
 # -- General configuration ---------------------------------------------------
@@ -74,7 +74,7 @@ pygments_style = None
 
 # -- Options for HTML output -------------------------------------------------
 
-html_title = 'YSC3248 2020'
+html_title = 'YSC4231 2021'
 
 # html_theme = 'default'
 # html_theme = 'sphinxdoc'
@@ -92,7 +92,7 @@ html_theme = "sphinx_rtd_theme"
 # # Guzzle theme options (see theme.conf for more information)
 # html_theme_options = {
 #     # Set the name of the project to appear in the sidebar
-#     "project_nav_name": "YSC3248",
+#     "project_nav_name": "YSC4231",
 # }
 # html_theme = 'guzzle_sphinx_theme'
 

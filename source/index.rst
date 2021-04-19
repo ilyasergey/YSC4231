@@ -1,5 +1,5 @@
-Parallel, Concurrent and Distributed Programming (Autumn 2020)
-==============================================================
+Parallel, Concurrent and Distributed Programming
+================================================
 
 .. toctree::
    :numbered:
@@ -8,10 +8,11 @@ Parallel, Concurrent and Distributed Programming (Autumn 2020)
    syllabus
    prerequisites
 
-* Lectures: Thursdays, 1:00-4:00pm (Zoom link available on Canvas)
-* Office hours: Tuesdays, 10:30-12:00pm, #RC3-01-03E (Cendana)
-* Peer Tutor: `Bryan Tan <mailto:bryantanyh@u.yale-nus.edu.sg>`_
-* Tutoring Sessions: Wednesdays, 7:00-9:00pm, CR18 (Cendana) 
+..
+   * Lectures: Thursdays, 1:00-4:00pm (Zoom link available on Canvas)
+   * Office hours: Tuesdays, 10:30-12:00pm, #RC3-01-03E (Cendana)
+   * Peer Tutor: `Bryan Tan <mailto:bryantanyh@u.yale-nus.edu.sg>`_
+   * Tutoring Sessions: Wednesdays, 7:00-9:00pm, CR18 (Cendana) 
 
 Lectures
 --------
@@ -20,31 +21,32 @@ Lectures
    :numbered:
    :maxdepth: 1
 
-   week-01-intro
-   week-02-scala
-   week-03-mutex
-   week-03-concurrent-objects
-   week-04-wait-free
-   week-05-spinlocks
-   week-05-monitors
-   week-07-midterm-project   
-   week-06-fine-lists
-   week-08-queues-stacks
-   week-09-skiplists
-   week-11-races
-   week-10-futures
-   week-11-parallel
-   week-12-actors
-   week-13-consensus
+..   week-01-intro
+..   week-02-scala
+..   week-03-mutex
+..   week-03-concurrent-objects
+..   week-04-wait-free
+..   week-05-spinlocks
+..   week-05-monitors
+..   week-07-midterm-project   
+..   week-06-fine-lists
+..   week-08-queues-stacks
+..   week-09-skiplists
+..   week-11-races
+..   week-10-futures
+..   week-11-parallel
+..   week-12-actors
+..   week-13-consensus
 
-.. Lecture materials will be posted gradually as we progress through the course.
+Lecture materials will be posted gradually as we progress through the course.
 
 Supplementary Materials
 -----------------------
 
-* `Code from the Lectures <https://github.com/ysc3248/lectures-2020>`_
-  (you might need to email me you GitHub name to get access)
-* `GitHub Organisation <https://github.com/ysc3248/>`_ 
+TBA
+
+.. * `Code from the Lectures <https://github.com/ysc3248/lectures-2020>`_  (you might need to email me you GitHub name to get access)
+.. * `GitHub Organisation <https://github.com/ysc3248/>`_ 
 
 Textbooks
 ---------
