@@ -1,5 +1,5 @@
-Parallel, Concurrent and Distributed Programming
-================================================
+Parallel, Concurrent and Distributed Programming (Autumn 2021)
+==============================================================
 
 .. toctree::
    :numbered:
