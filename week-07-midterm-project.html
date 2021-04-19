@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>8. Midterm Project &mdash; YSC3248 2020</title>
+  <title>Midterm Project &mdash; YSC4231 2021</title>
   
 
   
@@ -28,9 +28,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="9. Week 07: Concurrent Lists and Fine-Grained Locking" href="week-06-fine-lists.html" />
-    <link rel="prev" title="7. Week 06: Monitors and Blocking Synchronisation" href="week-05-monitors.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -49,7 +47,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home"> YSC3248: Parallel, Concurrent and Distributed Programming
+            <a href="index.html" class="icon icon-home"> YSC4231: Parallel, Concurrent and Distributed Programming
           
 
           
@@ -83,30 +81,6 @@
 <li class="toctree-l1"><a class="reference internal" href="syllabus.html">1. Course Syllabus</a></li>
 <li class="toctree-l1"><a class="reference internal" href="prerequisites.html">2. Software Prerequisites</a></li>
 </ul>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="week-01-intro.html">1. Week 01: Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-02-scala.html">2. Week 02: Scala Primer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-03-mutex.html">3. Week 03: Mutual Exclusion</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-03-concurrent-objects.html">4. Week 04: Concurrent Objects</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-04-wait-free.html">5. Week 05: Wait-Free Implementations and Consensus</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-05-spinlocks.html">6. Week 06: Spin Locks and Contention</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-05-monitors.html">7. Week 06: Monitors and Blocking Synchronisation</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">8. Midterm Project</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#problem-1-warm-up">8.1. Problem 1 (Warm-Up)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#problem-2-parallel-quicksort">8.2. Problem 2: Parallel Quicksort</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#problem-3-thread-pool">8.3. Problem 3: Thread Pool</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#problem-4-pooled-quicksort">8.4. Problem 4: Pooled Quicksort</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#problem-5-hybrid-quicksort">8.5. Problem 5: Hybrid Quicksort</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="week-06-fine-lists.html">9. Week 07: Concurrent Lists and Fine-Grained Locking</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-08-queues-stacks.html">10. Week 08: Concurrent Queues and Stacks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-09-skiplists.html">11. Week 09: Skiplists</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-11-races.html">12. Week 09: Data Race Detection in Practice</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-10-futures.html">13. Week 10: Futures and Asynchronous Computations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-11-parallel.html">14. Week 11: Data-Parallel Collections</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-12-actors.html">15. Week 12: Actors and Message-Passing Concurrency</a></li>
-</ul>
 
             
           
@@ -120,7 +94,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">YSC3248: Parallel, Concurrent and Distributed Programming</a>
+          <a href="index.html">YSC4231: Parallel, Concurrent and Distributed Programming</a>
         
       </nav>
 
@@ -151,7 +125,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>8. Midterm Project</li>
+      <li>Midterm Project</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -169,7 +143,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="midterm-project">
-<h1>8. Midterm Project<a class="headerlink" href="#midterm-project" title="Permalink to this headline">¶</a></h1>
+<h1>Midterm Project<a class="headerlink" href="#midterm-project" title="Permalink to this headline">¶</a></h1>
 <p>In this project we will be studying <a class="reference external" href="https://en.wikipedia.org/wiki/Thread_pool">thread pools</a>, a very useful
 concurrent programming pattern that allows one to use a <cite>fixed</cite> number
 of threads for executing concurrent tasks with unbounded parallelism.
@@ -214,7 +188,7 @@ template contains many hints and specifications in the comments. Make
 sure to read and understand them before starting with your
 implementations.</p>
 <div class="section" id="problem-1-warm-up">
-<h2>8.1. Problem 1 (Warm-Up)<a class="headerlink" href="#problem-1-warm-up" title="Permalink to this headline">¶</a></h2>
+<h2>Problem 1 (Warm-Up)<a class="headerlink" href="#problem-1-warm-up" title="Permalink to this headline">¶</a></h2>
 <p>As you know, <a class="reference external" href="https://en.wikipedia.org/wiki/Quicksort">Quicksort</a> is
 one of the best sorting algorithms used in practice. Let us start from
 implementing a simple sequential version of Quicksort and making sure
@@ -244,7 +218,7 @@ trends in performance.</li>
 </ul>
 </div>
 <div class="section" id="problem-2-parallel-quicksort">
-<h2>8.2. Problem 2: Parallel Quicksort<a class="headerlink" href="#problem-2-parallel-quicksort" title="Permalink to this headline">¶</a></h2>
+<h2>Problem 2: Parallel Quicksort<a class="headerlink" href="#problem-2-parallel-quicksort" title="Permalink to this headline">¶</a></h2>
 <p>A really nice property of quicksort is that, due to its
 “divide-and-conquer” nature, it is <cite>naturally parallelisable</cite>. That
 is, its recursive sub-calls work, performed after the partitioning
@@ -270,7 +244,7 @@ algorithms. What are your thoughts about this? Can you explain the
 observed phenomena with regard to the execution times?</p>
 </div>
 <div class="section" id="problem-3-thread-pool">
-<h2>8.3. Problem 3: Thread Pool<a class="headerlink" href="#problem-3-thread-pool" title="Permalink to this headline">¶</a></h2>
+<h2>Problem 3: Thread Pool<a class="headerlink" href="#problem-3-thread-pool" title="Permalink to this headline">¶</a></h2>
 <p>Let us try a different strategy of adding concurrency into inherently
 parallelisable tasks, such as quicksort by means of introducing a
 thread pool. This is the largest sub-problem in the project, which
@@ -377,7 +351,7 @@ running the <code class="docutils literal notranslate"><span class="pre">StartAn
 </ul>
 </div>
 <div class="section" id="problem-4-pooled-quicksort">
-<h2>8.4. Problem 4: Pooled Quicksort<a class="headerlink" href="#problem-4-pooled-quicksort" title="Permalink to this headline">¶</a></h2>
+<h2>Problem 4: Pooled Quicksort<a class="headerlink" href="#problem-4-pooled-quicksort" title="Permalink to this headline">¶</a></h2>
 <p>It is time to get back to our quicksort implementation and put the
 thread pool to good use. Inspect and modify the following files:</p>
 <ul class="simple">
@@ -392,7 +366,7 @@ when comparing the execution of <code class="docutils literal notranslate"><span
 <code class="docutils literal notranslate"><span class="pre">SimpleQuickSort</span></code> and of <code class="docutils literal notranslate"><span class="pre">ParallelQuickSort</span></code>?</p>
 </div>
 <div class="section" id="problem-5-hybrid-quicksort">
-<h2>8.5. Problem 5: Hybrid Quicksort<a class="headerlink" href="#problem-5-hybrid-quicksort" title="Permalink to this headline">¶</a></h2>
+<h2>Problem 5: Hybrid Quicksort<a class="headerlink" href="#problem-5-hybrid-quicksort" title="Permalink to this headline">¶</a></h2>
 <p>Finally, it’s time to unleash your creativity and experiment with
 different flavours of concurrent sorting to get the best of both
 worlds: single-threaded and parallel:</p>
@@ -423,21 +397,12 @@ in your report!</p>
           </div>
           <footer>
   
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="week-06-fine-lists.html" class="btn btn-neutral float-right" title="9. Week 07: Concurrent Lists and Fine-Grained Locking" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="week-05-monitors.html" class="btn btn-neutral" title="7. Week 06: Monitors and Blocking Synchronisation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2020, Ilya Sergey
+        &copy; Copyright 2021, Ilya Sergey
 
     </p>
   </div>

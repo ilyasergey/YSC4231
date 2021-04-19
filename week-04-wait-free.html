@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>5. Week 05: Wait-Free Implementations and Consensus &mdash; YSC3248 2020</title>
+  <title>Week 05: Wait-Free Implementations and Consensus &mdash; YSC4231 2021</title>
   
 
   
@@ -28,9 +28,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="6. Week 06: Spin Locks and Contention" href="week-05-spinlocks.html" />
-    <link rel="prev" title="4. Week 04: Concurrent Objects" href="week-03-concurrent-objects.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -49,7 +47,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home"> YSC3248: Parallel, Concurrent and Distributed Programming
+            <a href="index.html" class="icon icon-home"> YSC4231: Parallel, Concurrent and Distributed Programming
           
 
           
@@ -83,23 +81,6 @@
 <li class="toctree-l1"><a class="reference internal" href="syllabus.html">1. Course Syllabus</a></li>
 <li class="toctree-l1"><a class="reference internal" href="prerequisites.html">2. Software Prerequisites</a></li>
 </ul>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="week-01-intro.html">1. Week 01: Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-02-scala.html">2. Week 02: Scala Primer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-03-mutex.html">3. Week 03: Mutual Exclusion</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-03-concurrent-objects.html">4. Week 04: Concurrent Objects</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">5. Week 05: Wait-Free Implementations and Consensus</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-05-spinlocks.html">6. Week 06: Spin Locks and Contention</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-05-monitors.html">7. Week 06: Monitors and Blocking Synchronisation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-07-midterm-project.html">8. Midterm Project</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-06-fine-lists.html">9. Week 07: Concurrent Lists and Fine-Grained Locking</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-08-queues-stacks.html">10. Week 08: Concurrent Queues and Stacks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-09-skiplists.html">11. Week 09: Skiplists</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-11-races.html">12. Week 09: Data Race Detection in Practice</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-10-futures.html">13. Week 10: Futures and Asynchronous Computations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-11-parallel.html">14. Week 11: Data-Parallel Collections</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-12-actors.html">15. Week 12: Actors and Message-Passing Concurrency</a></li>
-</ul>
 
             
           
@@ -113,7 +94,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">YSC3248: Parallel, Concurrent and Distributed Programming</a>
+          <a href="index.html">YSC4231: Parallel, Concurrent and Distributed Programming</a>
         
       </nav>
 
@@ -144,7 +125,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>5. Week 05: Wait-Free Implementations and Consensus</li>
+      <li>Week 05: Wait-Free Implementations and Consensus</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -162,7 +143,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="week-05-wait-free-implementations-and-consensus">
-<h1>5. Week 05: Wait-Free Implementations and Consensus<a class="headerlink" href="#week-05-wait-free-implementations-and-consensus" title="Permalink to this headline">¶</a></h1>
+<h1>Week 05: Wait-Free Implementations and Consensus<a class="headerlink" href="#week-05-wait-free-implementations-and-consensus" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><a class="reference external" href="_static/resources/ysc3248-week-04-wait-free.pdf">Lecture Slides (Wait-Free Implementations)</a></li>
 <li><a class="reference external" href="_static/resources/ysc3248-week-05-consensus.pdf">Lecture Slides (Consensus)</a></li>
@@ -177,21 +158,12 @@ package <code class="docutils literal notranslate"><span class="pre">consensus</
           </div>
           <footer>
   
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="week-05-spinlocks.html" class="btn btn-neutral float-right" title="6. Week 06: Spin Locks and Contention" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="week-03-concurrent-objects.html" class="btn btn-neutral" title="4. Week 04: Concurrent Objects" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2020, Ilya Sergey
+        &copy; Copyright 2021, Ilya Sergey
 
     </p>
   </div>
