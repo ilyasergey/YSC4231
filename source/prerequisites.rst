@@ -10,12 +10,24 @@ Getting Scala
 
 In your preparation for the first lecture, please install the following software artefacts (or make sure that you have them installed in your system):
 
-* `Java SDK 1.8 <https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html>`_
+* `Java SDK 1.11
+  <https://www.oracle.com/sg/java/technologies/javase-jdk11-downloads.html>`_.
+  You will need to make an Oracle account to download the latest version.
 * `Scala Build Tool (sbt) <https://www.scala-sbt.org/download.html?_ga=2.57019370.1900758631.1565340428-2015161099.1565340323>`_
 * `IntelliJ IDEA <https://www.jetbrains.com/idea/>`_. When you start IntelliJ for the first time, make sure to choose Scala plugin when IntelliJ IDEA suggests you to download featured plugins.
 * `Scala plugin for IntelliJ IDEA <https://www.jetbrains.com/help/idea/discover-intellij-idea-for-scala.html>`_ (if not installed in the previous step)
 
-All these components can be found at the `Scala Download page <https://www.scala-lang.org/download/>`_.
+All these components can be found at the `Scala Download page
+<https://www.scala-lang.org/download/>`_.
+
+Working with Multiple Java Versions
+-----------------------------------
+
+If you want to maintain multiple versions of Java Development Kit on your
+machine, consider installing the utility tool ``jenv`` (available `here
+<https://www.jenv.be/>`_). Follow the instructions on the linked webpage to
+switch between multiple versions and add already installed versions to ``jenv``
+list.
 
 Working with Version Control
 ----------------------------
@@ -31,9 +43,9 @@ Make sure that you are comfortable with the ``git`` operations, such as ``clone`
 Checking your Setup
 -------------------
 
-The code appearing in the lectures will be collected in this `repository with examples <https://github.com/ysc3248/lectures-2020>`_.  In order to be able to access it, please, make sure to email your GitHub name to the instructor---this is necessary to grant you GitHub access for course-related repositories.
+The code appearing in the lectures will be collected in this `repository with examples <https://github.com/ysc4231/lectures-2021>`_.  In order to be able to access it, please, make sure to email your GitHub name to the instructor---this is necessary to grant you GitHub access for course-related repositories.
 
-To check your Scala setup, clone this project from GitHub (via ``git clone git@github.com:ysc3248/lectures-2020.git``). Next, try to execute the following two commands in the terminal from the root of your project (it will take a few minutes the first time you run it, as ``sbt`` needs to download all the dependencies)::
+To check your Scala setup, clone this project from GitHub (via ``git clone git@github.com:ysc4321/lectures-2021.git``). Next, try to execute the following two commands in the terminal from the root of your project (it will take a few minutes the first time you run it, as ``sbt`` needs to download all the dependencies)::
 
   sbt test
 
