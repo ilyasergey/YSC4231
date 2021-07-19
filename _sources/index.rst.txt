@@ -8,11 +8,10 @@ Parallel, Concurrent and Distributed Programming (Autumn 2021)
    syllabus
    prerequisites
 
-..
-   * Lectures: Thursdays, 1:00-4:00pm (Zoom link available on Canvas)
-   * Office hours: Tuesdays, 10:30-12:00pm, #RC3-01-03E (Cendana)
-   * Peer Tutor: `Bryan Tan <mailto:bryantanyh@u.yale-nus.edu.sg>`_
-   * Tutoring Sessions: Wednesdays, 7:00-9:00pm, CR18 (Cendana) 
+* Lectures: Fridays, 2:30pm-5:30pm, Stephen Riady Centre, Global Learning Room
+* Office hours: Wednesdays, 17:15-18:30pm, #RC3-01-03E (Cendana)
+* Peer Tutor: TBA
+* Tutoring Sessions: TBA
 
 Lectures
 --------
@@ -43,10 +42,10 @@ Lecture materials will be posted gradually as we progress through the course.
 Supplementary Materials
 -----------------------
 
-TBA
+* `GitHub Organisation <https://github.com/ysc4231/>`_ 
 
-.. * `Code from the Lectures <https://github.com/ysc3248/lectures-2020>`_  (you might need to email me you GitHub name to get access)
-.. * `GitHub Organisation <https://github.com/ysc3248/>`_ 
+.. * `Code from the Lectures <https://github.com/ysc4231/lectures-2021>`_  (email me you GitHub name to get access)
+
 
 Textbooks
 ---------
