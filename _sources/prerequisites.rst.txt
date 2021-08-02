@@ -45,7 +45,7 @@ Checking your Setup
 
 The code appearing in the lectures will be collected in this `repository with examples <https://github.com/ysc4231/lectures-2021>`_.  In order to be able to access it, please, make sure to email your GitHub name to the instructor---this is necessary to grant you GitHub access for course-related repositories.
 
-To check your Scala setup, clone this project from GitHub (via ``git clone git@github.com:ysc4321/lectures-2021.git``). Next, try to execute the following two commands in the terminal from the root of your project (it will take a few minutes the first time you run it, as ``sbt`` needs to download all the dependencies)::
+To check your Scala setup, clone this project from GitHub (via ``git@github.com:ysc4231/lectures-2021.git``). Next, try to execute the following two commands in the terminal from the root of your project (it will take a few minutes the first time you run it, as ``sbt`` needs to download all the dependencies)::
 
   sbt test
 
