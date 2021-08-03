@@ -3,11 +3,11 @@
 Week 01: Introduction
 =====================
 
-* `Lecture Slides <_static/resources/ysc3248-week-01-intro.pdf>`_
+* `Lecture Slides <_static/resources/ysc4231-week-01-intro.pdf>`_
 * `Code with examples
-  <https://github.com/ysc3248/lectures-2020/tree/01-intro>`_,
+  <https://github.com/ysc4231/lectures-2021/tree/01-intro>`_,
   branch ``01-intro``, package ``intro``.
 
 .. Homework
 .. --------
-.. * `Theory Assignment 1 <_static/resources/theory-01.pdf>`_
+.. * `Theory Assignment 1 <_static/resources/theory-01-intro.pdf>`_
