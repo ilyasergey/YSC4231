@@ -11,7 +11,7 @@ Parallel, Concurrent and Distributed Programming (Autumn 2021)
 * Lectures: Fridays, 2:30pm-5:30pm, Stephen Riady Centre, Global Learning Room
 * Office hours: Wednesdays, 17:15-18:30pm, #RC3-01-03E (Cendana)
 * Peer Tutor: `Mark Weilong Yuen <mark.yuen@u.yale-nus.edu.sg>`_
-* Tutoring Sessions: TBA
+* Tutoring Sessions: by arrangement
 
 Lectures
 --------
@@ -43,8 +43,7 @@ Supplementary Materials
 -----------------------
 
 * `GitHub Organisation <https://github.com/ysc4231/>`_ 
-
-.. * `Code from the Lectures <https://github.com/ysc4231/lectures-2021>`_  (email me you GitHub name to get access)
+* `Code from the Lectures <https://github.com/ysc4231/lectures-2021>`_  (email me you GitHub name to get access)
 
 
 Textbooks

@@ -3,7 +3,8 @@
 Software Prerequisites
 ======================
 
-We will be using `Scala <https://www.scala-lang.org/>`_ as a main programming language for this course. 
+We will be using `Scala <https://www.scala-lang.org/>`_ (version 2) as a main
+programming language for this course.
 
 Getting Scala
 -------------
@@ -17,8 +18,7 @@ In your preparation for the first lecture, please install the following software
 * `IntelliJ IDEA <https://www.jetbrains.com/idea/>`_. When you start IntelliJ for the first time, make sure to choose Scala plugin when IntelliJ IDEA suggests you to download featured plugins.
 * `Scala plugin for IntelliJ IDEA <https://www.jetbrains.com/help/idea/discover-intellij-idea-for-scala.html>`_ (if not installed in the previous step)
 
-All these components can be found at the `Scala Download page
-<https://www.scala-lang.org/download/>`_.
+All these components can be found at the `Scala 2 Download page <https://www.scala-lang.org/download/scala2.html>`_.
 
 Working with Multiple Java Versions
 -----------------------------------
