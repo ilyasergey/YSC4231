@@ -8,7 +8,9 @@ Parallel, Concurrent and Distributed Programming (Autumn 2021)
    syllabus
    prerequisites
 
-* Lectures: Fridays, 2:30pm-5:30pm, Stephen Riady Centre, Global Learning Room
+* Instructor: `Ilya Sergey <https://ilyasergey.net/>`_
+* Lectures: Fridays, 2:30pm-5:30pm
+* Location: Stephen Riady Centre, Global Learning Room
 * Office hours: Wednesdays, 17:15-18:30pm, #RC3-01-03E (Cendana)
 * Peer Tutor: `Mark Weilong Yuen <mark.yuen@u.yale-nus.edu.sg>`_
 * Tutoring Sessions: by arrangement
