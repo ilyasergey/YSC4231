@@ -22,7 +22,7 @@ Lectures
    :numbered:
    :maxdepth: 1
 
-..   week-01-intro
+   week-01-intro
 ..   week-02-scala
 ..   week-03-mutex
 ..   week-03-concurrent-objects
