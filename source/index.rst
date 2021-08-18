@@ -13,7 +13,7 @@ Parallel, Concurrent and Distributed Programming (Autumn 2021)
 * Location: Stephen Riady Centre, Global Learning Room
 * Office hours: Wednesdays, 5:15pm-6:30pm, #RC3-01-03E (Cendana)
 * Peer Tutor: `Mark Weilong Yuen <mark.yuen@u.yale-nus.edu.sg>`_
-* Tutoring Sessions: Tuesdays, 6:30pm-8:00pm, location TBA
+* Tutoring Sessions: Tuesdays, 6:30pm-8:00pm, Classroom 22 (RC3-02-03)
 
 Lectures
 --------
@@ -23,7 +23,7 @@ Lectures
    :maxdepth: 1
 
    week-01-intro
-   week-02-scala
+..   week-02-scala
 ..   week-03-mutex
 ..   week-03-concurrent-objects
 ..   week-04-wait-free
