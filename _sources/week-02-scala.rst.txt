@@ -4,7 +4,7 @@ Week 02: Scala Primer
 =====================
 
 This lecture is an introduction to Scala programming language. It is
-intentionally brief, as all the YSC3248 attendies are assumed to have
+intentionally brief, as all the YSC4231 attendies are assumed to have
 familiarity with either OCaml or Java (or both). Therefore, this
 tutorial provides a quick overview of Scala's object-oriented and
 functional features
