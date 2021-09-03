@@ -25,8 +25,7 @@ Lectures
    week-01-intro
    week-02-scala
    week-03-mutex
-
-..   week-03-concurrent-objects
+   week-03-concurrent-objects
 ..   week-04-wait-free
 ..   week-05-spinlocks
 ..   week-05-monitors
