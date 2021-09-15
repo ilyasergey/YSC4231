@@ -9,7 +9,7 @@ complementary to spin-locks, considered previously.
 
 The code for this lecture is provided in branch ``06-monitors``
 (package ``monitors``) of the `accompanying repository
-<https://github.com/ysc3248/lectures-2020/tree/06-monitors>`_.
+<https://github.com/ysc4231/lectures-2021/tree/06-monitors>`_.
 
 When Spinning isn't Good Enough
 -------------------------------
