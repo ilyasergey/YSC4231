@@ -23,13 +23,13 @@ you are expected to find a solution `yourself`. It is absolutely crucial that
 you are mindful about the importance of working on solving the problem using
 your own understanding and expertise, and without attempting to get parts of the
 solution from available sources (your peers, a peer tutor, the internet), as
-this defeats the whole point of this learning process.
+this defeats the whole point of the carefully designed learning process.
 
-You might feel concerned about the fact that you cannot find a solution for the
-assignments in what seems to be a reasonable amount of time, and that the class
-makes you struggle. In most of the cases, **this is normal**---these are
-legitimately difficult disciplines that require your `full engagement` and pay
-off in skills that will help you land on highly-paid jobs in industry and
+You might feel concerned about the fact that you cannot come up with a solution
+for the assignments in what seems to be a reasonable amount of time, and that
+the class makes you struggle. In most of the cases, **this is normal**---these
+are legitimately difficult disciplines that require your `full engagement` and
+pay off in skills that will help you land on highly-paid jobs in industry and
 academia, with a great job security in the future.
 
 ..
