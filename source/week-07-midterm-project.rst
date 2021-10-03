@@ -237,11 +237,11 @@ size? Can you explain the performance phenomena when comparing the execution of
 ``ParallelQuickSort``?
 
 .. admonition:: Hint
-
-   If you find all your Quicksort implementation being very slow on large
+ 
+   If you find your Quicksort implementations being very slow on large
    arrays, check how you generate those arrays used for benchmarking. Recall in
    the cases in which Quicksort doesn't perform great in terms of complexity.
-   How about arrays with little diversity in theis elements (e.g., what if
+   How about arrays with little diversity in their elements (e.g., what if
    you're trying to quick-sort and array of ``10,000,000`` numbers ranging
    between ``1`` and ``10``)?
 
