@@ -273,9 +273,9 @@ If you're going to apply for an industry job in a software company, it is most
 important for you to able to demonstrate your skills on an interview and with
 your task project. This is what I'm optimising the outcomes of my classes for.
 
-As for graduate school admissions, it's unlikely that a single B+ will kill your
+As for graduate school admissions, it's unlikely that a single B will kill your
 application. At the end there will be an interview, at which you can always tell
 about how you learned about concept X at my class in a hard way---people will
-appreciate your honesty and technical sophistication. 
+appreciate your honesty and technical sophistication.
 
 Finally, you can always S/U a class.
