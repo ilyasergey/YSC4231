@@ -268,7 +268,7 @@ should you tried to write your own tests, this would have never happened.
   language on the internet, but I made sure I understood it before translating
   parts of it to the language of this class (OCaml/Scala)".
 
-Seriously? :) In any event, this is type-(3) plagiarism. Don't be surprised if
+Seriously? :) In any event, this is a type-(3) plagiarism. Don't be surprised if
 the way I detected it is because some of your peers (to whom I might have never
 even spoken) did the same.
 
