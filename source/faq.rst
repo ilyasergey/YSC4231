@@ -65,16 +65,14 @@ initially provided tasks and partially succeeded in some of those, and (c) you
 addressed all the comments provided in the initial feedback in your
 resubmission.
 
-**So why do I need to try to solve every task in the initial submission? Can I
-  just do some, and then do the rest in the resubmission?**
+**So why do I need to try to solve every task in the initial submission? Can I just do some, and then do the rest in the resubmission?**
 
 The requirement (b) is in place to avoid nearly "empty" submissions made in
 time, in an attempt to extend a deadline for a week at a very small penalty. I
 don't enjoy such attempts of gaming the system, and this is why this rule is at
 place.
 
-**I had a really rough week and feel very stressed, having hard time to focus on
-  the homework. May I have an extension?**
+**I had a really rough week and feel very stressed, having hard time to focus on the homework. May I have an extension?**
 
 You can have an extension in the case if you have a Medical Certificate or an
 Assistant Dean's letter. Medical Doctors and ADs are trained to assess the
@@ -84,16 +82,13 @@ therefore, are unqualified to do so. I also do not provide ad-hoc extensions
 without formal justifications (see above), as those create precedents other
 students might appeal to in the future.
 
-**Okay, I didn't realise that the task will take that much time, and I don't
-  have a reason qualifying me for an AD letter. If you don't give me an
-  extension, what should I do?**
+**Okay, I didn't realise that the task will take that much time, and I don't have a reason qualifying me for an AD letter. If you don't give me an extension, what should I do?**
 
 I'm afraid, in this case you do your best and possibly take a penalty for a late
 submission. Remember that non-attempted sub-tasks will affect your resubmission
 score.
 
-**This is rather harsh. Other profs provide extensions more easily and allow for
-  an infinite number of resubmissions.**
+**This is rather harsh. Other profs provide extensions more easily and allow for an infinite number of resubmissions.**
 
 Specific submission/resubmission policies are up to each prof; they might vary
 depending on the size of the class, nature of the assignments, as well as other
@@ -104,8 +99,7 @@ lab, etc).
 On Approaching the Tasks
 ------------------------
 
-**I've spent way more than 7 hours on a homework task, and I have no idea how to
-  solve it. What am I supposed to do?**
+**I've spent way more than 7 hours on a homework task, and I have no idea how to solve it. What am I supposed to do?**
 
 First, try to reflect on how you've spent those 7+ hours. I expect that some
 fraction of those is spent revising the lecture materials (slides/lectures).
@@ -127,8 +121,7 @@ not that large, and, if you've done your diligence with the previous parts, you
 should be able to write a program that is very close to a correct one. More
 tests/"paper debugging" should help to eviscerate the remaining bugs.
 
-**Okay, I've done all of that, but I still don't know how to write that program.
-  Should I ask for help now?**
+**Okay, I've done all of that, but I still don't know how to write that program. Should I ask for help now?**
 
 So, I assume that by now you've gone through the following steps towards the
 solution of your homework:
@@ -222,8 +215,7 @@ As of now, I define plagiarism at my class as follows:
 (2) Adapting a solution from a similar one found on the internet
 (3) "Copying with understanding" from other resources
 
-**I've just got 0 points for my solution, but I didn't copy my code, so it
-  shouldn't count as plagiarism.**
+**I've just got 0 points for my solution, but I didn't copy my code, so it shouldn't count as plagiarism.**
 
 This is because your submission didn't pass my plagiarism detector (it's not a
 particular automated test, it's just what I do). I have a number of "red flags"
@@ -275,8 +267,7 @@ even spoken) did the same.
 I think, this should provide enough explanation on the real reasons why I care
 about originality of solutions.
 
-**But now, with this penalty, I won't get an A for the class so my GPA will go
- down.**
+**But now, with this penalty, I won't get an A for the class so my GPA will go down.**
 
 If you are serious about a career in computing, this should not be an issue for
 the following reasons.
