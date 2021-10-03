@@ -7,7 +7,6 @@ Parallel, Concurrent and Distributed Programming (Autumn 2021)
 
    syllabus
    prerequisites
-   faq
 
 * Instructor: `Ilya Sergey <https://ilyasergey.net/>`_
 * Lectures: Fridays, 2:30pm-5:30pm
