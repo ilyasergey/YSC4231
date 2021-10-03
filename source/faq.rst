@@ -261,7 +261,7 @@ should you have tried to write your own tests, this would have never happened.
   parts of it to the language of this class (OCaml/Scala)".
 
 This is a type-(3) plagiarism. Don't be surprised if the way I detected it is
-because some of your peers (to whom you might have never even spoken) did the
+because some of your peers (to whom you might have even never spoken) did the
 same.
 
 **But now, with this penalty, I won't get an A for the class so my GPA will go down.**
