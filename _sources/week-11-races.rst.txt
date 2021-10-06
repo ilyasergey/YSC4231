@@ -333,12 +333,12 @@ Here are some hints and comments on how to approach this assignment.
   and make sure to first install all the Linux dependencies via apt
   (can be found at the top of this `Dockerfile
   <https://github.com/facebook/infer/blob/99464c01da5809e7159ed1a75ef10f60d34506a4/docker/master/Dockerfile>`_).
-  Before building Infer make sure that you have JDK 1.8 installed.
+  Before building Infer make sure that you have JDK 1.8 installed (in principle,
+  1.11 should work too, but I haven't checked it).
   `Here is a link to
   <https://docs.datastax.com/en/jdk-install/doc/jdk-install/installOpenJdkDeb.html>`_
   some instructions on how to do that. Make sure that both your
-  Java and Javac are of the correct version. You can switch them to
-  1.8 as described `here
+  Java and Javac are of the correct version. You can switch them as described `here
   <https://dev.to/harsvnc/how-to-change-your-java-and-javac-version-on-ubuntu-linux-1omj>`_.
 
 * Please, allocate sufficient time to install Infer and build some of
