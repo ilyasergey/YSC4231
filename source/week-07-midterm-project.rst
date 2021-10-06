@@ -275,11 +275,11 @@ Report
 
 For grading the reports, I will be taking the following aspects into the account:
 
-* Clarity of the descriptions: how well the report explains explaining the design of the main components (thread pool, hybrid sort, etc).
+* Clarity of the descriptions: how well the report explains the design of the main components (thread pool, hybrid sort, etc).
 
 * Observations: How well the report explains different observed concurrency phenomena regarding performance (and possibly correctness).
 
-* Story: The report is not too boring, and does not simply paraphrase the code or shows its parts verbatim.
+* Story: The report is not too boring and does not simply paraphrase the code or shows its parts verbatim.
 
 Good luck!
 
