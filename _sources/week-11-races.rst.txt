@@ -3,7 +3,7 @@
 Week 09: Data Race Detection in Practice
 ========================================
 
-* `Lecture Slides <_static/resources/ysc3248-week-09-races.pdf>`_
+* `Lecture Slides <_static/resources/ysc4231-week-09-races.pdf>`_
 
 In this mini research project you'll be working in groups of two. The
 goal of this project is to get you exposed to the state-of-the-art

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Week 09: Skiplists &mdash; YSC4231 2021</title>
+  <title>11. Week 09: Concurrent Stacks and Skiplists &mdash; YSC4231 2021</title>
   
 
   
@@ -28,7 +28,9 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="12. Week 09: Data Race Detection in Practice" href="week-11-races.html" />
+    <link rel="prev" title="10. Week 08: Concurrent Queues" href="week-08-queues-stacks.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -82,7 +84,7 @@
 <li class="toctree-l1"><a class="reference internal" href="prerequisites.html">2. Software Prerequisites</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">3. FAQ on Learning and Plagiarism</a></li>
 </ul>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="week-01-intro.html">1. Week 01: Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week-02-scala.html">2. Week 02: Scala Primer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week-03-mutex.html">3. Week 03: Mutual Exclusion</a></li>
@@ -92,7 +94,9 @@
 <li class="toctree-l1"><a class="reference internal" href="week-05-monitors.html">7. Week 06: Monitors and Blocking Synchronisation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week-07-midterm-project.html">8. Midterm Project</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week-06-fine-lists.html">9. Week 07: Concurrent Lists and Fine-Grained Locking</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-08-queues-stacks.html">10. Week 08: Concurrent Queues and Stacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week-08-queues-stacks.html">10. Week 08: Concurrent Queues</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">11. Week 09: Concurrent Stacks and Skiplists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week-11-races.html">12. Week 09: Data Race Detection in Practice</a></li>
 </ul>
 
             
@@ -138,7 +142,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Week 09: Skiplists</li>
+      <li>11. Week 09: Concurrent Stacks and Skiplists</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -155,12 +159,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="week-09-skiplists">
-<h1>Week 09: Skiplists<a class="headerlink" href="#week-09-skiplists" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="week-09-concurrent-stacks-and-skiplists">
+<h1>11. Week 09: Concurrent Stacks and Skiplists<a class="headerlink" href="#week-09-concurrent-stacks-and-skiplists" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
-<li><a class="reference external" href="_static/resources/ysc3248-week-09-skiplists.pdf">Lecture Slides</a>
+<li><a class="reference external" href="_static/resources/ysc4231-week-08-stacks.pdf">Lecture Slides (Stacks)</a></li>
+<li><a class="reference external" href="_static/resources/ysc4231-week-09-skiplists.pdf">Lecture Slides</a>
 (adapted from the <a class="reference external" href="https://booksite.elsevier.com/9780123973375/?ISBN=9780123973375">AoMP book</a>)</li>
-<li><a class="reference external" href="https://github.com/ysc3248/lectures-2020/tree/09-skiplists">Code with examples</a>,
+<li><a class="reference external" href="https://github.com/ysc4231/lectures-2021/tree/09-skiplists">Code with examples</a>,
 package <code class="docutils literal notranslate"><span class="pre">skiplists</span></code></li>
 </ul>
 </div>
@@ -170,6 +175,15 @@ package <code class="docutils literal notranslate"><span class="pre">skiplists</
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="week-11-races.html" class="btn btn-neutral float-right" title="12. Week 09: Data Race Detection in Practice" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="week-08-queues-stacks.html" class="btn btn-neutral" title="10. Week 08: Concurrent Queues" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
