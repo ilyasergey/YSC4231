@@ -12,36 +12,35 @@ Useful resources:
   <https://speakerdeck.com/phaller/futures-and-async-when-to-use-which>`_
   and `Video <https://www.youtube.com/watch?v=TyuPdFDxkro>`_
 * `Code with examples
-  <https://github.com/ysc3248/lectures-2020/tree/10-futures>`_,
+  <https://github.com/ysc4231/lectures-2021/tree/10-futures>`_,
   package ``futures``
 
 Summary of the Lecture
 ----------------------
 
-A short summary of the files from the accompanying code is given
-below, outlining the characteristic aspects of working with Java
-Futures, as well as Scala Futures and Promises. It is recommended that
-the files are explored in the order they appear in the following list:
+A short summary of the files from the accompanying code is given below,
+outlining the characteristic aspects of working with Java Futures, as well as
+Scala Futures and Promises. It is recommended that the files are explored in the
+order they appear in the following list:
 
 **Java Futures**
 
-* ``SortAndRead`` --- reading a user input after having performed a
-  costly operation (array sorting). This examples demonstrates the
-  need for parallelisation.
+* ``SortAndRead`` --- reading a user input after having performed a costly
+  operation (array sorting). This examples demonstrates the need for
+  parallelisation.
 
-* ``SortAndRead2`` --- a better version of the previous program.
-  Sorting is moved into a separate future. Introducing Java's thread
-  pools and the class ``Future``.
+* ``SortAndRead2`` --- a better version of the previous program. Sorting is
+  moved into a separate future. Introducing Java's thread pools and the class
+  ``Future``.
 
-* ``SortAndRead3`` --- even better implementation, in which the user
-  input is also moved into a separate future.
+* ``SortAndRead3`` --- even better implementation, in which the user input is
+  also moved into a separate future.
 
 **An Exercise on Java Futures**
 
-* ``FutureSort`` --- an old friend, parallel quick-sort, now
-  re-implemented with Java futures. An interesting question is why
-  some of the offered thread pools, e.g.,
-  ``Executors.newFixedThreadPool(4)`` make it deadlock?
+* ``FutureSort`` --- an old friend, parallel quick-sort, now re-implemented with
+  Java futures. An interesting question is why some of the offered thread pools,
+  e.g., ``Executors.newFixedThreadPool(4)`` make it deadlock?
 
 **Scala Futures**
 
@@ -49,30 +48,29 @@ the files are explored in the order they appear in the following list:
   ``isCompleted`` method and the implicit execution context
   (``ExecutionContext.Implicits.global``).
 
-* ``FuturesCallbacks`` --- demonstration of processing results of the
-  futures asynchronously via callbacks (using ``foreach`` method).
+* ``FuturesCallbacks`` --- demonstration of processing results of the futures
+  asynchronously via callbacks (using ``foreach`` method).
 
 * ``FutureExceptions`` --- treatment of exceptions in futures, via
-  ``onComplete`` method and pattern matching on the result class:
-  ``Success`` or ``Failure``.
+  ``onComplete`` method and pattern matching on the result class: ``Success`` or
+  ``Failure``.
 
-* ``AwaitExample`` --- an example showing the use of ``Await.result``
-  method to wait for a future to complete or fail otherwise.
+* ``AwaitExample`` --- an example showing the use of ``Await.result`` method to
+  wait for a future to complete or fail otherwise.
 
 **Composing Scala Futures**
 
-* ``Options`` --- a quick practice on building combinators for the
-  ``Option`` type. Serves as an introduction to similar future
-  combinators introduced next.
+* ``Options`` --- a quick practice on building combinators for the ``Option``
+  type. Serves as an introduction to similar future combinators introduced next.
 
 * ``ComposingFutures`` --- an example of composing two futures running
-  asynchronously, via the explicit ``flatMap`` combinator (or using
-  the ``for`` notation). Check: what changes in the execution if the
-  futures are inlined under the ``for`` comprehension?
+  asynchronously, via the explicit ``flatMap`` combinator (or using the ``for``
+  notation). Check: what changes in the execution if the futures are inlined
+  under the ``for`` comprehension?
 
-* ``BlacklistedFiles`` --- a large example involving composing
-  futures in the implementation of ``getAllBlacklisted``. Multiple
-  ways to query the result are possible.
+* ``BlacklistedFiles`` --- a large example involving composing futures in the
+  implementation of ``getAllBlacklisted``. Multiple ways to query the result are
+  possible.
 
 * ``ScalaFuturesTests`` --- shows how to test futures.
 
