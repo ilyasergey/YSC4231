@@ -395,6 +395,11 @@ Here are some hints and comments on how to approach this assignment.
 Further Reading
 ---------------
 
+More about why data races might be harmful:
+
+* `Are Data Races bad? (StackOverflow) <https://stackoverflow.com/questions/20374281/are-data-races-bad>`_
+* `Position Paper: Nondeterminism is unavoidable, but data races are pure evil <https://www.hpl.hp.com/techreports/2012/HPL-2012-218.pdf>`_
+
 If you are interested in the state of the art in the research on data
 race detection, as well as on static analyses of production code, you
 might also want to check the following research papers:
