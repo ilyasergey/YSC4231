@@ -7,7 +7,7 @@ Useful resources:
 
 * `Documentation on Scala Futures and Promises
   <https://docs.scala-lang.org/overviews/core/futures.html>`_
-* `Scala's for-comprehensions <https://docs.scala-lang.org/tutorials/FAQ/yield.html>`_
+* `Scala's for-comprehensions <https://docs.scala-lang.org/tour/for-comprehensions.html>`_
 * Futures and Async: `Slides
   <https://speakerdeck.com/phaller/futures-and-async-when-to-use-which>`_
   and `Video <https://www.youtube.com/watch?v=TyuPdFDxkro>`_
