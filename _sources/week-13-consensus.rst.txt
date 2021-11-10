@@ -1,5 +1,5 @@
-Week 13: Distributed Consensus and BFT; Wrap-Up
-===============================================
+Week 13: Distributed Consensus, BFT; Wrap-Up
+============================================
 
 * `Code with examples
   <https://github.com/ysc4231/lectures-2021/tree/13-paxos>`_,
