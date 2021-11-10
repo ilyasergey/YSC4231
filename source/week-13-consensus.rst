@@ -2,14 +2,14 @@ Week 13: Distributed Consensus and BFT; Wrap-Up
 ===============================================
 
 * `Code with examples
-  <https://github.com/ysc3248/lectures-2020/tree/13-paxos>`_,
+  <https://github.com/ysc4231/lectures-2021/tree/13-paxos>`_,
   package ``paxos``
 
 Slides
 ------
 
-* `Distributed Consensus <_static/resources/ysc3248-week-13-paxos.pdf>`_
-* `Byzantine Fault Tolerance and Blockchains; Wrap-Up <_static/resources/ysc3248-week-13-byzantine.pdf>`_
+* `Distributed Consensus <_static/resources/ysc4231-week-13-paxos.pdf>`_
+* `Byzantine Fault Tolerance and Blockchains; Wrap-Up <_static/resources/ysc4231-week-13-byzantine.pdf>`_
 
 Papers to Read
 --------------
