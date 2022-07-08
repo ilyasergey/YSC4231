@@ -43,7 +43,7 @@ Homework Assignments
 --------------------
 
 * Theory Assignment 1 (Intro)
-* Programming Assignment 1 (Scala Basics)
+* Programming Assignment 1 (Scala Programming Basics)
 * Theory Assignment 2 (Mutual Exclusion)
 * Programming Assignment 2 (Mutual Exclusion)
 * Theory Assignment 3 (Concurrent Objects)
