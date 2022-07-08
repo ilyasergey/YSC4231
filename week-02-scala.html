@@ -1,22 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html4" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Week 02: Scala Primer &mdash; YSC4231 2021</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <title>Week 02: Scala Primer &mdash; YSC4231 2021</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
-  
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="_static/doctools.js"></script>
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"extensions": ["tex2jax.js"], "jax": ["input/TeX", "output/HTML-CSS"]})</script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
@@ -66,8 +65,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="week-02-scala-primer">
-<h1>Week 02: Scala Primer<a class="headerlink" href="#week-02-scala-primer" title="Permalink to this heading"></a></h1>
+  <div class="section" id="week-02-scala-primer">
+<h1>Week 02: Scala Primer<a class="headerlink" href="#week-02-scala-primer" title="Permalink to this headline">¶</a></h1>
 <p>This lecture is an introduction to Scala programming language. It is
 intentionally brief, as all the YSC4231 attendies are assumed to have
 familiarity with either OCaml or Java (or both). Therefore, this
@@ -80,18 +79,18 @@ functional features</p>
 at one of multiple Scala tutorials available online. The following are
 the recommended ones:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="http://allaboutscala.com/#scala-introduction">All about Scala</a></p></li>
-<li><p><a class="reference external" href="https://docs.scala-lang.org/tutorials/scala-for-java-programmers.html">Scala for Java programmers</a></p></li>
+<li><a class="reference external" href="http://allaboutscala.com/#scala-introduction">All about Scala</a></li>
+<li><a class="reference external" href="https://docs.scala-lang.org/tutorials/scala-for-java-programmers.html">Scala for Java programmers</a></li>
 </ul>
-<section id="using-intellij-idea">
-<h2>Using IntelliJ IDEA<a class="headerlink" href="#using-intellij-idea" title="Permalink to this heading"></a></h2>
+<div class="section" id="using-intellij-idea">
+<h2>Using IntelliJ IDEA<a class="headerlink" href="#using-intellij-idea" title="Permalink to this headline">¶</a></h2>
 <p>We will be using IntelliJ IDEA as an Integrated Development
 Environment (IDE) for programming in Scala. It will allow us to manage
 large multi-file projects with multiple executables and automated
 tests. The following link provides instructions on getting IntelliJ
 and creating a simple Scala project in it:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://docs.scala-lang.org/getting-started/intellij-track/getting-started-with-scala-in-intellij.html">Getting Started with Scala in IntelliJ IDEA</a></p></li>
+<li><a class="reference external" href="https://docs.scala-lang.org/getting-started/intellij-track/getting-started-with-scala-in-intellij.html">Getting Started with Scala in IntelliJ IDEA</a></li>
 </ul>
 <p>You can also open the <a class="reference external" href="https://github.com/ysc4231/lectures-2021">course repository</a> from IntelliJ via <cite>File</cite> -&gt; <cite>Open</cite> dialogue.</p>
 <p>IntelliJ IDEA provides a convenient way to build projects, navigate to
@@ -100,11 +99,11 @@ encouraged to <a class="reference external" href="http://allaboutscala.com/tutor
 to master the following aspects of using IntelliJ for managing Scala
 projects:</p>
 <ul class="simple">
-<li><p>Creating new files</p></li>
-<li><p>Using code completion</p></li>
-<li><p>Building and rebuilding the project</p></li>
-<li><p>Navigating to definitions and files (see the menu Navigate)</p></li>
-<li><p>Creating runtim configurations</p></li>
+<li>Creating new files</li>
+<li>Using code completion</li>
+<li>Building and rebuilding the project</li>
+<li>Navigating to definitions and files (see the menu Navigate)</li>
+<li>Creating runtim configurations</li>
 </ul>
 <p>Use this <a class="reference external" href="https://resources.jetbrains.com/storage/products/intellij-idea/docs/IntelliJIDEA_ReferenceCard.pdf">key binding reference</a>
 for your convenience. Alternatively, just remember how to invoke the
@@ -112,11 +111,11 @@ for your convenience. Alternatively, just remember how to invoke the
 depending on the system) and type in your query to get a hint.</p>
 <p>The following simple executable is implemented in the file
 <code class="docutils literal notranslate"><span class="pre">SquareOf5.scala</span></code> (use IntelliJ navigation to locate it!):</p>
-<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">object</span><span class="w"> </span><span class="nc">SquareOf5</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">App</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">square</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="w"> </span><span class="nc">Int</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="w"></span>
-<span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">square</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="w"></span>
-<span class="w">  </span><span class="n">println</span><span class="p">(</span><span class="s">s&quot;Result </span><span class="si">$</span><span class="n">s</span><span class="s">&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">object</span> <span class="nc">SquareOf5</span> <span class="k">extends</span> <span class="nc">App</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="n">square</span><span class="o">(</span><span class="n">x</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span> <span class="k">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
+  <span class="k">val</span> <span class="n">s</span> <span class="k">=</span> <span class="n">square</span><span class="o">(</span><span class="mi">5</span><span class="o">)</span>
+  <span class="n">println</span><span class="o">(</span><span class="s">s&quot;Result </span><span class="si">$s</span><span class="s">&quot;</span><span class="o">)</span>
+<span class="o">}</span>
 </pre></div>
 </div>
 <p>To run it in the IDE, right-click on <code class="docutils literal notranslate"><span class="pre">SquareOf5</span></code> in the editor (or
@@ -126,24 +125,24 @@ triangle next to the object definition. The result of executing the
 program will appear in the execution pane at the bottom of the screen.</p>
 <p>An alternative way to define an executable <code class="docutils literal notranslate"><span class="pre">object</span></code> is via the
 <code class="docutils literal notranslate"><span class="pre">main</span></code> method. For instance, it can be done as follows:</p>
-<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">object</span><span class="w"> </span><span class="nc">SquareOf6</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="p">:</span><span class="w"> </span><span class="nc">Array</span><span class="p">[</span><span class="nc">String</span><span class="p">]):</span><span class="w"> </span><span class="nc">Unit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">SquareOf5</span><span class="p">.</span><span class="n">square</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">s&quot;Result </span><span class="si">$</span><span class="n">s</span><span class="s">&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">object</span> <span class="nc">SquareOf6</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="n">main</span><span class="o">(</span><span class="n">args</span><span class="k">:</span> <span class="kt">Array</span><span class="o">[</span><span class="kt">String</span><span class="o">])</span><span class="k">:</span> <span class="kt">Unit</span> <span class="o">=</span> <span class="o">{</span>
+    <span class="k">val</span> <span class="n">s</span> <span class="k">=</span> <span class="nc">SquareOf5</span><span class="o">.</span><span class="n">square</span><span class="o">(</span><span class="mi">6</span><span class="o">)</span>
+    <span class="n">println</span><span class="o">(</span><span class="s">s&quot;Result </span><span class="si">$s</span><span class="s">&quot;</span><span class="o">)</span>
+  <span class="o">}</span>
+<span class="o">}</span>
 </pre></div>
 </div>
 <p>Here, the executable object <code class="docutils literal notranslate"><span class="pre">SquareOf6</span></code> uses the function <code class="docutils literal notranslate"><span class="pre">square</span></code>
 defined within the object <code class="docutils literal notranslate"><span class="pre">SquareOf5</span></code>.</p>
-</section>
-<section id="using-sbt">
-<h2>Using SBT<a class="headerlink" href="#using-sbt" title="Permalink to this heading"></a></h2>
+</div>
+<div class="section" id="using-sbt">
+<h2>Using SBT<a class="headerlink" href="#using-sbt" title="Permalink to this headline">¶</a></h2>
 <p>Scala Build Tool is a build system used to manage dependencies and
 compile Scala projects, similar to OCaml’s <code class="docutils literal notranslate"><span class="pre">dune</span></code> and <code class="docutils literal notranslate"><span class="pre">opam</span></code>. The
 tutorial on obtaining and running <code class="docutils literal notranslate"><span class="pre">sbt</span></code> is available:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://docs.scala-lang.org/getting-started/sbt-track/getting-started-with-scala-and-sbt-on-the-command-line.html">Getting Started with Scala and SBT on the Command Line</a></p></li>
+<li><a class="reference external" href="https://docs.scala-lang.org/getting-started/sbt-track/getting-started-with-scala-and-sbt-on-the-command-line.html">Getting Started with Scala and SBT on the Command Line</a></li>
 </ul>
 <p>You can try executing <code class="docutils literal notranslate"><span class="pre">sbt</span> <span class="pre">test</span></code> from the root of the primer
 project. This will compile it and automatically run all the tests in
@@ -152,9 +151,9 @@ the project.</p>
 <code class="docutils literal notranslate"><span class="pre">sbt</span></code> and then type <code class="docutils literal notranslate"><span class="pre">console</span></code> in it. You can now import the code
 from the packages and objects of your project, as well as create new
 class instances.</p>
-</section>
-<section id="object-oriented-elements-of-scala">
-<h2>Object-Oriented Elements of Scala<a class="headerlink" href="#object-oriented-elements-of-scala" title="Permalink to this heading"></a></h2>
+</div>
+<div class="section" id="object-oriented-elements-of-scala">
+<h2>Object-Oriented Elements of Scala<a class="headerlink" href="#object-oriented-elements-of-scala" title="Permalink to this headline">¶</a></h2>
 <p>Scala inherits many object-oriented features from languages such as
 C++ and Java. That said, it’s object-oriented model can still be
 understand in terms of OCaml abstractions. Definitions of functions
@@ -173,19 +172,19 @@ data types. However, each class can be used to create multiple
 <cite>instances</cite>, each having its own state (including mutable variables,
 called <cite>fields</cite>). For instance, the following class features one
 mutable field <code class="docutils literal notranslate"><span class="pre">greeting</span></code> and three methods:</p>
-<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Printer</span><span class="p">(</span><span class="kd">val</span><span class="w"> </span><span class="n">initial</span><span class="p">:</span><span class="w"> </span><span class="nc">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">greeting</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">initial</span><span class="w"></span>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Printer</span><span class="o">(</span><span class="k">val</span> <span class="n">initial</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">private</span> <span class="k">var</span> <span class="n">greeting</span> <span class="k">=</span> <span class="n">initial</span>
 
-<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">printMessage</span><span class="p">():</span><span class="w"> </span><span class="nc">Unit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">println</span><span class="p">(</span><span class="n">greeting</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;!&quot;</span><span class="p">)</span><span class="w"></span>
+  <span class="k">def</span> <span class="n">printMessage</span><span class="o">()</span><span class="k">:</span> <span class="kt">Unit</span> <span class="o">=</span> <span class="n">println</span><span class="o">(</span><span class="n">greeting</span> <span class="o">+</span> <span class="s">&quot;!&quot;</span><span class="o">)</span>
 
-<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">printNumber</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="w"> </span><span class="nc">Int</span><span class="p">):</span><span class="w"> </span><span class="nc">Unit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Number: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
+  <span class="k">def</span> <span class="n">printNumber</span><span class="o">(</span><span class="n">x</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span><span class="k">:</span> <span class="kt">Unit</span> <span class="o">=</span> <span class="o">{</span>
+    <span class="n">println</span><span class="o">(</span><span class="s">&quot;Number: &quot;</span> <span class="o">+</span> <span class="n">x</span><span class="o">)</span>
+  <span class="o">}</span>
 
-<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">setGreeting</span><span class="p">(</span><span class="n">s</span><span class="p">:</span><span class="w"> </span><span class="nc">String</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">greeting</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+  <span class="k">def</span> <span class="n">setGreeting</span><span class="o">(</span><span class="n">s</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span> <span class="k">=</span> <span class="o">{</span>
+    <span class="n">greeting</span> <span class="k">=</span> <span class="n">s</span>
+  <span class="o">}</span>
+<span class="o">}</span>
 </pre></div>
 </div>
 <p>It takes a value of type <code class="docutils literal notranslate"><span class="pre">String</span></code>, which can be then used within the
@@ -193,13 +192,13 @@ body of the class. For instance, it is used to initialise a mutable
 field <code class="docutils literal notranslate"><span class="pre">greeting</span></code>. It can be later changed via a method
 <code class="docutils literal notranslate"><span class="pre">setGreeting</span></code> by passing a new <code class="docutils literal notranslate"><span class="pre">String</span></code> value. The class can be
 then <cite>instantiated</cite> and used as follows:</p>
-<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">object</span><span class="w"> </span><span class="nc">UsePrinter</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="p">:</span><span class="w"> </span><span class="nc">Array</span><span class="p">[</span><span class="nc">String</span><span class="p">]):</span><span class="w"> </span><span class="nc">Unit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">printer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nc">Printer</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="n">printer</span><span class="p">.</span><span class="n">printMessage</span><span class="p">()</span><span class="w"></span>
-<span class="w">    </span><span class="n">printer</span><span class="p">.</span><span class="n">printNumber</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">object</span> <span class="nc">UsePrinter</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="n">main</span><span class="o">(</span><span class="n">args</span><span class="k">:</span> <span class="kt">Array</span><span class="o">[</span><span class="kt">String</span><span class="o">])</span><span class="k">:</span> <span class="kt">Unit</span> <span class="o">=</span> <span class="o">{</span>
+    <span class="k">val</span> <span class="n">printer</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">Printer</span><span class="o">(</span><span class="s">&quot;Hello&quot;</span><span class="o">)</span>
+    <span class="n">printer</span><span class="o">.</span><span class="n">printMessage</span><span class="o">()</span>
+    <span class="n">printer</span><span class="o">.</span><span class="n">printNumber</span><span class="o">(</span><span class="mi">42</span><span class="o">)</span>
+  <span class="o">}</span>
+<span class="o">}</span>
 </pre></div>
 </div>
 <p><cite>Traits</cite> in Scala are used as “templates” containing some data
@@ -209,41 +208,41 @@ executed: they should be considered as “dictionaries” of definitions
 to be used by classes and objects. The following example shows a
 trait, a class that extends it, and an object that uses the
 resulting class:</p>
-<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">trait</span><span class="w"> </span><span class="nc">Logging</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="c1">// Signature of a method to be defined later</span>
-<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">log</span><span class="p">(</span><span class="n">s</span><span class="p">:</span><span class="w"> </span><span class="nc">String</span><span class="p">):</span><span class="w"> </span><span class="nc">Unit</span><span class="w"></span>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">trait</span> <span class="nc">Logging</span> <span class="o">{</span>
+  <span class="c1">// Signature of a method to be defined later</span>
+  <span class="k">def</span> <span class="n">log</span><span class="o">(</span><span class="n">s</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span><span class="k">:</span> <span class="kt">Unit</span>
 
-<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">warn</span><span class="p">(</span><span class="n">s</span><span class="p">:</span><span class="w"> </span><span class="nc">String</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">log</span><span class="p">(</span><span class="s">&quot;WARN: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"></span>
+  <span class="k">def</span> <span class="n">warn</span><span class="o">(</span><span class="n">s</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span> <span class="k">=</span> <span class="n">log</span><span class="o">(</span><span class="s">&quot;WARN: &quot;</span> <span class="o">+</span> <span class="n">s</span><span class="o">)</span>
 
-<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">error</span><span class="p">(</span><span class="n">s</span><span class="p">:</span><span class="w"> </span><span class="nc">String</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">log</span><span class="p">(</span><span class="s">&quot;ERROR: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+  <span class="k">def</span> <span class="n">error</span><span class="o">(</span><span class="n">s</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span> <span class="k">=</span> <span class="n">log</span><span class="o">(</span><span class="s">&quot;ERROR: &quot;</span> <span class="o">+</span> <span class="n">s</span><span class="o">)</span>
+<span class="o">}</span>
 
 
 <span class="c1">// A class that mixes in Logging&#39;s functionality</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">PrintLogging</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">Logging</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">log</span><span class="p">(</span><span class="n">s</span><span class="p">:</span><span class="w"> </span><span class="nc">String</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">println</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="k">class</span> <span class="nc">PrintLogging</span> <span class="k">extends</span> <span class="nc">Logging</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="n">log</span><span class="o">(</span><span class="n">s</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span> <span class="k">=</span> <span class="n">println</span><span class="o">(</span><span class="n">s</span><span class="o">)</span>
+<span class="o">}</span>
 
-<span class="k">object</span><span class="w"> </span><span class="nc">UseLogging</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">App</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="n">logger</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nc">PrintLogging</span><span class="w"></span>
-<span class="w">  </span><span class="n">logger</span><span class="p">.</span><span class="n">warn</span><span class="p">(</span><span class="s">&quot;Hmm...&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="k">object</span> <span class="nc">UseLogging</span> <span class="k">extends</span> <span class="nc">App</span> <span class="o">{</span>
+  <span class="k">val</span> <span class="n">logger</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">PrintLogging</span>
+  <span class="n">logger</span><span class="o">.</span><span class="n">warn</span><span class="o">(</span><span class="s">&quot;Hmm...&quot;</span><span class="o">)</span>
+<span class="o">}</span>
 
-<span class="nc">One</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">and</span><span class="w"> </span><span class="k">object</span><span class="w"> </span><span class="nc">can</span><span class="w"> </span><span class="n">extend</span><span class="w"> </span><span class="n">multiple</span><span class="w"> </span><span class="n">traits</span><span class="p">.</span><span class="w"> </span><span class="nc">In</span><span class="w"> </span><span class="n">addition</span><span class="p">,</span><span class="w"> </span><span class="n">an</span><span class="w"></span>
-<span class="k">object</span><span class="w"> </span><span class="nc">and</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">can</span><span class="w"> </span><span class="n">extend</span><span class="w"> </span><span class="n">precisely</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="k">class</span><span class="p">.</span><span class="w"></span>
+<span class="nc">One</span> <span class="k">class</span> <span class="nc">and</span> <span class="k">object</span> <span class="nc">can</span> <span class="n">extend</span> <span class="n">multiple</span> <span class="n">traits</span><span class="o">.</span> <span class="nc">In</span> <span class="n">addition</span><span class="o">,</span> <span class="n">an</span>
+<span class="k">object</span> <span class="nc">and</span> <span class="n">a</span> <span class="k">class</span> <span class="nc">can</span> <span class="n">extend</span> <span class="n">precisely</span> <span class="n">one</span> <span class="n">class</span><span class="o">.</span>
 </pre></div>
 </div>
 <p>More details on object-oriented model of Scala can be found in the
 following tutorials:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://www.tutorialspoint.com/scala/scala_classes_objects">Scala Classes and Objects</a></p></li>
-<li><p><a class="reference external" href="https://www.tutorialspoint.com/scala/scala_traits.htm">Scala Traits</a></p></li>
+<li><a class="reference external" href="https://www.tutorialspoint.com/scala/scala_classes_objects">Scala Classes and Objects</a></li>
+<li><a class="reference external" href="https://www.tutorialspoint.com/scala/scala_traits.htm">Scala Traits</a></li>
 </ul>
 <p>Classes, objects and traits in Scala are located under a source root
 in a hierarchy of folders that correspond to <cite>packages</cite>. Packages are
 declared at the beginning of each file and should mimic the folder
 hierarchy, for instance:</p>
-<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">package</span><span class="w"> </span><span class="nn">runners</span><span class="p">.</span><span class="n">squares</span>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">package</span> <span class="nn">runners.squares</span>
 </pre></div>
 </div>
 <p>is a package ascribed to <code class="docutils literal notranslate"><span class="pre">SquareOf5</span></code> and <code class="docutils literal notranslate"><span class="pre">SquareOf6</span></code> objects that
@@ -253,18 +252,18 @@ project.</p>
 parameters. For instance, the following class corresponds to OCaml’s
 polymorphic <code class="docutils literal notranslate"><span class="pre">pair</span></code> data type with <cite>immutable</cite> fields <code class="docutils literal notranslate"><span class="pre">first</span></code> and
 <code class="docutils literal notranslate"><span class="pre">second</span></code> or arbitrary types <code class="docutils literal notranslate"><span class="pre">P</span></code> and <code class="docutils literal notranslate"><span class="pre">Q</span></code>:</p>
-<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Pair</span><span class="p">[</span><span class="nc">P</span><span class="p">,</span><span class="w"> </span><span class="nc">Q</span><span class="p">](</span><span class="kd">val</span><span class="w"> </span><span class="n">first</span><span class="p">:</span><span class="w"> </span><span class="nc">P</span><span class="p">,</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="n">second</span><span class="p">:</span><span class="w"> </span><span class="nc">Q</span><span class="p">)</span><span class="w"></span>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Pair</span><span class="o">[</span><span class="kt">P</span>, <span class="kt">Q</span><span class="o">](</span><span class="k">val</span> <span class="n">first</span><span class="k">:</span> <span class="kt">P</span><span class="o">,</span> <span class="k">val</span> <span class="n">second</span><span class="k">:</span> <span class="kt">Q</span><span class="o">)</span>
 
-<span class="k">object</span><span class="w"> </span><span class="nc">UsePair</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">App</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nc">Pair</span><span class="p">(</span><span class="s">&quot;abc&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">42</span><span class="p">)</span><span class="w"></span>
-<span class="w">  </span><span class="n">println</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">first</span><span class="p">)</span><span class="w"></span>
-<span class="w">  </span><span class="n">println</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">second</span><span class="p">)</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="k">object</span> <span class="nc">UsePair</span> <span class="k">extends</span> <span class="nc">App</span> <span class="o">{</span>
+  <span class="k">val</span> <span class="n">p</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">Pair</span><span class="o">(</span><span class="s">&quot;abc&quot;</span><span class="o">,</span> <span class="mi">42</span><span class="o">)</span>
+  <span class="n">println</span><span class="o">(</span><span class="n">p</span><span class="o">.</span><span class="n">first</span><span class="o">)</span>
+  <span class="n">println</span><span class="o">(</span><span class="n">p</span><span class="o">.</span><span class="n">second</span><span class="o">)</span>
+<span class="o">}</span>
 </pre></div>
 </div>
-</section>
-<section id="functional-elements-of-scala">
-<h2>Functional Elements of Scala<a class="headerlink" href="#functional-elements-of-scala" title="Permalink to this heading"></a></h2>
+</div>
+<div class="section" id="functional-elements-of-scala">
+<h2>Functional Elements of Scala<a class="headerlink" href="#functional-elements-of-scala" title="Permalink to this headline">¶</a></h2>
 <p>Scala allows to define classes in a way that they could be used in a
 pattern matching, similar to OCaml’s data types. For this, they need
 to be defined using the keyword <code class="docutils literal notranslate"><span class="pre">case</span></code>. The typical pattern is to
@@ -272,80 +271,80 @@ define a trait that corresponds to the “abstract data type” and a
 number of case classes that extend it. For instance, this is how the
 familiar option type is implemented in Scala (ignore the <code class="docutils literal notranslate"><span class="pre">+</span></code> in
 front of the type parameter for now):</p>
-<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">trait</span><span class="w"> </span><span class="nc">Option</span><span class="p">[</span><span class="o">+</span><span class="nc">T</span><span class="p">]</span><span class="w"></span>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">trait</span> <span class="nc">Option</span><span class="o">[</span><span class="kt">+T</span><span class="o">]</span>
 
-<span class="k">case</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Some</span><span class="p">[</span><span class="nc">T</span><span class="p">](</span><span class="n">elem</span><span class="p">:</span><span class="w"> </span><span class="nc">T</span><span class="p">)</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">Option</span><span class="p">[</span><span class="nc">T</span><span class="p">]</span><span class="w"></span>
+<span class="nc">case</span> <span class="k">class</span> <span class="nc">Some</span><span class="o">[</span><span class="kt">T</span><span class="o">](</span><span class="n">elem</span><span class="k">:</span> <span class="kt">T</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">Option</span><span class="o">[</span><span class="kt">T</span><span class="o">]</span>
 
-<span class="k">case</span><span class="w"> </span><span class="k">object</span><span class="w"> </span><span class="nc">None</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">Option</span><span class="p">[</span><span class="nc">Nothing</span><span class="p">]</span><span class="w"></span>
+<span class="k">case</span> <span class="k">object</span> <span class="nc">None</span> <span class="k">extends</span> <span class="nc">Option</span><span class="o">[</span><span class="kt">Nothing</span><span class="o">]</span>
 </pre></div>
 </div>
 <p>Notice that <code class="docutils literal notranslate"><span class="pre">None</span></code> is defined as an object, since it doesn’t take
 any parameters, and hence should only exist as a single instance. This
 is how case classes are used in pattern matching:</p>
-<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">object</span><span class="w"> </span><span class="nc">PrintOption</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">object</span> <span class="nc">PrintOption</span> <span class="o">{</span>
 
-<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">printOption</span><span class="p">(</span><span class="n">o</span><span class="p">:</span><span class="w"> </span><span class="nc">Option</span><span class="p">[</span><span class="nc">String</span><span class="p">]):</span><span class="w"> </span><span class="nc">Unit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">o</span><span class="w"> </span><span class="k">match</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="nc">Some</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"></span>
-<span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Some: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="nc">None</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"></span>
-<span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Nothing!&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
+  <span class="k">def</span> <span class="n">printOption</span><span class="o">(</span><span class="n">o</span><span class="k">:</span> <span class="kt">Option</span><span class="o">[</span><span class="kt">String</span><span class="o">])</span><span class="k">:</span> <span class="kt">Unit</span> <span class="o">=</span> <span class="o">{</span>
+    <span class="n">o</span> <span class="k">match</span> <span class="o">{</span>
+      <span class="k">case</span> <span class="nc">Some</span><span class="o">(</span><span class="n">e</span><span class="o">)</span> <span class="k">=&gt;</span>
+        <span class="n">println</span><span class="o">(</span><span class="s">&quot;Some: &quot;</span> <span class="o">+</span> <span class="n">e</span><span class="o">)</span>
+      <span class="k">case</span> <span class="nc">None</span> <span class="k">=&gt;</span>
+        <span class="n">println</span><span class="o">(</span><span class="s">&quot;Nothing!&quot;</span><span class="o">)</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
 
-<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="p">:</span><span class="w"> </span><span class="nc">Array</span><span class="p">[</span><span class="nc">String</span><span class="p">]):</span><span class="w"> </span><span class="nc">Unit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Some</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="n">printOption</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+  <span class="k">def</span> <span class="n">main</span><span class="o">(</span><span class="n">args</span><span class="k">:</span> <span class="kt">Array</span><span class="o">[</span><span class="kt">String</span><span class="o">])</span><span class="k">:</span> <span class="kt">Unit</span> <span class="o">=</span> <span class="o">{</span>
+    <span class="k">val</span> <span class="n">s</span> <span class="k">=</span> <span class="nc">Some</span><span class="o">(</span><span class="s">&quot;Hello&quot;</span><span class="o">)</span>
+    <span class="n">printOption</span><span class="o">(</span><span class="n">s</span><span class="o">)</span>
+  <span class="o">}</span>
+<span class="o">}</span>
 </pre></div>
 </div>
 <p>Scala has support for first-class functions-as-values. The following
 code snippet declares a lambda-expressions for multiplying a number by
 two:</p>
-<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="kd">val</span><span class="w"> </span><span class="n">twice</span><span class="p">:</span><span class="w"> </span><span class="nc">Int</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nc">Int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="w"> </span><span class="nc">Int</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">twice</span><span class="k">:</span> <span class="kt">Int</span> <span class="o">=&gt;</span> <span class="nc">Int</span> <span class="k">=</span> <span class="o">(</span><span class="n">x</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span>
 </pre></div>
 </div>
 <p>Notice that it is ascribed the type <code class="docutils literal notranslate"><span class="pre">Int</span> <span class="pre">=&gt;</span> <span class="pre">Int</span></code>. However, the compiler can
 infer this type automatically cased on the argument type of <code class="docutils literal notranslate"><span class="pre">x</span></code>,
 hence we can shorten the definition and write in one of the two
 following ways:</p>
-<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="kd">val</span><span class="w"> </span><span class="n">twice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="w"> </span><span class="nc">Int</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">twice</span> <span class="k">=</span> <span class="o">(</span><span class="n">x</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span>
 </pre></div>
 </div>
 <p>or:</p>
-<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="kd">val</span><span class="w"> </span><span class="n">twice</span><span class="p">:</span><span class="w"> </span><span class="nc">Int</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nc">Int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">twice</span><span class="k">:</span> <span class="kt">Int</span> <span class="o">=&gt;</span> <span class="nc">Int</span> <span class="k">=</span> <span class="n">x</span> <span class="k">=&gt;</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span>
 </pre></div>
 </div>
 <p>First-class functions allow manipulating blocks of code as if they
 were first-class values. For instance, the following example uses
 <cite>lazy</cite> (by-name) parameter to declare a run-twice method, which runs
 the specified block of code <code class="docutils literal notranslate"><span class="pre">body</span></code> twice:</p>
-<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">runTwice</span><span class="p">(</span><span class="n">body</span><span class="p">:</span><span class="w"> </span><span class="o">=&gt;</span><span class="nc">Unit</span><span class="p">):</span><span class="w"> </span><span class="nc">Unit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="n">body</span><span class="w"></span>
-<span class="w">  </span><span class="n">body</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="n">runTwice</span><span class="o">(</span><span class="n">body</span><span class="k">:</span> <span class="o">=&gt;</span><span class="nc">Unit</span><span class="o">)</span><span class="k">:</span> <span class="kt">Unit</span> <span class="o">=</span> <span class="o">{</span>
+  <span class="n">body</span>
+  <span class="n">body</span>
+<span class="o">}</span>
 
 <span class="c1">// This will print Hello twice.</span>
-<span class="n">runTwice</span><span class="w"> </span><span class="p">({</span><span class="w"></span>
-<span class="w">  </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Hello!&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="p">})</span><span class="w"></span>
+<span class="n">runTwice</span> <span class="o">({</span>
+  <span class="n">println</span><span class="o">(</span><span class="s">&quot;Hello!&quot;</span><span class="o">)</span>
+<span class="o">})</span>
 </pre></div>
 </div>
 <p>Scala provides <a class="reference external" href="https://docs.scala-lang.org/tour/for-comprehensions.html">for-comprehensions</a> as a
 convenient way to travers and transform collections. For instance, the
 following loop prints all elements of a list <code class="docutils literal notranslate"><span class="pre">ls</span></code>:</p>
-<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="kd">val</span><span class="w"> </span><span class="n">ls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">List</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w"></span>
-<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">e</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">ls</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="n">println</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">ls</span> <span class="k">=</span> <span class="nc">List</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">)</span>
+<span class="k">for</span> <span class="o">(</span><span class="n">e</span> <span class="k">&lt;-</span> <span class="n">ls</span><span class="o">)</span> <span class="o">{</span>
+  <span class="n">println</span><span class="o">(</span><span class="n">e</span><span class="o">)</span>
+<span class="o">}</span>
 </pre></div>
 </div>
 <p>The standard functions on collections, such as <code class="docutils literal notranslate"><span class="pre">map</span></code>, <code class="docutils literal notranslate"><span class="pre">foldLeft</span></code>,
 <code class="docutils literal notranslate"><span class="pre">filter</span></code> etc. are all available as methods of the corresponding data
 types. For instance, the following code prints the list that is
 obtained by multiplying all elements of <code class="docutils literal notranslate"><span class="pre">ls</span></code> by 3:</p>
-<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">println</span><span class="p">(</span><span class="n">ls</span><span class="p">.</span><span class="n">map</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">3</span><span class="p">))</span><span class="w"></span>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">println</span><span class="o">(</span><span class="n">ls</span><span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="n">x</span> <span class="k">=&gt;</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">3</span><span class="o">))</span>
 </pre></div>
 </div>
 <p>Notice that the parameter type of <code class="docutils literal notranslate"><span class="pre">x</span></code> of the function passed to
@@ -355,111 +354,111 @@ to be declared explicitly.</p>
 collections. All collections mix-in the functionality from the
 <code class="docutils literal notranslate"><span class="pre">Seq[T]</span></code> trait of generic collections of elements of type <code class="docutils literal notranslate"><span class="pre">T</span></code>.
 Concrete collections can be created and manipulated as follows:</p>
-<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="kd">val</span><span class="w"> </span><span class="n">messages</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="nc">Seq</span><span class="p">[</span><span class="nc">String</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Seq</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;World&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;!&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="kd">val</span><span class="w"> </span><span class="n">messageMap</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="nc">Map</span><span class="p">[</span><span class="nc">Int</span><span class="p">,</span><span class="w"> </span><span class="nc">String</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Map</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;World&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;!&quot;</span><span class="p">)</span><span class="w"></span>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">messages</span> <span class="k">:</span> <span class="kt">Seq</span><span class="o">[</span><span class="kt">String</span><span class="o">]</span> <span class="k">=</span> <span class="nc">Seq</span><span class="o">(</span><span class="s">&quot;Hello&quot;</span><span class="o">,</span> <span class="s">&quot;World&quot;</span><span class="o">,</span> <span class="s">&quot;!&quot;</span><span class="o">)</span>
+<span class="k">val</span> <span class="n">messageMap</span> <span class="k">:</span> <span class="kt">Map</span><span class="o">[</span><span class="kt">Int</span>, <span class="kt">String</span><span class="o">]</span> <span class="k">=</span> <span class="nc">Map</span><span class="o">(</span><span class="mi">1</span> <span class="o">-&gt;</span> <span class="s">&quot;Hello&quot;</span><span class="o">,</span> <span class="mi">2</span> <span class="o">-&gt;</span> <span class="s">&quot;World&quot;</span><span class="o">,</span> <span class="mi">3</span> <span class="o">-&gt;</span> <span class="s">&quot;!&quot;</span><span class="o">)</span>
 
 <span class="c1">// Convert all elements of `messages` to strings (which they already are),</span>
 <span class="c1">// concatenate with the &quot; &quot; as a separator and print the result:</span>
-<span class="n">println</span><span class="p">(</span><span class="n">messages</span><span class="p">.</span><span class="n">mkString</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="p">))</span><span class="w"></span>
+<span class="n">println</span><span class="o">(</span><span class="n">messages</span><span class="o">.</span><span class="n">mkString</span><span class="o">(</span><span class="s">&quot; &quot;</span><span class="o">))</span>
 
 <span class="c1">//Create a new map by adding a key-value pair (4 -&gt; &quot;Yay&quot;) to messageMap</span>
-<span class="n">println</span><span class="p">(</span><span class="n">messageMap</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="mi">4</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Yay&quot;</span><span class="p">))</span><span class="w"></span>
+<span class="n">println</span><span class="o">(</span><span class="n">messageMap</span> <span class="o">+</span> <span class="o">(</span><span class="mi">4</span> <span class="o">-&gt;</span> <span class="s">&quot;Yay&quot;</span><span class="o">))</span>
 </pre></div>
 </div>
 <p>We recommend to use IntelliJ auto-completion to discover available
 methods for different data types. The following tutorial provides a
 great overview of Scala collections:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://www.tutorialspoint.com/scala/scala_collections">Scala Collections</a></p></li>
+<li><a class="reference external" href="https://www.tutorialspoint.com/scala/scala_collections">Scala Collections</a></li>
 </ul>
-</section>
-<section id="imperative-elements-of-scala">
-<h2>Imperative elements of Scala<a class="headerlink" href="#imperative-elements-of-scala" title="Permalink to this heading"></a></h2>
+</div>
+<div class="section" id="imperative-elements-of-scala">
+<h2>Imperative elements of Scala<a class="headerlink" href="#imperative-elements-of-scala" title="Permalink to this headline">¶</a></h2>
 <p>Scala allows one to use arrays in the same way one uses them in OCaml
 and Java. The code below shows some examples of creating using arrays:</p>
-<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">object</span><span class="w"> </span><span class="nc">ArrayExample</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">object</span> <span class="nc">ArrayExample</span> <span class="o">{</span>
 
-<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
-<span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="n">nextIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">index</span><span class="w"></span>
-<span class="w">    </span><span class="n">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
-<span class="w">    </span><span class="n">tmp</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
+  <span class="k">var</span> <span class="n">index</span> <span class="k">=</span> <span class="mi">0</span>
+  <span class="k">val</span> <span class="n">nextIndex</span> <span class="k">=</span> <span class="o">()</span> <span class="k">=&gt;</span> <span class="o">{</span>
+    <span class="k">val</span> <span class="n">tmp</span> <span class="k">=</span> <span class="n">index</span>
+    <span class="n">index</span> <span class="k">=</span> <span class="n">index</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">tmp</span>
+  <span class="o">}</span>
 
-<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="p">:</span><span class="w"> </span><span class="nc">Array</span><span class="p">[</span><span class="nc">String</span><span class="p">]):</span><span class="w"> </span><span class="nc">Unit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+  <span class="k">def</span> <span class="n">main</span><span class="o">(</span><span class="n">args</span><span class="k">:</span> <span class="kt">Array</span><span class="o">[</span><span class="kt">String</span><span class="o">])</span><span class="k">:</span> <span class="kt">Unit</span> <span class="o">=</span> <span class="o">{</span>
 
-<span class="w">    </span><span class="c1">// Create an array of booleans of size 5</span>
-<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">arr1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nc">Array</span><span class="p">[</span><span class="nc">Boolean</span><span class="p">](</span><span class="mi">5</span><span class="p">)</span><span class="w"></span>
+    <span class="c1">// Create an array of booleans of size 5</span>
+    <span class="k">val</span> <span class="n">arr1</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">Array</span><span class="o">[</span><span class="kt">Boolean</span><span class="o">](</span><span class="mi">5</span><span class="o">)</span>
 
-<span class="w">    </span><span class="c1">// Print all elements of the array</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">arr1</span><span class="p">.</span><span class="n">length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="n">println</span><span class="p">(</span><span class="n">arr1</span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+    <span class="c1">// Print all elements of the array</span>
+    <span class="k">for</span> <span class="o">(</span><span class="n">i</span> <span class="k">&lt;-</span> <span class="mi">0</span> <span class="n">to</span> <span class="n">arr1</span><span class="o">.</span><span class="n">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">println</span><span class="o">(</span><span class="n">arr1</span><span class="o">(</span><span class="n">i</span><span class="o">))</span>
+    <span class="o">}</span>
 
-<span class="w">    </span><span class="c1">// Create an array of size 5 filled by repeating the computation</span>
-<span class="w">    </span><span class="c1">// passed as a second parameter</span>
-<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">arr2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Array</span><span class="p">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">5</span><span class="p">)({</span><span class="w"> </span><span class="n">nextIndex</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">nextIndex</span><span class="p">()</span><span class="w"> </span><span class="p">})</span><span class="w"></span>
+    <span class="c1">// Create an array of size 5 filled by repeating the computation</span>
+    <span class="c1">// passed as a second parameter</span>
+    <span class="k">val</span> <span class="n">arr2</span> <span class="k">=</span> <span class="nc">Array</span><span class="o">.</span><span class="n">fill</span><span class="o">(</span><span class="mi">5</span><span class="o">)({</span> <span class="n">nextIndex</span><span class="o">()</span> <span class="o">*</span> <span class="n">nextIndex</span><span class="o">()</span> <span class="o">})</span>
 
-<span class="w">    </span><span class="c1">// Print all elements of this array</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">arr2</span><span class="p">.</span><span class="n">indices</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="n">println</span><span class="p">(</span><span class="n">arr2</span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+    <span class="c1">// Print all elements of this array</span>
+    <span class="k">for</span> <span class="o">(</span><span class="n">i</span> <span class="k">&lt;-</span> <span class="n">arr2</span><span class="o">.</span><span class="n">indices</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">println</span><span class="o">(</span><span class="n">arr2</span><span class="o">(</span><span class="n">i</span><span class="o">))</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
 </pre></div>
 </div>
 <p>The following reference provides a brief guide on using
 arrays in conjunction with other Scala collections:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://docs.scala-lang.org/overviews/collections/arrays.html">Scala arrays</a></p></li>
+<li><a class="reference external" href="https://docs.scala-lang.org/overviews/collections/arrays.html">Scala arrays</a></li>
 </ul>
-</section>
-<section id="working-with-threads-in-scala">
-<h2>Working with Threads in Scala<a class="headerlink" href="#working-with-threads-in-scala" title="Permalink to this heading"></a></h2>
+</div>
+<div class="section" id="working-with-threads-in-scala">
+<h2>Working with Threads in Scala<a class="headerlink" href="#working-with-threads-in-scala" title="Permalink to this headline">¶</a></h2>
 <p>Threads in Scala can be created as instances of a class that extends
 <code class="docutils literal notranslate"><span class="pre">Thread</span></code>, <cite>overriding</cite> its method <code class="docutils literal notranslate"><span class="pre">run</span></code>. Consider the following
 object that features a mutable list field and three methods to
 manipulate with it:</p>
-<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">object</span><span class="w"> </span><span class="nc">ConcurrentManipulation</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">object</span> <span class="nc">ConcurrentManipulation</span> <span class="o">{</span>
 
-<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">workingList</span><span class="p">:</span><span class="w"> </span><span class="nc">List</span><span class="p">[</span><span class="nc">Int</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Nil</span><span class="w"></span>
+  <span class="k">private</span> <span class="k">var</span> <span class="n">workingList</span><span class="k">:</span> <span class="kt">List</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="nc">Nil</span>
 </pre></div>
 </div>
 <p>The first method is used to add an element to a list in a
 mutually-exclusive fashion:</p>
-<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">addToList</span><span class="p">(</span><span class="n">i</span><span class="p">:</span><span class="w"> </span><span class="nc">Int</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="bp">this</span><span class="p">.</span><span class="k">synchronized</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">workingList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">::</span><span class="w"> </span><span class="n">workingList</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="n">addToList</span><span class="o">(</span><span class="n">i</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span> <span class="k">=</span> <span class="o">{</span>
+  <span class="k">this</span><span class="o">.</span><span class="n">synchronized</span> <span class="o">{</span>
+    <span class="n">workingList</span> <span class="k">=</span> <span class="n">i</span> <span class="o">::</span> <span class="n">workingList</span>
+  <span class="o">}</span>
+<span class="o">}</span>
 </pre></div>
 </div>
 <p>The two other methods are removing elements from the list. The first
 one does it without synchronisation, and the second one enforces
 mutual exclusion:</p>
-<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">removeFromListWithoutSync</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="c1">// Notice how synchornisation is missing</span>
-<span class="w">  </span><span class="c1">// This can cause troubles: which?</span>
-<span class="w">  </span><span class="n">workingList</span><span class="w"> </span><span class="k">match</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="nc">Nil</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nc">None</span><span class="w"></span>
-<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">::</span><span class="p">(</span><span class="n">head</span><span class="p">,</span><span class="w"> </span><span class="n">tl</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"></span>
-<span class="w">      </span><span class="c1">// Wait for some time</span>
-<span class="w">      </span><span class="nc">Thread</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="n">workingList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tl</span><span class="w"></span>
-<span class="w">      </span><span class="nc">Some</span><span class="p">(</span><span class="n">head</span><span class="p">)</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="n">removeFromListWithoutSync</span> <span class="k">=</span> <span class="o">{</span>
+  <span class="c1">// Notice how synchornisation is missing</span>
+  <span class="c1">// This can cause troubles: which?</span>
+  <span class="n">workingList</span> <span class="k">match</span> <span class="o">{</span>
+    <span class="k">case</span> <span class="nc">Nil</span> <span class="k">=&gt;</span> <span class="nc">None</span>
+    <span class="k">case</span> <span class="o">::(</span><span class="n">head</span><span class="o">,</span> <span class="n">tl</span><span class="o">)</span> <span class="k">=&gt;</span>
+      <span class="c1">// Wait for some time</span>
+      <span class="nc">Thread</span><span class="o">.</span><span class="n">sleep</span><span class="o">(</span><span class="mi">10</span><span class="o">)</span>
+      <span class="n">workingList</span> <span class="k">=</span> <span class="n">tl</span>
+      <span class="nc">Some</span><span class="o">(</span><span class="n">head</span><span class="o">)</span>
+  <span class="o">}</span>
+<span class="o">}</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">removeFromList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">this</span><span class="p">.</span><span class="k">synchronized</span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="n">workingList</span><span class="w"> </span><span class="k">match</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="nc">Nil</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nc">None</span><span class="w"></span>
-<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">::</span><span class="p">(</span><span class="n">head</span><span class="p">,</span><span class="w"> </span><span class="n">tl</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"></span>
-<span class="w">      </span><span class="c1">// Wait for some time</span>
-<span class="w">      </span><span class="nc">Thread</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="n">workingList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tl</span><span class="w"></span>
-<span class="w">      </span><span class="nc">Some</span><span class="p">(</span><span class="n">head</span><span class="p">)</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="k">def</span> <span class="n">removeFromList</span> <span class="k">=</span> <span class="k">this</span><span class="o">.</span><span class="n">synchronized</span><span class="o">{</span>
+  <span class="n">workingList</span> <span class="k">match</span> <span class="o">{</span>
+    <span class="k">case</span> <span class="nc">Nil</span> <span class="k">=&gt;</span> <span class="nc">None</span>
+    <span class="k">case</span> <span class="o">::(</span><span class="n">head</span><span class="o">,</span> <span class="n">tl</span><span class="o">)</span> <span class="k">=&gt;</span>
+      <span class="c1">// Wait for some time</span>
+      <span class="nc">Thread</span><span class="o">.</span><span class="n">sleep</span><span class="o">(</span><span class="mi">10</span><span class="o">)</span>
+      <span class="n">workingList</span> <span class="k">=</span> <span class="n">tl</span>
+      <span class="nc">Some</span><span class="o">(</span><span class="n">head</span><span class="o">)</span>
+  <span class="o">}</span>
+<span class="o">}</span>
 </pre></div>
 </div>
 <p>Notice that in <code class="docutils literal notranslate"><span class="pre">removeFromListWithoutSync</span></code>, to make things worse, we
@@ -467,33 +466,33 @@ added a <cite>delay</cite> of the form <code class="docutils literal notranslate
 executing this method to stop for 10 milliseconds.</p>
 <p>We can now create two threads for adding and removing elements of
 <code class="docutils literal notranslate"><span class="pre">workingList</span></code>:</p>
-<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Adder</span><span class="p">(</span><span class="n">start</span><span class="p">:</span><span class="w"> </span><span class="nc">Int</span><span class="p">)</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">Thread</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="k">override</span><span class="w"> </span><span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// Get my thread id</span>
-<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Thread</span><span class="p">.</span><span class="n">currentThread</span><span class="p">().</span><span class="n">getId</span><span class="w"></span>
-<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">end</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">9</span><span class="w"></span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">end</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="n">addToList</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="n">println</span><span class="p">(</span><span class="s">s&quot;Thread </span><span class="si">$</span><span class="n">id</span><span class="s">: Added </span><span class="si">$</span><span class="n">i</span><span class="s">&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Adder</span><span class="o">(</span><span class="n">start</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">Thread</span> <span class="o">{</span>
+  <span class="k">override</span> <span class="k">def</span> <span class="n">run</span><span class="o">()</span> <span class="k">=</span> <span class="o">{</span>
+    <span class="c1">// Get my thread id</span>
+    <span class="k">val</span> <span class="n">id</span> <span class="k">=</span> <span class="nc">Thread</span><span class="o">.</span><span class="n">currentThread</span><span class="o">().</span><span class="n">getId</span>
+    <span class="k">val</span> <span class="n">end</span> <span class="k">=</span> <span class="n">start</span> <span class="o">+</span> <span class="mi">9</span>
+    <span class="k">for</span> <span class="o">(</span><span class="n">i</span> <span class="k">&lt;-</span> <span class="n">start</span> <span class="n">to</span> <span class="n">end</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">addToList</span><span class="o">(</span><span class="n">i</span><span class="o">)</span>
+      <span class="n">println</span><span class="o">(</span><span class="s">s&quot;Thread </span><span class="si">$id</span><span class="s">: Added </span><span class="si">$i</span><span class="s">&quot;</span><span class="o">)</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
 
-<span class="k">class</span><span class="w"> </span><span class="nc">Remover</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">Thread</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="k">override</span><span class="w"> </span><span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// Get my thread id</span>
-<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Thread</span><span class="p">.</span><span class="n">currentThread</span><span class="p">().</span><span class="n">getId</span><span class="w"></span>
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="n">result</span><span class="p">:</span><span class="w"> </span><span class="nc">Option</span><span class="p">[</span><span class="nc">Int</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">None</span><span class="w"></span>
-<span class="w">    </span><span class="k">do</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">removeFromList</span><span class="w"></span>
-<span class="w">      </span><span class="n">result</span><span class="w"> </span><span class="k">match</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="nc">Some</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"></span>
-<span class="w">          </span><span class="n">println</span><span class="p">(</span><span class="s">s&quot;Thread </span><span class="si">$</span><span class="n">id</span><span class="s">: Removed </span><span class="si">$</span><span class="n">value</span><span class="s">&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="nc">None</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="c1">// Do nothing</span>
-<span class="w">      </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">isDefined</span><span class="p">)</span><span class="w"> </span><span class="c1">// Loop while the list is not depleted</span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="k">class</span> <span class="nc">Remover</span> <span class="k">extends</span> <span class="nc">Thread</span> <span class="o">{</span>
+  <span class="k">override</span> <span class="k">def</span> <span class="n">run</span><span class="o">()</span> <span class="k">=</span> <span class="o">{</span>
+    <span class="c1">// Get my thread id</span>
+    <span class="k">val</span> <span class="n">id</span> <span class="k">=</span> <span class="nc">Thread</span><span class="o">.</span><span class="n">currentThread</span><span class="o">().</span><span class="n">getId</span>
+    <span class="k">var</span> <span class="n">result</span><span class="k">:</span> <span class="kt">Option</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="nc">None</span>
+    <span class="k">do</span> <span class="o">{</span>
+      <span class="n">result</span> <span class="k">=</span> <span class="n">removeFromList</span>
+      <span class="n">result</span> <span class="k">match</span> <span class="o">{</span>
+        <span class="k">case</span> <span class="nc">Some</span><span class="o">(</span><span class="n">value</span><span class="o">)</span> <span class="k">=&gt;</span>
+          <span class="n">println</span><span class="o">(</span><span class="s">s&quot;Thread </span><span class="si">$id</span><span class="s">: Removed </span><span class="si">$value</span><span class="s">&quot;</span><span class="o">)</span>
+        <span class="k">case</span> <span class="nc">None</span> <span class="k">=&gt;</span> <span class="c1">// Do nothing</span>
+      <span class="o">}</span>
+    <span class="o">}</span> <span class="k">while</span> <span class="o">(</span><span class="n">result</span><span class="o">.</span><span class="n">isDefined</span><span class="o">)</span> <span class="c1">// Loop while the list is not depleted</span>
+  <span class="o">}</span>
+<span class="o">}</span>
 </pre></div>
 </div>
 <p>Time to put this all together. The following method first creates two
@@ -501,78 +500,78 @@ threads to add elements to the list and then starts them, so they
 could run concurrently (via the <code class="docutils literal notranslate"><span class="pre">start()</span></code> method). It then waits for
 them to finish their execution (via the <code class="docutils literal notranslate"><span class="pre">join()</span></code> method) and starts
 two more threads to remove the elements:</p>
-<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="p">:</span><span class="w"> </span><span class="nc">Array</span><span class="p">[</span><span class="nc">String</span><span class="p">]):</span><span class="w"> </span><span class="nc">Unit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="c1">// Create two threads without executing them</span>
-<span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="n">adder1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nc">Adder</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
-<span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="n">adder2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nc">Adder</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span><span class="w"></span>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="n">main</span><span class="o">(</span><span class="n">args</span><span class="k">:</span> <span class="kt">Array</span><span class="o">[</span><span class="kt">String</span><span class="o">])</span><span class="k">:</span> <span class="kt">Unit</span> <span class="o">=</span> <span class="o">{</span>
+  <span class="c1">// Create two threads without executing them</span>
+  <span class="k">val</span> <span class="n">adder1</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">Adder</span><span class="o">(</span><span class="mi">1</span><span class="o">)</span>
+  <span class="k">val</span> <span class="n">adder2</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">Adder</span><span class="o">(</span><span class="mi">11</span><span class="o">)</span>
 
-<span class="w">  </span><span class="c1">// Start two threads in parallel with this one</span>
-<span class="w">  </span><span class="n">adder1</span><span class="p">.</span><span class="n">start</span><span class="p">()</span><span class="w"></span>
-<span class="w">  </span><span class="n">adder2</span><span class="p">.</span><span class="n">start</span><span class="p">()</span><span class="w"></span>
+  <span class="c1">// Start two threads in parallel with this one</span>
+  <span class="n">adder1</span><span class="o">.</span><span class="n">start</span><span class="o">()</span>
+  <span class="n">adder2</span><span class="o">.</span><span class="n">start</span><span class="o">()</span>
 
-<span class="w">  </span><span class="c1">// Wait in this thread while those two will finish</span>
-<span class="w">  </span><span class="n">adder1</span><span class="p">.</span><span class="n">join</span><span class="p">()</span><span class="w"></span>
-<span class="w">  </span><span class="n">adder2</span><span class="p">.</span><span class="n">join</span><span class="p">()</span><span class="w"></span>
+  <span class="c1">// Wait in this thread while those two will finish</span>
+  <span class="n">adder1</span><span class="o">.</span><span class="n">join</span><span class="o">()</span>
+  <span class="n">adder2</span><span class="o">.</span><span class="n">join</span><span class="o">()</span>
 
-<span class="w">  </span><span class="n">println</span><span class="p">()</span><span class="w"></span>
+  <span class="n">println</span><span class="o">()</span>
 
-<span class="w">  </span><span class="c1">// Make two new threads</span>
-<span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="n">remover1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nc">Remover</span><span class="w"></span>
-<span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="n">remover2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nc">Remover</span><span class="w"></span>
+  <span class="c1">// Make two new threads</span>
+  <span class="k">val</span> <span class="n">remover1</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">Remover</span>
+  <span class="k">val</span> <span class="n">remover2</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">Remover</span>
 
-<span class="w">  </span><span class="c1">// Start two threads in parallel with this one</span>
-<span class="w">  </span><span class="n">remover1</span><span class="p">.</span><span class="n">start</span><span class="p">()</span><span class="w"></span>
-<span class="w">  </span><span class="n">remover2</span><span class="p">.</span><span class="n">start</span><span class="p">()</span><span class="w"></span>
+  <span class="c1">// Start two threads in parallel with this one</span>
+  <span class="n">remover1</span><span class="o">.</span><span class="n">start</span><span class="o">()</span>
+  <span class="n">remover2</span><span class="o">.</span><span class="n">start</span><span class="o">()</span>
 
-<span class="w">  </span><span class="c1">// Wait in this thread while those two will finish</span>
-<span class="w">  </span><span class="n">remover1</span><span class="p">.</span><span class="n">join</span><span class="p">()</span><span class="w"></span>
-<span class="w">  </span><span class="n">remover2</span><span class="p">.</span><span class="n">join</span><span class="p">()</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+  <span class="c1">// Wait in this thread while those two will finish</span>
+  <span class="n">remover1</span><span class="o">.</span><span class="n">join</span><span class="o">()</span>
+  <span class="n">remover2</span><span class="o">.</span><span class="n">join</span><span class="o">()</span>
+<span class="o">}</span>
 </pre></div>
 </div>
 <p>Let us run an application to see the result of its concurrent
 execution, which should be similar to the following:</p>
-<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="nc">Thread</span><span class="w"> </span><span class="mi">11</span><span class="p">:</span><span class="w"> </span><span class="nc">Added</span><span class="w"> </span><span class="mi">11</span><span class="w"></span>
-<span class="nc">Thread</span><span class="w"> </span><span class="mi">10</span><span class="p">:</span><span class="w"> </span><span class="nc">Added</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
-<span class="nc">Thread</span><span class="w"> </span><span class="mi">11</span><span class="p">:</span><span class="w"> </span><span class="nc">Added</span><span class="w"> </span><span class="mi">12</span><span class="w"></span>
-<span class="nc">Thread</span><span class="w"> </span><span class="mi">10</span><span class="p">:</span><span class="w"> </span><span class="nc">Added</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
-<span class="nc">Thread</span><span class="w"> </span><span class="mi">11</span><span class="p">:</span><span class="w"> </span><span class="nc">Added</span><span class="w"> </span><span class="mi">13</span><span class="w"></span>
-<span class="nc">Thread</span><span class="w"> </span><span class="mi">11</span><span class="p">:</span><span class="w"> </span><span class="nc">Added</span><span class="w"> </span><span class="mi">14</span><span class="w"></span>
-<span class="nc">Thread</span><span class="w"> </span><span class="mi">11</span><span class="p">:</span><span class="w"> </span><span class="nc">Added</span><span class="w"> </span><span class="mi">15</span><span class="w"></span>
-<span class="nc">Thread</span><span class="w"> </span><span class="mi">11</span><span class="p">:</span><span class="w"> </span><span class="nc">Added</span><span class="w"> </span><span class="mi">16</span><span class="w"></span>
-<span class="nc">Thread</span><span class="w"> </span><span class="mi">10</span><span class="p">:</span><span class="w"> </span><span class="nc">Added</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
-<span class="nc">Thread</span><span class="w"> </span><span class="mi">11</span><span class="p">:</span><span class="w"> </span><span class="nc">Added</span><span class="w"> </span><span class="mi">17</span><span class="w"></span>
-<span class="nc">Thread</span><span class="w"> </span><span class="mi">10</span><span class="p">:</span><span class="w"> </span><span class="nc">Added</span><span class="w"> </span><span class="mi">4</span><span class="w"></span>
-<span class="nc">Thread</span><span class="w"> </span><span class="mi">11</span><span class="p">:</span><span class="w"> </span><span class="nc">Added</span><span class="w"> </span><span class="mi">18</span><span class="w"></span>
-<span class="nc">Thread</span><span class="w"> </span><span class="mi">11</span><span class="p">:</span><span class="w"> </span><span class="nc">Added</span><span class="w"> </span><span class="mi">19</span><span class="w"></span>
-<span class="nc">Thread</span><span class="w"> </span><span class="mi">11</span><span class="p">:</span><span class="w"> </span><span class="nc">Added</span><span class="w"> </span><span class="mi">20</span><span class="w"></span>
-<span class="nc">Thread</span><span class="w"> </span><span class="mi">10</span><span class="p">:</span><span class="w"> </span><span class="nc">Added</span><span class="w"> </span><span class="mi">5</span><span class="w"></span>
-<span class="nc">Thread</span><span class="w"> </span><span class="mi">10</span><span class="p">:</span><span class="w"> </span><span class="nc">Added</span><span class="w"> </span><span class="mi">6</span><span class="w"></span>
-<span class="nc">Thread</span><span class="w"> </span><span class="mi">10</span><span class="p">:</span><span class="w"> </span><span class="nc">Added</span><span class="w"> </span><span class="mi">7</span><span class="w"></span>
-<span class="nc">Thread</span><span class="w"> </span><span class="mi">10</span><span class="p">:</span><span class="w"> </span><span class="nc">Added</span><span class="w"> </span><span class="mi">8</span><span class="w"></span>
-<span class="nc">Thread</span><span class="w"> </span><span class="mi">10</span><span class="p">:</span><span class="w"> </span><span class="nc">Added</span><span class="w"> </span><span class="mi">9</span><span class="w"></span>
-<span class="nc">Thread</span><span class="w"> </span><span class="mi">10</span><span class="p">:</span><span class="w"> </span><span class="nc">Added</span><span class="w"> </span><span class="mi">10</span><span class="w"></span>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span>Thread 11: Added 11
+Thread 10: Added 1
+Thread 11: Added 12
+Thread 10: Added 2
+Thread 11: Added 13
+Thread 11: Added 14
+Thread 11: Added 15
+Thread 11: Added 16
+Thread 10: Added 3
+Thread 11: Added 17
+Thread 10: Added 4
+Thread 11: Added 18
+Thread 11: Added 19
+Thread 11: Added 20
+Thread 10: Added 5
+Thread 10: Added 6
+Thread 10: Added 7
+Thread 10: Added 8
+Thread 10: Added 9
+Thread 10: Added 10
 
-<span class="nc">Thread</span><span class="w"> </span><span class="mi">12</span><span class="p">:</span><span class="w"> </span><span class="nc">Removed</span><span class="w"> </span><span class="mi">10</span><span class="w"></span>
-<span class="nc">Thread</span><span class="w"> </span><span class="mi">13</span><span class="p">:</span><span class="w"> </span><span class="nc">Removed</span><span class="w"> </span><span class="mi">9</span><span class="w"></span>
-<span class="nc">Thread</span><span class="w"> </span><span class="mi">12</span><span class="p">:</span><span class="w"> </span><span class="nc">Removed</span><span class="w"> </span><span class="mi">8</span><span class="w"></span>
-<span class="nc">Thread</span><span class="w"> </span><span class="mi">12</span><span class="p">:</span><span class="w"> </span><span class="nc">Removed</span><span class="w"> </span><span class="mi">7</span><span class="w"></span>
-<span class="nc">Thread</span><span class="w"> </span><span class="mi">13</span><span class="p">:</span><span class="w"> </span><span class="nc">Removed</span><span class="w"> </span><span class="mi">6</span><span class="w"></span>
-<span class="nc">Thread</span><span class="w"> </span><span class="mi">13</span><span class="p">:</span><span class="w"> </span><span class="nc">Removed</span><span class="w"> </span><span class="mi">20</span><span class="w"></span>
-<span class="nc">Thread</span><span class="w"> </span><span class="mi">12</span><span class="p">:</span><span class="w"> </span><span class="nc">Removed</span><span class="w"> </span><span class="mi">19</span><span class="w"></span>
-<span class="nc">Thread</span><span class="w"> </span><span class="mi">13</span><span class="p">:</span><span class="w"> </span><span class="nc">Removed</span><span class="w"> </span><span class="mi">5</span><span class="w"></span>
-<span class="nc">Thread</span><span class="w"> </span><span class="mi">12</span><span class="p">:</span><span class="w"> </span><span class="nc">Removed</span><span class="w"> </span><span class="mi">18</span><span class="w"></span>
-<span class="nc">Thread</span><span class="w"> </span><span class="mi">13</span><span class="p">:</span><span class="w"> </span><span class="nc">Removed</span><span class="w"> </span><span class="mi">4</span><span class="w"></span>
-<span class="nc">Thread</span><span class="w"> </span><span class="mi">12</span><span class="p">:</span><span class="w"> </span><span class="nc">Removed</span><span class="w"> </span><span class="mi">17</span><span class="w"></span>
-<span class="nc">Thread</span><span class="w"> </span><span class="mi">13</span><span class="p">:</span><span class="w"> </span><span class="nc">Removed</span><span class="w"> </span><span class="mi">16</span><span class="w"></span>
-<span class="nc">Thread</span><span class="w"> </span><span class="mi">12</span><span class="p">:</span><span class="w"> </span><span class="nc">Removed</span><span class="w"> </span><span class="mi">15</span><span class="w"></span>
-<span class="nc">Thread</span><span class="w"> </span><span class="mi">13</span><span class="p">:</span><span class="w"> </span><span class="nc">Removed</span><span class="w"> </span><span class="mi">14</span><span class="w"></span>
-<span class="nc">Thread</span><span class="w"> </span><span class="mi">12</span><span class="p">:</span><span class="w"> </span><span class="nc">Removed</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
-<span class="nc">Thread</span><span class="w"> </span><span class="mi">13</span><span class="p">:</span><span class="w"> </span><span class="nc">Removed</span><span class="w"> </span><span class="mi">13</span><span class="w"></span>
-<span class="nc">Thread</span><span class="w"> </span><span class="mi">12</span><span class="p">:</span><span class="w"> </span><span class="nc">Removed</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
-<span class="nc">Thread</span><span class="w"> </span><span class="mi">13</span><span class="p">:</span><span class="w"> </span><span class="nc">Removed</span><span class="w"> </span><span class="mi">12</span><span class="w"></span>
-<span class="nc">Thread</span><span class="w"> </span><span class="mi">13</span><span class="p">:</span><span class="w"> </span><span class="nc">Removed</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
-<span class="nc">Thread</span><span class="w"> </span><span class="mi">12</span><span class="p">:</span><span class="w"> </span><span class="nc">Removed</span><span class="w"> </span><span class="mi">11</span><span class="w"></span>
+Thread 12: Removed 10
+Thread 13: Removed 9
+Thread 12: Removed 8
+Thread 12: Removed 7
+Thread 13: Removed 6
+Thread 13: Removed 20
+Thread 12: Removed 19
+Thread 13: Removed 5
+Thread 12: Removed 18
+Thread 13: Removed 4
+Thread 12: Removed 17
+Thread 13: Removed 16
+Thread 12: Removed 15
+Thread 13: Removed 14
+Thread 12: Removed 3
+Thread 13: Removed 13
+Thread 12: Removed 2
+Thread 13: Removed 12
+Thread 13: Removed 1
+Thread 12: Removed 11
 </pre></div>
 </div>
 <p>As we can see the threads are fetching the elements in the interleaved
@@ -587,41 +586,41 @@ by adding the necessary synchronisation to it to avoid this problem?</p>
 only be used to to <cite>define</cite> the things the thread must do (you must
 not call it), while the second is used to begin the execution of a
 thread concurrently with the current one.</p>
-</section>
-<section id="writing-automated-tests-in-scala">
-<h2>Writing Automated Tests in Scala<a class="headerlink" href="#writing-automated-tests-in-scala" title="Permalink to this heading"></a></h2>
+</div>
+<div class="section" id="writing-automated-tests-in-scala">
+<h2>Writing Automated Tests in Scala<a class="headerlink" href="#writing-automated-tests-in-scala" title="Permalink to this headline">¶</a></h2>
 <p>Scala provides many frameworks for implementing automated tests. We
 will use <a class="reference external" href="http://www.scalatest.org/">ScalaTest</a>. The tests located
 under the <code class="docutils literal notranslate"><span class="pre">test</span></code> source root of the project and adhering to
 ScalaTest’s conventions will be automatically executed by SBT and IntelliJ.</p>
 <p>Feel free to copy the following template for your tests from the Scala
 primer project:</p>
-<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="nn">org</span><span class="p">.</span><span class="nn">scalatest</span><span class="p">.{</span><span class="nc">FunSpec</span><span class="p">,</span><span class="w"> </span><span class="nc">Matchers</span><span class="p">}</span>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="nn">org.scalatest.</span><span class="o">{</span><span class="nc">FunSpec</span><span class="o">,</span> <span class="nc">Matchers</span><span class="o">}</span>
 
 <span class="c1">// The test needs to extend those two traits in order to</span>
 <span class="c1">// get access to the functions used below</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">BasicTest</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">FunSpec</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="nc">Matchers</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">class</span> <span class="nc">BasicTest</span> <span class="k">extends</span> <span class="nc">FunSpec</span> <span class="k">with</span> <span class="nc">Matchers</span> <span class="o">{</span>
 
-<span class="w">  </span><span class="c1">// Describe a set of tests for some class of cases</span>
-<span class="w">  </span><span class="n">describe</span><span class="p">(</span><span class="s">&quot;A simple test&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+  <span class="c1">// Describe a set of tests for some class of cases</span>
+  <span class="n">describe</span><span class="o">(</span><span class="s">&quot;A simple test&quot;</span><span class="o">)</span> <span class="o">{</span>
 
-<span class="w">    </span><span class="c1">// Describe an individual test</span>
-<span class="w">    </span><span class="n">it</span><span class="p">(</span><span class="s">&quot;should always succeed&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="c1">// Write your code here</span>
-<span class="w">      </span><span class="c1">// Use assert statements to make the test pass or fail</span>
-<span class="w">      </span><span class="n">assert</span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
+    <span class="c1">// Describe an individual test</span>
+    <span class="n">it</span><span class="o">(</span><span class="s">&quot;should always succeed&quot;</span><span class="o">)</span> <span class="o">{</span>
+      <span class="c1">// Write your code here</span>
+      <span class="c1">// Use assert statements to make the test pass or fail</span>
+      <span class="n">assert</span><span class="o">(</span><span class="mi">2</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">4</span><span class="o">)</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
 
-<span class="w">  </span><span class="c1">// Another set of tests</span>
-<span class="w">  </span><span class="n">describe</span><span class="p">(</span><span class="s">&quot;A square function&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">it</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;should work correctly&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="c1">// Import all from object SquareOf5</span>
-<span class="w">      </span><span class="k">import</span><span class="w"> </span><span class="nn">primer</span><span class="p">.</span><span class="nn">runners</span><span class="p">.</span><span class="nn">squares</span><span class="p">.</span><span class="nc">SquareOf5</span><span class="p">.</span><span class="n">_</span>
-<span class="w">      </span><span class="n">assert</span><span class="p">(</span><span class="n">square</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+  <span class="c1">// Another set of tests</span>
+  <span class="n">describe</span><span class="o">(</span><span class="s">&quot;A square function&quot;</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">it</span> <span class="o">(</span><span class="s">&quot;should work correctly&quot;</span><span class="o">)</span> <span class="o">{</span>
+      <span class="c1">// Import all from object SquareOf5</span>
+      <span class="k">import</span> <span class="nn">primer.runners.squares.SquareOf5._</span>
+      <span class="n">assert</span><span class="o">(</span><span class="n">square</span><span class="o">(</span><span class="mi">10</span><span class="o">)</span> <span class="o">==</span> <span class="mi">100</span><span class="o">)</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
 </pre></div>
 </div>
 <p>You can run an individual test suite (a class) in IntelliJ by
@@ -630,8 +629,8 @@ done and a finer level of granularity by clicking on the individual
 <code class="docutils literal notranslate"><span class="pre">describe</span></code>-component of a test suite. Finally, you can run <cite>all</cite>
 tests in the project by right-clicking on the test source folder in
 the project view on the left of the screen and choosing <code class="docutils literal notranslate"><span class="pre">Run</span> <span class="pre">'ScalaTest</span> <span class="pre">in</span> <span class="pre">scala...'</span></code>.</p>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

@@ -1,22 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html4" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Week 12: Actors and Message-Passing Concurrency &mdash; YSC4231 2021</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <title>Week 12: Actors and Message-Passing Concurrency &mdash; YSC4231 2021</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
-  
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="_static/doctools.js"></script>
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"extensions": ["tex2jax.js"], "jax": ["input/TeX", "output/HTML-CSS"]})</script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
@@ -66,81 +65,81 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="week-12-actors-and-message-passing-concurrency">
-<h1>Week 12: Actors and Message-Passing Concurrency<a class="headerlink" href="#week-12-actors-and-message-passing-concurrency" title="Permalink to this heading"></a></h1>
+  <div class="section" id="week-12-actors-and-message-passing-concurrency">
+<h1>Week 12: Actors and Message-Passing Concurrency<a class="headerlink" href="#week-12-actors-and-message-passing-concurrency" title="Permalink to this headline">¶</a></h1>
 <div class="admonition-quote admonition">
-<p class="admonition-title">Quote</p>
+<p class="first admonition-title">Quote</p>
 <p>A distributed system is one in which the failure of a computer you didn’t even know existed can render your own computer unusable.</p>
-<p><strong>Leslie Lamport</strong></p>
+<p class="last"><strong>Leslie Lamport</strong></p>
 </div>
-<section id="useful-resources">
-<h2>Useful Resources<a class="headerlink" href="#useful-resources" title="Permalink to this heading"></a></h2>
+<div class="section" id="useful-resources">
+<h2>Useful Resources<a class="headerlink" href="#useful-resources" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="https://doc.akka.io/docs/akka/current/actors.html">Documentation for Akka Actors</a></p></li>
-<li><p><a class="reference external" href="https://doc.akka.io/docs/akka/current/testing.html">Testing Akka actors</a></p></li>
-<li><p><a class="reference external" href="https://github.com/ysc4231/lectures-2021/tree/12-actors">Code with examples</a>,
-package <code class="docutils literal notranslate"><span class="pre">actors</span></code></p></li>
+<li><a class="reference external" href="https://doc.akka.io/docs/akka/current/actors.html">Documentation for Akka Actors</a></li>
+<li><a class="reference external" href="https://doc.akka.io/docs/akka/current/testing.html">Testing Akka actors</a></li>
+<li><a class="reference external" href="https://github.com/ysc4231/lectures-2021/tree/12-actors">Code with examples</a>,
+package <code class="docutils literal notranslate"><span class="pre">actors</span></code></li>
 </ul>
-</section>
-<section id="actor-terminology">
-<h2>Actor Terminology<a class="headerlink" href="#actor-terminology" title="Permalink to this heading"></a></h2>
+</div>
+<div class="section" id="actor-terminology">
+<h2>Actor Terminology<a class="headerlink" href="#actor-terminology" title="Permalink to this headline">¶</a></h2>
 <p>These are best thought in terms of software companies and employees exchanging emails within them.</p>
 <ul class="simple">
-<li><p><strong>Actor System</strong> - hierarchical group of actors that share the same configuration. Responsible for creating new actors, locating them, and logging important events. Think the Company itself.</p></li>
-<li><p><strong>Actor Class</strong> - a template that describes the state and the behaviour of the actor. Think designation within a company.</p></li>
-<li><p><strong>Actor Instance</strong> - an entity that exists at runtime and is capable of sending an receiving messages. Actor Instance is an instance of an Actor Class. Think an employee.</p></li>
-<li><p><strong>A Message</strong> - unit of communication between actors. Any object can be a message. Messages are sent and processed asynchronously. Think an e-mail.</p></li>
-<li><p><strong>The Mailbox</strong> - part of the memory, associated with an actor instance that is used to buffer messages. Just like a regular e-mail mailbox.</p></li>
-<li><p><strong>Actor Reference</strong> - an object that allows you to send messages to a specific addresse. Think e-mail address.</p></li>
-<li><p><strong>Dispatcher</strong> - a component that decides the priorities for actors to process the messages. Think company e-mail policy.</p></li>
+<li><strong>Actor System</strong> - hierarchical group of actors that share the same configuration. Responsible for creating new actors, locating them, and logging important events. Think the Company itself.</li>
+<li><strong>Actor Class</strong> - a template that describes the state and the behaviour of the actor. Think designation within a company.</li>
+<li><strong>Actor Instance</strong> - an entity that exists at runtime and is capable of sending an receiving messages. Actor Instance is an instance of an Actor Class. Think an employee.</li>
+<li><strong>A Message</strong> - unit of communication between actors. Any object can be a message. Messages are sent and processed asynchronously. Think an e-mail.</li>
+<li><strong>The Mailbox</strong> - part of the memory, associated with an actor instance that is used to buffer messages. Just like a regular e-mail mailbox.</li>
+<li><strong>Actor Reference</strong> - an object that allows you to send messages to a specific addresse. Think e-mail address.</li>
+<li><strong>Dispatcher</strong> - a component that decides the priorities for actors to process the messages. Think company e-mail policy.</li>
 </ul>
-</section>
-<section id="code-commentary">
-<h2>Code Commentary<a class="headerlink" href="#code-commentary" title="Permalink to this heading"></a></h2>
+</div>
+<div class="section" id="code-commentary">
+<h2>Code Commentary<a class="headerlink" href="#code-commentary" title="Permalink to this headline">¶</a></h2>
 <p>A short summary of the files from the accompanying code is given
 below, outlining the characteristic aspects of working with Scala
 Actors. We suggest you explore the files in the order they appear in
 the following list.</p>
 <p><strong>Creating and Using Actors</strong></p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">HelloActor</span></code> — a simple actor that prints received messages into
-the terminal using standard log facilities.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">package</span> <span class="pre">object</span> <span class="pre">actors</span></code> — a package object with common
+<li><code class="docutils literal notranslate"><span class="pre">HelloActor</span></code> — a simple actor that prints received messages into
+the terminal using standard log facilities.</li>
+<li><code class="docutils literal notranslate"><span class="pre">package</span> <span class="pre">object</span> <span class="pre">actors</span></code> — a package object with common
 definitions, such as, e.g., the actor system allowing to create new
-actors.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ActorCreate</span></code> — creating a simple actor and interacting with it.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">DeafActor</span></code> — demonstration of processing unhandled messages.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">BadCountDownActor</span></code> — anti-pattern for behavioural change.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">CountdownActor</span></code> — an actor as a state-transition system.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">CountDownActorWithResponse</span></code> — an actor that responds at the end.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SimpleActorTests</span></code> — testing actor systems.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">DictionaryActor</span></code> — a state-machine actor implementing a
-dictionary. This is meant as an exercise.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">DictionaryActorTests</span></code> — tests for <code class="docutils literal notranslate"><span class="pre">DictionaryActor</span></code>.</p></li>
+actors.</li>
+<li><code class="docutils literal notranslate"><span class="pre">ActorCreate</span></code> — creating a simple actor and interacting with it.</li>
+<li><code class="docutils literal notranslate"><span class="pre">DeafActor</span></code> — demonstration of processing unhandled messages.</li>
+<li><code class="docutils literal notranslate"><span class="pre">BadCountDownActor</span></code> — anti-pattern for behavioural change.</li>
+<li><code class="docutils literal notranslate"><span class="pre">CountdownActor</span></code> — an actor as a state-transition system.</li>
+<li><code class="docutils literal notranslate"><span class="pre">CountDownActorWithResponse</span></code> — an actor that responds at the end.</li>
+<li><code class="docutils literal notranslate"><span class="pre">SimpleActorTests</span></code> — testing actor systems.</li>
+<li><code class="docutils literal notranslate"><span class="pre">DictionaryActor</span></code> — a state-machine actor implementing a
+dictionary. This is meant as an exercise.</li>
+<li><code class="docutils literal notranslate"><span class="pre">DictionaryActorTests</span></code> — tests for <code class="docutils literal notranslate"><span class="pre">DictionaryActor</span></code>.</li>
 </ul>
 <p><strong>Actor Hierarchy and Life Cycle</strong></p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">ActorHierarchy</span></code> — demonstrate hierarchy of Akka actors.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">TalkToChildren</span></code> — Talking to children actors directly.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">CheckActor</span></code> — identifying actors by their paths in the system.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">LifecycleActor</span></code> — observing the lifecycle of actors.</p></li>
+<li><code class="docutils literal notranslate"><span class="pre">ActorHierarchy</span></code> — demonstrate hierarchy of Akka actors.</li>
+<li><code class="docutils literal notranslate"><span class="pre">TalkToChildren</span></code> — Talking to children actors directly.</li>
+<li><code class="docutils literal notranslate"><span class="pre">CheckActor</span></code> — identifying actors by their paths in the system.</li>
+<li><code class="docutils literal notranslate"><span class="pre">LifecycleActor</span></code> — observing the lifecycle of actors.</li>
 </ul>
 <p><strong>Actor Communication and Supervision</strong></p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">PingPong.scala</span></code> — example of the ask-pattern with a timeout.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Router</span></code> — Example of a router actor and message forwarding.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">CommunicatingPoisonPill</span></code> — Sending a poison pill to the actor
-causing it to terminate.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">CommunicatingGracefulStop</span></code> — death watch and graceful stop.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Supervision.scala</span></code> — actor supervision.</p></li>
+<li><code class="docutils literal notranslate"><span class="pre">PingPong.scala</span></code> — example of the ask-pattern with a timeout.</li>
+<li><code class="docutils literal notranslate"><span class="pre">Router</span></code> — Example of a router actor and message forwarding.</li>
+<li><code class="docutils literal notranslate"><span class="pre">CommunicatingPoisonPill</span></code> — Sending a poison pill to the actor
+causing it to terminate.</li>
+<li><code class="docutils literal notranslate"><span class="pre">CommunicatingGracefulStop</span></code> — death watch and graceful stop.</li>
+<li><code class="docutils literal notranslate"><span class="pre">Supervision.scala</span></code> — actor supervision.</li>
 </ul>
 <p><strong>Implementing Remote Systems</strong></p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">RemoteCommunication.scala</span></code> — Interaction between two remote
-systems of actors.</p></li>
+<li><code class="docutils literal notranslate"><span class="pre">RemoteCommunication.scala</span></code> — Interaction between two remote
+systems of actors.</li>
 </ul>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>
