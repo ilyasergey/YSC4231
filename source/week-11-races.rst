@@ -72,11 +72,8 @@ We will be using `Facebook Infer <https://fbinfer.com>`_ as a tool for
 static data race detection in large Java projects. Infer provides a
 large suite of analyses for Java code, but we will only need its data
 race detector, known as **RacerD**. You can find the necessary
-documentation on installing and using the relevant parts of Infer by
-the following links:
-
-* `Installing Facebook Infer <https://fbinfer.com/docs/getting-started>`_
-* `RacerD documentation and examples <https://fbinfer.com/docs/checker-racerd>`_
+documentation on installing and using the relevant parts of Infer and
+examples using `this link <https://fbinfer.com/docs/checker-racerd>`_.
 
 As a part of this assignment, please, check out the following research
 paper, which introduces pragmatics of Infer's RacerD component and
@@ -200,12 +197,12 @@ so. The result of your project should a be PDF document that contains:
   encountered while working on this project (to help the future
   generations).
 
-.. admonition:: Note
+.. admonition:: 
 
-   Installing Infer on macOS is straightforward and can be done via
-   Homebrew. If you're using Linux or WSL, please, install `Version
-   0.17.0 <https://github.com/facebook/infer/releases/tag/v0.17.0>`_
-   of the tool by compiling it from the sources as described in the
+   If you're using Linux or Windows/WSL and want to run RacerD
+   natively, please, install `Version 0.17.0
+   <https://github.com/facebook/infer/releases/tag/v0.17.0>`_ of the
+   tool by compiling it from the sources as described in the
    `corresponding instructions
    <https://github.com/facebook/infer/blob/99464c01da5809e7159ed1a75ef10f60d34506a4/INSTALL.md>`_.
    Before running the build script, make sure to install all the
