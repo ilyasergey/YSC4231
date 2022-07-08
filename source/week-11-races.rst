@@ -199,6 +199,15 @@ so. The result of your project should a be PDF document that contains:
 
 .. admonition:: 
 
+   If you're using macOS on Apple silicon chip (M1), please, install
+   Infer by building it from the `master branch of the development
+   repository <https://github.com/facebook/infer>`_ following the
+   instructions in the ``INSTALL.md`` file. The sources are checked to
+   compile for `this commit
+   <https://github.com/facebook/infer/commit/ca05cfdb0b3e2f8bfa755e9c2ec03ec424ace090>`_.
+
+.. admonition:: 
+
    If you're using Linux or Windows/WSL and want to run RacerD
    natively, please, install `Version 0.17.0
    <https://github.com/facebook/infer/releases/tag/v0.17.0>`_ of the
