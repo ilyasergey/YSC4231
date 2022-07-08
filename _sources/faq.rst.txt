@@ -40,55 +40,76 @@ academia, with a great job security in the future.
    need to revise your work process. This page provides some advice on how to do
    that.
 
-Indeed, there might be factors that are beyond anyone's control and interfere
-with your learning process (e.g., mental of physical illness, or other
-comparable hardships). At Yale-NUS College, we are determined to mitigate the
-impacts of those events on the quality of your education and are willing to make
-reasonable adjustments.
+Indeed, there might be factors that are beyond anyone's control and
+interfere with your learning process (e.g., mental of physical
+illness, or other comparable hardships). At Yale-NUS College, we are
+determined to mitigate the impacts of those events on the quality of
+your education and are willing to make reasonable adjustments.
 
-All that said, some of you occasionally find yourself in situations when the set
-rules for assessing your knowledge seem unfair and not doing justice to your
-efforts, penalising you for no good reason. This FAQ is aimed to clarify the
-reasons why those rules are set in this particular way.
+All that said, some of you occasionally find yourself in situations
+when the set rules for assessing your knowledge seem unfair and not
+doing justice to your efforts, penalising you for no good reason. This
+FAQ is aimed to clarify the reasons why those rules are set in this
+particular way.
 
-On Submission and Resubmission Policies
----------------------------------------
+..
+   On Submission and Resubmission Policies
 
-Since all Yale-NUS modules have a relatively low cap on student numbers, it is
-possible to organise the learning process in which I (the professor) can provide
-detailed feedback for all your submissions, with a quick turn-around. As my goal
-is to make sure that everyone learns as much as possible, I have also set a
-resubmission policy that allows you to receive an A-high score if 
+On Submission Policies
+----------------------
 
-a. your initial submission has been done by the set deadline,
-b. you have attempted to solve all initially provided tasks in a homework and partially succeeded in all of those, and
-c. in your resubmission, you have addressed all the comments from my feedback.
+..
+   Since all Yale-NUS modules have a relatively low cap on student numbers, it is
+   possible to organise the learning process in which I (the professor) can provide
+   detailed feedback for all your submissions, with a quick turn-around. As my goal
+   is to make sure that everyone learns as much as possible, I have also set a
+   resubmission policy that allows you to receive an A-high score if 
 
-**So why do I need to try to solve every task in the initial submission? Can I just do some, and then do the rest in the resubmission?**
+   a. your initial submission has been done by the set deadline,
+   b. you have attempted to solve all initially provided tasks in a homework and partially succeeded in all of those, and
+   c. in your resubmission, you have addressed all the comments from my feedback.
 
-The requirement (b) is in place to avoid nearly "empty" submissions made in
-time, in an attempt to extend a deadline for a week at a very small penalty.
+   **So why do I need to try to solve every task in the initial
+    submission? Can I just do some, and then do the rest in the
+    resubmission?**
 
-**I had a really rough week and feel very stressed, having hard time to focus on the homework. May I have an extension?**
+   The requirement (b) is in place to avoid nearly "empty" submissions made in
+   time, in an attempt to extend a deadline for a week at a very small penalty.
 
-You can have an extension in the case if you have a Medical Certificate or an
-Assistant Dean's letter. Medical Doctors and ADs are trained to assess the
-severity of your situation and, therefore, have an authority to grant
-extensions; I am unqualified to do so. I also do not provide ad-hoc extensions
-without formal justifications (see above), as those create precedents other
-students might appeal to in the future.
+**I had a really rough week and feel very stressed, having hard time
+ to focus on the homework. May I have an extension?**
 
-**Okay, I didn't realise that the task will take that much time, and I don't have a reason qualifying me for an AD letter. If you don't give me an extension, what should I do?**
+You can have either one "free" 48-hour or two 24-hour extensions for
+any of your homework projects except for the group research project.
+To get this extension, please, inform me **three hours before the deadline**.
+Extensions won't be granted to the requests sent later than that.
 
-I'm afraid, in this case you do your best and possibly take a penalty for a late
-submission. Remember that non-attempted sub-tasks will affect your resubmission
-score.
+Also, the group projects are not amenable for "free" extensions. 
 
-**This is rather harsh. Other profs provide extensions more easily and allow for an infinite number of resubmissions.**
+You can have an additional "regular" extension in the case if you have
+a Medical Certificate or an Assistant Dean's letter. Medical Doctors
+and ADs are trained to assess the severity of your situation and,
+therefore, have an authority to grant extensions; I am unqualified to
+do so.
 
-Specific submission/resubmission policies are up to each prof; they might vary
-depending on the size of the class, nature of the assignments, as well as other
-duties that the prof must handle concurrently.
+In case of a group project the "regular" extension is granted to the
+entire team.
+
+**Okay, I didn't realise that the task will take that much time, I
+  used all my free extensions, and I don't have a reason qualifying me
+  for an AD letter. If you don't give me an extension, what should I
+  do?**
+
+I'm afraid, in this case you do your best and possibly take a penalty
+for a late submission.
+
+**This is rather harsh. Other profs allow for an infinite number of
+ resubmissions.**
+
+Specific submission/resubmission policies are up to each prof; they
+might vary depending on the size of the class, nature of the
+assignments, as well as other duties that the prof must handle
+concurrently.
 
 On Approaching the Tasks
 ------------------------

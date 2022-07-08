@@ -10,11 +10,11 @@ Parallel, Concurrent and Distributed Programming (Autumn 2021)
    faq
 
 * Instructor: `Ilya Sergey <https://ilyasergey.net/>`_
-* Lectures: Fridays, 2:30pm-5:30pm
-* Location: Stephen Riady Centre, Global Learning Room
-* Office hours: Wednesdays, 5:15pm-6:30pm, #RC3-01-03E (Cendana)
-* Peer Tutor: `Mark Weilong Yuen <mark.yuen@u.yale-nus.edu.sg>`_
-* Tutoring Sessions: Tuesdays, 6:30pm-8:00pm, Classroom 22 (RC3-02-03)
+* Lectures: Thursdays, 13:00-16:00
+* Location: Yale-NUS College, Y-CR15
+* Office hours: #RC3-01-03E (Cendana), time/date TBA
+* Peer Tutor: TBA
+* Tutoring Sessions: TBA
 
 Lectures
 --------
@@ -23,22 +23,22 @@ Lectures
    :numbered:
    :maxdepth: 1
 
-   week-01-intro
-   week-02-scala
-   week-03-mutex
-   week-03-concurrent-objects
-   week-04-wait-free
-   week-05-spinlocks
-   week-05-monitors
-   week-07-midterm-project   
-   week-06-fine-lists
-   week-08-queues-stacks
-   week-09-skiplists
-   week-11-races
-   week-10-futures
-   week-11-parallel
-   week-12-actors
-   week-13-consensus
+..   week-01-intro
+..   week-02-scala
+..   week-03-mutex
+..   week-03-concurrent-objects
+..   week-04-wait-free
+..   week-05-spinlocks
+..   week-05-monitors
+..   week-07-midterm-project   
+..   week-06-fine-lists
+..   week-08-queues-stacks
+..   week-09-skiplists
+..   week-11-races
+..   week-10-futures
+..   week-11-parallel
+..   week-12-actors
+..   week-13-consensus
 
 Lecture materials will be posted gradually as we progress through the course.
 
@@ -46,7 +46,7 @@ Supplementary Materials
 -----------------------
 
 * `GitHub Organisation <https://github.com/ysc4231/>`_ 
-* `Code from the Lectures <https://github.com/ysc4231/lectures-2021>`_  (email me you GitHub name to get access)
+* `Code from the Lectures <https://github.com/ysc4231/lectures-2022>`_  (email me you GitHub name to get access)
 
 
 Textbooks

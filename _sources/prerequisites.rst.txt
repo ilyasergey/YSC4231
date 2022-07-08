@@ -3,22 +3,30 @@
 Software Prerequisites
 ======================
 
-We will be using `Scala <https://www.scala-lang.org/>`_ (version 2) as a main
-programming language for this course.
+We will be using `Scala <https://www.scala-lang.org/>`_ (Version 2) as
+a main programming language for this course.
 
-Getting Scala
--------------
+The setup outlined below has been tested on Windows 11 and macOS (for
+both Intel and Apple silicon chips). If you experience issues at any
+stage of the setup, please refer to the **Troubleshooting** section
+below.
+
+Getting Scala and IntelliJ
+--------------------------
 
 In your preparation for the first lecture, please install the following software artefacts (or make sure that you have them installed in your system):
 
-* `Java SDK 1.11
-  <https://www.oracle.com/sg/java/technologies/javase-jdk11-downloads.html>`_.
+* `Oracle Java SDK 11 <https://www.oracle.com/sg/java/technologies/javase/jdk11-archive-downloads.html>`_.
   You will need to make an Oracle account to download the latest version.
-* `Scala Build Tool (sbt) <https://www.scala-sbt.org/download.html?_ga=2.57019370.1900758631.1565340428-2015161099.1565340323>`_
+* `Scala Build Tool (sbt) <https://www.scala-sbt.org/download.html3>`_
 * `IntelliJ IDEA <https://www.jetbrains.com/idea/>`_. When you start IntelliJ for the first time, make sure to choose Scala plugin when IntelliJ IDEA suggests you to download featured plugins.
 * `Scala plugin for IntelliJ IDEA <https://www.jetbrains.com/help/idea/discover-intellij-idea-for-scala.html>`_ (if not installed in the previous step)
 
-All these components can be found at the `Scala 2 Download page <https://www.scala-lang.org/download/scala2.html>`_.
+..
+   All these components can be found at the `Scala 2 Download page  <https://www.scala-lang.org/download/scala2.html>`_.
+
+This setup has been last checked with ``sbt`` version 1.6.2 and
+IntelliJ IDEA 2022.1.3.
 
 Working with Multiple Java Versions
 -----------------------------------
@@ -43,9 +51,9 @@ Make sure that you are comfortable with the ``git`` operations, such as ``clone`
 Checking your Setup
 -------------------
 
-The code appearing in the lectures will be collected in this `repository with examples <https://github.com/ysc4231/lectures-2021>`_.  In order to be able to access it, please, make sure to email your GitHub name to the instructor---this is necessary to grant you GitHub access for course-related repositories.
+The code appearing in the lectures will be collected in this `repository with examples <https://github.com/ysc4231/lectures-2022>`_.  In order to be able to access it, please, make sure to email your GitHub name to the instructor---this is necessary to grant you GitHub access for course-related repositories.
 
-To check your Scala setup, clone this project from GitHub (via ``git@github.com:ysc4231/lectures-2021.git``). Next, try to execute the following two commands in the terminal from the root of your project (it will take a few minutes the first time you run it, as ``sbt`` needs to download all the dependencies)::
+To check your Scala setup, clone this project from GitHub (via ``git@github.com:ysc4231/lectures-2022.git``). Next, try to execute the following two commands in the terminal from the root of your project (it will take a few minutes the first time you run it, as ``sbt`` needs to download all the dependencies)::
 
   sbt test
 
@@ -64,3 +72,33 @@ You can now exit ``sbt`` console by typing::
   exit
 
 Finally, you can try to open this project in IntelliJ IDEA via "File -> Open" and choosing the project folder. Click "OK" when asked about initial project settings.
+
+Troubleshooting
+---------------
+
+1. **Problem**: I am trying to open the project in IntelliJ IDEA for
+   the first time, and, while importing it via ``sbt``, it fails with
+   an error::
+
+    Extracting structure failed: Build status: Error
+    sbt task failed, see log for details
+
+   This problem has been detected on macOS.
+
+   **Solution**: Close the project (via ``File -> Close Project``),
+   then follow the instructions `here
+   <https://www.jetbrains.com/help/idea/bsp-support.html>`_ to import
+   the project using BSP instead of SBT. The instructions there are
+   given for macOS; on Windows, the first action dialogue shortcut is
+   ``Ctrl+Shift+A``.
+
+2. **Problem**: Opening the project for the first time in IntelliJ
+   fails with a pop-up notification::
+
+     sbt import cancelled: Cannot run program
+
+   This problem has been observed on Windows 11.
+
+   **Solution** Open ``File -> Project Structure``, category ``Project Settings -> Project``
+   and sekect a Java SDK (e.g. OpenJDK version 11.0.5 or similar one)
+   from what's already installed at your system.

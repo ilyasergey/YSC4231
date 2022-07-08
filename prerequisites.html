@@ -1,66 +1,36 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>2. Software Prerequisites &mdash; YSC4231 2021</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-
-  
-  
-  
-  
-
-  
-
-  
-  
-    
-
-  
-
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="3. FAQ on Learning and Plagiarism" href="faq.html" />
     <link rel="prev" title="1. Course Syllabus" href="syllabus.html" /> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
-          
-
-          
+        <div class="wy-side-nav-search" >
             <a href="index.html" class="icon icon-home"> YSC4231: Parallel, Concurrent and Distributed Programming
-          
-
-          
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -68,219 +38,159 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="syllabus.html">1. Course Syllabus</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">2. Software Prerequisites</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#getting-scala">2.1. Getting Scala</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-scala-and-intellij">2.1. Getting Scala and IntelliJ</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#working-with-multiple-java-versions">2.2. Working with Multiple Java Versions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#working-with-version-control">2.3. Working with Version Control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#checking-your-setup">2.4. Checking your Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#troubleshooting">2.5. Troubleshooting</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">3. FAQ on Learning and Plagiarism</a></li>
 </ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="week-01-intro.html">1. Week 01: Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-02-scala.html">2. Week 02: Scala Primer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-03-mutex.html">3. Week 03: Mutual Exclusion</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-03-concurrent-objects.html">4. Week 04: Concurrent Objects</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-04-wait-free.html">5. Week 05: Wait-Free Implementations and Consensus</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-05-spinlocks.html">6. Week 06: Spin Locks and Contention</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-05-monitors.html">7. Week 06: Monitors and Blocking Synchronisation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-07-midterm-project.html">8. Midterm Project</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-06-fine-lists.html">9. Week 07: Concurrent Lists and Fine-Grained Locking</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-08-queues-stacks.html">10. Week 08: Concurrent Queues</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-09-skiplists.html">11. Week 09: Concurrent Stacks and Skiplists</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-11-races.html">12. Week 09: Data Race Detection in Practice</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-10-futures.html">13. Week 10: Asynchronous Computations and Futures</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-11-parallel.html">14. Week 11: Data-Parallel Collections</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-12-actors.html">15. Week 12: Actors and Message-Passing Concurrency</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-13-consensus.html">16. Week 13: Distributed Consensus, BFT; Wrap-Up</a></li>
-</ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">YSC4231: Parallel, Concurrent and Distributed Programming</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html">Docs</a> &raquo;</li>
-        
-      <li>2. Software Prerequisites</li>
-    
-    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">2. </span>Software Prerequisites</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="software-prerequisites">
-<h1>2. Software Prerequisites<a class="headerlink" href="#software-prerequisites" title="Permalink to this headline">¶</a></h1>
-<p>We will be using <a class="reference external" href="https://www.scala-lang.org/">Scala</a> (version 2) as a main
-programming language for this course.</p>
-<div class="section" id="getting-scala">
-<h2>2.1. Getting Scala<a class="headerlink" href="#getting-scala" title="Permalink to this headline">¶</a></h2>
+             
+  <section id="software-prerequisites">
+<h1><span class="section-number">2. </span>Software Prerequisites<a class="headerlink" href="#software-prerequisites" title="Permalink to this heading"></a></h1>
+<p>We will be using <a class="reference external" href="https://www.scala-lang.org/">Scala</a> (Version 2) as
+a main programming language for this course.</p>
+<p>The setup outlined below has been tested on Windows 11 and macOS (for
+both Intel and Apple silicon chips). If you experience issues at any
+stage of the setup, please refer to the <strong>Troubleshooting</strong> section
+below.</p>
+<section id="getting-scala-and-intellij">
+<h2><span class="section-number">2.1. </span>Getting Scala and IntelliJ<a class="headerlink" href="#getting-scala-and-intellij" title="Permalink to this heading"></a></h2>
 <p>In your preparation for the first lecture, please install the following software artefacts (or make sure that you have them installed in your system):</p>
 <ul class="simple">
-<li><a class="reference external" href="https://www.oracle.com/sg/java/technologies/javase-jdk11-downloads.html">Java SDK 1.11</a>.
-You will need to make an Oracle account to download the latest version.</li>
-<li><a class="reference external" href="https://www.scala-sbt.org/download.html?_ga=2.57019370.1900758631.1565340428-2015161099.1565340323">Scala Build Tool (sbt)</a></li>
-<li><a class="reference external" href="https://www.jetbrains.com/idea/">IntelliJ IDEA</a>. When you start IntelliJ for the first time, make sure to choose Scala plugin when IntelliJ IDEA suggests you to download featured plugins.</li>
-<li><a class="reference external" href="https://www.jetbrains.com/help/idea/discover-intellij-idea-for-scala.html">Scala plugin for IntelliJ IDEA</a> (if not installed in the previous step)</li>
+<li><p><a class="reference external" href="https://www.oracle.com/sg/java/technologies/javase/jdk11-archive-downloads.html">Oracle Java SDK 11</a>.
+You will need to make an Oracle account to download the latest version.</p></li>
+<li><p><a class="reference external" href="https://www.scala-sbt.org/download.html3">Scala Build Tool (sbt)</a></p></li>
+<li><p><a class="reference external" href="https://www.jetbrains.com/idea/">IntelliJ IDEA</a>. When you start IntelliJ for the first time, make sure to choose Scala plugin when IntelliJ IDEA suggests you to download featured plugins.</p></li>
+<li><p><a class="reference external" href="https://www.jetbrains.com/help/idea/discover-intellij-idea-for-scala.html">Scala plugin for IntelliJ IDEA</a> (if not installed in the previous step)</p></li>
 </ul>
-<p>All these components can be found at the <a class="reference external" href="https://www.scala-lang.org/download/scala2.html">Scala 2 Download page</a>.</p>
-</div>
-<div class="section" id="working-with-multiple-java-versions">
-<h2>2.2. Working with Multiple Java Versions<a class="headerlink" href="#working-with-multiple-java-versions" title="Permalink to this headline">¶</a></h2>
+<p>This setup has been last checked with <code class="docutils literal notranslate"><span class="pre">sbt</span></code> version 1.6.2 and
+IntelliJ IDEA 2022.1.3.</p>
+</section>
+<section id="working-with-multiple-java-versions">
+<h2><span class="section-number">2.2. </span>Working with Multiple Java Versions<a class="headerlink" href="#working-with-multiple-java-versions" title="Permalink to this heading"></a></h2>
 <p>If you want to maintain multiple versions of Java Development Kit on your
 machine, consider installing the utility tool <code class="docutils literal notranslate"><span class="pre">jenv</span></code> (available <a class="reference external" href="https://www.jenv.be/">here</a>). Follow the instructions on the linked webpage to
 switch between multiple versions and add already installed versions to <code class="docutils literal notranslate"><span class="pre">jenv</span></code>
 list.</p>
-</div>
-<div class="section" id="working-with-version-control">
-<h2>2.3. Working with Version Control<a class="headerlink" href="#working-with-version-control" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="working-with-version-control">
+<h2><span class="section-number">2.3. </span>Working with Version Control<a class="headerlink" href="#working-with-version-control" title="Permalink to this heading"></a></h2>
 <p>The code from the lectures will be disseminated via <a class="reference external" href="https://github.com/">GitHub</a> using the <code class="docutils literal notranslate"><span class="pre">git</span></code> version control system. If you don’t have a GitHub account yet, please, create one for yourself. <code class="docutils literal notranslate"><span class="pre">git</span></code> comes installed on most of Unix systems. It can be downloaded for Windows via <a class="reference external" href="https://git-scm.com/download/win">this link</a>.</p>
 <p>Make sure that you are comfortable with the <code class="docutils literal notranslate"><span class="pre">git</span></code> operations, such as <code class="docutils literal notranslate"><span class="pre">clone</span></code>, <code class="docutils literal notranslate"><span class="pre">pull</span></code>, <code class="docutils literal notranslate"><span class="pre">add</span></code>, <code class="docutils literal notranslate"><span class="pre">commit</span></code>, and <code class="docutils literal notranslate"><span class="pre">push</span></code>. Some resources that might be helpful:</p>
 <ul class="simple">
-<li><a class="reference external" href="https://help.github.com/en/articles/signing-up-for-a-new-github-account">Signing up for a new GitHub account</a></li>
-<li><a class="reference external" href="https://www.hostinger.com/tutorials/basic-git-commands">Basic git commands</a></li>
-<li><a class="reference external" href="https://education.github.com/pack">GitHub student pack</a></li>
+<li><p><a class="reference external" href="https://help.github.com/en/articles/signing-up-for-a-new-github-account">Signing up for a new GitHub account</a></p></li>
+<li><p><a class="reference external" href="https://www.hostinger.com/tutorials/basic-git-commands">Basic git commands</a></p></li>
+<li><p><a class="reference external" href="https://education.github.com/pack">GitHub student pack</a></p></li>
 </ul>
-</div>
-<div class="section" id="checking-your-setup">
-<h2>2.4. Checking your Setup<a class="headerlink" href="#checking-your-setup" title="Permalink to this headline">¶</a></h2>
-<p>The code appearing in the lectures will be collected in this <a class="reference external" href="https://github.com/ysc4231/lectures-2021">repository with examples</a>.  In order to be able to access it, please, make sure to email your GitHub name to the instructor—this is necessary to grant you GitHub access for course-related repositories.</p>
-<p>To check your Scala setup, clone this project from GitHub (via <code class="docutils literal notranslate"><span class="pre">git&#64;github.com:ysc4231/lectures-2021.git</span></code>). Next, try to execute the following two commands in the terminal from the root of your project (it will take a few minutes the first time you run it, as <code class="docutils literal notranslate"><span class="pre">sbt</span></code> needs to download all the dependencies):</p>
-<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">sbt</span> <span class="n">test</span>
+</section>
+<section id="checking-your-setup">
+<h2><span class="section-number">2.4. </span>Checking your Setup<a class="headerlink" href="#checking-your-setup" title="Permalink to this heading"></a></h2>
+<p>The code appearing in the lectures will be collected in this <a class="reference external" href="https://github.com/ysc4231/lectures-2022">repository with examples</a>.  In order to be able to access it, please, make sure to email your GitHub name to the instructor—this is necessary to grant you GitHub access for course-related repositories.</p>
+<p>To check your Scala setup, clone this project from GitHub (via <code class="docutils literal notranslate"><span class="pre">git&#64;github.com:ysc4231/lectures-2022.git</span></code>). Next, try to execute the following two commands in the terminal from the root of your project (it will take a few minutes the first time you run it, as <code class="docutils literal notranslate"><span class="pre">sbt</span></code> needs to download all the dependencies):</p>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">sbt</span><span class="w"> </span><span class="n">test</span><span class="w"></span>
 </pre></div>
 </div>
 <p>will run the tests in the project. You may also run:</p>
-<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">sbt</span>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">sbt</span><span class="w"></span>
 </pre></div>
 </div>
 <p>and then, from the <code class="docutils literal notranslate"><span class="pre">sbt</span></code> console:</p>
-<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">runMain</span> <span class="n">basic</span><span class="o">.</span><span class="nc">HelloWorld</span>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">runMain</span><span class="w"> </span><span class="n">basic</span><span class="p">.</span><span class="nc">HelloWorld</span><span class="w"></span>
 </pre></div>
 </div>
 <p>This will execute a simple script printing (after dumping some rather verbose log information about software updates and compilation) the message <code class="docutils literal notranslate"><span class="pre">Hello,</span> <span class="pre">World!</span></code> to the output.</p>
 <p>You can now exit <code class="docutils literal notranslate"><span class="pre">sbt</span></code> console by typing:</p>
-<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">exit</span>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">exit</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Finally, you can try to open this project in IntelliJ IDEA via “File -&gt; Open” and choosing the project folder. Click “OK” when asked about initial project settings.</p>
+</section>
+<section id="troubleshooting">
+<h2><span class="section-number">2.5. </span>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this heading"></a></h2>
+<ol class="arabic">
+<li><p><strong>Problem</strong>: I am trying to open the project in IntelliJ IDEA for
+the first time, and, while importing it via <code class="docutils literal notranslate"><span class="pre">sbt</span></code>, it fails with
+an error:</p>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="nc">Extracting</span><span class="w"> </span><span class="n">structure</span><span class="w"> </span><span class="n">failed</span><span class="p">:</span><span class="w"> </span><span class="nc">Build</span><span class="w"> </span><span class="n">status</span><span class="p">:</span><span class="w"> </span><span class="nc">Error</span><span class="w"></span>
+<span class="n">sbt</span><span class="w"> </span><span class="n">task</span><span class="w"> </span><span class="n">failed</span><span class="p">,</span><span class="w"> </span><span class="n">see</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">details</span><span class="w"></span>
+</pre></div>
 </div>
+<p>This problem has been detected on macOS.</p>
+<p><strong>Solution</strong>: Close the project (via <code class="docutils literal notranslate"><span class="pre">File</span> <span class="pre">-&gt;</span> <span class="pre">Close</span> <span class="pre">Project</span></code>),
+then follow the instructions <a class="reference external" href="https://www.jetbrains.com/help/idea/bsp-support.html">here</a> to import
+the project using BSP instead of SBT. The instructions there are
+given for macOS; on Windows, the first action dialogue shortcut is
+<code class="docutils literal notranslate"><span class="pre">Ctrl+Shift+A</span></code>.</p>
+</li>
+<li><p><strong>Problem</strong>: Opening the project for the first time in IntelliJ
+fails with a pop-up notification:</p>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">sbt</span><span class="w"> </span><span class="k">import</span><span class="w"> </span><span class="n">cancelled:</span><span class="w"> </span><span class="nc">Cannot</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="n">program</span><span class="w"></span>
+</pre></div>
 </div>
+<p>This problem has been observed on Windows 11.</p>
+<p><strong>Solution</strong> Open <code class="docutils literal notranslate"><span class="pre">File</span> <span class="pre">-&gt;</span> <span class="pre">Project</span> <span class="pre">Structure</span></code>, category <code class="docutils literal notranslate"><span class="pre">Project</span> <span class="pre">Settings</span> <span class="pre">-&gt;</span> <span class="pre">Project</span></code>
+and sekect a Java SDK (e.g. OpenJDK version 11.0.5 or similar one)
+from what’s already installed at your system.</p>
+</li>
+</ol>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="faq.html" class="btn btn-neutral float-right" title="3. FAQ on Learning and Plagiarism" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="syllabus.html" class="btn btn-neutral" title="1. Course Syllabus" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="syllabus.html" class="btn btn-neutral float-left" title="1. Course Syllabus" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="faq.html" class="btn btn-neutral float-right" title="3. FAQ on Learning and Plagiarism" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2021, Ilya Sergey
-
-    </p>
+    <p>&#169; Copyright 2021, Ilya Sergey.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"extensions": ["tex2jax.js"], "jax": ["input/TeX", "output/HTML-CSS"]})</script>
-    
-
-  
-
-  <script type="text/javascript" src="_static/js/theme.js"></script>
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
