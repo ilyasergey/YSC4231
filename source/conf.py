@@ -83,6 +83,7 @@ html_title = 'YSC4231 2021'
 # html_theme = 'scrolls'
 # html_theme = 'nature'
 # html_theme = 'alabaster'
+
 html_theme = "sphinx_rtd_theme"
 
 # import guzzle_sphinx_theme
