@@ -227,13 +227,16 @@ Most of them contain data races. Feel free to pick one or more of them
 to explore in our data race study.
 
 * https://github.com/apache/tomcat
-* https://github.com/ibr-cm/avrora
 * https://github.com/aragozin/jvm-tools
-* https://github.com/apache/xalan-j
 * https://github.com/OpenHFT/Chronicle-Map
 * https://github.com/ReactiveX/RxJava
 * https://github.com/adammurdoch/native-platform
 * https://github.com/aws/aws-sdk-java
+
+..
+   https://github.com/ibr-cm/avrora
+   https://github.com/apache/xalan-j
+
 
 The projects were chosen for the facts that they extensively use
 Java's ``synchronized`` primitive and, occasionally, the
