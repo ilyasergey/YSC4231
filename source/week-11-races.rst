@@ -197,7 +197,7 @@ so. The result of your project should a be PDF document that contains:
   encountered while working on this project (to help the future
   generations).
 
-.. admonition:: 
+.. admonition:: Building Infer on Apple M1 
 
    If you're using macOS on Apple silicon chip (M1), please, install
    Infer by building it from the `master branch of the development
@@ -206,7 +206,7 @@ so. The result of your project should a be PDF document that contains:
    compile for `this commit
    <https://github.com/facebook/infer/commit/ca05cfdb0b3e2f8bfa755e9c2ec03ec424ace090>`_.
 
-.. admonition:: 
+.. admonition:: Building Infer on Linux and Windows/WSL 
 
    If you're using Linux or Windows/WSL and want to run RacerD
    natively, please, install `Version 0.17.0
