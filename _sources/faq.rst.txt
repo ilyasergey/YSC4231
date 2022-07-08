@@ -76,8 +76,7 @@ On Submission Policies
    The requirement (b) is in place to avoid nearly "empty" submissions made in
    time, in an attempt to extend a deadline for a week at a very small penalty.
 
-**I had a really rough week and feel very stressed, having hard time
- to focus on the homework. May I have an extension?**
+**I had a really rough week and feel very stressed, having hard time to focus on the homework. May I have an extension?**
 
 You can have either one "free" 48-hour or two 24-hour extensions for
 any of your homework projects except for the group research project.
@@ -95,16 +94,12 @@ do so.
 In case of a group project the "regular" extension is granted to the
 entire team.
 
-**Okay, I didn't realise that the task will take that much time, I
-  used all my free extensions, and I don't have a reason qualifying me
-  for an AD letter. If you don't give me an extension, what should I
-  do?**
+**Okay, I didn't realise that the task will take that much time, I used all my free extensions, and I don't have a reason qualifying me or an AD letter. If you don't give me an extension, what should I do?**
 
 I'm afraid, in this case you do your best and possibly take a penalty
 for a late submission.
 
-**This is rather harsh. Other profs allow for an infinite number of
- resubmissions.**
+**This is rather harsh. Other profs allow for an infinite number of resubmissions.**
 
 Specific submission/resubmission policies are up to each prof; they
 might vary depending on the size of the class, nature of the

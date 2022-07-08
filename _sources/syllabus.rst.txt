@@ -47,7 +47,7 @@ Homework Assignments
 * Theory Assignment 2 (Mutual Exclusion)
 * Programming Assignment 2 (Mutual Exclusion)
 * Theory Assignment 3 (Concurrent Objects)
-* Programming Assignment 3 (Blocking Synchronisation)
+* [Non-Mandatory] Programming Assignment 3 (Blocking Synchronisation)
 * Programming Assignment 4 (Concurrent Lists)
 * Research Mini-Project (Detecting Data Races in Java Projects)
 * Programming Assignment 5 (Futures and Promises)
