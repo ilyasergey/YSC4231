@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>12. Week 09: Data Race Detection in Practice &mdash; YSC4231 2021</title>
+  <title>Week 09: Data Race Detection in Practice &mdash; YSC4231 2021</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -19,9 +19,7 @@
         <script src="_static/doctools.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="13. Week 10: Asynchronous Computations and Futures" href="week-10-futures.html" />
-    <link rel="prev" title="11. Week 09: Concurrent Stacks and Skiplists" href="week-09-skiplists.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -44,34 +42,6 @@
 <li class="toctree-l1"><a class="reference internal" href="prerequisites.html">2. Software Prerequisites</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">3. FAQ on Learning and Plagiarism</a></li>
 </ul>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="week-01-intro.html">1. Week 01: Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-02-scala.html">2. Week 02: Scala Primer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-03-mutex.html">3. Week 03: Mutual Exclusion</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-03-concurrent-objects.html">4. Week 04: Concurrent Objects</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-04-wait-free.html">5. Week 05: Wait-Free Implementations and Consensus</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-05-spinlocks.html">6. Week 06: Spin Locks and Contention</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-05-monitors.html">7. Week 06: Monitors and Blocking Synchronisation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-07-midterm-project.html">8. Midterm Project</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-06-fine-lists.html">9. Week 07: Concurrent Lists and Fine-Grained Locking</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-08-queues-stacks.html">10. Week 08: Concurrent Queues</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-09-skiplists.html">11. Week 09: Concurrent Stacks and Skiplists</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">12. Week 09: Data Race Detection in Practice</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#background-data-races-in-java">12.1. Background: Data Races in Java</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#the-tool-facebook-infer">12.2. The Tool: Facebook Infer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#example-of-a-racy-java-class">12.3. Example of a Racy Java Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#the-task">12.4. The Task</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#open-source-java-projects-with-concurrency">12.5. Open-Source Java Projects with Concurrency</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#running-racerd-on-custom-projects">12.6. Running RacerD on Custom Projects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#tips-and-tricks">12.7. Tips and Tricks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#further-reading">12.8. Further Reading</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="week-10-futures.html">13. Week 10: Asynchronous Computations and Futures</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-11-parallel.html">14. Week 11: Data-Parallel Collections</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-12-actors.html">15. Week 12: Actors and Message-Passing Concurrency</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-13-consensus.html">16. Week 13: Distributed Consensus, BFT; Wrap-Up</a></li>
-</ul>
 
         </div>
       </div>
@@ -87,7 +57,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li><span class="section-number">12. </span>Week 09: Data Race Detection in Practice</li>
+      <li>Week 09: Data Race Detection in Practice</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -97,7 +67,7 @@
            <div itemprop="articleBody">
              
   <section id="week-09-data-race-detection-in-practice">
-<h1><span class="section-number">12. </span>Week 09: Data Race Detection in Practice<a class="headerlink" href="#week-09-data-race-detection-in-practice" title="Permalink to this heading"></a></h1>
+<h1>Week 09: Data Race Detection in Practice<a class="headerlink" href="#week-09-data-race-detection-in-practice" title="Permalink to this heading"></a></h1>
 <ul class="simple">
 <li><p><a class="reference external" href="_static/resources/ysc4231-week-09-races.pdf">Lecture Slides</a></p></li>
 </ul>
@@ -110,7 +80,7 @@ this project, but you are expected to understand the meaning of Java’s
 definitions. Given your knowledge of Scala, figuring out those
 relations should be trivial.</p>
 <section id="background-data-races-in-java">
-<h2><span class="section-number">12.1. </span>Background: Data Races in Java<a class="headerlink" href="#background-data-races-in-java" title="Permalink to this heading"></a></h2>
+<h2>Background: Data Races in Java<a class="headerlink" href="#background-data-races-in-java" title="Permalink to this heading"></a></h2>
 <p>In the previous lectures of this module, we’ve been primarily
 concerned with implementations of non-trivial concurrent data
 structures and algorithms, most of which feature a form of “racing”
@@ -153,7 +123,7 @@ an automated way via tools for <cite>static program analysis</cite>. This projec
 is dedicated to interaction with one of such tools.</p>
 </section>
 <section id="the-tool-facebook-infer">
-<h2><span class="section-number">12.2. </span>The Tool: Facebook Infer<a class="headerlink" href="#the-tool-facebook-infer" title="Permalink to this heading"></a></h2>
+<h2>The Tool: Facebook Infer<a class="headerlink" href="#the-tool-facebook-infer" title="Permalink to this heading"></a></h2>
 <p>We will be using <a class="reference external" href="https://fbinfer.com">Facebook Infer</a> as a tool for
 static data race detection in large Java projects. Infer provides a
 large suite of analyses for Java code, but we will only need its data
@@ -173,7 +143,7 @@ look for a general intuition on how the analysis reports data races.</p>
 RacerD.</p>
 </section>
 <section id="example-of-a-racy-java-class">
-<h2><span class="section-number">12.3. </span>Example of a Racy Java Class<a class="headerlink" href="#example-of-a-racy-java-class" title="Permalink to this heading"></a></h2>
+<h2>Example of a Racy Java Class<a class="headerlink" href="#example-of-a-racy-java-class" title="Permalink to this heading"></a></h2>
 <p>As an example of a simple data race, consider the following Java code:</p>
 <div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Racy</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="n">public</span><span class="w"> </span><span class="n">void</span><span class="w"> </span><span class="n">foo</span><span class="p">(</span><span class="nc">B</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -243,7 +213,7 @@ recorded in the locally created file <code class="docutils literal notranslate">
 introducing more synchronisation?</p>
 </section>
 <section id="the-task">
-<h2><span class="section-number">12.4. </span>The Task<a class="headerlink" href="#the-task" title="Permalink to this heading"></a></h2>
+<h2>The Task<a class="headerlink" href="#the-task" title="Permalink to this heading"></a></h2>
 <p>Your goal for in this assignment is to hunt down and explore data
 races in large real-world Java projects. A list of some of such
 projects is given below, but you may also find some on your own.</p>
@@ -292,7 +262,7 @@ file</a>.</p>
 </div>
 </section>
 <section id="open-source-java-projects-with-concurrency">
-<h2><span class="section-number">12.5. </span>Open-Source Java Projects with Concurrency<a class="headerlink" href="#open-source-java-projects-with-concurrency" title="Permalink to this heading"></a></h2>
+<h2>Open-Source Java Projects with Concurrency<a class="headerlink" href="#open-source-java-projects-with-concurrency" title="Permalink to this heading"></a></h2>
 <p>Below is a list of some real-world Java projects using concurrency.
 Most of them contain data races. Feel free to pick one or more of them
 to explore in our data race study.</p>
@@ -313,7 +283,7 @@ said, it is also fine if your exploration will be limited to a subset
 of the projects listed above.</p>
 </section>
 <section id="running-racerd-on-custom-projects">
-<h2><span class="section-number">12.6. </span>Running RacerD on Custom Projects<a class="headerlink" href="#running-racerd-on-custom-projects" title="Permalink to this heading"></a></h2>
+<h2>Running RacerD on Custom Projects<a class="headerlink" href="#running-racerd-on-custom-projects" title="Permalink to this heading"></a></h2>
 <p>The suggested large projects can be built from scratch using one of
 the following three build-systems for Java. Make sure that the
 necessary build tool is installed and can be run from the command
@@ -383,7 +353,7 @@ correctly to the foldere with sources and the compiled
 the file <code class="docutils literal notranslate"><span class="pre">bugs.txt</span></code> under the locally created folder <code class="docutils literal notranslate"><span class="pre">infer-out</span></code>.</p>
 </section>
 <section id="tips-and-tricks">
-<h2><span class="section-number">12.7. </span>Tips and Tricks<a class="headerlink" href="#tips-and-tricks" title="Permalink to this heading"></a></h2>
+<h2>Tips and Tricks<a class="headerlink" href="#tips-and-tricks" title="Permalink to this heading"></a></h2>
 <p>Here are some hints and comments on how to approach this assignment.</p>
 <ul class="simple">
 <li><p>It is suggested that you team up with someone who uses a different
@@ -447,7 +417,7 @@ have nice automated tools that discover them so efficiently).</p></li>
 </ul>
 </section>
 <section id="further-reading">
-<h2><span class="section-number">12.8. </span>Further Reading<a class="headerlink" href="#further-reading" title="Permalink to this heading"></a></h2>
+<h2>Further Reading<a class="headerlink" href="#further-reading" title="Permalink to this heading"></a></h2>
 <p>More about why data races might be harmful:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://stackoverflow.com/questions/20374281/are-data-races-bad">Are Data Races bad? (StackOverflow)</a></p></li>
@@ -469,10 +439,7 @@ might also want to check the following research papers:</p>
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="week-09-skiplists.html" class="btn btn-neutral float-left" title="11. Week 09: Concurrent Stacks and Skiplists" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="week-10-futures.html" class="btn btn-neutral float-right" title="13. Week 10: Asynchronous Computations and Futures" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+          <footer>
 
   <hr/>
 
