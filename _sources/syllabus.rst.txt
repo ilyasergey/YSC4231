@@ -8,7 +8,7 @@ The list of topics below is a subject of possible minor changes.
 Lectures
 --------
 
-* Introduction: What this course is about.
+* Introduction: basic problems in concurrency, safety, liveness.
 * Functional and Imperative Programming in Scala
 * Mutual Exclusion
 * Concurrent Objects
@@ -19,7 +19,6 @@ Lectures
 * Read-Write Locks
 * Linked Lists
 * Concurrent Queues; Stacks and Elimination 
-* Skiplists
 * Data Race Detection in Practice
 * Futures in Java 
 * Futures and Asynchronous Computations in Scala
