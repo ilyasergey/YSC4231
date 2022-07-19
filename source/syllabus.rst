@@ -1,7 +1,7 @@
 .. -*- mode: rst -*-
 
-Course Syllabus
-===============
+Course Syllabus and Grading Schema
+==================================
 
 The list of topics below is a subject of possible minor changes.
 
