@@ -18,7 +18,7 @@ In your preparation for the first lecture, please install the following software
 
 * `Oracle Java SDK 11 <https://www.oracle.com/sg/java/technologies/javase/jdk11-archive-downloads.html>`_.
   You will need to make an Oracle account to download the latest version.
-* `Scala Build Tool (sbt) <https://www.scala-sbt.org/download.html3>`_
+* `Scala Build Tool (sbt) <https://www.scala-sbt.org/download.html>`_
 * `IntelliJ IDEA <https://www.jetbrains.com/idea/>`_. When you start IntelliJ for the first time, make sure to choose Scala plugin when IntelliJ IDEA suggests you to download featured plugins.
 * `Scala plugin for IntelliJ IDEA <https://www.jetbrains.com/help/idea/discover-intellij-idea-for-scala.html>`_ (if not installed in the previous step)
 
