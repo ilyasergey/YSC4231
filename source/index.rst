@@ -12,9 +12,9 @@ Parallel, Concurrent and Distributed Programming (Autumn 2022)
 * Instructor: `Ilya Sergey <https://ilyasergey.net/>`_
 * Lectures: Thursdays, 13:00-16:00
 * Location: Yale-NUS College, Y-CR15
-* Office hours: #RC3-01-03E (Cendana), time/date TBA
-* Peer Tutor: TBA
-* Tutoring Sessions: TBA
+* Office hours: #RC3-01-03E (Cendana), Thursdays, after the lecture
+* Peer Tutor: `Karolina Grzeszkiewicz <karolina.grzeszkiewicz@u.yale-nus.edu.sg>`_
+* Peer Tutoring Sessions: TBA
 
 Lectures
 --------
@@ -23,7 +23,8 @@ Lectures
    :numbered:
    :maxdepth: 1
 
-..   week-01-intro
+   week-01-intro
+
 ..   week-02-scala
 ..   week-03-mutex
 ..   week-03-concurrent-objects

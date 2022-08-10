@@ -100,5 +100,5 @@ Troubleshooting
    This problem has been observed on Windows 11.
 
    **Solution** Open ``File -> Project Structure``, category ``Project Settings -> Project``
-   and sekect a Java SDK (e.g. OpenJDK version 11.0.5 or similar one)
+   and select a Java SDK (e.g. OpenJDK version 11.0.5 or similar one)
    from what's already installed at your system.
