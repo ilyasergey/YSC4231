@@ -1,21 +1,22 @@
 <!DOCTYPE html>
-<html class="writer-html4" lang="en" >
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Week 09: Data Race Detection in Practice &mdash; YSC4231 2021</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <title>Week 09: Data Race Detection in Practice &mdash; YSC4231 2021</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
-  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"extensions": ["tex2jax.js"], "jax": ["input/TeX", "output/HTML-CSS"]})</script>
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
@@ -68,10 +69,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="week-09-data-race-detection-in-practice">
-<h1>Week 09: Data Race Detection in Practice<a class="headerlink" href="#week-09-data-race-detection-in-practice" title="Permalink to this headline">¶</a></h1>
+  <section id="week-09-data-race-detection-in-practice">
+<h1>Week 09: Data Race Detection in Practice<a class="headerlink" href="#week-09-data-race-detection-in-practice" title="Permalink to this heading"></a></h1>
 <ul class="simple">
-<li><a class="reference external" href="_static/resources/ysc4231-week-09-races.pdf">Lecture Slides</a></li>
+<li><p><a class="reference external" href="_static/resources/ysc4231-week-09-races.pdf">Lecture Slides</a></p></li>
 </ul>
 <p>In this mini research project you’ll be working in groups of two. The
 goal of this project is to get you exposed to the state-of-the-art
@@ -81,8 +82,8 @@ this project, but you are expected to understand the meaning of Java’s
 <code class="docutils literal notranslate"><span class="pre">synchronized</span></code> keyword and be able to follow the structure of class
 definitions. Given your knowledge of Scala, figuring out those
 relations should be trivial.</p>
-<div class="section" id="background-data-races-in-java">
-<h2>Background: Data Races in Java<a class="headerlink" href="#background-data-races-in-java" title="Permalink to this headline">¶</a></h2>
+<section id="background-data-races-in-java">
+<h2>Background: Data Races in Java<a class="headerlink" href="#background-data-races-in-java" title="Permalink to this heading"></a></h2>
 <p>In the previous lectures of this module, we’ve been primarily
 concerned with implementations of non-trivial concurrent data
 structures and algorithms, most of which feature a form of “racing”
@@ -99,11 +100,11 @@ commonly referred to as a <cite>data race</cite>.</p>
 <p>According to Oracle’s <a class="reference external" href="https://docs.oracle.com/cd/E19205-01/820-0619/geojs/index.html">official documentation</a>, a
 <strong>data race</strong> in concurrent Java code occurs when:</p>
 <ul class="simple">
-<li>two or more threads in a single process access the same memory
-location (i.e., a mutable field of an object) concurrently, and</li>
-<li>at least one of the accesses is for writing, and</li>
-<li>the threads are not using any exclusive locks to control their
-accesses to that memory.</li>
+<li><p>two or more threads in a single process access the same memory
+location (i.e., a mutable field of an object) concurrently, and</p></li>
+<li><p>at least one of the accesses is for writing, and</p></li>
+<li><p>the threads are not using any exclusive locks to control their
+accesses to that memory.</p></li>
 </ul>
 <p>When these three conditions hold, the order of accesses is
 non-deterministic, and the computation may give different results from
@@ -123,9 +124,9 @@ synchronisation.</p>
 <p>Luckily for the humanity, such data races often can be identified in
 an automated way via tools for <cite>static program analysis</cite>. This project
 is dedicated to interaction with one of such tools.</p>
-</div>
-<div class="section" id="the-tool-facebook-infer">
-<h2>The Tool: Facebook Infer<a class="headerlink" href="#the-tool-facebook-infer" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="the-tool-facebook-infer">
+<h2>The Tool: Facebook Infer<a class="headerlink" href="#the-tool-facebook-infer" title="Permalink to this heading"></a></h2>
 <p>We will be using <a class="reference external" href="https://fbinfer.com">Facebook Infer</a> as a tool for
 static data race detection in large Java projects. Infer provides a
 large suite of analyses for Java code, but we will only need its data
@@ -138,43 +139,43 @@ provides a number of examples. You don’t have to understand all the
 details of Section 5 or follow the specifics of the experiments, just
 look for a general intuition on how the analysis reports data races.</p>
 <ul class="simple">
-<li><a class="reference external" href="https://ilyasergey.net/papers/racerd-oopsla18.pdf">RacerD: Compositional Static Race Detection</a></li>
+<li><p><a class="reference external" href="https://ilyasergey.net/papers/racerd-oopsla18.pdf">RacerD: Compositional Static Race Detection</a></p></li>
 </ul>
 <p>You may also find it useful to watch the accompanying video of the
 <a class="reference external" href="https://www.youtube.com/watch?v=1fnUTMMQ5y0">conference talk</a> on
 RacerD.</p>
-</div>
-<div class="section" id="example-of-a-racy-java-class">
-<h2>Example of a Racy Java Class<a class="headerlink" href="#example-of-a-racy-java-class" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="example-of-a-racy-java-class">
+<h2>Example of a Racy Java Class<a class="headerlink" href="#example-of-a-racy-java-class" title="Permalink to this heading"></a></h2>
 <p>As an example of a simple data race, consider the following Java code:</p>
-<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="k">class</span> <span class="nc">Racy</span> <span class="o">{</span>
-  <span class="n">public</span> <span class="n">void</span> <span class="n">foo</span><span class="o">(</span><span class="n">B</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">final</span> <span class="n">A</span> <span class="n">a</span> <span class="k">=</span> <span class="k">new</span> <span class="n">A</span><span class="o">();</span>
-    <span class="n">synchronized</span> <span class="o">(</span><span class="k">this</span><span class="o">)</span> <span class="o">{</span>
-      <span class="n">b</span><span class="o">.</span><span class="n">haz</span><span class="o">(</span><span class="n">a</span><span class="o">);</span>
-      <span class="n">b</span><span class="o">.</span><span class="n">haha</span><span class="o">(</span><span class="mi">42</span><span class="o">);</span>
-    <span class="o">}</span>
-  <span class="o">}</span>
-<span class="o">}</span>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Racy</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">public</span><span class="w"> </span><span class="n">void</span><span class="w"> </span><span class="n">foo</span><span class="p">(</span><span class="nc">B</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">final</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nc">A</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="k">synchronized</span><span class="w"> </span><span class="p">(</span><span class="bp">this</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">b</span><span class="p">.</span><span class="n">haz</span><span class="p">(</span><span class="n">a</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">b</span><span class="p">.</span><span class="n">haha</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="k">class</span> <span class="nc">B</span> <span class="o">{</span>
-  <span class="n">A</span> <span class="n">myA</span> <span class="k">=</span> <span class="k">new</span> <span class="n">A</span><span class="o">();</span>
-  <span class="n">public</span> <span class="n">synchronized</span> <span class="n">void</span> <span class="n">haz</span> <span class="o">(</span><span class="n">A</span> <span class="n">a</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">myA</span> <span class="k">=</span> <span class="n">a</span><span class="o">;</span>
-  <span class="o">}</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">B</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nc">A</span><span class="w"> </span><span class="n">myA</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nc">A</span><span class="p">();</span><span class="w"></span>
+<span class="w">  </span><span class="n">public</span><span class="w"> </span><span class="k">synchronized</span><span class="w"> </span><span class="n">void</span><span class="w"> </span><span class="n">haz</span><span class="w"> </span><span class="p">(</span><span class="nc">A</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">myA</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  <span class="k">protected</span> <span class="n">void</span> <span class="n">haha</span><span class="o">(</span><span class="n">int</span> <span class="n">x</span><span class="o">){</span>
-    <span class="n">myA</span><span class="o">.</span><span class="n">f</span> <span class="k">=</span> <span class="n">x</span><span class="o">;</span>
-  <span class="o">}</span>
-<span class="o">}</span>
+<span class="w">  </span><span class="k">protected</span><span class="w"> </span><span class="n">void</span><span class="w"> </span><span class="n">haha</span><span class="p">(</span><span class="n">int</span><span class="w"> </span><span class="n">x</span><span class="p">){</span><span class="w"></span>
+<span class="w">    </span><span class="n">myA</span><span class="p">.</span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="k">class</span> <span class="nc">A</span> <span class="o">{</span> <span class="n">int</span> <span class="n">f</span> <span class="k">=</span> <span class="mi">0</span><span class="o">;</span> <span class="o">}</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">int</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>In order to compile this code to JVM’s <code class="docutils literal notranslate"><span class="pre">.class</span></code> binary file, you
 need to save it in the file <code class="docutils literal notranslate"><span class="pre">Racy.java</span></code> and then invoke the
 following command from the terminal:</p>
-<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">javac</span> <span class="nc">Racy</span><span class="o">.</span><span class="n">java</span>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">javac</span><span class="w"> </span><span class="nc">Racy</span><span class="p">.</span><span class="n">java</span><span class="w"></span>
 </pre></div>
 </div>
 <p>The code should compile without errors.</p>
@@ -185,25 +186,25 @@ race, manifested by some of involved objects’ mutable fields being
 potentially accessed without synchronisation.</p>
 <p>To confirm that, let’s delete the compiled <code class="docutils literal notranslate"><span class="pre">.class</span></code> file and re-run
 the compilation of <code class="docutils literal notranslate"><span class="pre">Racy.java</span></code> with Infer/RacerD:</p>
-<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">infer</span> <span class="o">--</span><span class="n">racerd</span><span class="o">-</span><span class="n">only</span> <span class="o">--</span> <span class="n">javac</span> <span class="nc">Racy</span><span class="o">.</span><span class="n">java</span>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">infer</span><span class="w"> </span><span class="o">--</span><span class="n">racerd</span><span class="o">-</span><span class="n">only</span><span class="w"> </span><span class="o">--</span><span class="w"> </span><span class="n">javac</span><span class="w"> </span><span class="nc">Racy</span><span class="p">.</span><span class="n">java</span><span class="w"></span>
 </pre></div>
 </div>
 <p>The following is printed to the output:</p>
-<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span>Found 1 issue
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="nc">Found</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">issue</span><span class="w"></span>
 
-Racy.java:19: error: THREAD_SAFETY_VIOLATION
+<span class="nc">Racy</span><span class="p">.</span><span class="n">java</span><span class="p">:</span><span class="mi">19</span><span class="p">:</span><span class="w"> </span><span class="n">error</span><span class="p">:</span><span class="w"> </span><span class="nc">THREAD_SAFETY_VIOLATION</span><span class="w"></span>
 
-  Read/Write race. Non-private method `void B.haha(int)` reads
-  without synchronization from `this.B.myA`. Potentially races with
-  write in method `B.haz(...)`.
-  Reporting because another access to the same memory occurs on a
-  background thread, although this access may not.
+<span class="w">  </span><span class="nc">Read</span><span class="o">/</span><span class="nc">Write</span><span class="w"> </span><span class="n">race</span><span class="p">.</span><span class="w"> </span><span class="nc">Non</span><span class="o">-</span><span class="k">private</span><span class="w"> </span><span class="n">method</span><span class="w"> </span><span class="n">`void B.haha(int)`</span><span class="w"> </span><span class="n">reads</span><span class="w"></span>
+<span class="w">  </span><span class="n">without</span><span class="w"> </span><span class="n">synchronization</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">`this.B.myA`</span><span class="p">.</span><span class="w"> </span><span class="nc">Potentially</span><span class="w"> </span><span class="n">races</span><span class="w"> </span><span class="k">with</span><span class="w"></span>
+<span class="w">  </span><span class="n">write</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">method</span><span class="w"> </span><span class="n">`B.haz(...)`</span><span class="p">.</span><span class="w"></span>
+<span class="w">  </span><span class="nc">Reporting</span><span class="w"> </span><span class="n">because</span><span class="w"> </span><span class="n">another</span><span class="w"> </span><span class="n">access</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">same</span><span class="w"> </span><span class="n">memory</span><span class="w"> </span><span class="n">occurs</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">a</span><span class="w"></span>
+<span class="w">  </span><span class="n">background</span><span class="w"> </span><span class="n">thread</span><span class="p">,</span><span class="w"> </span><span class="n">although</span><span class="w"> </span><span class="bp">this</span><span class="w"> </span><span class="n">access</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">not</span><span class="p">.</span><span class="w"></span>
 
-  17.
-  18.     protected void haha(int x){
-  19. &gt;     myA.f = x;
-  20.     }
-  21.   }
+<span class="w">  </span><span class="mi">17</span><span class="p">.</span><span class="w"></span>
+<span class="w">  </span><span class="mi">18</span><span class="p">.</span><span class="w">     </span><span class="k">protected</span><span class="w"> </span><span class="n">void</span><span class="w"> </span><span class="n">haha</span><span class="p">(</span><span class="n">int</span><span class="w"> </span><span class="n">x</span><span class="p">){</span><span class="w"></span>
+<span class="w">  </span><span class="mi">19</span><span class="p">.</span><span class="w"> </span><span class="o">&gt;</span><span class="w">     </span><span class="n">myA</span><span class="p">.</span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="mi">20</span><span class="p">.</span><span class="w">     </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="mi">21</span><span class="p">.</span><span class="w">   </span><span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>This indicates that a call of the method <code class="docutils literal notranslate"><span class="pre">haha()</span></code> may create a race,
@@ -213,9 +214,9 @@ method <code class="docutils literal notranslate"><span class="pre">haz()</span>
 recorded in the locally created file <code class="docutils literal notranslate"><span class="pre">infer-out/bugs.txt</span></code>.</p>
 <p><strong>Question:</strong> Can you suggest how we could fix this issue by
 introducing more synchronisation?</p>
-</div>
-<div class="section" id="the-task">
-<h2>The Task<a class="headerlink" href="#the-task" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="the-task">
+<h2>The Task<a class="headerlink" href="#the-task" title="Permalink to this heading"></a></h2>
 <p>Your goal for in this assignment is to hunt down and explore data
 races in large real-world Java projects. A list of some of such
 projects is given below, but you may also find some on your own.</p>
@@ -228,33 +229,33 @@ fixed easily (e.g., by just declaring a Java method as
 <code class="docutils literal notranslate"><span class="pre">synchronized</span></code>), outline your ideas on what prevents one from doing
 so. The result of your project should a be PDF document that contains:</p>
 <div class="admonition-note admonition">
-<p class="first admonition-title">Note</p>
-<p class="last">If you work individually, you may only consider one project. In a
+<p class="admonition-title">Note</p>
+<p>If you work individually, you may only consider one project. In a
 team of two, you should consider at least <strong>two different</strong> projects.</p>
 </div>
 <ul class="simple">
-<li>A short report on the chosen Java projects. For instance, which
+<li><p>A short report on the chosen Java projects. For instance, which
 parts of the projects utilise concurrency, and why do you think it
-is beneficial there?</li>
-<li>Descriptions of 4 (8 for the team of two) data races (possibly
+is beneficial there?</p></li>
+<li><p>Descriptions of 4 (8 for the team of two) data races (possibly
 from multiple different projects), each complemented with a short story as
 described above. Some variations on what is reported are possible
-and are described below.</li>
-<li>If applicable, a quick enumeration of the technical issues
+and are described below.</p></li>
+<li><p>If applicable, a quick enumeration of the technical issues
 encountered while working on this project (to help the future
-generations).</li>
+generations).</p></li>
 </ul>
 <div class="admonition-building-infer-on-apple-m1 admonition">
-<p class="first admonition-title">Building Infer on Apple M1</p>
-<p class="last">If you’re using macOS on Apple silicon chip (M1), please, install
+<p class="admonition-title">Building Infer on Apple M1</p>
+<p>If you’re using macOS on Apple silicon chip (M1), please, install
 Infer by building it from the <a class="reference external" href="https://github.com/facebook/infer">master branch of the development
 repository</a> following the
 instructions in the <code class="docutils literal notranslate"><span class="pre">INSTALL.md</span></code> file. The sources are checked to
 compile for <a class="reference external" href="https://github.com/facebook/infer/commit/ca05cfdb0b3e2f8bfa755e9c2ec03ec424ace090">this commit</a>.</p>
 </div>
 <div class="admonition-building-infer-on-linux-and-windows-wsl admonition">
-<p class="first admonition-title">Building Infer on Linux and Windows/WSL</p>
-<p class="last">If you’re using Linux or Windows/WSL and want to run RacerD
+<p class="admonition-title">Building Infer on Linux and Windows/WSL</p>
+<p>If you’re using Linux or Windows/WSL and want to run RacerD
 natively, please, install <a class="reference external" href="https://github.com/facebook/infer/releases/tag/v0.17.0">Version 0.17.0</a> of the
 tool by compiling it from the sources as described in the
 <a class="reference external" href="https://github.com/facebook/infer/blob/99464c01da5809e7159ed1a75ef10f60d34506a4/INSTALL.md">corresponding instructions</a>.
@@ -262,19 +263,19 @@ Before running the build script, make sure to install all the
 dependencies via <code class="docutils literal notranslate"><span class="pre">apt</span></code> package manager, as listed, e.g., in <a class="reference external" href="https://github.com/facebook/infer/blob/99464c01da5809e7159ed1a75ef10f60d34506a4/docker/master/Dockerfile">this
 file</a>.</p>
 </div>
-</div>
-<div class="section" id="open-source-java-projects-with-concurrency">
-<h2>Open-Source Java Projects with Concurrency<a class="headerlink" href="#open-source-java-projects-with-concurrency" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="open-source-java-projects-with-concurrency">
+<h2>Open-Source Java Projects with Concurrency<a class="headerlink" href="#open-source-java-projects-with-concurrency" title="Permalink to this heading"></a></h2>
 <p>Below is a list of some real-world Java projects using concurrency.
 Most of them contain data races. Feel free to pick one or more of them
 to explore in our data race study.</p>
 <ul class="simple">
-<li><a class="reference external" href="https://github.com/apache/tomcat">https://github.com/apache/tomcat</a></li>
-<li><a class="reference external" href="https://github.com/aragozin/jvm-tools">https://github.com/aragozin/jvm-tools</a></li>
-<li><a class="reference external" href="https://github.com/OpenHFT/Chronicle-Map">https://github.com/OpenHFT/Chronicle-Map</a></li>
-<li><a class="reference external" href="https://github.com/ReactiveX/RxJava">https://github.com/ReactiveX/RxJava</a></li>
-<li><a class="reference external" href="https://github.com/adammurdoch/native-platform">https://github.com/adammurdoch/native-platform</a></li>
-<li><a class="reference external" href="https://github.com/aws/aws-sdk-java">https://github.com/aws/aws-sdk-java</a></li>
+<li><p><a class="reference external" href="https://github.com/apache/tomcat">https://github.com/apache/tomcat</a></p></li>
+<li><p><a class="reference external" href="https://github.com/aragozin/jvm-tools">https://github.com/aragozin/jvm-tools</a></p></li>
+<li><p><a class="reference external" href="https://github.com/OpenHFT/Chronicle-Map">https://github.com/OpenHFT/Chronicle-Map</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ReactiveX/RxJava">https://github.com/ReactiveX/RxJava</a></p></li>
+<li><p><a class="reference external" href="https://github.com/adammurdoch/native-platform">https://github.com/adammurdoch/native-platform</a></p></li>
+<li><p><a class="reference external" href="https://github.com/aws/aws-sdk-java">https://github.com/aws/aws-sdk-java</a></p></li>
 </ul>
 <p>The projects were chosen for the facts that they extensively use
 Java’s <code class="docutils literal notranslate"><span class="pre">synchronized</span></code> primitive and, occasionally, the
@@ -283,9 +284,9 @@ Java’s <code class="docutils literal notranslate"><span class="pre">synchroniz
 those are reasonably large projects not implemented by yourself. That
 said, it is also fine if your exploration will be limited to a subset
 of the projects listed above.</p>
-</div>
-<div class="section" id="running-racerd-on-custom-projects">
-<h2>Running RacerD on Custom Projects<a class="headerlink" href="#running-racerd-on-custom-projects" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="running-racerd-on-custom-projects">
+<h2>Running RacerD on Custom Projects<a class="headerlink" href="#running-racerd-on-custom-projects" title="Permalink to this heading"></a></h2>
 <p>The suggested large projects can be built from scratch using one of
 the following three build-systems for Java. Make sure that the
 necessary build tool is installed and can be run from the command
@@ -295,19 +296,19 @@ kind of build system used by a particular project is determined by a
 <cite>building descriptor file</cite> (or simply <cite>buildfile</cite>) that can be located
 in the project root folder:</p>
 <ul class="simple">
-<li><a class="reference external" href="https://ant.apache.org/manual/install.html">Ant</a> (buildfile
+<li><p><a class="reference external" href="https://ant.apache.org/manual/install.html">Ant</a> (buildfile
 <code class="docutils literal notranslate"><span class="pre">build.xml</span></code>) — one of the oldest build systems for Java, which
 is rarely used nowadays. In order to build a project, you typically
 only need to run <code class="docutils literal notranslate"><span class="pre">ant</span></code> from the terminal. To remove all compiled
-files, run <code class="docutils literal notranslate"><span class="pre">ant</span> <span class="pre">clean</span></code>.</li>
-<li><a class="reference external" href="https://maven.apache.org/install.html">Maven</a> (buildfile
+files, run <code class="docutils literal notranslate"><span class="pre">ant</span> <span class="pre">clean</span></code>.</p></li>
+<li><p><a class="reference external" href="https://maven.apache.org/install.html">Maven</a> (buildfile
 <code class="docutils literal notranslate"><span class="pre">pom.xml</span></code>) — a more advanced build system, similar in spirit to
 Scala’s SBT. To compile a project, run <code class="docutils literal notranslate"><span class="pre">mvn</span> <span class="pre">compile</span></code>. To clean the
-project from the results of the compilation, run <code class="docutils literal notranslate"><span class="pre">mvn</span> <span class="pre">clean</span></code>.</li>
-<li><a class="reference external" href="https://gradle.org/install/">Gradle</a> (buildfile <code class="docutils literal notranslate"><span class="pre">build.gradle</span></code>)
+project from the results of the compilation, run <code class="docutils literal notranslate"><span class="pre">mvn</span> <span class="pre">clean</span></code>.</p></li>
+<li><p><a class="reference external" href="https://gradle.org/install/">Gradle</a> (buildfile <code class="docutils literal notranslate"><span class="pre">build.gradle</span></code>)
 — a build system based on the Groovy programming language. To
 build, run <code class="docutils literal notranslate"><span class="pre">./gradlew</span> <span class="pre">build</span></code> from the project root. To clean, run
-<code class="docutils literal notranslate"><span class="pre">./gradlew</span> <span class="pre">clean</span></code>.</li>
+<code class="docutils literal notranslate"><span class="pre">./gradlew</span> <span class="pre">clean</span></code>.</p></li>
 </ul>
 <p>Check the <code class="docutils literal notranslate"><span class="pre">README</span></code> files of the corresponding projects for specific
 instructions.</p>
@@ -318,20 +319,20 @@ been removed via, e.g., <code class="docutils literal notranslate"><span class="
 don’t ensure this, RacerD will most likely not report any results. To
 run the analysis attached to a building process, run the following
 command:</p>
-<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">infer</span> <span class="o">--</span><span class="n">racerd</span><span class="o">-</span><span class="n">only</span> <span class="o">--</span> <span class="o">&lt;</span><span class="n">build</span><span class="o">-</span><span class="n">command</span><span class="o">&gt;</span>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">infer</span><span class="w"> </span><span class="o">--</span><span class="n">racerd</span><span class="o">-</span><span class="n">only</span><span class="w"> </span><span class="o">--</span><span class="w"> </span><span class="o">&lt;</span><span class="n">build</span><span class="o">-</span><span class="n">command</span><span class="o">&gt;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>where <code class="docutils literal notranslate"><span class="pre">&lt;build-command&gt;</span></code> should be the corresponding command for a
 particular build system, for instance:</p>
-<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">infer</span> <span class="o">--</span><span class="n">racerd</span><span class="o">-</span><span class="n">only</span> <span class="o">--</span> <span class="n">ant</span>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">infer</span><span class="w"> </span><span class="o">--</span><span class="n">racerd</span><span class="o">-</span><span class="n">only</span><span class="w"> </span><span class="o">--</span><span class="w"> </span><span class="n">ant</span><span class="w"></span>
 </pre></div>
 </div>
 <p>or:</p>
-<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">infer</span> <span class="o">--</span><span class="n">racerd</span><span class="o">-</span><span class="n">only</span> <span class="o">--</span> <span class="n">mvn</span> <span class="n">compile</span>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">infer</span><span class="w"> </span><span class="o">--</span><span class="n">racerd</span><span class="o">-</span><span class="n">only</span><span class="w"> </span><span class="o">--</span><span class="w"> </span><span class="n">mvn</span><span class="w"> </span><span class="n">compile</span><span class="w"></span>
 </pre></div>
 </div>
 <p>or:</p>
-<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">infer</span> <span class="o">--</span><span class="n">racerd</span><span class="o">-</span><span class="n">only</span> <span class="o">--</span> <span class="o">./</span><span class="n">gradlew</span> <span class="n">build</span>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">infer</span><span class="w"> </span><span class="o">--</span><span class="n">racerd</span><span class="o">-</span><span class="n">only</span><span class="w"> </span><span class="o">--</span><span class="w"> </span><span class="p">.</span><span class="o">/</span><span class="n">gradlew</span><span class="w"> </span><span class="n">build</span><span class="w"></span>
 </pre></div>
 </div>
 <p>depending on the parrticular build system the project uses.</p>
@@ -342,29 +343,29 @@ the project as a replacement of <code class="docutils literal notranslate"><span
 above. If the compilation of the project fails, you still might be
 able to partially analyse it if adding the flag <code class="docutils literal notranslate"><span class="pre">--keep-going</span></code> to
 the command <code class="docutils literal notranslate"><span class="pre">infer</span> <span class="pre">--racerd-only</span></code>:</p>
-<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">infer</span> <span class="o">--</span><span class="n">racerd</span><span class="o">-</span><span class="n">only</span> <span class="o">--</span><span class="n">keep</span><span class="o">-</span><span class="n">going</span> <span class="o">--</span> <span class="o">&lt;</span><span class="n">build</span><span class="o">-</span><span class="n">command</span><span class="o">&gt;</span>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">infer</span><span class="w"> </span><span class="o">--</span><span class="n">racerd</span><span class="o">-</span><span class="n">only</span><span class="w"> </span><span class="o">--</span><span class="n">keep</span><span class="o">-</span><span class="n">going</span><span class="w"> </span><span class="o">--</span><span class="w"> </span><span class="o">&lt;</span><span class="n">build</span><span class="o">-</span><span class="n">command</span><span class="o">&gt;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Finally, you can also run Infer after the compilattion, by pointing it
 correctly to the foldere with sources and the compiled
 <code class="docutils literal notranslate"><span class="pre">.class</span></code>-files as follows:</p>
-<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">infer</span> <span class="o">--</span><span class="n">racerd</span><span class="o">-</span><span class="n">only</span> <span class="o">--</span><span class="n">sourcepath</span> <span class="o">&lt;</span><span class="n">path</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">java</span><span class="o">-</span><span class="n">files</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">generated</span><span class="o">-</span><span class="n">classes</span> <span class="o">&lt;</span><span class="n">path</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">class</span><span class="o">-</span><span class="n">files</span><span class="o">&gt;</span>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">infer</span><span class="w"> </span><span class="o">--</span><span class="n">racerd</span><span class="o">-</span><span class="n">only</span><span class="w"> </span><span class="o">--</span><span class="n">sourcepath</span><span class="w"> </span><span class="o">&lt;</span><span class="n">path</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">java</span><span class="o">-</span><span class="n">files</span><span class="o">&gt;</span><span class="w"> </span><span class="o">--</span><span class="n">generated</span><span class="o">-</span><span class="n">classes</span><span class="w"> </span><span class="o">&lt;</span><span class="n">path</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="k">class</span><span class="nc">-</span><span class="n">files</span><span class="o">&gt;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>As previously shown, all results of the analysis run are collected in
 the file <code class="docutils literal notranslate"><span class="pre">bugs.txt</span></code> under the locally created folder <code class="docutils literal notranslate"><span class="pre">infer-out</span></code>.</p>
-</div>
-<div class="section" id="tips-and-tricks">
-<h2>Tips and Tricks<a class="headerlink" href="#tips-and-tricks" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="tips-and-tricks">
+<h2>Tips and Tricks<a class="headerlink" href="#tips-and-tricks" title="Permalink to this heading"></a></h2>
 <p>Here are some hints and comments on how to approach this assignment.</p>
 <ul class="simple">
-<li>It is suggested that you team up with someone who uses a different
+<li><p>It is suggested that you team up with someone who uses a different
 OS than you (e.g., Mac OS and Linux) to cater for the situations
 when building a project or running Infer is impossible due to
 system-specific reasons. It is perfectly fine if just one of the
 teammates obtains the report, and they you split the workload on
-code triaging for bugs.</li>
-<li>If you run WSL or Linux, I suggest you install Infer version 0.17.0.
+code triaging for bugs.</p></li>
+<li><p>If you run WSL or Linux, I suggest you install Infer version 0.17.0.
 It can be built from sources available as a <a class="reference external" href="https://github.com/facebook/infer/releases/tag/v0.17.0">zip-archive</a>. Follow
 the <a class="reference external" href="https://github.com/facebook/infer/blob/99464c01da5809e7159ed1a75ef10f60d34506a4/INSTALL.md">instructions on building it</a>
 and make sure to first install all the Linux dependencies via apt
@@ -373,70 +374,70 @@ Before building Infer make sure that you have JDK 1.8 installed (in principle,
 1.11 should work too, but I haven’t checked it).
 <a class="reference external" href="https://docs.datastax.com/en/jdk-install/doc/jdk-install/installOpenJdkDeb.html">Here is a link to</a>
 some instructions on how to do that. Make sure that both your
-Java and Javac are of the correct version. You can switch them as described <a class="reference external" href="https://dev.to/harsvnc/how-to-change-your-java-and-javac-version-on-ubuntu-linux-1omj">here</a>.</li>
-<li>Please, allocate sufficient time to install Infer and build some of
+Java and Javac are of the correct version. You can switch them as described <a class="reference external" href="https://dev.to/harsvnc/how-to-change-your-java-and-javac-version-on-ubuntu-linux-1omj">here</a>.</p></li>
+<li><p>Please, allocate sufficient time to install Infer and build some of
 the projects and be prepared to resolve the issues with missing
 libraries and/or dependencies. Solving those might take <strong>much
-longer</strong> than you’d expect!</li>
-<li>Your reported data race don’t have all come from the same project:
+longer</strong> than you’d expect!</p></li>
+<li><p>Your reported data race don’t have all come from the same project:
 you may pick as many projects as necessary to describe in your
-report.</li>
-<li>You <strong>don’t</strong> have to understand what <cite>exactly</cite> the analysed code
+report.</p></li>
+<li><p>You <strong>don’t</strong> have to understand what <cite>exactly</cite> the analysed code
 does. It’s perfectly fine if you explain an error in terms of
 fields/classes it affects, without explaining what purpose those
 classes serve. It is, in fact, quite frequent in large development
 to fix bugs in someone else’s code without fully understanding what
 it does but just following some predefined strategies (nowadays some
-bugs can be even fixed automatically!).</li>
-<li>Beware that Infer/RacerD can give <cite>false positives</cite>, i.e., report
+bugs can be even fixed automatically!).</p></li>
+<li><p>Beware that Infer/RacerD can give <cite>false positives</cite>, i.e., report
 some code as being racy, whereas in fact it is not. If you manage to
 identify such fragments (which is typically harder than confirming a
 race) and provide reasoning on why a certain report is a false
 positive, feel free to use it instead of one of the race report.
 That said, <strong>at least one</strong> of your reports should be about what you
-consider to be <strong>true race</strong> detected by the analyser.</li>
-<li>Related to the previous, some of the races reported by the tool can
+consider to be <strong>true race</strong> detected by the analyser.</p></li>
+<li><p>Related to the previous, some of the races reported by the tool can
 be <cite>benign</cite>, e.g., used for implementation of custom synchronisation
 mechanisms via atomic or <code class="docutils literal notranslate"><span class="pre">volatile</span></code> variable. If you manage to
 identify any properly describe one of those, feel free to use it in
-your report (instead of a proper data race report).</li>
-<li>Infer/RacerD is just another program, and it may contain bugs
+your report (instead of a proper data race report).</p></li>
+<li><p>Infer/RacerD is just another program, and it may contain bugs
 itself. Sometimes it might crash, in which case it is suggested you
 abandon a specific project that causes it to do so and try another
-one. Also, don’t spend too much time on a project you can’t compile.</li>
-<li>When looking for more projects on GitHub that have concurrency in
+one. Also, don’t spend too much time on a project you can’t compile.</p></li>
+<li><p>When looking for more projects on GitHub that have concurrency in
 them, it’s a good strategy to check if they use <code class="docutils literal notranslate"><span class="pre">synchronized</span></code>
-statements or <code class="docutils literal notranslate"><span class="pre">&#64;ThreadSafe</span></code> annotations.</li>
-<li>Don’t worry about confirming a data race reported by RacerD as a
+statements or <code class="docutils literal notranslate"><span class="pre">&#64;ThreadSafe</span></code> annotations.</p></li>
+<li><p>Don’t worry about confirming a data race reported by RacerD as a
 true one (in case if it’s not). This is an exploratory project,
 aimed to give you experience with bug detection at scale. That said,
 you are expected to do your best when explaining the nature of the
-bugs. Just copying-pasting RacerD report won’t do it.</li>
-<li>Don’t worry if the legitimate data races you’re describing are not
+bugs. Just copying-pasting RacerD report won’t do it.</p></li>
+<li><p>Don’t worry if the legitimate data races you’re describing are not
 so “interesting” and look like silly programming mistakes. Most of
 the real-life bugs are quite silly (and if they weren’t we couldn’t
-have nice automated tools that discover them so efficiently).</li>
+have nice automated tools that discover them so efficiently).</p></li>
 </ul>
-</div>
-<div class="section" id="further-reading">
-<h2>Further Reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="further-reading">
+<h2>Further Reading<a class="headerlink" href="#further-reading" title="Permalink to this heading"></a></h2>
 <p>More about why data races might be harmful:</p>
 <ul class="simple">
-<li><a class="reference external" href="https://stackoverflow.com/questions/20374281/are-data-races-bad">Are Data Races bad? (StackOverflow)</a></li>
-<li><a class="reference external" href="https://www.hpl.hp.com/techreports/2012/HPL-2012-218.pdf">Position Paper: Nondeterminism is unavoidable, but data races are pure evil</a></li>
+<li><p><a class="reference external" href="https://stackoverflow.com/questions/20374281/are-data-races-bad">Are Data Races bad? (StackOverflow)</a></p></li>
+<li><p><a class="reference external" href="https://www.hpl.hp.com/techreports/2012/HPL-2012-218.pdf">Position Paper: Nondeterminism is unavoidable, but data races are pure evil</a></p></li>
 </ul>
 <p>If you are interested in the state of the art in the research on data
 race detection, as well as on static analyses of production code, you
 might also want to check the following research papers:</p>
 <ul class="simple">
-<li>The <cite>Context and Selected Related Work</cite> section of <a class="reference external" href="https://fbinfer.com/docs/checker-racerd/#context-and-selected-related-work">RacerD documentation</a></li>
-<li><a class="reference external" href="https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/35604.pdf">ThreadSanitizer – data race detection in practice</a></li>
-<li><a class="reference external" href="https://users.soe.ucsc.edu/~cormac/papers/pldi09.pdf">FastTrack: Efficient and Precise Dynamic Race Detection</a></li>
-<li><a class="reference external" href="https://ai.google/research/pubs/pub46576">Lessons from Building Static Analysis Tools at Google</a></li>
-<li><a class="reference external" href="https://cacm.acm.org/magazines/2019/8/238344-scaling-static-analyses-at-facebook/fulltext">Scaling Static Analyses at Facebook</a></li>
+<li><p>The <cite>Context and Selected Related Work</cite> section of <a class="reference external" href="https://fbinfer.com/docs/checker-racerd/#context-and-selected-related-work">RacerD documentation</a></p></li>
+<li><p><a class="reference external" href="https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/35604.pdf">ThreadSanitizer – data race detection in practice</a></p></li>
+<li><p><a class="reference external" href="https://users.soe.ucsc.edu/~cormac/papers/pldi09.pdf">FastTrack: Efficient and Precise Dynamic Race Detection</a></p></li>
+<li><p><a class="reference external" href="https://ai.google/research/pubs/pub46576">Lessons from Building Static Analysis Tools at Google</a></p></li>
+<li><p><a class="reference external" href="https://cacm.acm.org/magazines/2019/8/238344-scaling-static-analyses-at-facebook/fulltext">Scaling Static Analyses at Facebook</a></p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>

@@ -1,21 +1,22 @@
 <!DOCTYPE html>
-<html class="writer-html4" lang="en" >
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Week 10: Asynchronous Computations and Futures &mdash; YSC4231 2021</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <title>Week 10: Asynchronous Computations and Futures &mdash; YSC4231 2021</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
-  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"extensions": ["tex2jax.js"], "jax": ["input/TeX", "output/HTML-CSS"]})</script>
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
@@ -68,86 +69,77 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="week-10-asynchronous-computations-and-futures">
-<h1>Week 10: Asynchronous Computations and Futures<a class="headerlink" href="#week-10-asynchronous-computations-and-futures" title="Permalink to this headline">¶</a></h1>
+  <section id="week-10-asynchronous-computations-and-futures">
+<h1>Week 10: Asynchronous Computations and Futures<a class="headerlink" href="#week-10-asynchronous-computations-and-futures" title="Permalink to this heading"></a></h1>
 <p>Useful resources:</p>
 <ul class="simple">
-<<<<<<< HEAD
 <li><p><a class="reference external" href="https://docs.scala-lang.org/overviews/core/futures.html">Documentation on Scala Futures and Promises</a></p></li>
 <li><p><a class="reference external" href="https://docs.scala-lang.org/tour/for-comprehensions.html">Scala’s for-comprehensions</a></p></li>
 <li><p>Futures and Async: <a class="reference external" href="https://speakerdeck.com/phaller/futures-and-async-when-to-use-which">Slides</a>
 and <a class="reference external" href="https://www.youtube.com/watch?v=TyuPdFDxkro">Video</a></p></li>
 <li><p><a class="reference external" href="https://github.com/ysc4231/lectures-2022/tree/10-futures">Code with examples</a>,
 package <code class="docutils literal notranslate"><span class="pre">futures</span></code></p></li>
-=======
-<li><a class="reference external" href="https://docs.scala-lang.org/overviews/core/futures.html">Documentation on Scala Futures and Promises</a></li>
-<li><a class="reference external" href="https://docs.scala-lang.org/tour/for-comprehensions.html">Scala’s for-comprehensions</a></li>
-<li>Futures and Async: <a class="reference external" href="https://speakerdeck.com/phaller/futures-and-async-when-to-use-which">Slides</a>
-and <a class="reference external" href="https://www.youtube.com/watch?v=TyuPdFDxkro">Video</a></li>
-<li><a class="reference external" href="https://github.com/ysc4231/lectures-2022/tree/10-futures">Code with examples</a>,
-package <code class="docutils literal notranslate"><span class="pre">futures</span></code></li>
->>>>>>> 12cdc281ba5398dae867d7e0b662b9f3c487afa3
 </ul>
-<div class="section" id="summary-of-the-lecture">
-<h2>Summary of the Lecture<a class="headerlink" href="#summary-of-the-lecture" title="Permalink to this headline">¶</a></h2>
+<section id="summary-of-the-lecture">
+<h2>Summary of the Lecture<a class="headerlink" href="#summary-of-the-lecture" title="Permalink to this heading"></a></h2>
 <p>A short summary of the files from the accompanying code is given below,
 outlining the characteristic aspects of working with Java Futures, as well as
 Scala Futures and Promises. It is recommended that the files are explored in the
 order they appear in the following list:</p>
 <p><strong>Java Futures</strong></p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">SortAndRead</span></code> — reading a user input after having performed a costly
+<li><p><code class="docutils literal notranslate"><span class="pre">SortAndRead</span></code> — reading a user input after having performed a costly
 operation (array sorting). This examples demonstrates the need for
-parallelisation.</li>
-<li><code class="docutils literal notranslate"><span class="pre">SortAndRead2</span></code> — a better version of the previous program. Sorting is
+parallelisation.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SortAndRead2</span></code> — a better version of the previous program. Sorting is
 moved into a separate future. Introducing Java’s thread pools and the class
-<code class="docutils literal notranslate"><span class="pre">Future</span></code>.</li>
-<li><code class="docutils literal notranslate"><span class="pre">SortAndRead3</span></code> — even better implementation, in which the user input is
-also moved into a separate future.</li>
+<code class="docutils literal notranslate"><span class="pre">Future</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SortAndRead3</span></code> — even better implementation, in which the user input is
+also moved into a separate future.</p></li>
 </ul>
 <p><strong>An Exercise on Java Futures</strong></p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">FutureSort</span></code> — an old friend, parallel quick-sort, now re-implemented with
+<li><p><code class="docutils literal notranslate"><span class="pre">FutureSort</span></code> — an old friend, parallel quick-sort, now re-implemented with
 Java futures. An interesting question is why some of the offered thread pools,
-e.g., <code class="docutils literal notranslate"><span class="pre">Executors.newFixedThreadPool(4)</span></code> make it deadlock?</li>
+e.g., <code class="docutils literal notranslate"><span class="pre">Executors.newFixedThreadPool(4)</span></code> make it deadlock?</p></li>
 </ul>
 <p><strong>Scala Futures</strong></p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">FutureDataType</span></code> — a first example of using Scala’s futures, its
+<li><p><code class="docutils literal notranslate"><span class="pre">FutureDataType</span></code> — a first example of using Scala’s futures, its
 <code class="docutils literal notranslate"><span class="pre">isCompleted</span></code> method and the implicit execution context
-(<code class="docutils literal notranslate"><span class="pre">ExecutionContext.Implicits.global</span></code>).</li>
-<li><code class="docutils literal notranslate"><span class="pre">FuturesCallbacks</span></code> — demonstration of processing results of the futures
-asynchronously via callbacks (using <code class="docutils literal notranslate"><span class="pre">foreach</span></code> method).</li>
-<li><code class="docutils literal notranslate"><span class="pre">FutureExceptions</span></code> — treatment of exceptions in futures, via
+(<code class="docutils literal notranslate"><span class="pre">ExecutionContext.Implicits.global</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FuturesCallbacks</span></code> — demonstration of processing results of the futures
+asynchronously via callbacks (using <code class="docutils literal notranslate"><span class="pre">foreach</span></code> method).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FutureExceptions</span></code> — treatment of exceptions in futures, via
 <code class="docutils literal notranslate"><span class="pre">onComplete</span></code> method and pattern matching on the result class: <code class="docutils literal notranslate"><span class="pre">Success</span></code> or
-<code class="docutils literal notranslate"><span class="pre">Failure</span></code>.</li>
-<li><code class="docutils literal notranslate"><span class="pre">AwaitExample</span></code> — an example showing the use of <code class="docutils literal notranslate"><span class="pre">Await.result</span></code> method to
-wait for a future to complete or fail otherwise.</li>
+<code class="docutils literal notranslate"><span class="pre">Failure</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">AwaitExample</span></code> — an example showing the use of <code class="docutils literal notranslate"><span class="pre">Await.result</span></code> method to
+wait for a future to complete or fail otherwise.</p></li>
 </ul>
 <p><strong>Composing Scala Futures</strong></p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">Options</span></code> — a quick practice on building combinators for the <code class="docutils literal notranslate"><span class="pre">Option</span></code>
-type. Serves as an introduction to similar future combinators introduced next.</li>
-<li><code class="docutils literal notranslate"><span class="pre">ComposingFutures</span></code> — an example of composing two futures running
+<li><p><code class="docutils literal notranslate"><span class="pre">Options</span></code> — a quick practice on building combinators for the <code class="docutils literal notranslate"><span class="pre">Option</span></code>
+type. Serves as an introduction to similar future combinators introduced next.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ComposingFutures</span></code> — an example of composing two futures running
 asynchronously, via the explicit <code class="docutils literal notranslate"><span class="pre">flatMap</span></code> combinator (or using the <code class="docutils literal notranslate"><span class="pre">for</span></code>
 notation). Check: what changes in the execution if the futures are inlined
-under the <code class="docutils literal notranslate"><span class="pre">for</span></code> comprehension?</li>
-<li><code class="docutils literal notranslate"><span class="pre">BlacklistedFiles</span></code> — a large example involving composing futures in the
+under the <code class="docutils literal notranslate"><span class="pre">for</span></code> comprehension?</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BlacklistedFiles</span></code> — a large example involving composing futures in the
 implementation of <code class="docutils literal notranslate"><span class="pre">getAllBlacklisted</span></code>. Multiple ways to query the result are
-possible.</li>
-<li><code class="docutils literal notranslate"><span class="pre">ScalaFuturesTests</span></code> — shows how to test futures.</li>
+possible.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ScalaFuturesTests</span></code> — shows how to test futures.</p></li>
 </ul>
 <p><strong>Scala Promises</strong></p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">ProducerConsumer</span></code> — implementation of a producer-consumer with a
-promise, which serves as a single-assignment mailbox.</li>
-<li><code class="docutils literal notranslate"><span class="pre">ProducerConsumer2</span></code> — demonstration of <code class="docutils literal notranslate"><span class="pre">isCompleted</span></code> method of
-promises.</li>
-<li><code class="docutils literal notranslate"><span class="pre">ProducerConsumer3</span></code> — failing the promise and recovering after an
-exception in the future using the <code class="docutils literal notranslate"><span class="pre">recover</span></code> method.</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ProducerConsumer</span></code> — implementation of a producer-consumer with a
+promise, which serves as a single-assignment mailbox.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ProducerConsumer2</span></code> — demonstration of <code class="docutils literal notranslate"><span class="pre">isCompleted</span></code> method of
+promises.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ProducerConsumer3</span></code> — failing the promise and recovering after an
+exception in the future using the <code class="docutils literal notranslate"><span class="pre">recover</span></code> method.</p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
