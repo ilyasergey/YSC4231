@@ -590,7 +590,3 @@ done and a finer level of granularity by clicking on the individual
 ``describe``-component of a test suite. Finally, you can run `all`
 tests in the project by right-clicking on the test source folder in
 the project view on the left of the screen and choosing ``Run 'ScalaTest in scala...'``.
-
-.. Homework
-.. --------
-.. * `Programming Assignment 1 <_static/resources/programming-01.pdf>`_
