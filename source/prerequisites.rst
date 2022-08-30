@@ -32,8 +32,8 @@ Working with Multiple Java Versions
 -----------------------------------
 
 If you want to maintain multiple versions of Java Development Kit on your
-machine, consider installing the utility tool ``jenv`` (available `here
-<https://www.jenv.be/>`_). Follow the instructions on the linked webpage to
+machine, consider installing the utility tool ``jenv`` (available `for
+download here <https://www.jenv.be/>`_). Follow the instructions on the linked webpage to
 switch between multiple versions and add already installed versions to ``jenv``
 list.
 
