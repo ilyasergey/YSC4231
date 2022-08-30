@@ -1,10 +1,10 @@
 .. -*- mode: rst -*-
 
-Week 06: Spin Locks and Contention
+Week 04: Spin Locks and Contention
 ==================================
 
-* `Lecture Slides <_static/resources/ysc4231-week-06-spinlocks.pdf>`_
+* `Lecture Slides <_static/resources/ysc4231-week-04-spinlocks.pdf>`_
 * `Code with examples
-  <https://github.com/ysc4231/lectures-2022/tree/06-monitors>`_,
+  <https://github.com/ysc4231/lectures-2022/tree/04-locks>`_,
   package ``spinlocks``
 
