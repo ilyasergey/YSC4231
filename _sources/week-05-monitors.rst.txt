@@ -1,15 +1,15 @@
 .. -*- mode: rst -*-
 
-Week 06: Monitors and Blocking Synchronisation
+Week 04: Monitors and Blocking Synchronisation
 ==============================================
 
 In this chapter we will consider **monitors** --- a mechanism for
 `blocking` synchronisation of concurrently executing threads,
 complementary to spin-locks, considered previously.
 
-The code for this lecture is provided in branch ``06-monitors``
+The code for this lecture is provided in branch ``04-locks``
 (package ``monitors``) of the `accompanying repository
-<https://github.com/ysc4231/lectures-2022/tree/06-monitors>`_.
+<https://github.com/ysc4231/lectures-2022/tree/04-locks>`_.
 
 When Spinning isn't Good Enough
 -------------------------------
