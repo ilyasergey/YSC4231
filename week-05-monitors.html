@@ -589,7 +589,7 @@ monitor-based synchronisation:</p>
 allowing the “right ones” to proceed eventually.</p></li>
 <li><p><strong>Question</strong>: Will it sill work if we replace <code class="docutils literal notranslate"><span class="pre">notifyAll()</span></code> by
 <code class="docutils literal notranslate"><span class="pre">notify()</span></code>?</p></li>
-<li><p><strong>Answer</strong>: Nom, it will deadlock, as the thread of the same
+<li><p><strong>Answer</strong>: It might deadlock, as the thread of the same
 “parity” can be notified, and it won’t be able to proceed, hanging
 on the <code class="docutils literal notranslate"><span class="pre">wait()</span></code> call.</p></li>
 <li><p><strong>Question</strong>: Why couldn’t use <code class="docutils literal notranslate"><span class="pre">this.synchronized</span></code> instead?</p></li>

@@ -538,7 +538,7 @@ monitor-based synchronisation::
 
 * **Question**: Will it sill work if we replace ``notifyAll()`` by
   ``notify()``?
-* **Answer**: Nom, it will deadlock, as the thread of the same
+* **Answer**: It might deadlock, as the thread of the same
   "parity" can be notified, and it won't be able to proceed, hanging
   on the ``wait()`` call.
 
