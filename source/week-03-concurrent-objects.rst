@@ -1,10 +1,10 @@
 .. -*- mode: rst -*-
 
-Week 04: Concurrent Objects
+Week 05: Concurrent Objects
 ===========================
 
-* `Lecture Slides <_static/resources/ysc4231-week-04-concurrent-objects-all.pdf>`_ (adapted from the `AoMP book <https://booksite.elsevier.com/9780123973375/?ISBN=9780123973375>`_)
+* `Lecture Slides <_static/resources/ysc4231-week-05-concurrent-objects-all.pdf>`_ (adapted from the `AoMP book <https://booksite.elsevier.com/9780123973375/?ISBN=9780123973375>`_)
 * `Code with examples
-  <https://github.com/ysc4231/lectures-2022/tree/04-concurrent>`_,
+  <https://github.com/ysc4231/lectures-2022/tree/05-concurrent>`_,
   package ``concurrent``
 
