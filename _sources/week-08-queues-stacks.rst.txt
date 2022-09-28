@@ -1,7 +1,7 @@
 .. -*- mode: rst -*-
 
-Week 08: Concurrent Queues
-==========================
+Week 08: Concurrent Stacks and Queues
+=====================================
 
 * `Lecture Slides (Queues) <_static/resources/ysc4231-week-08-queues.pdf>`_
 
