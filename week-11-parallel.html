@@ -1,64 +1,34 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Week 11: Data-Parallel Collections &mdash; YSC4231 2021</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-
-  
-  
-  
-  
-
-  
-
-  
-  
-    
-
-  
-
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
-          
-
-          
+        <div class="wy-side-nav-search" >
             <a href="index.html" class="icon icon-home"> YSC4231: Parallel, Concurrent and Distributed Programming
-          
-
-          
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -66,17 +36,7 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="syllabus.html">1. Course Syllabus and Grading Schema</a></li>
 <li class="toctree-l1"><a class="reference internal" href="prerequisites.html">2. Software Prerequisites</a></li>
@@ -94,182 +54,121 @@
 <li class="toctree-l1"><a class="reference internal" href="week-08-queues-stacks.html">9. Week 08: Concurrent Stacks and Queues</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">YSC4231: Parallel, Concurrent and Distributed Programming</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html">Docs</a> &raquo;</li>
-        
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
       <li>Week 11: Data-Parallel Collections</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-            
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="week-11-data-parallel-collections">
-<h1>Week 11: Data-Parallel Collections<a class="headerlink" href="#week-11-data-parallel-collections" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="useful-resources">
-<h2>Useful Resources<a class="headerlink" href="#useful-resources" title="Permalink to this headline">¶</a></h2>
+             
+  <section id="week-11-data-parallel-collections">
+<h1>Week 11: Data-Parallel Collections<a class="headerlink" href="#week-11-data-parallel-collections" title="Permalink to this heading"></a></h1>
+<section id="useful-resources">
+<h2>Useful Resources<a class="headerlink" href="#useful-resources" title="Permalink to this heading"></a></h2>
 <ul class="simple">
-<li><a class="reference external" href="https://docs.scala-lang.org/overviews/parallel-collections/overview.html">Documentation for Scala Parallel Collections</a></li>
-<li><a class="reference external" href="https://docs.scala-lang.org/overviews/parallel-collections/architecture.html">Splitters and Combiners</a></li>
-<li><a class="reference external" href="https://docs.scala-lang.org/overviews/parallel-collections/custom-parallel-collections.html">Creating Custom Parallel Collections</a></li>
-<li><a class="reference external" href="https://github.com/ysc4231/lectures-2022/tree/11-parallel">Code with examples</a>,
-package <code class="docutils literal notranslate"><span class="pre">parallel</span></code></li>
+<li><p><a class="reference external" href="https://docs.scala-lang.org/overviews/parallel-collections/overview.html">Documentation for Scala Parallel Collections</a></p></li>
+<li><p><a class="reference external" href="https://docs.scala-lang.org/overviews/parallel-collections/architecture.html">Splitters and Combiners</a></p></li>
+<li><p><a class="reference external" href="https://docs.scala-lang.org/overviews/parallel-collections/custom-parallel-collections.html">Creating Custom Parallel Collections</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ysc4231/lectures-2022/tree/11-parallel">Code with examples</a>,
+package <code class="docutils literal notranslate"><span class="pre">parallel</span></code></p></li>
 </ul>
-</div>
-<div class="section" id="code-commentary">
-<h2>Code Commentary<a class="headerlink" href="#code-commentary" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="code-commentary">
+<h2>Code Commentary<a class="headerlink" href="#code-commentary" title="Permalink to this heading"></a></h2>
 <p>A short summary of the files from the accompanying code is given
 below, outlining the characteristic aspects of working with Scala
 Parallel Collections. We suggest you explore the files in the order
 they appear in the following list.</p>
 <p><strong>Measuring Performance</strong></p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">package</span> <span class="pre">object</span> <span class="pre">parallel</span></code> — a package object defining common
+<li><p><code class="docutils literal notranslate"><span class="pre">package</span> <span class="pre">object</span> <span class="pre">parallel</span></code> — a package object defining common
 functions used for benchmarking. <code class="docutils literal notranslate"><span class="pre">warmedTimed</span></code> is used to take
-advantage of JIT-based speed-up.</li>
-<li><code class="docutils literal notranslate"><span class="pre">ParDemoTimed</span></code> — showcasing a simple parallel collection
+advantage of JIT-based speed-up.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ParDemoTimed</span></code> — showcasing a simple parallel collection
 example. Notice the oddities with timing parallel vs. sequential
-execution.</li>
-<li><code class="docutils literal notranslate"><span class="pre">ParDemoWarmed</span></code> — the same as before, but now with warmed-up
-times, hence a better comparison.</li>
+execution.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ParDemoWarmed</span></code> — the same as before, but now with warmed-up
+times, hence a better comparison.</p></li>
 </ul>
 <p><strong>Basic Usage of Parallel Collections</strong></p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">ParConfig</span></code> — controlling the level of parallelism for a
-collection.</li>
-<li><code class="docutils literal notranslate"><span class="pre">GoodParallelism</span></code> — showcasing an operation that allows for good
-parallelism.</li>
-<li><code class="docutils literal notranslate"><span class="pre">BadParallelism</span></code> — a case of a bad parallel speed-up (or the
+<li><p><code class="docutils literal notranslate"><span class="pre">ParConfig</span></code> — controlling the level of parallelism for a
+collection.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GoodParallelism</span></code> — showcasing an operation that allows for good
+parallelism.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BadParallelism</span></code> — a case of a bad parallel speed-up (or the
 lack thereof) due to introduced contention in the operation applied
-to a collection.</li>
+to a collection.</p></li>
 </ul>
 <p><strong>Caveats of Using Parallel Collections</strong></p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">NonParallelizableCollections</span></code> — comparing the inherent
-parallelism in different collections.</li>
-<li><code class="docutils literal notranslate"><span class="pre">NonParallelizableOperations</span></code> — analysing parallelism allowed by
-certain operations.</li>
-<li><code class="docutils literal notranslate"><span class="pre">ParSideEffectsIncorrect</span></code> and <code class="docutils literal notranslate"><span class="pre">ParSideEffectsCorrect</span></code> —
-parallel processing in the presence of side effects.</li>
-<li><code class="docutils literal notranslate"><span class="pre">ParNonCommutativeOperator</span></code> — exploiting the effects of
+<li><p><code class="docutils literal notranslate"><span class="pre">NonParallelizableCollections</span></code> — comparing the inherent
+parallelism in different collections.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NonParallelizableOperations</span></code> — analysing parallelism allowed by
+certain operations.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ParSideEffectsIncorrect</span></code> and <code class="docutils literal notranslate"><span class="pre">ParSideEffectsCorrect</span></code> —
+parallel processing in the presence of side effects.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ParNonCommutativeOperator</span></code> — exploiting the effects of
 commutativity in parallel collections. <code class="docutils literal notranslate"><span class="pre">ArrayBuffer</span></code> preserves the
-ordering of elements, while Scala’s set does not.</li>
-<li><code class="docutils literal notranslate"><span class="pre">ParNonAssociativeOperator</span></code> — exploiting the influence of
-operation associativity when processing parallel collections.</li>
-<li><code class="docutils literal notranslate"><span class="pre">ConcurrentCollectionsWrong</span></code> and <code class="docutils literal notranslate"><span class="pre">ConcurrentCollectionsGood</span></code> —
+ordering of elements, while Scala’s set does not.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ParNonAssociativeOperator</span></code> — exploiting the influence of
+operation associativity when processing parallel collections.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ConcurrentCollectionsWrong</span></code> and <code class="docutils literal notranslate"><span class="pre">ConcurrentCollectionsGood</span></code> —
 exploring interactions between parallel and concurrent collections.
 In the bad case, a sequential collection is used in a parallel
-setting, which leads to an error.</li>
+setting, which leads to an error.</p></li>
 </ul>
 <p><strong>Parallel Splitters and Combiners</strong></p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">ParString</span></code> — implementation of a parallel immutable string</li>
-<li><code class="docutils literal notranslate"><span class="pre">ParStringSplitter</span></code> — Recursive splitter for parallel strings</li>
-<li><code class="docutils literal notranslate"><span class="pre">ParStringSplitterTests</span></code> — Testing parallel string splitter</li>
-<li><code class="docutils literal notranslate"><span class="pre">ParStringSplitterBenchmarks</span></code> — benchmarks for string splitters</li>
-<li><code class="docutils literal notranslate"><span class="pre">ParStringCombiner</span></code> — two-phase combiner for parallel strings</li>
-<li><code class="docutils literal notranslate"><span class="pre">ParStringCombinerTests</span></code> — Testing parallel string combiner</li>
-<li><code class="docutils literal notranslate"><span class="pre">ParStringCombinerBenchmarks</span></code> — benchmarks for combiners</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ParString</span></code> — implementation of a parallel immutable string</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ParStringSplitter</span></code> — Recursive splitter for parallel strings</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ParStringSplitterTests</span></code> — Testing parallel string splitter</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ParStringSplitterBenchmarks</span></code> — benchmarks for string splitters</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ParStringCombiner</span></code> — two-phase combiner for parallel strings</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ParStringCombinerTests</span></code> — Testing parallel string combiner</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ParStringCombinerBenchmarks</span></code> — benchmarks for combiners</p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
           <footer>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2022, Ilya Sergey
-
-    </p>
+    <p>&#169; Copyright 2022, Ilya Sergey.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"extensions": ["tex2jax.js"], "jax": ["input/TeX", "output/HTML-CSS"]})</script>
-    
-
-  
-
-  <script type="text/javascript" src="_static/js/theme.js"></script>
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
