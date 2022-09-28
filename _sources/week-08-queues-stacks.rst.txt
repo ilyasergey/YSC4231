@@ -3,8 +3,6 @@
 Week 08: Concurrent Stacks and Queues
 =====================================
 
-* `Lecture Slides (Stacks) <_static/resources/ysc4231-week-08-stacks.pdf>`_
-
 * `Lecture Slides (Queues) <_static/resources/ysc4231-week-08-queues.pdf>`_
 
 * `Code with examples
