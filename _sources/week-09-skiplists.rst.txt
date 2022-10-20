@@ -1,7 +1,7 @@
 .. -*- mode: rst -*-
 
-Week 09: Concurrent Stacks and Skiplists
-========================================
+Week 09: Skiplists
+==================
 
 * `Lecture Slides (Skiplists) <_static/resources/ysc4231-week-09-skiplists.pdf>`_
   (adapted from the `AoMP book
