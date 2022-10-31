@@ -17,7 +17,7 @@ Useful Resources
 * `Testing Akka actors
   <https://doc.akka.io/docs/akka/current/testing.html>`_
 * `Code with examples
-  <https://github.com/ysc4231/lectures-2021/tree/12-actors>`_,
+  <https://github.com/ysc4231/lectures-2022/tree/12-actors>`_,
   package ``actors``
 
 Actor Terminology

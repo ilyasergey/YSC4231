@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Week 12: Actors and Message-Passing Concurrency &mdash; YSC4231 2021</title>
+  <title>14. Week 12: Actors and Message-Passing Concurrency &mdash; YSC4231 2021</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -19,7 +19,8 @@
         <script src="_static/doctools.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="13. Week 11: Data-Parallel Collections" href="week-11-parallel.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -42,7 +43,7 @@
 <li class="toctree-l1"><a class="reference internal" href="prerequisites.html">2. Software Prerequisites</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">3. FAQ on Learning and Plagiarism</a></li>
 </ul>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="week-01-intro.html">1. Week 01: Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week-02-scala.html">2. Week 02: Scala Primer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week-03-mutex.html">3. Week 03: Mutual Exclusion</a></li>
@@ -56,6 +57,12 @@
 <li class="toctree-l1"><a class="reference internal" href="week-11-races.html">11. Week 09: Data Race Detection in Practice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week-10-futures.html">12. Week 10: Asynchronous Computations and Futures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week-11-parallel.html">13. Week 11: Data-Parallel Collections</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">14. Week 12: Actors and Message-Passing Concurrency</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#useful-resources">14.1. Useful Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#actor-terminology">14.2. Actor Terminology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#code-commentary">14.3. Code Commentary</a></li>
+</ul>
+</li>
 </ul>
 
         </div>
@@ -72,7 +79,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Week 12: Actors and Message-Passing Concurrency</li>
+      <li><span class="section-number">14. </span>Week 12: Actors and Message-Passing Concurrency</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -82,23 +89,23 @@
            <div itemprop="articleBody">
              
   <section id="week-12-actors-and-message-passing-concurrency">
-<h1>Week 12: Actors and Message-Passing Concurrency<a class="headerlink" href="#week-12-actors-and-message-passing-concurrency" title="Permalink to this heading"></a></h1>
+<h1><span class="section-number">14. </span>Week 12: Actors and Message-Passing Concurrency<a class="headerlink" href="#week-12-actors-and-message-passing-concurrency" title="Permalink to this heading"></a></h1>
 <div class="admonition-quote admonition">
 <p class="admonition-title">Quote</p>
 <p>A distributed system is one in which the failure of a computer you didn’t even know existed can render your own computer unusable.</p>
 <p><strong>Leslie Lamport</strong></p>
 </div>
 <section id="useful-resources">
-<h2>Useful Resources<a class="headerlink" href="#useful-resources" title="Permalink to this heading"></a></h2>
+<h2><span class="section-number">14.1. </span>Useful Resources<a class="headerlink" href="#useful-resources" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://doc.akka.io/docs/akka/current/actors.html">Documentation for Akka Actors</a></p></li>
 <li><p><a class="reference external" href="https://doc.akka.io/docs/akka/current/testing.html">Testing Akka actors</a></p></li>
-<li><p><a class="reference external" href="https://github.com/ysc4231/lectures-2021/tree/12-actors">Code with examples</a>,
+<li><p><a class="reference external" href="https://github.com/ysc4231/lectures-2022/tree/12-actors">Code with examples</a>,
 package <code class="docutils literal notranslate"><span class="pre">actors</span></code></p></li>
 </ul>
 </section>
 <section id="actor-terminology">
-<h2>Actor Terminology<a class="headerlink" href="#actor-terminology" title="Permalink to this heading"></a></h2>
+<h2><span class="section-number">14.2. </span>Actor Terminology<a class="headerlink" href="#actor-terminology" title="Permalink to this heading"></a></h2>
 <p>These are best thought in terms of software companies and employees exchanging emails within them.</p>
 <ul class="simple">
 <li><p><strong>Actor System</strong> - hierarchical group of actors that share the same configuration. Responsible for creating new actors, locating them, and logging important events. Think the Company itself.</p></li>
@@ -111,7 +118,7 @@ package <code class="docutils literal notranslate"><span class="pre">actors</spa
 </ul>
 </section>
 <section id="code-commentary">
-<h2>Code Commentary<a class="headerlink" href="#code-commentary" title="Permalink to this heading"></a></h2>
+<h2><span class="section-number">14.3. </span>Code Commentary<a class="headerlink" href="#code-commentary" title="Permalink to this heading"></a></h2>
 <p>A short summary of the files from the accompanying code is given
 below, outlining the characteristic aspects of working with Scala
 Actors. We suggest you explore the files in the order they appear in
@@ -160,7 +167,9 @@ systems of actors.</p></li>
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="week-11-parallel.html" class="btn btn-neutral float-left" title="13. Week 11: Data-Parallel Collections" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
 
   <hr/>
 
