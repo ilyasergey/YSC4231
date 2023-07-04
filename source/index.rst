@@ -1,4 +1,4 @@
-Parallel, Concurrent and Distributed Programming (Autumn 2022)
+Parallel, Concurrent and Distributed Programming (Autumn 2023)
 ==============================================================
 
 .. toctree::
@@ -10,15 +10,11 @@ Parallel, Concurrent and Distributed Programming (Autumn 2022)
    faq
 
 * Instructor: `Ilya Sergey <https://ilyasergey.net/>`_
-* Lectures: Thursdays, 1-4pm
-* Location: Yale-NUS College, Y-CR15
-* Office hours: #RC3-01-03E (Cendana), Thursdays, after the lecture
-* Peer Tutor: `Karolina Grzeszkiewicz <karolina.grzeszkiewicz@u.yale-nus.edu.sg>`_
-* Peer Tutoring Sessions: Mondays 7-9pm, Classroom 3
-
-
-The 2022 edition of YSC4231 is over. PCDP will return in Autumn 2023!
-
+* Lectures: Thursdays, 9am-12pm
+* Location: Yale-NUS College, Y-CR1
+* Office hours: By demand
+* Peer Tutor: `Phong Le <phongnguyen.le@u.yale-nus.edu.sg>`_
+* Peer Tutoring Sessions: TBA
 
 ..
    Lectures
