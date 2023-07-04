@@ -14,7 +14,7 @@ Parallel, Concurrent and Distributed Programming (Autumn 2023)
 * Location: Yale-NUS College, Y-CR1
 * Office hours: By demand
 * Peer Tutor: `Phong Le <phongnguyen.le@u.yale-nus.edu.sg>`_
-* Peer Tutoring Sessions: TBA
+* Peer tutoring sessions: TBA
 
 ..
    Lectures
