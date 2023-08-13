@@ -16,17 +16,15 @@ Getting Scala and IntelliJ
 
 In your preparation for the first lecture, please install the following software artefacts (or make sure that you have them installed in your system):
 
-* `Oracle Java SDK 11 <https://www.oracle.com/sg/java/technologies/javase/jdk11-archive-downloads.html>`_.
+* `Java SDK 1.11
+  <https://www.oracle.com/sg/java/technologies/javase-jdk11-downloads.html>`_.
   You will need to make an Oracle account to download the latest version.
-* `Scala Build Tool (sbt) <https://www.scala-sbt.org/download.html>`_
-* `IntelliJ IDEA <https://www.jetbrains.com/idea/>`_. When you start IntelliJ for the first time, make sure to choose Scala plugin when IntelliJ IDEA suggests you to download featured plugins.
+* `Scala Build Tool (sbt) <https://www.scala-sbt.org/download.html?_ga=2.57019370.1900758631.1565340428-2015161099.1565340323>`_
+* `IntelliJ IDEA Community Edition <https://www.jetbrains.com/edu-products/download/#section=idea>`_. When you start IntelliJ for the first time, make sure to choose Scala plugin when IntelliJ IDEA suggests you to download featured plugins.
 * `Scala plugin for IntelliJ IDEA <https://www.jetbrains.com/help/idea/discover-intellij-idea-for-scala.html>`_ (if not installed in the previous step)
 
-..
-   All these components can be found at the `Scala 2 Download page  <https://www.scala-lang.org/download/scala2.html>`_.
 
-This setup has been last checked with ``sbt`` version 1.6.2 and
-IntelliJ IDEA 2022.1.3.
+This setup has been last checked with ``sbt`` version 1.6.2 and IntelliJ IDEA 2023.1.4.
 
 Working with Multiple Java Versions
 -----------------------------------
