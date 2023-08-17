@@ -10,7 +10,7 @@ tutorial provides a quick overview of Scala's object-oriented and
 functional features
 
 The accompanying code for this lecture is available in the branch
-``01-intro`` (under the folder ``src/main/scala/intro``) of the
+``02-intro`` (under the folder ``src/main/scala/intro``) of the
 `course repository <https://github.com/ysc4231/lectures-2023>`_.
 
 If unsure about some of the feature, you are encouraged to take a look
