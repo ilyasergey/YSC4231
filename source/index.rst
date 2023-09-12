@@ -12,9 +12,8 @@ Parallel, Concurrent and Distributed Programming (Autumn 2023)
 * Instructor: `Ilya Sergey <https://ilyasergey.net/>`_
 * Lectures: Thursdays, 9am-12pm
 * Location: Yale-NUS College, Y-CR1
-* Office hours: By demand
 * Peer Tutor: `Phong Le <phongnguyen.le@u.yale-nus.edu.sg>`_
-* Peer tutoring sessions: TBA
+* Peer tutoring sessions: Mondays, 7-9pm, CR20 (Cendana)
 
 Lectures
 --------
@@ -26,9 +25,9 @@ Lectures
    week-01-intro
    week-02-scala
    week-03-mutex
+   week-05-spinlocks
+   week-05-monitors
 
-..   week-05-spinlocks
-..   week-05-monitors
 ..   week-03-concurrent-objects
 ..   week-07-midterm-project   
 ..   week-06-fine-lists
