@@ -20,13 +20,13 @@
 # -- Project information -----------------------------------------------------
 
 project = u'YSC4231: Parallel, Concurrent and Distributed Programming'
-copyright = u'2022, Ilya Sergey'
+copyright = u'2023, Ilya Sergey'
 author = u'Ilya Sergey'
 
 # The short X.Y version
 version = u''
 # The full version, including alpha/beta/rc tags
-release = u'2022'
+release = u'2023'
 
 
 # -- General configuration ---------------------------------------------------
