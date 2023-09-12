@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Week 04: Spin Locks and Contention &mdash; YSC4231 2021</title>
+  <title>4. Week 05: Spin Locks and Contention &mdash; YSC4231 2021</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -19,7 +19,9 @@
         <script src="_static/doctools.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="5. Week 05: Monitors and Blocking Synchronisation" href="week-05-monitors.html" />
+    <link rel="prev" title="3. Week 03: Mutual Exclusion" href="week-03-mutex.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -42,10 +44,12 @@
 <li class="toctree-l1"><a class="reference internal" href="prerequisites.html">2. Software Prerequisites</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">3. FAQ on Learning and Plagiarism</a></li>
 </ul>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="week-01-intro.html">1. Week 01: Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week-02-scala.html">2. Week 02: Scala Primer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week-03-mutex.html">3. Week 03: Mutual Exclusion</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">4. Week 05: Spin Locks and Contention</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week-05-monitors.html">5. Week 05: Monitors and Blocking Synchronisation</a></li>
 </ul>
 
         </div>
@@ -62,7 +66,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Week 04: Spin Locks and Contention</li>
+      <li><span class="section-number">4. </span>Week 05: Spin Locks and Contention</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -71,11 +75,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="week-04-spin-locks-and-contention">
-<h1>Week 04: Spin Locks and Contention<a class="headerlink" href="#week-04-spin-locks-and-contention" title="Permalink to this heading"></a></h1>
+  <section id="week-05-spin-locks-and-contention">
+<h1><span class="section-number">4. </span>Week 05: Spin Locks and Contention<a class="headerlink" href="#week-05-spin-locks-and-contention" title="Permalink to this heading"></a></h1>
 <ul class="simple">
 <li><p><a class="reference external" href="_static/resources/ysc4231-week-04-spinlocks.pdf">Lecture Slides</a></p></li>
-<li><p><a class="reference external" href="https://github.com/ysc4231/lectures-2022/tree/04-locks">Code with examples</a>,
+<li><p><a class="reference external" href="https://github.com/ysc4231/lectures-2023/tree/05-locks">Code with examples</a>,
 package <code class="docutils literal notranslate"><span class="pre">spinlocks</span></code></p></li>
 </ul>
 </section>
@@ -83,7 +87,10 @@ package <code class="docutils literal notranslate"><span class="pre">spinlocks</
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="week-03-mutex.html" class="btn btn-neutral float-left" title="3. Week 03: Mutual Exclusion" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="week-05-monitors.html" class="btn btn-neutral float-right" title="5. Week 05: Monitors and Blocking Synchronisation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 
