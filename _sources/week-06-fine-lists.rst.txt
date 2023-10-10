@@ -8,5 +8,5 @@ Week 07: Concurrent Lists and Stacks
 * `Lecture Slides (Stacks) <_static/resources/ysc4231-week-08-stacks.pdf>`_
 
 * `Code with examples
-  <https://github.com/ysc4231/lectures-2022/tree/07-lists>`_,
+  <https://github.com/ysc4231/lectures-2023/tree/07-lists>`_,
   package ``lists``
