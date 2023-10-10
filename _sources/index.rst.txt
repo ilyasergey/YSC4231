@@ -30,10 +30,17 @@ Lectures
    week-03-concurrent-objects
    week-07-midterm-project   
    week-06-fine-lists
+<<<<<<< HEAD
    week-08-queues-stacks
    week-09-skiplists
    week-11-races
 
+=======
+
+..   week-08-queues-stacks
+..   week-09-skiplists
+..   week-11-races
+>>>>>>> 7e8a28b4fb2619606d64c6c0f2f6b7833861ea72
 ..   week-10-futures
 ..   week-11-parallel
 ..   week-12-actors
