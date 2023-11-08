@@ -35,8 +35,8 @@ Lectures
    week-11-races
    week-10-futures
    week-11-parallel
+   week-12-actors
 
-..   week-12-actors
 ..   week-13-consensus
 
 
