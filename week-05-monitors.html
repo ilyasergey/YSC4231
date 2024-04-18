@@ -1,29 +1,29 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>5. Week 05: Monitors and Blocking Synchronisation &mdash; YSC4231 2021</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <title>Week 05: Monitors and Blocking Synchronisation &mdash; YSC4231 2021</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=92fd9be5" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=0194d983" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="_static/doctools.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=a4664895"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"extensions": ["tex2jax.js"], "jax": ["input/TeX", "output/HTML-CSS"]})</script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="6. Week 06: Concurrent Objects" href="week-03-concurrent-objects.html" />
-    <link rel="prev" title="4. Week 05: Spin Locks and Contention" href="week-05-spinlocks.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -31,11 +31,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> YSC4231: Parallel, Concurrent and Distributed Programming
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            YSC4231: Parallel, Concurrent and Distributed Programming
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -45,33 +49,6 @@
 <li class="toctree-l1"><a class="reference internal" href="syllabus.html">1. Course Syllabus and Grading Schema</a></li>
 <li class="toctree-l1"><a class="reference internal" href="prerequisites.html">2. Software Prerequisites</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">3. FAQ on Learning and Plagiarism</a></li>
-</ul>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="week-01-intro.html">1. Week 01: Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-02-scala.html">2. Week 02: Scala Primer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-03-mutex.html">3. Week 03: Mutual Exclusion</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-05-spinlocks.html">4. Week 05: Spin Locks and Contention</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">5. Week 05: Monitors and Blocking Synchronisation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#when-spinning-isn-t-good-enough">5.1. When Spinning isn’t Good Enough</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#using-multiple-conditional-variables">5.2. Using Multiple Conditional Variables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#synchronising-many-threads-with-monitors">5.3. Synchronising Many Threads with Monitors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#intrinsic-java-monitors">5.4. Intrinsic Java Monitors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#the-lost-wakeup-problem">5.5. The Lost-Wakeup Problem</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#read-write-locking">5.6. Read-Write Locking</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#when-should-we-use-monitors">5.7. When Should We Use Monitors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#other-synchronisation-mechanisms">5.8. Other Synchronisation Mechanisms</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="week-03-concurrent-objects.html">6. Week 06: Concurrent Objects</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-07-midterm-project.html">7. Midterm Project</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-06-fine-lists.html">8. Week 07: Concurrent Lists and Stacks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-08-queues-stacks.html">9. Week 08: Concurrent Queues</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-09-skiplists.html">10. Week 08: Skiplists</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-11-races.html">11. Week 08: Data Race Detection in Practice</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-10-futures.html">12. Week 09: Asynchronous Computations and Futures</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-11-parallel.html">13. Week 11: Data-Parallel Collections</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-12-actors.html">14. Week 12: Actors and Message-Passing Concurrency</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week-13-consensus.html">15. Week 13: Distributed Consensus, BFT; Wrap-Up</a></li>
 </ul>
 
         </div>
@@ -87,8 +64,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li><span class="section-number">5. </span>Week 05: Monitors and Blocking Synchronisation</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Week 05: Monitors and Blocking Synchronisation</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -98,14 +75,14 @@
            <div itemprop="articleBody">
              
   <section id="week-05-monitors-and-blocking-synchronisation">
-<h1><span class="section-number">5. </span>Week 05: Monitors and Blocking Synchronisation<a class="headerlink" href="#week-05-monitors-and-blocking-synchronisation" title="Permalink to this heading"></a></h1>
+<h1>Week 05: Monitors and Blocking Synchronisation<a class="headerlink" href="#week-05-monitors-and-blocking-synchronisation" title="Link to this heading"></a></h1>
 <p>In this chapter we will consider <strong>monitors</strong> — a mechanism for
 <cite>blocking</cite> synchronisation of concurrently executing threads,
 complementary to spin-locks, considered previously.</p>
 <p>The code for this lecture is provided in branch <code class="docutils literal notranslate"><span class="pre">05-locks</span></code>
 (package <code class="docutils literal notranslate"><span class="pre">monitors</span></code>) of the <a class="reference external" href="https://github.com/ysc4231/lectures-2022/tree/05-locks">accompanying repository</a>.</p>
 <section id="when-spinning-isn-t-good-enough">
-<h2><span class="section-number">5.1. </span>When Spinning isn’t Good Enough<a class="headerlink" href="#when-spinning-isn-t-good-enough" title="Permalink to this heading"></a></h2>
+<h2>When Spinning isn’t Good Enough<a class="headerlink" href="#when-spinning-isn-t-good-enough" title="Link to this heading"></a></h2>
 <p>Imagine the following artificial problem. We want to implement a
 shared linearisable counter that is incremented by two concurrent
 threads running in parallel with the following catch: one thread may
@@ -118,76 +95,76 @@ shown in the code below:</p>
 <span class="k">import</span><span class="w"> </span><span class="nn">monitors</span><span class="p">.</span><span class="nc">Logging</span>
 <span class="k">import</span><span class="w"> </span><span class="nn">util</span><span class="p">.</span><span class="nc">ThreadID</span>
 
-<span class="k">object</span><span class="w"> </span><span class="nc">CountTTASLock</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">counter</span><span class="p">:</span><span class="w"> </span><span class="nc">Int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
-<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nc">TOTAL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="w"></span>
-<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nc">THREADS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
-<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="n">lock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nc">ReentrantLock</span><span class="p">()</span><span class="w"></span>
+<span class="k">object</span><span class="w"> </span><span class="nc">CountTTASLock</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">counter</span><span class="p">:</span><span class="w"> </span><span class="nc">Int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nc">TOTAL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span>
+<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nc">THREADS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="n">lock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nc">ReentrantLock</span><span class="p">()</span>
 
-<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">AdderToEven</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">Thread</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">override</span><span class="w"> </span><span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="kd">val</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">ThreadID</span><span class="p">.</span><span class="n">get</span><span class="w"></span>
-<span class="w">      </span><span class="kd">var</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
-<span class="w">      </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nc">TOTAL</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nc">THREADS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">AdderToEven</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">Thread</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">override</span><span class="w"> </span><span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="kd">val</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">ThreadID</span><span class="p">.</span><span class="n">get</span>
+<span class="w">      </span><span class="kd">var</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">      </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nc">TOTAL</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nc">THREADS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="c1">// Step 1: take the lock</span>
-<span class="w">        </span><span class="n">lock</span><span class="p">.</span><span class="n">lock</span><span class="p">()</span><span class="w"></span>
-<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">lock</span><span class="p">.</span><span class="n">lock</span><span class="p">()</span>
+<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
 <span class="w">          </span><span class="c1">// Step 2: only do stuff if some condition holds, otherwise yield</span>
-<span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">counter</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">counter</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="c1">// Step 3: Do useful stuff</span>
-<span class="w">            </span><span class="n">counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
-<span class="w">            </span><span class="n">println</span><span class="p">(</span><span class="s">s&quot;Thread </span><span class="si">$</span><span class="n">i</span><span class="s">: now counter = </span><span class="si">$</span><span class="n">counter</span><span class="s">&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="w">            </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
-<span class="w">          </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">          </span><span class="n">lock</span><span class="p">.</span><span class="n">unlock</span><span class="p">()</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="n">counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">            </span><span class="n">println</span><span class="p">(</span><span class="s">s&quot;Thread </span><span class="si">$</span><span class="n">i</span><span class="s">: now counter = </span><span class="si">$</span><span class="n">counter</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="w">            </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="n">lock</span><span class="p">.</span><span class="n">unlock</span><span class="p">()</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
 
-<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">AdderToOdd</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">Thread</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">override</span><span class="w"> </span><span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="kd">val</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">ThreadID</span><span class="p">.</span><span class="n">get</span><span class="w"></span>
-<span class="w">      </span><span class="kd">var</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
-<span class="w">      </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nc">TOTAL</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nc">THREADS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">AdderToOdd</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">Thread</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">override</span><span class="w"> </span><span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="kd">val</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">ThreadID</span><span class="p">.</span><span class="n">get</span>
+<span class="w">      </span><span class="kd">var</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">      </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nc">TOTAL</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nc">THREADS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="c1">// Step 1: take the lock</span>
-<span class="w">        </span><span class="n">lock</span><span class="p">.</span><span class="n">lock</span><span class="p">()</span><span class="w"></span>
-<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">lock</span><span class="p">.</span><span class="n">lock</span><span class="p">()</span>
+<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
 <span class="w">          </span><span class="c1">// Step 2: wait while counter is even</span>
-<span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">counter</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">counter</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="c1">// Step 3: Do useful stuff</span>
-<span class="w">            </span><span class="n">counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
-<span class="w">            </span><span class="n">println</span><span class="p">(</span><span class="s">s&quot;Thread </span><span class="si">$</span><span class="n">i</span><span class="s">: now counter = </span><span class="si">$</span><span class="n">counter</span><span class="s">&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="w">            </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
-<span class="w">          </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">          </span><span class="n">lock</span><span class="p">.</span><span class="n">unlock</span><span class="p">()</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="n">counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">            </span><span class="n">println</span><span class="p">(</span><span class="s">s&quot;Thread </span><span class="si">$</span><span class="n">i</span><span class="s">: now counter = </span><span class="si">$</span><span class="n">counter</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="w">            </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="n">lock</span><span class="p">.</span><span class="n">unlock</span><span class="p">()</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
 
-<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="p">:</span><span class="w"> </span><span class="nc">Array</span><span class="p">[</span><span class="nc">String</span><span class="p">]):</span><span class="w"> </span><span class="nc">Unit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">evenAdder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nc">AdderToEven</span><span class="w"></span>
-<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">oddAdder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nc">AdderToOdd</span><span class="w"></span>
+<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="p">:</span><span class="w"> </span><span class="nc">Array</span><span class="p">[</span><span class="nc">String</span><span class="p">]):</span><span class="w"> </span><span class="nc">Unit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">evenAdder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nc">AdderToEven</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">oddAdder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nc">AdderToOdd</span>
 
-<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">System</span><span class="p">.</span><span class="n">currentTimeMillis</span><span class="p">()</span><span class="w"></span>
-<span class="w">    </span><span class="n">evenAdder</span><span class="p">.</span><span class="n">start</span><span class="p">()</span><span class="w"></span>
-<span class="w">    </span><span class="n">oddAdder</span><span class="p">.</span><span class="n">start</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">System</span><span class="p">.</span><span class="n">currentTimeMillis</span><span class="p">()</span>
+<span class="w">    </span><span class="n">evenAdder</span><span class="p">.</span><span class="n">start</span><span class="p">()</span>
+<span class="w">    </span><span class="n">oddAdder</span><span class="p">.</span><span class="n">start</span><span class="p">()</span>
 
-<span class="w">    </span><span class="n">evenAdder</span><span class="p">.</span><span class="n">join</span><span class="p">()</span><span class="w"></span>
-<span class="w">    </span><span class="n">oddAdder</span><span class="p">.</span><span class="n">join</span><span class="p">()</span><span class="w"></span>
-<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">System</span><span class="p">.</span><span class="n">currentTimeMillis</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="n">evenAdder</span><span class="p">.</span><span class="n">join</span><span class="p">()</span>
+<span class="w">    </span><span class="n">oddAdder</span><span class="p">.</span><span class="n">join</span><span class="p">()</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">System</span><span class="p">.</span><span class="n">currentTimeMillis</span><span class="p">()</span>
 
-<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">formatter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="n">text</span><span class="p">.</span><span class="nc">NumberFormat</span><span class="p">.</span><span class="n">getIntegerInstance</span><span class="w"></span>
-<span class="w">    </span><span class="n">assert</span><span class="p">(</span><span class="n">counter</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nc">TOTAL</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">formatter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="n">text</span><span class="p">.</span><span class="nc">NumberFormat</span><span class="p">.</span><span class="n">getIntegerInstance</span>
+<span class="w">    </span><span class="n">assert</span><span class="p">(</span><span class="n">counter</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nc">TOTAL</span><span class="p">)</span>
 
-<span class="w">    </span><span class="n">println</span><span class="p">()</span><span class="w"></span>
-<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">s&quot;Total time:          </span><span class="si">${</span><span class="n">formatter</span><span class="p">.</span><span class="n">format</span><span class="p">(</span><span class="n">t2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">t1</span><span class="p">)</span><span class="si">}</span><span class="s"> ms&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">println</span><span class="p">()</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">s&quot;Total time:          </span><span class="si">${</span><span class="n">formatter</span><span class="p">.</span><span class="n">format</span><span class="p">(</span><span class="n">t2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">t1</span><span class="p">)</span><span class="si">}</span><span class="s"> ms&quot;</span><span class="p">)</span>
 
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>The two threads, instances of <code class="docutils literal notranslate"><span class="pre">AdderToEven</span></code> and <code class="docutils literal notranslate"><span class="pre">AdderToOdd</span></code>
@@ -233,68 +210,68 @@ continues its working in the critical section.</p>
 <p>Notice that at any point in time at most one thread has been active
 in the critical section. Using conditional variables, we can
 re-implement our turn-based incrementation as follows:</p>
-<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">object</span><span class="w"> </span><span class="nc">CountSingleCondition</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">object</span><span class="w"> </span><span class="nc">CountSingleCondition</span><span class="w"> </span><span class="p">{</span>
 
 
-<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">counter</span><span class="p">:</span><span class="w"> </span><span class="nc">Int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
-<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nc">TOTAL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="w"></span>
-<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nc">THREADS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
-<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="n">lock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nc">ReentrantLock</span><span class="p">()</span><span class="w"></span>
-<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="n">cond</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lock</span><span class="p">.</span><span class="n">newCondition</span><span class="p">()</span><span class="w"></span>
+<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">counter</span><span class="p">:</span><span class="w"> </span><span class="nc">Int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nc">TOTAL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span>
+<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nc">THREADS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="n">lock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nc">ReentrantLock</span><span class="p">()</span>
+<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="n">cond</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lock</span><span class="p">.</span><span class="n">newCondition</span><span class="p">()</span>
 
-<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">AdderToEven</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">Thread</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">override</span><span class="w"> </span><span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="kd">val</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">ThreadID</span><span class="p">.</span><span class="n">get</span><span class="w"></span>
-<span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">_</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nc">TOTAL</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nc">THREADS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">AdderToEven</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">Thread</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">override</span><span class="w"> </span><span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="kd">val</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">ThreadID</span><span class="p">.</span><span class="n">get</span>
+<span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">_</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nc">TOTAL</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nc">THREADS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="c1">// Step 1: take the lock</span>
-<span class="w">        </span><span class="n">lock</span><span class="p">.</span><span class="n">lock</span><span class="p">()</span><span class="w"></span>
-<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">lock</span><span class="p">.</span><span class="n">lock</span><span class="p">()</span>
+<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
 <span class="w">          </span><span class="c1">// Step 2: wait while counter is not even</span>
-<span class="w">          </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">counter</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="n">cond</span><span class="p">.</span><span class="n">await</span><span class="p">()</span><span class="w"></span>
-<span class="w">          </span><span class="p">}</span><span class="w"></span>
+<span class="w">          </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">counter</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">cond</span><span class="p">.</span><span class="n">await</span><span class="p">()</span>
+<span class="w">          </span><span class="p">}</span>
 <span class="w">          </span><span class="c1">// Step 3: Do useful stuff</span>
-<span class="w">          </span><span class="n">counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
-<span class="w">          </span><span class="n">println</span><span class="p">(</span><span class="s">s&quot;Thread </span><span class="si">$</span><span class="n">i</span><span class="s">: now counter = </span><span class="si">$</span><span class="n">counter</span><span class="s">&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">          </span><span class="n">counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">          </span><span class="n">println</span><span class="p">(</span><span class="s">s&quot;Thread </span><span class="si">$</span><span class="n">i</span><span class="s">: now counter = </span><span class="si">$</span><span class="n">counter</span><span class="s">&quot;</span><span class="p">)</span>
 <span class="w">          </span><span class="c1">// Step 4: Release the other thread</span>
-<span class="w">          </span><span class="n">cond</span><span class="p">.</span><span class="n">signal</span><span class="p">()</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">          </span><span class="n">lock</span><span class="p">.</span><span class="n">unlock</span><span class="p">()</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">          </span><span class="n">cond</span><span class="p">.</span><span class="n">signal</span><span class="p">()</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="n">lock</span><span class="p">.</span><span class="n">unlock</span><span class="p">()</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
 
-<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">AdderToOdd</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">Thread</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">override</span><span class="w"> </span><span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="kd">val</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">ThreadID</span><span class="p">.</span><span class="n">get</span><span class="w"></span>
-<span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">_</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nc">TOTAL</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">lock</span><span class="p">.</span><span class="n">lock</span><span class="p">()</span><span class="w"></span>
-<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">          </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">counter</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="n">cond</span><span class="p">.</span><span class="n">await</span><span class="p">()</span><span class="w"></span>
-<span class="w">          </span><span class="p">}</span><span class="w"></span>
-<span class="w">          </span><span class="n">counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
-<span class="w">          </span><span class="n">println</span><span class="p">(</span><span class="s">s&quot;Thread </span><span class="si">$</span><span class="n">i</span><span class="s">: now counter = </span><span class="si">$</span><span class="n">counter</span><span class="s">&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="w">          </span><span class="n">cond</span><span class="p">.</span><span class="n">signal</span><span class="p">()</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">          </span><span class="n">lock</span><span class="p">.</span><span class="n">unlock</span><span class="p">()</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">AdderToOdd</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">Thread</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">override</span><span class="w"> </span><span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="kd">val</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">ThreadID</span><span class="p">.</span><span class="n">get</span>
+<span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">_</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nc">TOTAL</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">lock</span><span class="p">.</span><span class="n">lock</span><span class="p">()</span>
+<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">counter</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">cond</span><span class="p">.</span><span class="n">await</span><span class="p">()</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">          </span><span class="n">counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">          </span><span class="n">println</span><span class="p">(</span><span class="s">s&quot;Thread </span><span class="si">$</span><span class="n">i</span><span class="s">: now counter = </span><span class="si">$</span><span class="n">counter</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="w">          </span><span class="n">cond</span><span class="p">.</span><span class="n">signal</span><span class="p">()</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="n">lock</span><span class="p">.</span><span class="n">unlock</span><span class="p">()</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
 
-<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="p">:</span><span class="w"> </span><span class="nc">Array</span><span class="p">[</span><span class="nc">String</span><span class="p">]):</span><span class="w"> </span><span class="nc">Unit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="p">:</span><span class="w"> </span><span class="nc">Array</span><span class="p">[</span><span class="nc">String</span><span class="p">]):</span><span class="w"> </span><span class="nc">Unit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="c1">// ...</span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>Notice that both calls to <code class="docutils literal notranslate"><span class="pre">cond.wait()</span></code> by the threads are “wrapped”
 into a loop, e.g., as follows:</p>
-<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">counter</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="n">cond</span><span class="p">.</span><span class="n">await</span><span class="p">()</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">counter</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">cond</span><span class="p">.</span><span class="n">await</span><span class="p">()</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>This is important for the following two reasons:</p>
@@ -363,72 +340,72 @@ thus, giving them again a chance to acquire the lock.</p>
 <a class="reference internal image-reference" href="_images/mon3.jpg"><img alt="_images/mon3.jpg" class="align-center" src="_images/mon3.jpg" style="width: 500px;" /></a>
 </section>
 <section id="using-multiple-conditional-variables">
-<h2><span class="section-number">5.2. </span>Using Multiple Conditional Variables<a class="headerlink" href="#using-multiple-conditional-variables" title="Permalink to this heading"></a></h2>
+<h2>Using Multiple Conditional Variables<a class="headerlink" href="#using-multiple-conditional-variables" title="Link to this heading"></a></h2>
 <p>We can restructure our implementation of turn-based counter, reducing
 the amount of overhead necessary to acquire the lock, replacing it by
 the waiting. For this, we are going to emit <cite>two</cite> condition variables
 associated with the same Java lock. The resulting implementation is as
 follows:</p>
-<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">object</span><span class="w"> </span><span class="nc">CountMultipleConditions</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">counter</span><span class="p">:</span><span class="w"> </span><span class="nc">Int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
-<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nc">TOTAL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="w"></span>
-<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nc">THREADS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
-<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="n">lock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nc">ReentrantLock</span><span class="p">()</span><span class="w"></span>
-<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="n">condEven</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lock</span><span class="p">.</span><span class="n">newCondition</span><span class="p">()</span><span class="w"></span>
-<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="n">condOdd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lock</span><span class="p">.</span><span class="n">newCondition</span><span class="p">()</span><span class="w"></span>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">object</span><span class="w"> </span><span class="nc">CountMultipleConditions</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">counter</span><span class="p">:</span><span class="w"> </span><span class="nc">Int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nc">TOTAL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span>
+<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nc">THREADS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="n">lock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nc">ReentrantLock</span><span class="p">()</span>
+<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="n">condEven</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lock</span><span class="p">.</span><span class="n">newCondition</span><span class="p">()</span>
+<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="n">condOdd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lock</span><span class="p">.</span><span class="n">newCondition</span><span class="p">()</span>
 
 
-<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">AdderToEven</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">Thread</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">override</span><span class="w"> </span><span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="kd">val</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">ThreadID</span><span class="p">.</span><span class="n">get</span><span class="w"></span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">AdderToEven</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">Thread</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">override</span><span class="w"> </span><span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="kd">val</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">ThreadID</span><span class="p">.</span><span class="n">get</span>
 <span class="w">      </span><span class="c1">// Step 1: take the lock</span>
-<span class="w">      </span><span class="n">lock</span><span class="p">.</span><span class="n">lock</span><span class="p">()</span><span class="w"></span>
-<span class="w">      </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">lock</span><span class="p">.</span><span class="n">lock</span><span class="p">()</span>
+<span class="w">      </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
 
 <span class="w">        </span><span class="c1">// Repeat in cycle</span>
-<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">_</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nc">TOTAL</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nc">THREADS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">_</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nc">TOTAL</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nc">THREADS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 
 <span class="w">          </span><span class="c1">// Step 2: wait while counter is not even</span>
-<span class="w">          </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">counter</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="n">condEven</span><span class="p">.</span><span class="n">await</span><span class="p">()</span><span class="w"></span>
-<span class="w">          </span><span class="p">}</span><span class="w"></span>
+<span class="w">          </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">counter</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">condEven</span><span class="p">.</span><span class="n">await</span><span class="p">()</span>
+<span class="w">          </span><span class="p">}</span>
 <span class="w">          </span><span class="c1">// Step 3: Do useful stuff</span>
-<span class="w">          </span><span class="n">counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
-<span class="w">          </span><span class="n">println</span><span class="p">(</span><span class="s">s&quot;Thread </span><span class="si">$</span><span class="n">i</span><span class="s">: now counter = </span><span class="si">$</span><span class="n">counter</span><span class="s">&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">          </span><span class="n">counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">          </span><span class="n">println</span><span class="p">(</span><span class="s">s&quot;Thread </span><span class="si">$</span><span class="n">i</span><span class="s">: now counter = </span><span class="si">$</span><span class="n">counter</span><span class="s">&quot;</span><span class="p">)</span>
 <span class="w">          </span><span class="c1">// Step 4: Release the other thread</span>
-<span class="w">          </span><span class="n">condOdd</span><span class="p">.</span><span class="n">signal</span><span class="p">()</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="n">condOdd</span><span class="p">.</span><span class="n">signal</span><span class="p">()</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span>
 
 <span class="w">        </span><span class="c1">// Step 5: Release the lock</span>
-<span class="w">        </span><span class="n">lock</span><span class="p">.</span><span class="n">unlock</span><span class="p">()</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="n">lock</span><span class="p">.</span><span class="n">unlock</span><span class="p">()</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
 
-<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">AdderToOdd</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">Thread</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">override</span><span class="w"> </span><span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="kd">val</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">ThreadID</span><span class="p">.</span><span class="n">get</span><span class="w"></span>
-<span class="w">      </span><span class="n">lock</span><span class="p">.</span><span class="n">lock</span><span class="p">()</span><span class="w"></span>
-<span class="w">      </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">_</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nc">TOTAL</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nc">THREADS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">          </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">counter</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="n">condOdd</span><span class="p">.</span><span class="n">await</span><span class="p">()</span><span class="w"></span>
-<span class="w">          </span><span class="p">}</span><span class="w"></span>
-<span class="w">          </span><span class="n">counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
-<span class="w">          </span><span class="n">println</span><span class="p">(</span><span class="s">s&quot;Thread </span><span class="si">$</span><span class="n">i</span><span class="s">: now counter = </span><span class="si">$</span><span class="n">counter</span><span class="s">&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="w">          </span><span class="n">condEven</span><span class="p">.</span><span class="n">signal</span><span class="p">()</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">lock</span><span class="p">.</span><span class="n">unlock</span><span class="p">()</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">AdderToOdd</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">Thread</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">override</span><span class="w"> </span><span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="kd">val</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">ThreadID</span><span class="p">.</span><span class="n">get</span>
+<span class="w">      </span><span class="n">lock</span><span class="p">.</span><span class="n">lock</span><span class="p">()</span>
+<span class="w">      </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">_</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nc">TOTAL</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nc">THREADS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">counter</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">condOdd</span><span class="p">.</span><span class="n">await</span><span class="p">()</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">          </span><span class="n">counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">          </span><span class="n">println</span><span class="p">(</span><span class="s">s&quot;Thread </span><span class="si">$</span><span class="n">i</span><span class="s">: now counter = </span><span class="si">$</span><span class="n">counter</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="w">          </span><span class="n">condEven</span><span class="p">.</span><span class="n">signal</span><span class="p">()</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">lock</span><span class="p">.</span><span class="n">unlock</span><span class="p">()</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
 
-<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="p">:</span><span class="w"> </span><span class="nc">Array</span><span class="p">[</span><span class="nc">String</span><span class="p">]):</span><span class="w"> </span><span class="nc">Unit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="p">:</span><span class="w"> </span><span class="nc">Array</span><span class="p">[</span><span class="nc">String</span><span class="p">]):</span><span class="w"> </span><span class="nc">Unit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="c1">// ...</span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>Notice that the threads wait and signal on the two different continual
@@ -440,90 +417,90 @@ permissions of the specific thread: each thread waits on <cite>its own</cite>
 conditional variable, while signals on the one of the other thread’s.</p>
 </section>
 <section id="synchronising-many-threads-with-monitors">
-<h2><span class="section-number">5.3. </span>Synchronising Many Threads with Monitors<a class="headerlink" href="#synchronising-many-threads-with-monitors" title="Permalink to this heading"></a></h2>
+<h2>Synchronising Many Threads with Monitors<a class="headerlink" href="#synchronising-many-threads-with-monitors" title="Link to this heading"></a></h2>
 <p>Above we mention an additional mechanism of a conditional variable for
 waking up the threads: <code class="docutils literal notranslate"><span class="pre">signalAll()</span></code> and explain its specifics (it
 might send some threads to spin) and difference with <code class="docutils literal notranslate"><span class="pre">signal()</span></code>. For
 instance, consider the following code that works with multiple
 even/odd incrementers synchronising them via <code class="docutils literal notranslate"><span class="pre">await()</span></code> / <code class="docutils literal notranslate"><span class="pre">signal()</span></code>:</p>
-<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">object</span><span class="w"> </span><span class="nc">CountManyThreads</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">object</span><span class="w"> </span><span class="nc">CountManyThreads</span><span class="w"> </span><span class="p">{</span>
 
-<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">counter</span><span class="p">:</span><span class="w"> </span><span class="nc">Int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
-<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nc">TOTAL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="w"></span>
-<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nc">THREADS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="w"></span>
+<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">counter</span><span class="p">:</span><span class="w"> </span><span class="nc">Int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nc">TOTAL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span>
+<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nc">THREADS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span>
 
-<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="n">lock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nc">ReentrantLock</span><span class="p">()</span><span class="w"></span>
-<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="n">condEven</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lock</span><span class="p">.</span><span class="n">newCondition</span><span class="p">()</span><span class="w"></span>
-<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="n">condOdd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lock</span><span class="p">.</span><span class="n">newCondition</span><span class="p">()</span><span class="w"></span>
+<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="n">lock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nc">ReentrantLock</span><span class="p">()</span>
+<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="n">condEven</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lock</span><span class="p">.</span><span class="n">newCondition</span><span class="p">()</span>
+<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="n">condOdd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lock</span><span class="p">.</span><span class="n">newCondition</span><span class="p">()</span>
 
-<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">AdderToEven</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">Thread</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">override</span><span class="w"> </span><span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="kd">val</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">ThreadID</span><span class="p">.</span><span class="n">get</span><span class="w"></span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">AdderToEven</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">Thread</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">override</span><span class="w"> </span><span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="kd">val</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">ThreadID</span><span class="p">.</span><span class="n">get</span>
 <span class="w">      </span><span class="c1">// Step 1: take the lock</span>
-<span class="w">      </span><span class="n">lock</span><span class="p">.</span><span class="n">lock</span><span class="p">()</span><span class="w"></span>
-<span class="w">      </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">lock</span><span class="p">.</span><span class="n">lock</span><span class="p">()</span>
+<span class="w">      </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
 
 <span class="w">        </span><span class="c1">// Repeat in cycle</span>
-<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">_</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nc">TOTAL</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nc">THREADS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">_</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nc">TOTAL</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nc">THREADS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 
 <span class="w">          </span><span class="c1">// Step 2: wait while counter is not even</span>
-<span class="w">          </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">counter</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="n">condEven</span><span class="p">.</span><span class="n">await</span><span class="p">()</span><span class="w"></span>
-<span class="w">          </span><span class="p">}</span><span class="w"></span>
+<span class="w">          </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">counter</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">condEven</span><span class="p">.</span><span class="n">await</span><span class="p">()</span>
+<span class="w">          </span><span class="p">}</span>
 <span class="w">          </span><span class="c1">// Step 3: Do useful stuff</span>
-<span class="w">          </span><span class="n">counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
-<span class="w">          </span><span class="n">println</span><span class="p">(</span><span class="s">s&quot;Thread </span><span class="si">$</span><span class="n">i</span><span class="s"> (EvenAdder): now counter = </span><span class="si">$</span><span class="n">counter</span><span class="s">&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">          </span><span class="n">counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">          </span><span class="n">println</span><span class="p">(</span><span class="s">s&quot;Thread </span><span class="si">$</span><span class="n">i</span><span class="s"> (EvenAdder): now counter = </span><span class="si">$</span><span class="n">counter</span><span class="s">&quot;</span><span class="p">)</span>
 
 <span class="w">          </span><span class="c1">// Step 4: Signal some other threads</span>
-<span class="w">          </span><span class="n">condOdd</span><span class="p">.</span><span class="n">signal</span><span class="p">()</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="n">condOdd</span><span class="p">.</span><span class="n">signal</span><span class="p">()</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span>
 
 <span class="w">        </span><span class="c1">// Step 5: Release the lock</span>
-<span class="w">        </span><span class="n">lock</span><span class="p">.</span><span class="n">unlock</span><span class="p">()</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="n">lock</span><span class="p">.</span><span class="n">unlock</span><span class="p">()</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
 
-<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">AdderToOdd</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">Thread</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">override</span><span class="w"> </span><span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="kd">val</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">ThreadID</span><span class="p">.</span><span class="n">get</span><span class="w"></span>
-<span class="w">      </span><span class="n">lock</span><span class="p">.</span><span class="n">lock</span><span class="p">()</span><span class="w"></span>
-<span class="w">      </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">_</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nc">TOTAL</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nc">THREADS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">          </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">counter</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="n">condOdd</span><span class="p">.</span><span class="n">await</span><span class="p">()</span><span class="w"></span>
-<span class="w">          </span><span class="p">}</span><span class="w"></span>
-<span class="w">          </span><span class="n">counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
-<span class="w">          </span><span class="n">println</span><span class="p">(</span><span class="s">s&quot;Thread </span><span class="si">$</span><span class="n">i</span><span class="s"> (OddAdder) : now counter = </span><span class="si">$</span><span class="n">counter</span><span class="s">&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="w">          </span><span class="n">condEven</span><span class="p">.</span><span class="n">signal</span><span class="p">()</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">lock</span><span class="p">.</span><span class="n">unlock</span><span class="p">()</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">AdderToOdd</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">Thread</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">override</span><span class="w"> </span><span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="kd">val</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">ThreadID</span><span class="p">.</span><span class="n">get</span>
+<span class="w">      </span><span class="n">lock</span><span class="p">.</span><span class="n">lock</span><span class="p">()</span>
+<span class="w">      </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">_</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nc">TOTAL</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nc">THREADS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">counter</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">condOdd</span><span class="p">.</span><span class="n">await</span><span class="p">()</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">          </span><span class="n">counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">          </span><span class="n">println</span><span class="p">(</span><span class="s">s&quot;Thread </span><span class="si">$</span><span class="n">i</span><span class="s"> (OddAdder) : now counter = </span><span class="si">$</span><span class="n">counter</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="w">          </span><span class="n">condEven</span><span class="p">.</span><span class="n">signal</span><span class="p">()</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">lock</span><span class="p">.</span><span class="n">unlock</span><span class="p">()</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
 
 
-<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="p">:</span><span class="w"> </span><span class="nc">Array</span><span class="p">[</span><span class="nc">String</span><span class="p">]):</span><span class="w"> </span><span class="nc">Unit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">evens</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="k">yield</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nc">AdderToEven</span><span class="w"></span>
-<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">odds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="k">yield</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nc">AdderToOdd</span><span class="w"></span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">t</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">evens</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">odds</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="n">t</span><span class="p">.</span><span class="n">start</span><span class="p">()</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">t</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">evens</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">odds</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="n">t</span><span class="p">.</span><span class="n">join</span><span class="p">()</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="n">assert</span><span class="p">(</span><span class="n">counter</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nc">TOTAL</span><span class="p">)</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="p">:</span><span class="w"> </span><span class="nc">Array</span><span class="p">[</span><span class="nc">String</span><span class="p">]):</span><span class="w"> </span><span class="nc">Unit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">evens</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="k">yield</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nc">AdderToEven</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">odds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="k">yield</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nc">AdderToOdd</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">t</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">evens</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">odds</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">t</span><span class="p">.</span><span class="n">start</span><span class="p">()</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">t</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">evens</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">odds</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">t</span><span class="p">.</span><span class="n">join</span><span class="p">()</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">assert</span><span class="p">(</span><span class="n">counter</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nc">TOTAL</span><span class="p">)</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>In this example, of <code class="docutils literal notranslate"><span class="pre">signal()</span></code> we could have used <code class="docutils literal notranslate"><span class="pre">signallAll()</span></code>
 without noticeable difference.</p>
 </section>
 <section id="intrinsic-java-monitors">
-<h2><span class="section-number">5.4. </span>Intrinsic Java Monitors<a class="headerlink" href="#intrinsic-java-monitors" title="Permalink to this heading"></a></h2>
+<h2>Intrinsic Java Monitors<a class="headerlink" href="#intrinsic-java-monitors" title="Link to this heading"></a></h2>
 <p>Since the patterns of working with monitors by means of manipulating
 associated locks and condition variables so common, Java/Scala embed
 it into its object-oriented mode. Each object in these languages comes
@@ -543,54 +520,54 @@ names of these methods are different on purpose from those of
 conditional variables so they would not be confused. We can implement
 our counter example using Java, which provides special primitives for
 monitor-based synchronisation:</p>
-<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">object</span><span class="w"> </span><span class="nc">CountIntrinsicMonitor</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">object</span><span class="w"> </span><span class="nc">CountIntrinsicMonitor</span><span class="w"> </span><span class="p">{</span>
 
-<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">counter</span><span class="p">:</span><span class="w"> </span><span class="nc">Int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
-<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nc">TOTAL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="w"></span>
-<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nc">THREADS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="w"></span>
+<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">counter</span><span class="p">:</span><span class="w"> </span><span class="nc">Int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nc">TOTAL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span>
+<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nc">THREADS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span>
 
-<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">AdderToEven</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">Thread</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">override</span><span class="w"> </span><span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="kd">val</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">ThreadID</span><span class="p">.</span><span class="n">get</span><span class="w"></span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">AdderToEven</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">Thread</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">override</span><span class="w"> </span><span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="kd">val</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">ThreadID</span><span class="p">.</span><span class="n">get</span>
 <span class="w">      </span><span class="c1">// Step 1: take the lock</span>
-<span class="w">      </span><span class="nc">CountIntrinsicMonitor</span><span class="p">.</span><span class="k">synchronized</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nc">CountIntrinsicMonitor</span><span class="p">.</span><span class="k">synchronized</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="c1">// Repeat in cycle</span>
-<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">_</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nc">TOTAL</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nc">THREADS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">_</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nc">TOTAL</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nc">THREADS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 
 <span class="w">          </span><span class="c1">// Step 2: wait while counter is not even</span>
-<span class="w">          </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">counter</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">counter</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="c1">// TODO: Notice: now it&#39;s `wait()` instead of `await()`</span>
-<span class="w">            </span><span class="nc">CountIntrinsicMonitor</span><span class="p">.</span><span class="n">wait</span><span class="p">()</span><span class="w"></span>
-<span class="w">          </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="nc">CountIntrinsicMonitor</span><span class="p">.</span><span class="n">wait</span><span class="p">()</span>
+<span class="w">          </span><span class="p">}</span>
 <span class="w">          </span><span class="c1">// Step 3: Do useful stuff</span>
-<span class="w">          </span><span class="n">counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
-<span class="w">          </span><span class="n">println</span><span class="p">(</span><span class="s">s&quot;Thread </span><span class="si">$</span><span class="n">i</span><span class="s"> (EvenAdder): now counter = </span><span class="si">$</span><span class="n">counter</span><span class="s">&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">          </span><span class="n">counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">          </span><span class="n">println</span><span class="p">(</span><span class="s">s&quot;Thread </span><span class="si">$</span><span class="n">i</span><span class="s"> (EvenAdder): now counter = </span><span class="si">$</span><span class="n">counter</span><span class="s">&quot;</span><span class="p">)</span>
 
 <span class="w">          </span><span class="c1">// Step 4: Notify all other threads</span>
 <span class="w">          </span><span class="c1">// TODO: Notice: now it&#39;s `notifyAll()` instead of `signalAll()`</span>
-<span class="w">          </span><span class="nc">CountIntrinsicMonitor</span><span class="p">.</span><span class="n">notifyAll</span><span class="p">()</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">          </span><span class="nc">CountIntrinsicMonitor</span><span class="p">.</span><span class="n">notifyAll</span><span class="p">()</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
 
-<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">AdderToOdd</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">Thread</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">override</span><span class="w"> </span><span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="kd">val</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">ThreadID</span><span class="p">.</span><span class="n">get</span><span class="w"></span>
-<span class="w">      </span><span class="nc">CountIntrinsicMonitor</span><span class="p">.</span><span class="k">synchronized</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">_</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nc">TOTAL</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nc">THREADS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">          </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">counter</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="nc">CountIntrinsicMonitor</span><span class="p">.</span><span class="n">wait</span><span class="p">()</span><span class="w"></span>
-<span class="w">          </span><span class="p">}</span><span class="w"></span>
-<span class="w">          </span><span class="n">counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
-<span class="w">          </span><span class="n">println</span><span class="p">(</span><span class="s">s&quot;Thread </span><span class="si">$</span><span class="n">i</span><span class="s"> (OddAdder) : now counter = </span><span class="si">$</span><span class="n">counter</span><span class="s">&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="w">          </span><span class="nc">CountIntrinsicMonitor</span><span class="p">.</span><span class="n">notifyAll</span><span class="p">()</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">AdderToOdd</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">Thread</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">override</span><span class="w"> </span><span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="kd">val</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">ThreadID</span><span class="p">.</span><span class="n">get</span>
+<span class="w">      </span><span class="nc">CountIntrinsicMonitor</span><span class="p">.</span><span class="k">synchronized</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">_</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nc">TOTAL</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nc">THREADS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">counter</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nc">CountIntrinsicMonitor</span><span class="p">.</span><span class="n">wait</span><span class="p">()</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">          </span><span class="n">counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">          </span><span class="n">println</span><span class="p">(</span><span class="s">s&quot;Thread </span><span class="si">$</span><span class="n">i</span><span class="s"> (OddAdder) : now counter = </span><span class="si">$</span><span class="n">counter</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="w">          </span><span class="nc">CountIntrinsicMonitor</span><span class="p">.</span><span class="n">notifyAll</span><span class="p">()</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="w">  </span><span class="c1">// ...</span>
-<span class="p">}</span><span class="w"></span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -613,55 +590,55 @@ via the monitor associated with the global singleton object
 </ul>
 </section>
 <section id="the-lost-wakeup-problem">
-<h2><span class="section-number">5.5. </span>The Lost-Wakeup Problem<a class="headerlink" href="#the-lost-wakeup-problem" title="Permalink to this heading"></a></h2>
+<h2>The Lost-Wakeup Problem<a class="headerlink" href="#the-lost-wakeup-problem" title="Link to this heading"></a></h2>
 <p>Consider the following queue implementation that makes use of Java
 monitors:</p>
-<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">MonitorQueue</span><span class="p">[</span><span class="nc">T</span><span class="p">:</span><span class="w"> </span><span class="n">scala</span><span class="p">.</span><span class="n">reflect</span><span class="p">.</span><span class="nc">ClassTag</span><span class="p">](</span><span class="kd">val</span><span class="w"> </span><span class="n">capacity</span><span class="p">:</span><span class="w"> </span><span class="nc">Int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">MonitorQueue</span><span class="p">[</span><span class="nc">T</span><span class="p">:</span><span class="w"> </span><span class="n">scala</span><span class="p">.</span><span class="n">reflect</span><span class="p">.</span><span class="nc">ClassTag</span><span class="p">](</span><span class="kd">val</span><span class="w"> </span><span class="n">capacity</span><span class="p">:</span><span class="w"> </span><span class="nc">Int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 
 <span class="w">  </span><span class="k">import</span><span class="w"> </span><span class="nn">java</span><span class="p">.</span><span class="nn">util</span><span class="p">.</span><span class="nn">concurrent</span><span class="p">.</span><span class="nn">locks</span><span class="p">.</span><span class="nc">ReentrantLock</span>
 
-<span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="n">lock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nc">ReentrantLock</span><span class="w"></span>
-<span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="n">notFull</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lock</span><span class="p">.</span><span class="n">newCondition</span><span class="w"></span>
-<span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="n">notEmpty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lock</span><span class="p">.</span><span class="n">newCondition</span><span class="w"></span>
-<span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="n">items</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nc">Array</span><span class="p">[</span><span class="nc">T</span><span class="p">](</span><span class="n">capacity</span><span class="p">)</span><span class="w"></span>
-<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="n">tail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
-<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="n">head</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
-<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="n">lock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nc">ReentrantLock</span>
+<span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="n">notFull</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lock</span><span class="p">.</span><span class="n">newCondition</span>
+<span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="n">notEmpty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lock</span><span class="p">.</span><span class="n">newCondition</span>
+<span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="n">items</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nc">Array</span><span class="p">[</span><span class="nc">T</span><span class="p">](</span><span class="n">capacity</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="n">tail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="n">head</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
 
-<span class="w">  </span><span class="nd">@throws</span><span class="p">[</span><span class="nc">InterruptedException</span><span class="p">]</span><span class="w"></span>
-<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">end</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="w"> </span><span class="nc">T</span><span class="p">):</span><span class="w"> </span><span class="nc">Unit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">lock</span><span class="p">.</span><span class="n">lock</span><span class="p">()</span><span class="w"></span>
-<span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">count</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">items</span><span class="p">.</span><span class="n">length</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">notFull</span><span class="p">.</span><span class="n">await</span><span class="p">()</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">items</span><span class="p">(</span><span class="n">tail</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"></span>
-<span class="w">      </span><span class="n">tail</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
-<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">tail</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">items</span><span class="p">.</span><span class="n">length</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">tail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
-<span class="w">      </span><span class="n">notEmpty</span><span class="p">.</span><span class="n">signal</span><span class="p">()</span><span class="w"></span>
+<span class="w">  </span><span class="nd">@throws</span><span class="p">[</span><span class="nc">InterruptedException</span><span class="p">]</span>
+<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">end</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="w"> </span><span class="nc">T</span><span class="p">):</span><span class="w"> </span><span class="nc">Unit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">lock</span><span class="p">.</span><span class="n">lock</span><span class="p">()</span>
+<span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">count</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">items</span><span class="p">.</span><span class="n">length</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">notFull</span><span class="p">.</span><span class="n">await</span><span class="p">()</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="n">items</span><span class="p">(</span><span class="n">tail</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span>
+<span class="w">      </span><span class="n">tail</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">tail</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">items</span><span class="p">.</span><span class="n">length</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">tail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="n">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">      </span><span class="n">notEmpty</span><span class="p">.</span><span class="n">signal</span><span class="p">()</span>
 
-<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="n">lock</span><span class="p">.</span><span class="n">unlock</span><span class="p">()</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="n">lock</span><span class="p">.</span><span class="n">unlock</span><span class="p">()</span>
+<span class="w">  </span><span class="p">}</span>
 
-<span class="w">  </span><span class="nd">@throws</span><span class="p">[</span><span class="nc">InterruptedException</span><span class="p">]</span><span class="w"></span>
-<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">deq</span><span class="p">():</span><span class="w"> </span><span class="nc">T</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">lock</span><span class="p">.</span><span class="n">lock</span><span class="p">()</span><span class="w"></span>
-<span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">count</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">notEmpty</span><span class="p">.</span><span class="n">await</span><span class="p">()</span><span class="w"></span>
-<span class="w">      </span><span class="kd">val</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">items</span><span class="p">(</span><span class="n">head</span><span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="n">head</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
-<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">head</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">items</span><span class="p">.</span><span class="n">length</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">head</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="n">count</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
-<span class="w">      </span><span class="n">notFull</span><span class="p">.</span><span class="n">signal</span><span class="p">()</span><span class="w"></span>
-<span class="w">      </span><span class="n">x</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="n">lock</span><span class="p">.</span><span class="n">unlock</span><span class="p">()</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="nd">@throws</span><span class="p">[</span><span class="nc">InterruptedException</span><span class="p">]</span>
+<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">deq</span><span class="p">():</span><span class="w"> </span><span class="nc">T</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">lock</span><span class="p">.</span><span class="n">lock</span><span class="p">()</span>
+<span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">count</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">notEmpty</span><span class="p">.</span><span class="n">await</span><span class="p">()</span>
+<span class="w">      </span><span class="kd">val</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">items</span><span class="p">(</span><span class="n">head</span><span class="p">)</span>
+<span class="w">      </span><span class="n">head</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">head</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">items</span><span class="p">.</span><span class="n">length</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">head</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="n">count</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">      </span><span class="n">notFull</span><span class="p">.</span><span class="n">signal</span><span class="p">()</span>
+<span class="w">      </span><span class="n">x</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="n">lock</span><span class="p">.</span><span class="n">unlock</span><span class="p">()</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>This queue is a fine example of a concurrent blocking implementation:
@@ -687,7 +664,7 @@ take a number of nanoseconds to wait as an optional argument).</p></li>
 </ul>
 </section>
 <section id="read-write-locking">
-<h2><span class="section-number">5.6. </span>Read-Write Locking<a class="headerlink" href="#read-write-locking" title="Permalink to this heading"></a></h2>
+<h2>Read-Write Locking<a class="headerlink" href="#read-write-locking" title="Link to this heading"></a></h2>
 <p>In many cases a shared resource can allow multiple threads that do not
 modify it access it concurrently, but will require an exclusive access
 for someone to make modifications. This pattern is known as
@@ -704,74 +681,74 @@ Lock</strong>. It can be implemented using monitors as follows:</p>
 
 <span class="cm">/**</span>
 <span class="cm">  * @author Maurice Herlihy, Ilya Sergey</span>
-<span class="cm">  */</span><span class="w"></span>
-<span class="k">class</span><span class="w"> </span><span class="nc">SimpleReadWriteLock</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">ReadWriteLock</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="cm">  */</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">SimpleReadWriteLock</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">ReadWriteLock</span><span class="w"> </span><span class="p">{</span>
 
-<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">readers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
-<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">writer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="w"></span>
-<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="n">myLock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nc">ReentrantLock</span><span class="w"></span>
-<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="n">myReadLock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nc">ReadLock</span><span class="w"></span>
-<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="n">myWriteLock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nc">WriteLock</span><span class="w"></span>
-<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">condition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myLock</span><span class="p">.</span><span class="n">newCondition</span><span class="w"></span>
+<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">readers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">writer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="n">myLock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nc">ReentrantLock</span>
+<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="n">myReadLock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nc">ReadLock</span>
+<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="n">myWriteLock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nc">WriteLock</span>
+<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">condition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myLock</span><span class="p">.</span><span class="n">newCondition</span>
 
-<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">readLock</span><span class="p">:</span><span class="w"> </span><span class="nc">Lock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myReadLock</span><span class="w"></span>
+<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">readLock</span><span class="p">:</span><span class="w"> </span><span class="nc">Lock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myReadLock</span>
 
-<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">writeLock</span><span class="p">:</span><span class="w"> </span><span class="nc">Lock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myWriteLock</span><span class="w"></span>
+<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">writeLock</span><span class="p">:</span><span class="w"> </span><span class="nc">Lock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myWriteLock</span>
 
-<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">ReadLock</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">Lock</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">def</span><span class="w"> </span><span class="nf">lock</span><span class="p">():</span><span class="w"> </span><span class="nc">Unit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="n">myLock</span><span class="p">.</span><span class="n">lock</span><span class="p">()</span><span class="w"></span>
-<span class="w">      </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">writer</span><span class="p">)</span><span class="w"> </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">          </span><span class="n">condition</span><span class="p">.</span><span class="n">await</span><span class="p">()</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">          </span><span class="k">case</span><span class="w"> </span><span class="n">e</span><span class="p">:</span><span class="w"> </span><span class="nc">InterruptedException</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="n">readers</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">myLock</span><span class="p">.</span><span class="n">unlock</span><span class="p">()</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">ReadLock</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">Lock</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">def</span><span class="w"> </span><span class="nf">lock</span><span class="p">():</span><span class="w"> </span><span class="nc">Unit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">myLock</span><span class="p">.</span><span class="n">lock</span><span class="p">()</span>
+<span class="w">      </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">writer</span><span class="p">)</span><span class="w"> </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="n">condition</span><span class="p">.</span><span class="n">await</span><span class="p">()</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="k">case</span><span class="w"> </span><span class="n">e</span><span class="p">:</span><span class="w"> </span><span class="nc">InterruptedException</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">readers</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">myLock</span><span class="p">.</span><span class="n">unlock</span><span class="p">()</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="k">def</span><span class="w"> </span><span class="nf">unlock</span><span class="p">():</span><span class="w"> </span><span class="nc">Unit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="n">myLock</span><span class="p">.</span><span class="n">lock</span><span class="p">()</span><span class="w"></span>
-<span class="w">      </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">readers</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">readers</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">          </span><span class="n">condition</span><span class="p">.</span><span class="n">signalAll</span><span class="p">()</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="n">myLock</span><span class="p">.</span><span class="n">unlock</span><span class="p">()</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">def</span><span class="w"> </span><span class="nf">unlock</span><span class="p">():</span><span class="w"> </span><span class="nc">Unit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">myLock</span><span class="p">.</span><span class="n">lock</span><span class="p">()</span>
+<span class="w">      </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">readers</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">readers</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="n">condition</span><span class="p">.</span><span class="n">signalAll</span><span class="p">()</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="n">myLock</span><span class="p">.</span><span class="n">unlock</span><span class="p">()</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="c1">// ...</span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span>
 
-<span class="w">  </span><span class="k">protected</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">WriteLock</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">Lock</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">def</span><span class="w"> </span><span class="nf">lock</span><span class="p">():</span><span class="w"> </span><span class="nc">Unit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="n">myLock</span><span class="p">.</span><span class="n">lock</span><span class="p">()</span><span class="w"></span>
-<span class="w">      </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">readers</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">          </span><span class="n">condition</span><span class="p">.</span><span class="n">await</span><span class="p">()</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">          </span><span class="k">case</span><span class="w"> </span><span class="n">e</span><span class="p">:</span><span class="w"> </span><span class="nc">InterruptedException</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="k">protected</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">WriteLock</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">Lock</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">def</span><span class="w"> </span><span class="nf">lock</span><span class="p">():</span><span class="w"> </span><span class="nc">Unit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">myLock</span><span class="p">.</span><span class="n">lock</span><span class="p">()</span>
+<span class="w">      </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">readers</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="n">condition</span><span class="p">.</span><span class="n">await</span><span class="p">()</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="k">case</span><span class="w"> </span><span class="n">e</span><span class="p">:</span><span class="w"> </span><span class="nc">InterruptedException</span><span class="w"> </span><span class="o">=&gt;</span>
 
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="n">writer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="n">myLock</span><span class="p">.</span><span class="n">unlock</span><span class="p">()</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">writer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="n">myLock</span><span class="p">.</span><span class="n">unlock</span><span class="p">()</span>
+<span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="k">def</span><span class="w"> </span><span class="nf">unlock</span><span class="p">():</span><span class="w"> </span><span class="nc">Unit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="n">myLock</span><span class="p">.</span><span class="n">lock</span><span class="p">()</span><span class="w"></span>
-<span class="w">      </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">writer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="w"></span>
-<span class="w">        </span><span class="n">condition</span><span class="p">.</span><span class="n">signalAll</span><span class="p">()</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">myLock</span><span class="p">.</span><span class="n">unlock</span><span class="p">()</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">def</span><span class="w"> </span><span class="nf">unlock</span><span class="p">():</span><span class="w"> </span><span class="nc">Unit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">myLock</span><span class="p">.</span><span class="n">lock</span><span class="p">()</span>
+<span class="w">      </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">writer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">        </span><span class="n">condition</span><span class="p">.</span><span class="n">signalAll</span><span class="p">()</span>
+<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">myLock</span><span class="p">.</span><span class="n">unlock</span><span class="p">()</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="c1">// ...</span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span>
 <span class="w">  </span><span class="c1">// ...</span>
-<span class="p">}</span><span class="w"></span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>Notice that any reader using the instance of the <code class="docutils literal notranslate"><span class="pre">ReadLock</span></code> will be
@@ -786,7 +763,7 @@ waiting. In principle, the lock can be improved by using two different
 condition variables.</p>
 </section>
 <section id="when-should-we-use-monitors">
-<h2><span class="section-number">5.7. </span>When Should We Use Monitors<a class="headerlink" href="#when-should-we-use-monitors" title="Permalink to this heading"></a></h2>
+<h2>When Should We Use Monitors<a class="headerlink" href="#when-should-we-use-monitors" title="Link to this heading"></a></h2>
 <p>Monitors (locks + conditional variables) are complementary to
 spin-locks. An appropriate synchronisation mechanisms depends on the
 use case:</p>
@@ -805,7 +782,7 @@ access to the critical section.</p></li>
 </ul>
 </section>
 <section id="other-synchronisation-mechanisms">
-<h2><span class="section-number">5.8. </span>Other Synchronisation Mechanisms<a class="headerlink" href="#other-synchronisation-mechanisms" title="Permalink to this heading"></a></h2>
+<h2>Other Synchronisation Mechanisms<a class="headerlink" href="#other-synchronisation-mechanisms" title="Link to this heading"></a></h2>
 <p>As of now, monitors (reentrant locks + condition variables) are one of
 the most popular blocking synchronisation mechanisms. However, most of
 the popular concurrent libraries (such as <code class="docutils literal notranslate"><span class="pre">java.util.concurrent</span></code> and
@@ -826,10 +803,7 @@ equivalent to a lock.</p></li>
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="week-05-spinlocks.html" class="btn btn-neutral float-left" title="4. Week 05: Spin Locks and Contention" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="week-03-concurrent-objects.html" class="btn btn-neutral float-right" title="6. Week 06: Concurrent Objects" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+          <footer>
 
   <hr/>
 
