@@ -7,6 +7,6 @@ Week 08: Skiplists
   (adapted from the `AoMP book
   <https://booksite.elsevier.com/9780123973375/?ISBN=9780123973375>`_)
 * `Code with examples
-  <https://github.com/ysc4231/lectures-2023/tree/08-queues>`_,
+  <https://github.com/ysc4231/lectures-2024/tree/08-queues>`_,
   package ``skiplists``
 

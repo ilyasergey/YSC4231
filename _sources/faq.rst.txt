@@ -78,10 +78,11 @@ On Submission Policies
 
 **I had a really rough week and feel very stressed, having hard time to focus on the homework. May I have an extension?**
 
-You can have either one "free" 48-hour or two 24-hour extensions for
+You can have either one "free" (no MC needed) 24-hour extension for
 any of your homework projects except for the group research project.
-To get this extension, please, inform me **three hours before the deadline**.
-Extensions won't be granted to the requests sent later than that.
+To get this extension, please, inform me at least **three hours before
+the deadline**. Extensions won't be granted to the requests sent later
+than that.
 
 Also, the group projects are not amenable for "free" extensions. 
 
@@ -94,7 +95,10 @@ do so.
 In case of a group project the "regular" extension is granted to the
 entire team.
 
-**Okay, I didn't realise that the task will take that much time, I used all my free extensions, and I don't have a reason qualifying me or an AD letter. If you don't give me an extension, what should I do?**
+**Okay, I didn't realise that the task will take that much time, I
+ used all my free extensions, and I don't have a reason qualifying me
+ or an AD letter. If you don't give me an extension, what should I
+ do?**
 
 I'm afraid, in this case you do your best and possibly take a penalty
 for a late submission.
