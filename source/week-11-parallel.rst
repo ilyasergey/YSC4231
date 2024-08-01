@@ -12,7 +12,7 @@ Useful Resources
   <https://docs.scala-lang.org/overviews/parallel-collections/architecture.html>`_
 * `Creating Custom Parallel Collections <https://docs.scala-lang.org/overviews/parallel-collections/custom-parallel-collections.html>`_
 * `Code with examples
-  <https://github.com/ysc4231/lectures-2023/tree/11-parallel>`_,
+  <https://github.com/ysc4231/lectures-2024/tree/11-parallel>`_,
   package ``parallel``
 
 Code Commentary

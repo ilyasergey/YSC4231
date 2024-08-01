@@ -11,7 +11,7 @@ functional features
 
 The accompanying code for this lecture is available in the branch
 ``02-intro`` (under the folder ``src/main/scala/intro``) of the
-`course repository <https://github.com/ysc4231/lectures-2023>`_.
+`course repository <https://github.com/ysc4231/lectures-2024>`_.
 
 If unsure about some of the feature, you are encouraged to take a look
 at one of multiple Scala tutorials available online. The following are
@@ -32,7 +32,7 @@ and creating a simple Scala project in it:
 * `Getting Started with Scala in IntelliJ IDEA <https://docs.scala-lang.org/getting-started/intellij-track/getting-started-with-scala-in-intellij.html>`_
 
 You can also open the `course repository
-<https://github.com/ysc4231/lectures-2023>`_ from IntelliJ via `File` -> `Open` dialogue.
+<https://github.com/ysc4231/lectures-2024>`_ from IntelliJ via `File` -> `Open` dialogue.
 
 IntelliJ IDEA provides a convenient way to build projects, navigate to
 files and definitions, and refactor them consistently. You are

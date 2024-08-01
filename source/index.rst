@@ -1,4 +1,4 @@
-Parallel, Concurrent and Distributed Programming (Autumn 2023)
+Parallel, Concurrent and Distributed Programming (Autumn 2024)
 ==============================================================
 
 .. toctree::
@@ -11,12 +11,10 @@ Parallel, Concurrent and Distributed Programming (Autumn 2023)
 
 * Instructor: `Ilya Sergey <https://ilyasergey.net/>`_
 
-.. * Lectures: Thursdays, 9am-12pm
-.. * Location: Yale-NUS College, Y-CR1
-.. * Peer Tutor: `Phong Le <phongnguyen.le@u.yale-nus.edu.sg>`_
-.. * Peer tutoring sessions: Mondays, 7-9pm, CR20 (Cendana)
-
-The 2023 edition of YSC4231 is over. PCDP will return in Autumn 2024!
+* Lectures: Mondays, 9am-12pm
+* Location: Yale-NUS College, `Y-CR15 <https://nusmods.com/venues/Y-CR15>`_
+* Peer tutor: TBA
+* Peer tutoring sessions: TBA
 
 Lectures
 --------
@@ -26,8 +24,9 @@ Lectures
    :maxdepth: 1
 
 
-..   week-01-intro
-..   week-02-scala
+   week-01-intro
+   week-02-scala
+
 ..   week-03-mutex
 ..   week-05-spinlocks
 ..   week-05-monitors
@@ -49,14 +48,12 @@ Lecture materials will be posted gradually as we progress through the course.
 Supplementary Materials
 -----------------------
 
-TBA
-
-.. * `GitHub Organisation <https://github.com/ysc4231/>`_ 
-.. * `Code from the Lectures <https://github.com/ysc4231/lectures-2023>`_  (email me you GitHub name to get access)
+* `GitHub Organisation <https://github.com/ysc4231/>`_ 
+* `Code from the Lectures <https://github.com/ysc4231/lectures-2024>`_  (email me you GitHub name to get access)
 
 
-Textbooks
----------
+Recommended Textbooks
+---------------------
 
 1. `The Art of Multiprocessor Programming <https://www.elsevier.com/books/the-art-of-multiprocessor-programming-revised-reprint/herlihy/978-0-12-397337-5>`_ by Maurice Herlihy and Nir Shavit
 2. `Learning Concurrent Programming in Scala <https://www.packtpub.com/application-development/learning-concurrent-programming-scala-second-edition>`_ by Aleksandar Prokopec
