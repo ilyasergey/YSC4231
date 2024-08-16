@@ -13,8 +13,8 @@ Parallel, Concurrent and Distributed Programming (Autumn 2024)
 
 * Lectures: Mondays, 9am-12pm
 * Location: Yale-NUS College, `Y-CR15 <https://nusmods.com/venues/Y-CR15>`_
-* Peer tutor: TBA
-* Peer tutoring sessions: TBA
+* Peer tutor: `Kim Young Il <youngil.kim@u.yale-nus.edu.sg>`_
+* Peer tutoring sessions: Mondays, 16:15-17:15 and Wednesdays, 17:00-18:00
 
 Lectures
 --------
