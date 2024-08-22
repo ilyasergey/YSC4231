@@ -1,7 +1,7 @@
 .. -*- mode: rst -*-
 
-4. Week 04: Spin Locks and Contention
-=====================================
+Week 04: Spin Locks and Contention
+==================================
 
 * `Lecture Slides <_static/resources/ysc4231-week-04-spinlocks.pdf>`_
 * `Code with examples
