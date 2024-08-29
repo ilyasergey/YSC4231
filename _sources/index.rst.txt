@@ -27,8 +27,8 @@ Lectures
    week-02-scala
    week-03-mutex
    week-05-spinlocks
+   week-05-monitors
 
-..   week-05-monitors
 ..   week-03-concurrent-objects
 ..   week-07-midterm-project   
 ..   week-06-fine-lists
