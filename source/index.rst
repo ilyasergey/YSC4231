@@ -30,8 +30,8 @@ Lectures
    week-05-monitors
    week-03-concurrent-objects
    week-07-midterm-project   
+   week-06-fine-lists
 
-..   week-06-fine-lists
 ..   week-08-queues-stacks
 ..   week-09-skiplists
 ..   week-11-races
