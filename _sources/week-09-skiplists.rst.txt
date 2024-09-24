@@ -1,12 +1,12 @@
 .. -*- mode: rst -*-
 
-Week 08: Skiplists
-==================
+Week 08: More Concurrent Data Structures
+========================================
 
+* `Lecture Slides (Queues) <_static/resources/ysc4231-week-08-queues.pdf>`_
 * `Lecture Slides (Skiplists) <_static/resources/ysc4231-week-09-skiplists.pdf>`_
-  (adapted from the `AoMP book
-  <https://booksite.elsevier.com/9780123973375/?ISBN=9780123973375>`_)
+
 * `Code with examples
-  <https://github.com/ysc4231/lectures-2024/tree/08-queues>`_,
+  <https://github.com/ysc4231/lectures-2024/tree/08-skiplists>`_,
   package ``skiplists``
 
