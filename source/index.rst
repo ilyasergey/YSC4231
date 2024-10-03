@@ -31,9 +31,8 @@ Lectures
    week-03-concurrent-objects
    week-07-midterm-project   
    week-06-fine-lists
-
-..   week-09-skiplists
-..   week-11-races
+   week-09-skiplists
+   week-11-races
 
 ..   week-10-futures
 ..   week-11-parallel
