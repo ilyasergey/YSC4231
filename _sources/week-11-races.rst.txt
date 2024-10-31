@@ -1,6 +1,6 @@
 .. -*- mode: rst -*-
 
-Week 08: Data Race Detection in Practice
+Week 09: Data Race Detection in Practice
 ========================================
 
 * `Lecture Slides <_static/resources/ysc4231-week-09-races.pdf>`_
