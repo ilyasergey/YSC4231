@@ -97,8 +97,7 @@ entire team.
 
 **Okay, I didn't realise that the task will take that much time, I
  used all my free extensions, and I don't have a reason qualifying me
- or an AD letter. If you don't give me an extension, what should I
- do?**
+ or an AD letter. If you don't give me an extension, what should I do?**
 
 I'm afraid, in this case you do your best and possibly take a penalty
 for a late submission.
