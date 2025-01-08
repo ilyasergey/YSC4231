@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="./">
 <head>
@@ -5,22 +7,18 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>5. Week 05: Monitors and Blocking Synchronisation &mdash; YSC4231 2021</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=92fd9be5" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/custom.css?v=0194d983" />
 
   
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=6fefd858"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"extensions": ["tex2jax.js"], "jax": ["input/TeX", "output/HTML-CSS"]})</script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=6fefd858"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script type="text/x-mathjax-config">MathJax.Hub.Config({"extensions": ["tex2jax.js"], "jax": ["input/TeX", "output/HTML-CSS"]})</script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -50,7 +48,6 @@
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="syllabus.html">1. Course Syllabus and Grading Schema</a></li>
 <li class="toctree-l1"><a class="reference internal" href="prerequisites.html">2. Software Prerequisites</a></li>
-<li class="toctree-l1"><a class="reference internal" href="faq.html">3. FAQ on Learning and Plagiarism</a></li>
 </ul>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="week-01-intro.html">1. Week 01: Introduction</a></li>
@@ -357,15 +354,18 @@ involving a monitor.</p>
 entering the critical section. It then called the method
 <code class="docutils literal notranslate"><span class="pre">cond.await()</span></code> of a conditional variable, thus, transitioning to the
 “waiting room” with threads that have been suspended during their CS.</p>
-<a class="reference internal image-reference" href="_images/mon1.jpg"><img alt="_images/mon1.jpg" class="align-center" src="_images/mon1.jpg" style="width: 500px;" /></a>
+<a class="reference internal image-reference" href="_images/mon1.jpg"><img alt="_images/mon1.jpg" class="align-center" src="_images/mon1.jpg" style="width: 500px;" />
+</a>
 <p>Next, thread C enters the critical section, calling
 <code class="docutils literal notranslate"><span class="pre">cond.signaAll()</span></code> and then <code class="docutils literal notranslate"><span class="pre">unlock()</span></code>. This prompts two waiting
 threads, A and B, to wake up and compete for the lock again.</p>
-<a class="reference internal image-reference" href="_images/mon2.jpg"><img alt="_images/mon2.jpg" class="align-center" src="_images/mon2.jpg" style="width: 500px;" /></a>
+<a class="reference internal image-reference" href="_images/mon2.jpg"><img alt="_images/mon2.jpg" class="align-center" src="_images/mon2.jpg" style="width: 500px;" />
+</a>
 <p>In the same time thread D enters the competition, acquiring the lock,
 sending both A and B to spin until D leaves the critical section,
 thus, giving them again a chance to acquire the lock.</p>
-<a class="reference internal image-reference" href="_images/mon3.jpg"><img alt="_images/mon3.jpg" class="align-center" src="_images/mon3.jpg" style="width: 500px;" /></a>
+<a class="reference internal image-reference" href="_images/mon3.jpg"><img alt="_images/mon3.jpg" class="align-center" src="_images/mon3.jpg" style="width: 500px;" />
+</a>
 </section>
 <section id="using-multiple-conditional-variables">
 <h2><span class="section-number">5.2. </span>Using Multiple Conditional Variables<a class="headerlink" href="#using-multiple-conditional-variables" title="Link to this heading"></a></h2>

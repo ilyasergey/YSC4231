@@ -1,5 +1,15 @@
-Parallel, Concurrent and Distributed Programming (Autumn 2024)
-==============================================================
+Parallel, Concurrent and Distributed Programming
+================================================
+
+This course on basic concurrent and parallel algorithms has been
+taught by `Ilya Sergey <https://ilyasergey.net/>`_ at `Yale-NUS
+College <https://www.yale-nus.edu.sg/>`_ in 2019-2024. Feel free to
+use all the materials and submit pull requests on GitHub (the links to
+the sources are given below).
+
+Please, get in touch is you’d like to get access to the homework
+assignments or to the model solutions for the midterm/final projects.
+
 
 .. toctree::
    :numbered:
@@ -7,14 +17,7 @@ Parallel, Concurrent and Distributed Programming (Autumn 2024)
 
    syllabus
    prerequisites
-   faq
-
-* Instructor: `Ilya Sergey <https://ilyasergey.net/>`_
-
-* Lectures: Mondays, 9am-12pm
-* Location: Yale-NUS College, `Y-CR15 <https://nusmods.com/venues/Y-CR15>`_
-* Peer tutor: `Kim Young Il <youngil.kim@u.yale-nus.edu.sg>`_
-* Peer tutoring sessions: Mondays, 16:15-17:15 and Wednesdays, 17:00-18:00
+..   faq
 
 Lectures
 --------
@@ -38,25 +41,33 @@ Lectures
    week-12-actors
    week-13-consensus
 
-..   week-04-wait-free
-..   week-08-queues-stacks
-
-
-.. Lecture materials will be posted gradually as we progress through the course.
-
 Supplementary Materials
 -----------------------
 
 * `GitHub Organisation <https://github.com/ysc4231/>`_ 
-* `Code from the Lectures <https://github.com/ysc4231/lectures-2024>`_  (email me you GitHub name to get access)
+* `Code from the Lectures <https://github.com/ysc4231/ysc4231>`_  
+* `Midterm project starter code <https://github.com/ysc4231/midterm-starter-code>`_  
+* `Sources of these lecture notes <https://github.com/ilyasergey/YSC4231>`_  
 
 
-Recommended Textbooks
----------------------
+Textbooks
+---------
 
 1. `The Art of Multiprocessor Programming <https://www.elsevier.com/books/the-art-of-multiprocessor-programming-revised-reprint/herlihy/978-0-12-397337-5>`_ by Maurice Herlihy and Nir Shavit
-2. `Learning Concurrent Programming in Scala <https://www.packtpub.com/application-development/learning-concurrent-programming-scala-second-edition>`_ by Aleksandar Prokopec
-3. `Introduction to Reliable and Secure Distributed Programming <https://www.springer.com/gp/book/9783642152597>`_ by Christian Cachin `et al.`
+2. `Learning Concurrent Programming in Scala
+   <https://www.packtpub.com/application-development/learning-concurrent-programming-scala-second-edition>`_
+   by Aleksandar Prokopec
+
+Copyright
+---------
+
+* The lectures for Weeks 1 and 3-8 of the course are based on the `The
+  Art of Multiprocessor Programming
+  <https://www.elsevier.com/books/the-art-of-multiprocessor-programming-revised-reprint/herlihy/978-0-12-397337-5>`_
+  book and adapt its accompanying slides.
+* The lectures for Weeks 10-12 follow the material and the code from
+  the `Learning Concurrent Programming in Scala <https://www.packtpub.com/application-development/learning-concurrent-programming-scala-second-edition>`_ book. 
+
 
 ..
    Indices and tables
