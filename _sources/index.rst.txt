@@ -55,7 +55,7 @@ Textbooks
 
 1. `The Art of Multiprocessor Programming <https://www.elsevier.com/books/the-art-of-multiprocessor-programming-revised-reprint/herlihy/978-0-12-397337-5>`_ by Maurice Herlihy and Nir Shavit
 2. `Learning Concurrent Programming in Scala
-   <https://www.packtpub.com/application-development/learning-concurrent-programming-scala-second-edition>`_
+   <https://www.packtpub.com/en-us/product/learning-concurrent-programming-in-scala-9781783281411>`_
    by Aleksandar Prokopec
 
 Copyright
@@ -66,7 +66,7 @@ Copyright
   <https://www.elsevier.com/books/the-art-of-multiprocessor-programming-revised-reprint/herlihy/978-0-12-397337-5>`_
   book and adapt its accompanying slides.
 * The lectures for Weeks 10-12 follow the material and the code from
-  the `Learning Concurrent Programming in Scala <https://www.packtpub.com/application-development/learning-concurrent-programming-scala-second-edition>`_ book. 
+  the `Learning Concurrent Programming in Scala <https://www.packtpub.com/en-us/product/learning-concurrent-programming-in-scala-9781783281411>`_ book. 
 
 
 ..
