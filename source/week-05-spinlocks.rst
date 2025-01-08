@@ -5,6 +5,6 @@ Week 04: Spin Locks and Contention
 
 * `Lecture Slides <_static/resources/ysc4231-week-04-spinlocks.pdf>`_
 * `Code with examples
-  <https://github.com/ysc4231/lectures-2024/tree/04-locks>`_,
+  <https://github.com/ysc4231/ysc4231>`_,
   package ``spinlocks``
 
