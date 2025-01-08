@@ -12,7 +12,7 @@ Useful resources:
   <https://speakerdeck.com/phaller/futures-and-async-when-to-use-which>`_
   and `Video <https://www.youtube.com/watch?v=TyuPdFDxkro>`_
 * `Code with examples
-  <https://github.com/ysc4231/lectures-2024/tree/09-futures>`_,
+  <https://github.com/ysc4231/ysc4231>`_,
   package ``futures``
 
 Summary of the Lecture

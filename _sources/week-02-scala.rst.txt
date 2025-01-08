@@ -9,9 +9,8 @@ familiarity with either OCaml or Java (or both). Therefore, this
 tutorial provides a quick overview of Scala's object-oriented and
 functional features
 
-The accompanying code for this lecture is available in the branch
-``01-intro`` (under the folder ``src/main/scala/intro``) of the
-`course repository <https://github.com/ysc4231/lectures-2024>`_.
+The accompanying code for this lecture is available in the folder ``src/main/scala/intro`` of the
+`course repository <https://github.com/ysc4231/ysc4231>`_.
 
 If unsure about some of the feature, you are encouraged to take a look
 at one of multiple Scala tutorials available online. The following are
